@@ -41,8 +41,8 @@ export default class CoreUtils {
 
     // make sure half dimensions are >= 0
     if (!(halfDimensions.x >= 0 && halfDimensions.y >= 0 && halfDimensions.z >= 0)) {
-      window.console.log('halfDimensions must be >= 0.');
-      window.console.log(halfDimensions);
+      console.log('halfDimensions must be >= 0.');
+      console.log(halfDimensions);
       return false;
     }
 
@@ -256,7 +256,7 @@ export default class CoreUtils {
   }
 
   static value(stack, coordinate) {
-    window.console.warn('value is deprecated, please use getPixelData instead');
+    console.warn('value is deprecated, please use getPixelData instead');
     this.getPixelData(stack, coordinate);
   }
 
@@ -367,7 +367,7 @@ export default class CoreUtils {
       orderedpoints.push(point);
     }
 
-    orderedpoints.sort(function(a, b) {
+    orderedpoints.sort(function (a, b) {
       return a.angle - b.angle;
     });
 
@@ -471,7 +471,7 @@ export default class CoreUtils {
     let area = 0.0;
     let vertices = geometry.vertices;
 
-    geometry.faces.forEach(function(elem) {
+    geometry.faces.forEach(function (elem) {
       area += new Triangle(vertices[elem.a], vertices[elem.b], vertices[elem.c]).getArea();
     });
 
@@ -483,8 +483,8 @@ export default class CoreUtils {
 
     // returns true is number is NaN
     if (number !== number) {
-      const dots = (numberAsString.match(/\./g)||[]).length;
-      const commas = (numberAsString.match(/\,/g)||[]).length;
+      const dots = (numberAsString.match(/\./g) || []).length;
+      const commas = (numberAsString.match(/\,/g) || []).length;
 
       if (commas === 1 && dots < 2) {
         // convert 1,45 to 1.45

@@ -1,8 +1,10 @@
+import * as AMIThree from 'three';
+
 /**
  * @module helpers/border
  */
 
-const helpersBorder = (three = window.THREE) => {
+const helpersBorder = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -68,13 +70,13 @@ const helpersBorder = (three = window.THREE) => {
       }
 
       this._geometry = new three.BufferGeometry();
-  
+
       // set vertices positions
       const nbOfVertices = this._helpersSlice.geometry.vertices.length;
       const positions = new Float32Array((nbOfVertices + 1) * 3);
       positions.set(this._helpersSlice.geometry.attributes.position.array, 0);
       positions.set(this._helpersSlice.geometry.vertices[0].toArray(), nbOfVertices * 3);
-      this._geometry.setAttribute( 'position', new three.Float32BufferAttribute( positions, 3 ) );
+      this._geometry.setAttribute('position', new three.Float32BufferAttribute(positions, 3));
 
       this._mesh = new three.Line(this._geometry, this._material);
       if (this._helpersSlice.aabbSpace === 'IJK') {

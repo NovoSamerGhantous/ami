@@ -1,5 +1,6 @@
 import Intersections from '../core/core.intersections';
 import Validators from '../core/core.validators';
+import * as AMIThree from 'three';
 
 /**
  * Orthographic camera from THREE.JS with some extra convenience
@@ -12,7 +13,7 @@ import Validators from '../core/core.validators';
  * @module cameras/orthographic
  */
 
-const camerasOrthographic = (three = window.THREE) => {
+const camerasOrthographic = (three = AMIThree) => {
   if (three === undefined || three.OrthographicCamera === undefined) {
     return null;
   }
@@ -64,7 +65,7 @@ const camerasOrthographic = (three = window.THREE) => {
      */
     init(xCosine, yCosine, zCosine, controls, box, canvas) {
       // DEPRECATION NOTICE
-      window.console.warn(
+      console.warn(
         `cameras.orthographic.init(...) is deprecated.
         Use .cosines, .controls, .box and .canvas instead.`
       );
@@ -79,7 +80,7 @@ const camerasOrthographic = (three = window.THREE) => {
           controls
         )
       ) {
-        window.console.log('Invalid input provided.');
+        console.log('Invalid input provided.');
 
         return false;
       }
@@ -203,7 +204,7 @@ const camerasOrthographic = (three = window.THREE) => {
               break;
 
             default:
-              window.console.warn(
+              console.warn(
                 `"${this._orientation}" orientation is not valid.
                   (choices: axial, coronal, sagittal)`
               );
@@ -264,14 +265,14 @@ const camerasOrthographic = (three = window.THREE) => {
               break;
 
             default:
-              window.console.warn(
+              console.warn(
                 `"${this._orientation}" orientation is not valid.
                   (choices: axial, coronal, sagittal)`
               );
               break;
           }
         } else {
-          window.console.warn(`${this._convention} is not valid (choices: radio, neuro)`);
+          console.warn(`${this._convention} is not valid (choices: radio, neuro)`);
         }
       }
 
@@ -373,7 +374,7 @@ const camerasOrthographic = (three = window.THREE) => {
         rotationToApply *= -1;
         this._angle += 90;
       } else {
-        rotationToApply = 360 -  (angle - this._angle);
+        rotationToApply = 360 - (angle - this._angle);
         this._angle = angle;
       }
 
@@ -397,8 +398,8 @@ const camerasOrthographic = (three = window.THREE) => {
     fitBox(direction = 0, factor = 1.5) {
       //
       // if (!(dimensions && dimensions.length >= 2)) {
-      //   window.console.log('Invalid dimensions container.');
-      //   window.console.log(dimensions);
+      //   console.log('Invalid dimensions container.');
+      //   console.log(dimensions);
 
       //   return false;
       // }
@@ -523,8 +524,8 @@ const camerasOrthographic = (three = window.THREE) => {
 
     _computeZoom(dimension, direction) {
       if (!(dimension && dimension > 0)) {
-        window.console.log('Invalid dimension provided.');
-        window.console.log(dimension);
+        console.log('Invalid dimension provided.');
+        console.log(dimension);
         return false;
       }
 
@@ -536,9 +537,9 @@ const camerasOrthographic = (three = window.THREE) => {
 
       let intersections = Intersections.rayBox(ray, this._box);
       if (intersections.length < 2) {
-        window.console.log('Can not adjust the camera ( < 2 intersections).');
-        window.console.log(ray);
-        window.console.log(this._box);
+        console.log('Can not adjust the camera ( < 2 intersections).');
+        console.log(ray);
+        console.log(this._box);
         return false;
       }
 

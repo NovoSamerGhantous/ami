@@ -287,8 +287,8 @@ export default class ModelsStack extends ModelsBase {
     if (this._frame && this._frame.length > 0) {
       this._numberOfFrames = this._frame.length;
     } else {
-      window.console.warn("_frame doesn't contain anything....");
-      window.console.warn(this._frame);
+      console.warn("_frame doesn't contain anything....");
+      console.warn(this._frame);
       return false;
     }
   }
@@ -342,7 +342,7 @@ export default class ModelsStack extends ModelsBase {
     } else if (!this._frame[0].imagePosition) {
       // cancel warning if you have set null imagePosition on purpose (?)
     } else {
-      window.console.warn('do not know how to order the frames...');
+      console.warn('do not know how to order the frames...');
     }
   }
 
@@ -767,9 +767,9 @@ export default class ModelsStack extends ModelsBase {
         }
       }
     } else {
-      window.console.warn("One of the frames doesn't have a dimensionIndexValues array.");
-      window.console.warn(a);
-      window.console.warn(b);
+      console.warn("One of the frames doesn't have a dimensionIndexValues array.");
+      console.warn(a);
+      console.warn(b);
     }
 
     return 0;
@@ -1088,7 +1088,7 @@ export default class ModelsStack extends ModelsBase {
    * @return {*}
    */
   static value(stack, coordinate) {
-    window.console.warn(
+    console.warn(
       `models.stack.value is deprecated.
        Please use core.utils.value instead.`
     );
@@ -1107,7 +1107,7 @@ export default class ModelsStack extends ModelsBase {
    * @return {*}
    */
   static valueRescaleSlopeIntercept(value, slope, intercept) {
-    window.console.warn(
+    console.warn(
       `models.stack.valueRescaleSlopeIntercept is deprecated.
        Please use core.utils.rescaleSlopeIntercept instead.`
     );
@@ -1125,7 +1125,7 @@ export default class ModelsStack extends ModelsBase {
    * @return {*}
    */
   static worldToData(stack, worldCoordinates) {
-    window.console.warn(
+    console.warn(
       `models.stack.worldToData is deprecated.
        Please use core.utils.worldToData instead.`
     );

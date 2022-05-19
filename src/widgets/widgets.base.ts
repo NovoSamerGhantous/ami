@@ -1,7 +1,9 @@
 import WidgetsCss from './widgets.css';
 
-import {COLORS} from '../core/core.colors';
+import { COLORS } from '../core/core.colors';
 import CoreUtils from '../core/core.utils';
+import * as AMIThree from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 interface WidgetParameter {
   calibrationFactor: number;
@@ -12,7 +14,7 @@ interface WidgetParameter {
   lps2IJK: THREE.Matrix4;
   pixelSpacing: number;
   stack: {};
-  ultrasoundRegions: Array<{}>;
+  ultrasoundRegions: Array<USRegion & { unitsX: string; unitsY: string }>;
   worldPosition: THREE.Vector3;
 }
 
@@ -31,14 +33,31 @@ interface USRegion {
  * @module Abstract Widget
  */
 // tslint:disable-next-line
-const widgetsBase = (three = (window as any).THREE) => {
+const widgetsBase = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
 
   const Constructor = three.Object3D;
   return class extends Constructor {
-    constructor(targetMesh: THREE.Mesh, controls: THREE.OrbitControls, params: WidgetParameter) {
+    _widgetType: string;
+    _params: WidgetParameter;
+    _enabled: boolean;
+    _selected: boolean;
+    _hovered: boolean;
+    _active: boolean;
+    _colors: { default: COLORS; active: COLORS; hover: COLORS; select: COLORS; text: COLORS; error: COLORS; };
+    _color: any;
+    _dragged: boolean;
+    _displayed: boolean;
+    _targetMesh: AMIThree.Mesh<AMIThree.BufferGeometry, AMIThree.Material | AMIThree.Material[]>;
+    _controls: OrbitControls;
+    _camera: any;
+    _container: any;
+    _worldPosition: AMIThree.Vector3;
+    _offsets: { top: number; left: number; };
+    _handles: any;
+    constructor(targetMesh: AMIThree.Mesh, controls: OrbitControls, params: WidgetParameter) {
       super();
 
       this._widgetType = 'Base';
@@ -94,8 +113,8 @@ const widgetsBase = (three = (window as any).THREE) => {
       const body = document.body;
       const docEl = document.documentElement;
 
-      const scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-      const scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+      const scrollTop = scrollY || docEl.scrollTop || body.scrollTop;
+      const scrollLeft = scrollX || docEl.scrollLeft || body.scrollLeft;
 
       const clientTop = docEl.clientTop || body.clientTop || 0;
       const clientLeft = docEl.clientLeft || body.clientLeft || 0;
@@ -347,7 +366,7 @@ const widgetsBase = (three = (window as any).THREE) => {
 
     public update() {
       // to be overloaded
-      window.console.log('update() should be overloaded!');
+      console.log('update() should be overloaded!');
     }
 
     public updateColor() {
@@ -386,12 +405,12 @@ const widgetsBase = (three = (window as any).THREE) => {
 
     public hideDOM() {
       // to be overloaded
-      window.console.log('hideDOM() should be overloaded!');
+      console.log('hideDOM() should be overloaded!');
     }
 
     public showDOM() {
       // to be overloaded
-      window.console.log('showDOM() should be overloaded!');
+      console.log('showDOM() should be overloaded!');
     }
 
     public hideMesh() {

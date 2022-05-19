@@ -2,6 +2,7 @@
 import { helpersBorder } from '../helpers/helpers.border';
 import { helpersBoundingBox } from '../helpers/helpers.boundingbox';
 import { helpersSlice } from '../helpers/helpers.slice';
+import * as AMIThree from 'three';
 
 /**
  * Helper to easily display and interact with a stack.<br>
@@ -34,7 +35,7 @@ import { helpersSlice } from '../helpers/helpers.slice';
  *
  * @module helpers/stack
  */
-const helpersStack = (three = window.THREE) => {
+const helpersStack = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -259,7 +260,7 @@ const helpersStack = (three = window.THREE) => {
         this._prepareBorder();
         // todo: Arrow
       } else {
-        window.console.log('no stack to be prepared...');
+        console.log('no stack to be prepared...');
       }
     }
 

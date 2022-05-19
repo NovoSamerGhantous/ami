@@ -1,10 +1,11 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/ruler
  */
-const widgetsRuler = (three = window.THREE) => {
+const widgetsRuler = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -259,9 +260,8 @@ const widgetsRuler = (three = window.THREE) => {
         this._handles[1].screenPosition
       );
 
-      this._line.style.transform = `translate3D(${lineData.transformX}px, ${
-        lineData.transformY
-      }px, 0)
+      this._line.style.transform = `translate3D(${lineData.transformX}px, ${lineData.transformY
+        }px, 0)
       rotate(${lineData.transformAngle}rad)`;
       this._line.style.width = lineData.length + 'px';
 

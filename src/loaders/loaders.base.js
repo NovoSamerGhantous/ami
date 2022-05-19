@@ -24,7 +24,7 @@ import EventEmitter from 'events';
  *   // Function when resource is loaded
  *   function(object) {
  *     //scene.add( object );
- *     window.console.log(object);
+ *     console.log(object);
  *   }
  * );
  */
@@ -211,12 +211,12 @@ export default class LoadersBase extends EventEmitter {
         this._data.push(data);
         return data;
       })
-      .catch(function(error) {
+      .catch(function (error) {
         if (error === 'Aborted') {
           return;
         }
-        window.console.log('oops... something went wrong...');
-        window.console.log(error);
+        console.log('oops... something went wrong...');
+        console.log(error);
       });
   }
 
@@ -235,12 +235,12 @@ export default class LoadersBase extends EventEmitter {
         this._data.push(data);
         return data;
       })
-      .catch(function(error) {
+      .catch(function (error) {
         if (error === 'Aborted') {
           return;
         }
-        window.console.log('oops... something went wrong...');
-        window.console.log(error);
+        console.log('oops... something went wrong...');
+        console.log(error);
       });
   }
 

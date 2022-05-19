@@ -40,12 +40,12 @@ export default class {
 
   addEventListeners() {
     this._controls.addEventListener('OnScroll', this._onScroll, false);
-    window.addEventListener('resize', this._onWindowResize, false);
+    addEventListener('resize', this._onWindowResize, false);
   }
 
   removeEventListeners() {
     this._controls.removeEventListener('OnScroll', this._onScroll, false);
-    window.removeEventListener('resize', this._onWindowResize, false);
+    removeEventListener('resize', this._onWindowResize, false);
   }
 
   animate() {
@@ -66,7 +66,7 @@ export default class {
     });
     this._renderer.setSize(this._container.clientWidth, this._container.clientHeight);
     this._renderer.setClearColor(0x212121, 1);
-    this._renderer.setPixelRatio(window.devicePixelRatio);
+    this._renderer.setPixelRatio(devicePixelRatio);
     this._container.appendChild(this._renderer.domElement);
   }
 

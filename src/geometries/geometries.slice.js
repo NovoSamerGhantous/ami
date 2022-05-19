@@ -1,3 +1,5 @@
+import * as AMIThree from 'three';
+
 /** * Imports ***/
 import coreIntersections from '../core/core.intersections';
 import coreUtils from '../core/core.utils';
@@ -42,7 +44,7 @@ import coreUtils from '../core/core.utils';
  *  scene.add(slice);
  */
 
-const geometriesSlice = (three = window.THREE) => {
+const geometriesSlice = (three = AMIThree) => {
   if (three === undefined || three.ShapeBufferGeometry === undefined) {
     return null;
   }
@@ -69,12 +71,12 @@ const geometriesSlice = (three = window.THREE) => {
 
       // can not exist before calling the constructor
       if (intersections.length < 3) {
-        window.console.log('WARNING: Less than 3 intersections between AABB and Plane.');
-        window.console.log('AABB');
-        window.console.log(aabb);
-        window.console.log('Plane');
-        window.console.log(plane);
-        window.console.log('exiting...');
+        console.log('WARNING: Less than 3 intersections between AABB and Plane.');
+        console.log('AABB');
+        console.log(aabb);
+        console.log('Plane');
+        console.log(plane);
+        console.log('exiting...');
         const err = new Error(
           'geometries.slice has less than 3 intersections, can not create a valid geometry.'
         );
@@ -109,7 +111,7 @@ const geometriesSlice = (three = window.THREE) => {
       this.type = 'SliceBufferGeometry';
 
       // update real position of each vertex! (not in 2d)
-      this.setAttribute( 'position', new three.Float32BufferAttribute( positions, 3 ) );
+      this.setAttribute('position', new three.Float32BufferAttribute(positions, 3));
       this.vertices = points; // legacy code to compute normals int he SliceHelper
     }
   };

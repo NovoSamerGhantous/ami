@@ -2,11 +2,12 @@
 import ShadersUniform from '../shaders/shaders.contour.uniform';
 import ShadersVertex from '../shaders/shaders.contour.vertex';
 import ShadersFragment from '../shaders/shaders.contour.fragment';
+import * as AMIThree from 'three';
 
 /**
  * @module helpers/contour
  */
-const helpersContour = (three = window.THREE) => {
+const helpersContour = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }

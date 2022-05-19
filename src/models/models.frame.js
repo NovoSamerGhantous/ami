@@ -137,9 +137,9 @@ export default class ModelsFrame extends ModelsBase {
         cosines[2] = new Vector3(0, 0, 0).crossVectors(cosines[0], cosines[1]).normalize();
       }
     } else {
-      window.console.log('No valid image orientation for frame');
-      window.console.log(this);
-      window.console.log('Returning default orientation.');
+      console.log('No valid image orientation for frame');
+      console.log(this);
+      console.log('Returning default orientation.');
     }
 
     if (!this._rightHanded) {

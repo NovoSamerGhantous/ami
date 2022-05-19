@@ -65,7 +65,7 @@ loader
       });
     });
   })
-  .catch(function(error) {
-    window.console.log('oops... something went wrong...');
-    window.console.log(error);
+  .catch(function (error) {
+    console.log('oops... something went wrong...');
+    console.log(error);
   });

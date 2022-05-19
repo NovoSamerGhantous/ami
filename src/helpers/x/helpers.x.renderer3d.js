@@ -34,11 +34,11 @@ export default class {
   }
 
   addEventListeners() {
-    window.addEventListener('resize', this._onWindowResize, false);
+    addEventListener('resize', this._onWindowResize, false);
   }
 
   removeEventListeners() {
-    window.removeEventListener('resize', this._onWindowResize, false);
+    removeEventListener('resize', this._onWindowResize, false);
   }
 
   center(worldPosition) {
@@ -77,7 +77,7 @@ export default class {
     });
     this._renderer.setSize(this._container.clientWidth, this._container.clientHeight);
     this._renderer.setClearColor(0x424242, 1);
-    this._renderer.setPixelRatio(window.devicePixelRatio);
+    this._renderer.setPixelRatio(devicePixelRatio);
     this._container.appendChild(this._renderer.domElement);
   }
 

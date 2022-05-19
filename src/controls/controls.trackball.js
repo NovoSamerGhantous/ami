@@ -1,3 +1,5 @@
+import * as AMIThree from 'three';
+
 /**
  * Original authors from THREEJS repo
  * @author Eberhard Graether / http://egraether.com/
@@ -6,7 +8,7 @@
  * @author Luca Antiga  / http://lantiga.github.io
  */
 
-const trackball = (three = window.THREE) => {
+const trackball = (three = AMIThree) => {
   if (three === undefined || three.EventDispatcher === undefined) {
     return null;
   }
@@ -94,33 +96,33 @@ const trackball = (three = window.THREE) => {
 
       // methods
 
-      this.handleResize = function() {
+      this.handleResize = function () {
         if (this.domElement === document) {
           this.screen.left = 0;
           this.screen.top = 0;
-          this.screen.width = window.innerWidth;
-          this.screen.height = window.innerHeight;
+          this.screen.width = innerWidth;
+          this.screen.height = innerHeight;
         } else {
           let box = this.domElement.getBoundingClientRect();
           // adjustments come from similar code in the jquery offset() function
           let d = this.domElement.ownerDocument.documentElement;
-          this.screen.left = box.left + window.pageXOffset - d.clientLeft;
-          this.screen.top = box.top + window.pageYOffset - d.clientTop;
+          this.screen.left = box.left + scrollX - d.clientLeft;
+          this.screen.top = box.top + scrollY - d.clientTop;
           this.screen.width = box.width;
           this.screen.height = box.height;
         }
       };
 
-      this.handleEvent = function(event) {
+      this.handleEvent = function (event) {
         if (typeof this[event.type] == 'function') {
           this[event.type](event);
         }
       };
 
-      let getMouseOnScreen = (function() {
+      let getMouseOnScreen = (function () {
         let vector = new three.Vector2();
 
-        return function(pageX, pageY) {
+        return function (pageX, pageY) {
           vector.set(
             (pageX - _this.screen.left) / _this.screen.width,
             (pageY - _this.screen.top) / _this.screen.height
@@ -130,10 +132,10 @@ const trackball = (three = window.THREE) => {
         };
       })();
 
-      let getMouseOnCircle = (function() {
+      let getMouseOnCircle = (function () {
         let vector = new three.Vector2();
 
-        return function(pageX, pageY) {
+        return function (pageX, pageY) {
           vector.set(
             (pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5),
             (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width // screen.width intentional
@@ -143,7 +145,7 @@ const trackball = (three = window.THREE) => {
         };
       })();
 
-      this.rotateCamera = (function() {
+      this.rotateCamera = (function () {
         let axis = new three.Vector3(),
           quaternion = new three.Quaternion(),
           eyeDirection = new three.Vector3(),
@@ -152,7 +154,7 @@ const trackball = (three = window.THREE) => {
           moveDirection = new three.Vector3(),
           angle;
 
-        return function() {
+        return function () {
           moveDirection.set(_moveCurr.x - _movePrev.x, _moveCurr.y - _movePrev.y, 0);
           angle = moveDirection.length();
 
@@ -190,7 +192,7 @@ const trackball = (three = window.THREE) => {
         };
       })();
 
-      this.zoomCamera = function() {
+      this.zoomCamera = function () {
         let factor;
 
         if (_state === STATE.TOUCH_ZOOM) {
@@ -212,12 +214,12 @@ const trackball = (three = window.THREE) => {
         }
       };
 
-      this.panCamera = (function() {
+      this.panCamera = (function () {
         let mouseChange = new three.Vector2(),
           objectUp = new three.Vector3(),
           pan = new three.Vector3();
 
-        return function() {
+        return function () {
           mouseChange.copy(_panEnd).sub(_panStart);
 
           if (mouseChange.lengthSq()) {
@@ -245,7 +247,7 @@ const trackball = (three = window.THREE) => {
         };
       })();
 
-      this.checkDistances = function() {
+      this.checkDistances = function () {
         if (!_this.noZoom || !_this.noPan) {
           if (_eye.lengthSq() > _this.maxDistance * _this.maxDistance) {
             _this.object.position.addVectors(_this.target, _eye.setLength(_this.maxDistance));
@@ -257,7 +259,7 @@ const trackball = (three = window.THREE) => {
         }
       };
 
-      this.update = function() {
+      this.update = function () {
         _eye.subVectors(_this.object.position, _this.target);
 
         if (!_this.noRotate) {
@@ -289,7 +291,7 @@ const trackball = (three = window.THREE) => {
         }
       };
 
-      this.reset = function() {
+      this.reset = function () {
         _state = STATE.NONE;
         _prevState = STATE.NONE;
 
@@ -306,20 +308,20 @@ const trackball = (three = window.THREE) => {
         lastPosition.copy(_this.object.position);
       };
 
-      this.setState = function(targetState) {
+      this.setState = function (targetState) {
         _this.forceState = targetState;
         _prevState = targetState;
         _state = targetState;
       };
 
-      this.custom = function(customStart, customEnd) {};
+      this.custom = function (customStart, customEnd) { };
 
       // listeners
 
       function keydown(event) {
         if (_this.enabled === false) return;
 
-        window.removeEventListener('keydown', keydown);
+        removeEventListener('keydown', keydown);
 
         _prevState = _state;
 
@@ -339,7 +341,7 @@ const trackball = (three = window.THREE) => {
 
         _state = _prevState;
 
-        window.addEventListener('keydown', keydown, false);
+        addEventListener('keydown', keydown, false);
       }
 
       function mousedown(event) {
@@ -654,7 +656,7 @@ const trackball = (three = window.THREE) => {
         event.preventDefault();
       }
 
-      this.dispose = function() {
+      this.dispose = function () {
         this.domElement.removeEventListener('contextmenu', contextmenu, false);
         this.domElement.removeEventListener('mousedown', mousedown, false);
         this.domElement.removeEventListener('wheel', mousewheel, false);
@@ -663,8 +665,8 @@ const trackball = (three = window.THREE) => {
         this.domElement.removeEventListener('touchend', touchend, false);
         this.domElement.removeEventListener('touchmove', touchmove, false);
 
-        window.removeEventListener('keydown', keydown, false);
-        window.removeEventListener('keyup', keyup, false);
+        removeEventListener('keydown', keydown, false);
+        removeEventListener('keyup', keyup, false);
       };
 
       this.domElement.addEventListener('contextmenu', contextmenu, false);
@@ -675,8 +677,8 @@ const trackball = (three = window.THREE) => {
       this.domElement.addEventListener('touchend', touchend, false);
       this.domElement.addEventListener('touchmove', touchmove, false);
 
-      window.addEventListener('keydown', keydown, false);
-      window.addEventListener('keyup', keyup, false);
+      addEventListener('keydown', keydown, false);
+      addEventListener('keyup', keyup, false);
 
       this.handleResize();
 

@@ -1,10 +1,11 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/crossRuler
  */
-const widgetsCrossRuler = (three = window.THREE) => {
+const widgetsCrossRuler = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -296,9 +297,8 @@ const widgetsCrossRuler = (three = window.THREE) => {
         this._handles[1].screenPosition
       );
 
-      this._line.style.transform = `translate3D(${lineData.transformX}px, ${
-        lineData.transformY
-      }px, 0)
+      this._line.style.transform = `translate3D(${lineData.transformX}px, ${lineData.transformY
+        }px, 0)
             rotate(${lineData.transformAngle}rad)`;
       this._line.style.width = lineData.length + 'px';
 
@@ -308,9 +308,8 @@ const widgetsCrossRuler = (three = window.THREE) => {
         this._handles[3].screenPosition
       );
 
-      this._line2.style.transform = `translate3D(${line2Data.transformX}px, ${
-        line2Data.transformY
-      }px, 0)
+      this._line2.style.transform = `translate3D(${line2Data.transformX}px, ${line2Data.transformY
+        }px, 0)
             rotate(${line2Data.transformAngle}rad)`;
       this._line2.style.width = line2Data.length + 'px';
 
@@ -363,9 +362,9 @@ const widgetsCrossRuler = (three = window.THREE) => {
       }
 
       const labelPadding =
-          Math.tan(angle) < this._label.offsetHeight / this._label.offsetWidth
-            ? this._label.offsetWidth / 2 / Math.cos(angle) + 15 // 5px for each handle + padding
-            : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle) + 15,
+        Math.tan(angle) < this._label.offsetHeight / this._label.offsetWidth
+          ? this._label.offsetWidth / 2 / Math.cos(angle) + 15 // 5px for each handle + padding
+          : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle) + 15,
         paddingVector = lineData.line.normalize().multiplyScalar(labelPadding),
         paddingPoint =
           lineData.length > labelPadding * 4
@@ -381,9 +380,9 @@ const widgetsCrossRuler = (three = window.THREE) => {
       }
 
       const label2Padding =
-          Math.tan(angle2) < this._label2.offsetHeight / this._label2.offsetWidth
-            ? this._label2.offsetWidth / 2 / Math.cos(angle2) + 15 // 5px for each handle + padding
-            : this._label2.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle2) + 15,
+        Math.tan(angle2) < this._label2.offsetHeight / this._label2.offsetWidth
+          ? this._label2.offsetWidth / 2 / Math.cos(angle2) + 15 // 5px for each handle + padding
+          : this._label2.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle2) + 15,
         paddingVector2 = line2Data.line.normalize().multiplyScalar(label2Padding),
         paddingPoint2 =
           line2Data.length > label2Padding * 4
@@ -570,7 +569,7 @@ const widgetsCrossRuler = (three = window.THREE) => {
         intersectR.distanceTo(intersectS) > 0.01 &&
         intersectR.distanceTo(first) > second.distanceTo(first) + 0.01
       ) {
-        window.console.warn('Lines do not intersect');
+        console.warn('Lines do not intersect');
 
         return;
       }

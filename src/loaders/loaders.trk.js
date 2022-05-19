@@ -1,12 +1,12 @@
 'use strict';
 
-THREE.TRKLoader = function() {};
+THREE.TRKLoader = function () { };
 
 Object.assign(THREE.TRKLoader.prototype, THREE.EventDispatcher.prototype, {
   constructor: THREE.TRKLoader,
 
-  load: function(url, onLoad, onProgress, onError) {
-    window.console.log(url, onLoad, onProgress, onError);
+  load: function (url, onLoad, onProgress, onError) {
+    console.log(url, onLoad, onProgress, onError);
 
     let scope = this;
     let xhr = new XMLHttpRequest();
@@ -34,7 +34,7 @@ Object.assign(THREE.TRKLoader.prototype, THREE.EventDispatcher.prototype, {
 
     xhr.addEventListener(
       'progress',
-      function(event) {
+      function (event) {
         scope.dispatchEvent({
           type: 'progress',
           loaded: event.loaded,
@@ -46,7 +46,7 @@ Object.assign(THREE.TRKLoader.prototype, THREE.EventDispatcher.prototype, {
 
     xhr.addEventListener(
       'error',
-      function() {
+      function () {
         scope.dispatchEvent({
           type: 'error',
           message: "Couldn't load URL [" + url + ']',
@@ -66,18 +66,18 @@ Object.assign(THREE.TRKLoader.prototype, THREE.EventDispatcher.prototype, {
     xhr.send(null);
   },
 
-  littleEndian: function() {
+  littleEndian: function () {
     let buffer = new ArrayBuffer(2);
     new DataView(buffer).setInt16(0, 256, true);
 
     return new Int16Array(buffer)[0] === 256;
   },
 
-  scan: function(type, chunks, offset, data) {
-    window.console.log(type, chunks, offset, data);
+  scan: function (type, chunks, offset, data) {
+    console.log(type, chunks, offset, data);
   },
 
-  parse: function(data) {
+  parse: function (data) {
     let littleEndian = this.littleEndian();
     let reader = new DataView(data);
 
@@ -303,7 +303,7 @@ Object.assign(THREE.TRKLoader.prototype, THREE.EventDispatcher.prototype, {
       offset += 4;
     }
 
-    window.console.log(header);
+    console.log(header);
 
     // /////////////////////////////////////
     //

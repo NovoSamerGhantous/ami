@@ -19,7 +19,7 @@ export default class ModelsBase {
    */
   mergeModels(referenceArray, targetArray) {
     if (!(this._validateModelArray(referenceArray) && this._validateModelArray(targetArray))) {
-      window.console.log('invalid inputs provided.');
+      console.log('invalid inputs provided.');
       return false;
     }
 
@@ -78,7 +78,7 @@ export default class ModelsBase {
    */
   _validateModelArray(modelArray) {
     if (!(modelArray !== null && Array === modelArray.constructor)) {
-      window.console.log('invalid model array provided.');
+      console.log('invalid model array provided.');
       return false;
     }
 

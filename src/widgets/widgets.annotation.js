@@ -1,11 +1,12 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/annotation
  * @todo: add option to show only label (without mesh, dots and lines)
  */
-const widgetsAnnotation = (three = window.THREE) => {
+const widgetsAnnotation = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -66,7 +67,7 @@ const widgetsAnnotation = (three = window.THREE) => {
     }
 
     addEventListeners() {
-      window.addEventListener('resize', this.onResize);
+      addEventListener('resize', this.onResize);
 
       this._label.addEventListener('mouseenter', this.onHoverlabel);
       this._label.addEventListener('mouseleave', this.notonHoverlabel);
@@ -76,7 +77,7 @@ const widgetsAnnotation = (three = window.THREE) => {
     }
 
     removeEventListeners() {
-      window.removeEventListener('resize', this.onResize);
+      removeEventListener('resize', this.onResize);
 
       this._label.removeEventListener('mouseenter', this.onHoverlabel);
       this._label.removeEventListener('mouseleave', this.notonHoverlabel);
@@ -206,9 +207,9 @@ const widgetsAnnotation = (three = window.THREE) => {
       this._label.style.transform = `translate3D(
         ${this._handles[1].screenPosition.x - this._labelOffset.x - this._label.offsetWidth / 2}px,
         ${this._handles[1].screenPosition.y -
-          this._labelOffset.y -
-          this._label.offsetHeight / 2 -
-          this._container.offsetHeight}px, 0)`;
+        this._labelOffset.y -
+        this._label.offsetHeight / 2 -
+        this._container.offsetHeight}px, 0)`;
     }
 
     create() {
@@ -301,9 +302,8 @@ const widgetsAnnotation = (three = window.THREE) => {
         this._handles[1].screenPosition
       );
 
-      this._line.style.transform = `translate3D(${lineData.transformX}px, ${
-        lineData.transformY
-      }px, 0)
+      this._line.style.transform = `translate3D(${lineData.transformX}px, ${lineData.transformY
+        }px, 0)
         rotate(${lineData.transformAngle}rad)`;
       this._line.style.width = lineData.length + 'px';
 
@@ -335,9 +335,8 @@ const widgetsAnnotation = (three = window.THREE) => {
         minLine = line1L;
       }
 
-      this._dashline.style.transform = `translate3D(${minLine.transformX}px, ${
-        minLine.transformY
-      }px, 0)
+      this._dashline.style.transform = `translate3D(${minLine.transformX}px, ${minLine.transformY
+        }px, 0)
         rotate(${minLine.transformAngle}rad)`;
       this._dashline.style.width = minLine.length + 'px';
     }

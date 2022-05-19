@@ -4,12 +4,13 @@ import ShadersVertex from '../shaders/shaders.vr.vertex';
 import ShadersFragment from '../shaders/shaders.vr.fragment';
 
 import { helpersMaterialMixin } from '../helpers/helpers.material.mixin';
+import * as AMIThree from 'three';
 
 /**
  * @module helpers/volumerendering
  */
 
-const helpersVolumeRendering = (three = window.THREE) => {
+const helpersVolumeRendering = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }

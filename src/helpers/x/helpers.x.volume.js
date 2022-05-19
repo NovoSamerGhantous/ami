@@ -90,10 +90,10 @@ export default class extends THREE.Object3D {
             return resolve(this);
           });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           loader.free();
-          window.console.log('Something went wrong loading the volume...');
-          window.console.log(error);
+          console.log('Something went wrong loading the volume...');
+          console.log(error);
         });
     }
 

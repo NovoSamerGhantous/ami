@@ -1,11 +1,12 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/freehand
  */
-const widgetsFreehand = (three = window.THREE) => {
+const widgetsFreehand = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -321,7 +322,7 @@ const widgetsFreehand = (three = window.THREE) => {
       // override to catch console.warn "THREE.ShapeUtils: Unable to triangulate polygon! in triangulate()"
       this._shapeWarn = false;
       const oldWarn = console.warn;
-      console.warn = function(...rest) {
+      console.warn = function (...rest) {
         if (rest[0] === 'three.ShapeUtils: Unable to triangulate polygon! in triangulate()') {
           this._shapeWarn = true;
         }

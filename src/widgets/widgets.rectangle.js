@@ -1,11 +1,12 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/rectangle
  */
-const widgetsRectangle = (three = window.THREE) => {
+const widgetsRectangle = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -348,9 +349,8 @@ const widgetsRectangle = (three = window.THREE) => {
         this._label.removeAttribute('title');
         this._label.style.color = this._colors.text;
       }
-      this._label.querySelector('.area').innerHTML = `Area: ${this._area.toFixed(2)} ${
-        this._units
-      }`;
+      this._label.querySelector('.area').innerHTML = `Area: ${this._area.toFixed(2)} ${this._units
+        }`;
 
       const rectData = this.getRectData(
         this._handles[0].screenPosition,
@@ -364,9 +364,8 @@ const widgetsRectangle = (three = window.THREE) => {
       );
 
       // update rectangle
-      this._rectangle.style.transform = `translate3D(${rectData.transformX}px, ${
-        rectData.transformY
-      }px, 0)`;
+      this._rectangle.style.transform = `translate3D(${rectData.transformX}px, ${rectData.transformY
+        }px, 0)`;
       this._rectangle.style.width = rectData.width + 'px';
       this._rectangle.style.height = rectData.height + 'px';
 

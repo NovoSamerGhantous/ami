@@ -7,7 +7,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(container.offsetWidth, container.offsetHeight);
 renderer.setClearColor(colors.darkGrey, 1);
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(devicePixelRatio);
 container.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
@@ -31,7 +31,7 @@ const onWindowResize = () => {
   renderer.setSize(container.offsetWidth, container.offsetHeight);
 };
 
-window.addEventListener('resize', onWindowResize, false);
+addEventListener('resize', onWindowResize, false);
 
 // Load DICOM images and create AMI Helpers
 const loader = new AMI.VolumeLoader(container);
@@ -58,8 +58,8 @@ loader
     controls.target.set(centerLPS.x, centerLPS.y, centerLPS.z);
   })
   .catch(error => {
-    window.console.log('oops... something went wrong...');
-    window.console.log(error);
+    console.log('oops... something went wrong...');
+    console.log(error);
   });
 
 const animate = () => {

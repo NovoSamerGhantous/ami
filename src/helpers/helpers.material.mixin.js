@@ -1,10 +1,12 @@
+import * as AMIThree from 'three';
+
 /**
  * Helpers material mixin.
  *
  * @module helpers/material/mixin
  */
 
-const helpersMaterialMixin = (three = window.THREE) => {
+const helpersMaterialMixin = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }

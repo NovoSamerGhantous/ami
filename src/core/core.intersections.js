@@ -100,7 +100,7 @@ export default class Intersections {
     let intersections = [];
 
     if (!(this.validateAabb(aabb) && this.validatePlane(plane))) {
-      window.console.log('Invalid aabb or plane provided.');
+      console.log('Invalid aabb or plane provided.');
       return false;
     }
 
@@ -246,7 +246,7 @@ export default class Intersections {
     // @todo make sure objects are unique...
 
     // back to original space
-    intersections.map(function(element) {
+    intersections.map(function (element) {
       return element.applyMatrix4(fromAABB);
     });
 
@@ -338,7 +338,7 @@ export default class Intersections {
 
     let bbox = CoreUtils.bbox(box.center, box.halfDimensions);
 
-    // window.console.log(bbox);
+    // console.log(bbox);
 
     // X min
     let plane = this.posdir(
@@ -379,7 +379,7 @@ export default class Intersections {
    */
   static rayPlaneInBBox(ray, planeAABB, bbox, intersections) {
     let intersection = this.rayPlane(ray, planeAABB);
-    // window.console.log(intersection);
+    // console.log(intersection);
     if (intersection && this.inBBox(intersection, bbox)) {
       if (!intersections.find(this.findIntersection(intersection))) {
         intersections.push(intersection);
@@ -435,22 +435,22 @@ export default class Intersections {
   static validatePlane(plane) {
     //
     if (plane === null) {
-      window.console.log('Invalid plane.');
-      window.console.log(plane);
+      console.log('Invalid plane.');
+      console.log(plane);
 
       return false;
     }
 
     if (!Validators.vector3(plane.position)) {
-      window.console.log('Invalid plane.position.');
-      window.console.log(plane.position);
+      console.log('Invalid plane.position.');
+      console.log(plane.position);
 
       return false;
     }
 
     if (!Validators.vector3(plane.direction)) {
-      window.console.log('Invalid plane.direction.');
-      window.console.log(plane.direction);
+      console.log('Invalid plane.direction.');
+      console.log(plane.direction);
 
       return false;
     }
@@ -461,21 +461,21 @@ export default class Intersections {
   static validateAabb(aabb) {
     //
     if (aabb === null) {
-      window.console.log('Invalid aabb.');
-      window.console.log(aabb);
+      console.log('Invalid aabb.');
+      console.log(aabb);
       return false;
     }
 
     if (!Validators.matrix4(aabb.toAABB)) {
-      window.console.log('Invalid aabb.toAABB: ');
-      window.console.log(aabb.toAABB);
+      console.log('Invalid aabb.toAABB: ');
+      console.log(aabb.toAABB);
 
       return false;
     }
 
     if (!Validators.vector3(aabb.center)) {
-      window.console.log('Invalid aabb.center.');
-      window.console.log(aabb.center);
+      console.log('Invalid aabb.center.');
+      console.log(aabb.center);
 
       return false;
     }
@@ -488,8 +488,8 @@ export default class Intersections {
         aabb.halfDimensions.z >= 0
       )
     ) {
-      window.console.log('Invalid aabb.halfDimensions.');
-      window.console.log(aabb.halfDimensions);
+      console.log('Invalid aabb.halfDimensions.');
+      console.log(aabb.halfDimensions);
 
       return false;
     }

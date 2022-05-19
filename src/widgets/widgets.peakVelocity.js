@@ -1,11 +1,12 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/peakVelocity (Gradient)
  */
-const widgetsPeakVelocity = (three = window.THREE) => {
+const widgetsPeakVelocity = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }

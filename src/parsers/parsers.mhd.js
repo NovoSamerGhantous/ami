@@ -36,7 +36,7 @@ export default class ParsersMHD extends ParsersVolume {
       //
       this._buffer = data.rawBuffer;
     } catch (error) {
-      window.console.log('ooops... :(');
+      console.log('ooops... :(');
     }
   }
 

@@ -1,11 +1,12 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/pressureHalfTime
  */
-const widgetsPressureHalfTime = (three = window.THREE) => {
+const widgetsPressureHalfTime = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -343,9 +344,8 @@ const widgetsPressureHalfTime = (three = window.THREE) => {
         this._handles[1].screenPosition
       );
 
-      this._line.style.transform = `translate3D(${lineData.transformX}px, ${
-        lineData.transformY
-      }px, 0)
+      this._line.style.transform = `translate3D(${lineData.transformX}px, ${lineData.transformY
+        }px, 0)
                 rotate(${lineData.transformAngle}rad)`;
       this._line.style.width = lineData.length + 'px';
 

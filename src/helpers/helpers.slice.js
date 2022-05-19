@@ -5,12 +5,13 @@ import ShadersVertex from '../shaders/shaders.data.vertex';
 import ShadersFragment from '../shaders/shaders.data.fragment';
 
 import { helpersMaterialMixin } from '../helpers/helpers.material.mixin';
+import * as AMIThree from 'three';
 
 /**
  * @module helpers/slice
  */
 
-const helpersSlice = (three = window.THREE) => {
+const helpersSlice = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -363,8 +364,8 @@ const helpersSlice = (three = window.THREE) => {
           this._toAABB
         );
       } catch (e) {
-        window.console.log(e);
-        window.console.log('invalid slice geometry - exiting...');
+        console.log(e);
+        console.log('invalid slice geometry - exiting...');
         return;
       }
 

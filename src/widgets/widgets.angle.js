@@ -1,10 +1,11 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/angle
  */
-const widgetsAngle = (three = window.THREE) => {
+const widgetsAngle = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -269,7 +270,7 @@ const widgetsAngle = (three = window.THREE) => {
           .sub(this._handles[0].worldPosition)
           .angleTo(this._handles[1].worldPosition.clone().sub(this._handles[2].worldPosition)) *
           180) /
-          Math.PI || 0.0;
+        Math.PI || 0.0;
       this._opangle = this._defaultAngle ? this._opangle : 360 - this._opangle;
 
       this.updateMeshColor();
@@ -299,9 +300,8 @@ const widgetsAngle = (three = window.THREE) => {
         this._handles[0].screenPosition
       );
 
-      this._line.style.transform = `translate3D(${lineData.transformX}px, ${
-        lineData.transformY
-      }px, 0)
+      this._line.style.transform = `translate3D(${lineData.transformX}px, ${lineData.transformY
+        }px, 0)
             rotate(${lineData.transformAngle}rad)`;
       this._line.style.width = lineData.length + 'px';
 
@@ -311,9 +311,8 @@ const widgetsAngle = (three = window.THREE) => {
         this._handles[2].screenPosition
       );
 
-      this._line2.style.transform = `translate3D(${line2Data.transformX}px, ${
-        line2Data.transformY
-      }px, 0)
+      this._line2.style.transform = `translate3D(${line2Data.transformX}px, ${line2Data.transformY
+        }px, 0)
             rotate(${line2Data.transformAngle}rad)`;
       this._line2.style.width = line2Data.length + 'px';
 

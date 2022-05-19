@@ -33,7 +33,7 @@ export default class HelpersProgressBar {
     }
     progressContainers = null;
     // stop rendering loop
-    window.cancelAnimationFrame(this.requestAnimationFrameID);
+    cancelAnimationFrame(this.requestAnimationFrameID);
   }
 
   init() {
@@ -116,8 +116,8 @@ export default class HelpersProgressBar {
 
   _domBar(mode) {
     if (!(mode.hasOwnProperty('name') && mode.hasOwnProperty('color'))) {
-      window.console.log('Invalid mode provided.');
-      window.console.log(mode);
+      console.log('Invalid mode provided.');
+      console.log(mode);
 
       return false;
     }

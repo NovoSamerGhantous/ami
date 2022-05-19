@@ -2,11 +2,12 @@ import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import ModelsVoxel from '../models/models.voxel';
 import CoreUtils from '../core/core.utils';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/voxelProbe
  */
-const widgetsVoxelprobe = (three = window.THREE) => {
+const widgetsVoxelprobe = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -182,10 +183,10 @@ const widgetsVoxelprobe = (three = window.THREE) => {
         value === null || this._stack.numberOfChannels > 1
           ? 'NA' // coordinates outside the image or RGB
           : CoreUtils.rescaleSlopeIntercept(
-              value,
-              this._stack.rescaleSlope,
-              this._stack.rescaleIntercept
-            ).toFixed();
+            value,
+            this._stack.rescaleSlope,
+            this._stack.rescaleIntercept
+          ).toFixed();
     }
 
     updateDOM() {

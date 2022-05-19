@@ -336,7 +336,7 @@ export default class ParsersNifti extends ParsersVolume {
       }
       return data;
     } else {
-      window.console.warn(`Unknown data type: datatypeCode : ${this._dataSet.datatypeCode}`);
+      console.warn(`Unknown data type: datatypeCode : ${this._dataSet.datatypeCode}`);
     }
   }
 

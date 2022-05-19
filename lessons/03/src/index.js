@@ -7,7 +7,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(container.offsetWidth, container.offsetHeight);
 renderer.setClearColor(colors.darkGrey, 1);
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(devicePixelRatio);
 container.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
@@ -36,7 +36,7 @@ const onWindowResize = () => {
 
   renderer.setSize(container.offsetWidth, container.offsetHeight);
 };
-window.addEventListener('resize', onWindowResize, false);
+addEventListener('resize', onWindowResize, false);
 
 const loader = new AMI.VolumeLoader(container);
 loader
@@ -81,15 +81,15 @@ loader
     camera.fitBox(2);
   })
   .catch(error => {
-    window.console.log('oops... something went wrong...');
-    window.console.log(error);
+    console.log('oops... something went wrong...');
+    console.log(error);
   });
 
 const animate = () => {
   controls.update();
   renderer.render(scene, camera);
 
-  requestAnimationFrame(function() {
+  requestAnimationFrame(function () {
     animate();
   });
 };

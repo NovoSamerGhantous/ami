@@ -1,10 +1,11 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/biruler
  */
-const widgetsBiruler = (three = window.THREE) => {
+const widgetsBiruler = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -242,9 +243,8 @@ const widgetsBiruler = (three = window.THREE) => {
         this._handles[1].screenPosition
       );
 
-      this._line.style.transform = `translate3D(${lineData.transformX}px, ${
-        lineData.transformY
-      }px, 0)
+      this._line.style.transform = `translate3D(${lineData.transformX}px, ${lineData.transformY
+        }px, 0)
                 rotate(${lineData.transformAngle}rad)`;
       this._line.style.width = lineData.length + 'px';
 
@@ -254,9 +254,8 @@ const widgetsBiruler = (three = window.THREE) => {
         this._handles[3].screenPosition
       );
 
-      this._line2.style.transform = `translate3D(${line2Data.transformX}px, ${
-        line2Data.transformY
-      }px, 0)
+      this._line2.style.transform = `translate3D(${line2Data.transformX}px, ${line2Data.transformY
+        }px, 0)
                 rotate(${line2Data.transformAngle}rad)`;
       this._line2.style.width = line2Data.length + 'px';
 
@@ -274,9 +273,8 @@ const widgetsBiruler = (three = window.THREE) => {
         this.worldToScreen(line2Center)
       );
 
-      this._dashline.style.transform = `translate3D(${dashLineData.transformX}px, ${
-        dashLineData.transformY
-      }px, 0)
+      this._dashline.style.transform = `translate3D(${dashLineData.transformX}px, ${dashLineData.transformY
+        }px, 0)
                 rotate(${dashLineData.transformAngle}rad)`;
       this._dashline.style.width = dashLineData.length + 'px';
 

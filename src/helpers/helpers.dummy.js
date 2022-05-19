@@ -12,7 +12,7 @@ export default class HelpersDummy extends THREE.Object3D {
 
     // update object
     this._create();
-    window.console.log(this.uuid);
+    console.log(this.uuid);
   }
 
   // private methods

@@ -30,7 +30,7 @@ export default class ParsersNifti extends ParsersVolume {
     try {
       this._dataSet = NrrdReader.parse(this._arrayBuffer);
     } catch (error) {
-      window.console.log('ooops... :(');
+      console.log('ooops... :(');
     }
   }
 

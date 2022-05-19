@@ -1,10 +1,11 @@
 import { widgetsBase } from './widgets.base';
 import CoreIntersections from '../core/core.intersections';
+import * as AMIThree from 'three';
 
 /**
  * @module widgets/handle
  */
-const widgetsHandle = (three = window.THREE) => {
+const widgetsHandle = (three = AMIThree) => {
   if (three === undefined || three.Object3D === undefined) {
     return null;
   }
@@ -60,7 +61,7 @@ const widgetsHandle = (three = window.THREE) => {
     }
 
     addEventListeners() {
-      window.addEventListener('resize', this.onResize);
+      addEventListener('resize', this.onResize);
 
       this._dom.addEventListener('mouseenter', this.onHover);
       this._dom.addEventListener('mouseleave', this.onHover);
@@ -69,7 +70,7 @@ const widgetsHandle = (three = window.THREE) => {
     }
 
     removeEventListeners() {
-      window.removeEventListener('resize', this.onResize);
+      removeEventListener('resize', this.onResize);
 
       this._dom.removeEventListener('mouseenter', this.onHover);
       this._dom.removeEventListener('mouseleave', this.onHover);

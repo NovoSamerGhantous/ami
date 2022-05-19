@@ -7,7 +7,7 @@ var renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(container.offsetWidth, container.offsetHeight);
 renderer.setClearColor(colors.darkGrey, 1);
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(devicePixelRatio);
 container.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
@@ -30,7 +30,7 @@ const onWindowResize = () => {
 
   renderer.setSize(container.offsetWidth, container.offsetHeight);
 };
-window.addEventListener('resize', onWindowResize, false);
+addEventListener('resize', onWindowResize, false);
 
 const particleLight = new THREE.Mesh(
   new THREE.SphereBufferGeometry(4, 8, 8),
@@ -67,7 +67,7 @@ loaderSTL.load(stlModel, geometry => {
 var loader = new AMI.VolumeLoader(container);
 loader
   .load(files)
-  .then(function() {
+  .then(function () {
     const series = loader.data[0].mergeSeries(loader.data);
     const stack = series[0].stack[0];
     loader.free();
@@ -81,9 +81,9 @@ loader
     camera.updateProjectionMatrix();
     controls.target.set(centerLPS.x, centerLPS.y, centerLPS.z);
   })
-  .catch(function(error) {
-    window.console.log('oops... something went wrong...');
-    window.console.log(error);
+  .catch(function (error) {
+    console.log('oops... something went wrong...');
+    console.log(error);
   });
 
 const animate = () => {
@@ -96,7 +96,7 @@ const animate = () => {
   controls.update();
   renderer.render(scene, camera);
 
-  requestAnimationFrame(function() {
+  requestAnimationFrame(function () {
     animate();
   });
 };
