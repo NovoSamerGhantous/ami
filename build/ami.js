@@ -77937,7 +77937,7 @@ module.exports = g;
 /*! exports provided: name, private, version, main, keywords, author, license, repository, config, lint-staged, prettier, sideEffects, scripts, dependencies, devDependencies, engines, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ami.js","private":true,"version":"0.32.0","main":"build/ami.js","keywords":["ami","ami.js","three.js","webgl","dicom","nifti","awesome","medical","imaging","xtk","nrrd","vtk","stl","trk"],"author":{"name":"Nicolas Rannou","email":"nicolas@eunate.ch","url":"https://eunate.ch"},"license":"Apache-2.0","repository":{"type":"git","url":"https://fnndsc.github.io/ami"},"config":{"gaKey":"UA-39303022-3","babel":"--module-bind js=babel-loader --colors --display-error-details"},"lint-staged":{"{{src/**,examples/**, lessons/**}/,}.{js,jsx,json,css,ts,tsx}":["prettier --write","git add"]},"prettier":{"printWidth":100,"singleQuote":true,"trailingComma":"es5","overrides":[{"files":"*.css","options":{"useTabs":false,"tabWidth":2}}]},"sideEffects":false,"scripts":{"precommit":"lint-staged","tslint-check":"tslint-config-prettier-check ./tslint.json","check-codestyle":"prettier-check 'src/**/*.{js,jsx,json,css,ts,tsx}'","fix-all-code-style":"prettier --write '{{src/**,examples/**, lessons/**}/,}*.{js,jsx,json,css,ts,tsx}'","build:ami":"webpack --config webpack.config.build.js --display-error-details","build:ami:prod":"cross-env NODE_ENV=production yarn build:ami","build:clean":"rimraf -rf build/*","build:clean:hot":"rimraf -rf build/*.hot-update.*","dev:ami":"webpack --config webpack.config.build.js --hot --watch --colors","dist:ami":"yarn build:clean && yarn build:ami && yarn build:ami:prod && yarn doc","dist:examples":"node ./scripts/buildDist.js && node ./scripts/router.js examples deploy","dist:clean":"rimraf -rf dist/*","analyze:ami":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami","analyze:ami:prod":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami:prod","clean":"yarn build:clean && yarn dist:clean","example":"node ./scripts/router.js examples","gen:index:examples":"node ./scripts/genIndexFiles.js examples","gen:index:examples:ga":"cross-env NODE_GA=true node ./scripts/genIndexFiles.js examples","test":"karma start","testExamples":"yarn dist:clean && yarn dist:examples","doc":"jsdoc -p -r -R README.md -c jsdoc.json -d dist/doc src","ami":"yarn dist:ami && yarn test","deploy":"yarn dist:clean && yarn build:clean && yarn dist:ami && yarn dist:examples && gh-pages -d dist"},"dependencies":{"OpenJPEG.js":"joedrago/openjpeg#master","dicom-parser":"1.8.1","image-JPEG2000":"ReflexionMed/image-JPEG2000#master","jpeg-lossless-decoder-js":"1.2.3","math-float32-to-binary-string":"^1.0.0","nifti-reader-js":"v0.5.3","nrrd-js":"^0.2.1","pako":"1.0.1","three":"0.140.2"},"devDependencies":{"@types/jasmine":"^3.3.2","@types/node":"^10.11.3","@types/three":"0.140.0","babel-cli":"latest","babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-env":"^1.6.0","babel-runtime":"^6.26.0","compression-webpack-plugin":"^1.0.1","cross-env":"^3.2.3","gh-pages":"^1.2.0","husky":"^1.1.3","jasmine-core":"^2.99.1","jsdoc":"jsdoc3/jsdoc#master","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-jasmine":"^1.1.2","karma-sinon":"^1.0.5","karma-spec-reporter":"^0.0.32","karma-webpack":"3.0.0","lint-staged":"^8.0.4","live-server":"^1.1.0","node-pre-gyp":"^0.10.0","prettier":"^1.15.1","prettier-check":"^2.0.0","puppeteer":"^1.6.1","rimraf":"^2.6.1","rollup-plugin-node-builtins":"^2.1.2","shelljs":"^0.8.2","sinon":"^2.0.0","ts-loader":"^5.2.1","tslint":"^5.11.0","tslint-config-prettier":"^1.15.0","tslint-loader":"^3.6.0","typescript":"^3.1.1","uglifyjs-webpack-plugin":"^1.2.7","webpack":"^4.16.3","webpack-bundle-analyzer":"^2.9.0","webpack-cli":"^3.1.0","webpack-dev-server":"^3.1.5","webpack-watch-livereload-plugin":"^0.0.1"},"engines":{"node":">=6.9.0"}};
+module.exports = {"name":"ami.js","private":true,"version":"0.32.1","main":"build/ami.js","keywords":["ami","ami.js","three.js","webgl","dicom","nifti","awesome","medical","imaging","xtk","nrrd","vtk","stl","trk"],"author":{"name":"Nicolas Rannou","email":"nicolas@eunate.ch","url":"https://eunate.ch"},"license":"Apache-2.0","repository":{"type":"git","url":"https://fnndsc.github.io/ami"},"config":{"gaKey":"UA-39303022-3","babel":"--module-bind js=babel-loader --colors --display-error-details"},"lint-staged":{"{{src/**,examples/**, lessons/**}/,}.{js,jsx,json,css,ts,tsx}":["prettier --write","git add"]},"prettier":{"printWidth":100,"singleQuote":true,"trailingComma":"es5","overrides":[{"files":"*.css","options":{"useTabs":false,"tabWidth":2}}]},"sideEffects":false,"scripts":{"precommit":"lint-staged","tslint-check":"tslint-config-prettier-check ./tslint.json","check-codestyle":"prettier-check 'src/**/*.{js,jsx,json,css,ts,tsx}'","fix-all-code-style":"prettier --write '{{src/**,examples/**, lessons/**}/,}*.{js,jsx,json,css,ts,tsx}'","build:ami":"webpack --config webpack.config.build.js --display-error-details","build:ami:prod":"cross-env NODE_ENV=production yarn build:ami","build:clean":"rimraf -rf build/*","build:clean:hot":"rimraf -rf build/*.hot-update.*","dev:ami":"webpack --config webpack.config.build.js --hot --watch --colors","dist:ami":"yarn build:clean && yarn build:ami && yarn build:ami:prod && yarn doc","dist:examples":"node ./scripts/buildDist.js && node ./scripts/router.js examples deploy","dist:clean":"rimraf -rf dist/*","analyze:ami":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami","analyze:ami:prod":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami:prod","clean":"yarn build:clean && yarn dist:clean","example":"node ./scripts/router.js examples","gen:index:examples":"node ./scripts/genIndexFiles.js examples","gen:index:examples:ga":"cross-env NODE_GA=true node ./scripts/genIndexFiles.js examples","test":"karma start","testExamples":"yarn dist:clean && yarn dist:examples","doc":"jsdoc -p -r -R README.md -c jsdoc.json -d dist/doc src","ami":"yarn dist:ami && yarn test","deploy":"yarn dist:clean && yarn build:clean && yarn dist:ami && yarn dist:examples && gh-pages -d dist"},"dependencies":{"OpenJPEG.js":"joedrago/openjpeg#master","dicom-parser":"1.8.1","image-JPEG2000":"ReflexionMed/image-JPEG2000#master","jpeg-lossless-decoder-js":"1.2.3","math-float32-to-binary-string":"^1.0.0","nifti-reader-js":"v0.5.3","nrrd-js":"^0.2.1","pako":"1.0.1","three":"0.140.2"},"devDependencies":{"@types/jasmine":"^3.3.2","@types/node":"^10.11.3","@types/three":"0.140.0","babel-cli":"latest","babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-env":"^1.6.0","babel-runtime":"^6.26.0","compression-webpack-plugin":"^1.0.1","cross-env":"^3.2.3","gh-pages":"^1.2.0","husky":"^1.1.3","jasmine-core":"^2.99.1","jsdoc":"jsdoc3/jsdoc#master","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-jasmine":"^1.1.2","karma-sinon":"^1.0.5","karma-spec-reporter":"^0.0.32","karma-webpack":"3.0.0","lint-staged":"^8.0.4","live-server":"^1.1.0","node-pre-gyp":"^0.10.0","prettier":"^1.15.1","prettier-check":"^2.0.0","puppeteer":"^1.6.1","rimraf":"^2.6.1","rollup-plugin-node-builtins":"^2.1.2","shelljs":"^0.8.2","sinon":"^2.0.0","ts-loader":"^5.2.1","tslint":"^5.11.0","tslint-config-prettier":"^1.15.0","tslint-loader":"^3.6.0","typescript":"^3.1.1","uglifyjs-webpack-plugin":"^1.2.7","webpack":"^4.16.3","webpack-bundle-analyzer":"^2.9.0","webpack-cli":"^3.1.0","webpack-dev-server":"^3.1.5","webpack-watch-livereload-plugin":"^0.0.1"},"engines":{"node":">=6.9.0"}};
 
 /***/ }),
 
@@ -77965,9 +77965,9 @@ __export(__webpack_require__(/*! ./parsers/parsers */ "./src/parsers/parsers.js"
 __export(__webpack_require__(/*! ./presets/presets */ "./src/presets/presets.js"));
 __export(__webpack_require__(/*! ./shaders/shaders */ "./src/shaders/shaders.js"));
 __export(__webpack_require__(/*! ./widgets/widgets */ "./src/widgets/widgets.js"));
-var packageVersion = __webpack_require__(/*! ../package.json */ "./package.json").version;
-var d3Version = __webpack_require__(/*! ../node_modules/three/package.json */ "./node_modules/three/package.json").version;
-console.log("ami " + packageVersion + " (three " + d3Version + ")");
+const packageVersion = __webpack_require__(/*! ../package.json */ "./package.json").version;
+const d3Version = __webpack_require__(/*! ../node_modules/three/package.json */ "./node_modules/three/package.json").version;
+console.log(`ami ${packageVersion} (three ${d3Version})`);
 
 
 /***/ }),
@@ -80982,9 +80982,7 @@ var COLORS;
 /**
  * Colors utility functions
  */
-var Colors = /** @class */ (function () {
-    function Colors() {
-    }
+class Colors {
     /**
      * Convert LAB to XYZ
      * http://www.easyrgb.com/index.php?X=MATH&H=08#text8
@@ -80995,15 +80993,15 @@ var Colors = /** @class */ (function () {
      *
      * @return {*}
      */
-    Colors.cielab2XYZ = function (l, a, b) {
+    static cielab2XYZ(l, a, b) {
         // https://www.mathworks.com/help/images/ref/whitepoint.html
         // d65: 0.9504, 1, 1.0888
-        var refX = 95.047;
-        var refY = 100.0;
-        var refZ = 108.883;
-        var y = (l + 16) / 116;
-        var x = a / 500 + y;
-        var z = y - b / 200;
+        const refX = 95.047;
+        const refY = 100.0;
+        const refZ = 108.883;
+        let y = (l + 16) / 116;
+        let x = a / 500 + y;
+        let z = y - b / 200;
         if (Math.pow(y, 3) > 0.008856) {
             y = Math.pow(y, 3);
         }
@@ -81023,7 +81021,7 @@ var Colors = /** @class */ (function () {
             z = (z - 16 / 116) / 7.787;
         }
         return [refX * x, refY * y, refZ * z];
-    };
+    }
     /**
      * Convert XYZ to RGB space
      *
@@ -81033,13 +81031,13 @@ var Colors = /** @class */ (function () {
      *
      * @return {*}
      */
-    Colors.xyz2RGB = function (x, y, z) {
+    static xyz2RGB(x, y, z) {
         x /= 100;
         y /= 100;
         z /= 100;
-        var r = x * 3.2406 + y * -1.5372 + z * -0.4986;
-        var g = x * -0.9689 + y * 1.8758 + z * 0.0415;
-        var b = x * 0.0557 + y * -0.204 + z * 1.057;
+        let r = x * 3.2406 + y * -1.5372 + z * -0.4986;
+        let g = x * -0.9689 + y * 1.8758 + z * 0.0415;
+        let b = x * 0.0557 + y * -0.204 + z * 1.057;
         if (r > 0.0031308) {
             r = 1.055 * Math.pow(r, 1 / 2.4) - 0.055;
         }
@@ -81062,7 +81060,7 @@ var Colors = /** @class */ (function () {
         g = g * 255;
         b = b * 255;
         return [r, g, b];
-    };
+    }
     /**
      * Convert LAB to RGB
      *
@@ -81072,18 +81070,14 @@ var Colors = /** @class */ (function () {
      *
      * @return {*}
      */
-    Colors.cielab2RGB = function (l, a, b) {
-        if (l === void 0) { l = 50; }
-        if (a === void 0) { a = 0; }
-        if (b === void 0) { b = 0; }
+    static cielab2RGB(l = 50, a = 0, b = 0) {
         if (!(l >= 0 && l <= 100)) {
             return null;
         }
-        var _a = this.cielab2XYZ(l, a, b), x = _a[0], y = _a[1], z = _a[2];
+        const [x, y, z] = this.cielab2XYZ(l, a, b);
         return this.xyz2RGB(x, y, z);
-    };
-    return Colors;
-}());
+    }
+}
 exports.default = Colors;
 
 
@@ -96191,19 +96185,6 @@ var widgetsAnnotation = function widgetsAnnotation() {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -96215,41 +96196,39 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var widgets_css_1 = __importDefault(__webpack_require__(/*! ./widgets.css */ "./src/widgets/widgets.css.js"));
-var core_colors_1 = __webpack_require__(/*! ../core/core.colors */ "./src/core/core.colors.ts");
-var core_utils_1 = __importDefault(__webpack_require__(/*! ../core/core.utils */ "./src/core/core.utils.js"));
-var AMIThree = __importStar(__webpack_require__(/*! three */ "./node_modules/three/build/three.module.js"));
+const widgets_css_1 = __importDefault(__webpack_require__(/*! ./widgets.css */ "./src/widgets/widgets.css.js"));
+const core_colors_1 = __webpack_require__(/*! ../core/core.colors */ "./src/core/core.colors.ts");
+const core_utils_1 = __importDefault(__webpack_require__(/*! ../core/core.utils */ "./src/core/core.utils.js"));
+const AMIThree = __importStar(__webpack_require__(/*! three */ "./node_modules/three/build/three.module.js"));
 /**
  * @module Abstract Widget
  */
 // tslint:disable-next-line
-var widgetsBase = function (three) {
-    if (three === void 0) { three = AMIThree; }
+const widgetsBase = (three = AMIThree) => {
     if (three === undefined || three.Object3D === undefined) {
         return null;
     }
-    var Constructor = three.Object3D;
-    return /** @class */ (function (_super) {
-        __extends(class_1, _super);
-        function class_1(targetMesh, controls, params) {
-            var _this = _super.call(this) || this;
-            _this._widgetType = 'Base';
-            _this._params = params;
+    const Constructor = three.Object3D;
+    return class extends Constructor {
+        constructor(targetMesh, controls, params) {
+            super();
+            this._widgetType = 'Base';
+            this._params = params;
             if (params.hideMesh === true) {
-                _this.visible = false;
+                this.visible = false;
             }
-            var elementStyle = document.getElementById('ami-widgets');
+            const elementStyle = document.getElementById('ami-widgets');
             if (elementStyle === null) {
-                var styleEl = document.createElement('style');
+                const styleEl = document.createElement('style');
                 styleEl.id = 'ami-widgets';
                 styleEl.innerHTML = widgets_css_1.default.code;
                 document.head.appendChild(styleEl);
             }
-            _this._enabled = true;
-            _this._selected = false;
-            _this._hovered = true;
-            _this._active = true;
-            _this._colors = {
+            this._enabled = true;
+            this._selected = false;
+            this._hovered = true;
+            this._active = true;
+            this._colors = {
                 default: core_colors_1.COLORS.blue,
                 active: core_colors_1.COLORS.yellow,
                 hover: core_colors_1.COLORS.red,
@@ -96257,44 +96236,43 @@ var widgetsBase = function (three) {
                 text: core_colors_1.COLORS.white,
                 error: core_colors_1.COLORS.lightRed,
             };
-            _this._color = _this._colors.default;
-            _this._dragged = false;
+            this._color = this._colors.default;
+            this._dragged = false;
             // can not call it visible because it conflicts with THREE.Object3D
-            _this._displayed = true;
-            _this._targetMesh = targetMesh;
-            _this._controls = controls;
-            _this._camera = controls.object;
-            _this._container = controls.domElement;
-            _this._worldPosition = new three.Vector3(); // LPS position
+            this._displayed = true;
+            this._targetMesh = targetMesh;
+            this._controls = controls;
+            this._camera = controls.object;
+            this._container = controls.domElement;
+            this._worldPosition = new three.Vector3(); // LPS position
             if (params.worldPosition) {
-                _this._worldPosition.copy(params.worldPosition);
+                this._worldPosition.copy(params.worldPosition);
             }
-            else if (_this._targetMesh !== null) {
-                _this._worldPosition.copy(_this._targetMesh.position);
+            else if (this._targetMesh !== null) {
+                this._worldPosition.copy(this._targetMesh.position);
             }
-            return _this;
         }
-        class_1.prototype.initOffsets = function () {
-            var box = this._container.getBoundingClientRect();
-            var body = document.body;
-            var docEl = document.documentElement;
-            var scrollTop = scrollY || docEl.scrollTop || body.scrollTop;
-            var scrollLeft = scrollX || docEl.scrollLeft || body.scrollLeft;
-            var clientTop = docEl.clientTop || body.clientTop || 0;
-            var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+        initOffsets() {
+            const box = this._container.getBoundingClientRect();
+            const body = document.body;
+            const docEl = document.documentElement;
+            const scrollTop = scrollY || docEl.scrollTop || body.scrollTop;
+            const scrollLeft = scrollX || docEl.scrollLeft || body.scrollLeft;
+            const clientTop = docEl.clientTop || body.clientTop || 0;
+            const clientLeft = docEl.clientLeft || body.clientLeft || 0;
             this._offsets = {
                 top: Math.round(box.top + scrollTop - clientTop),
                 left: Math.round(box.left + scrollLeft - clientLeft),
             };
-        };
-        class_1.prototype.getMouseOffsets = function (event, container) {
+        }
+        getMouseOffsets(event, container) {
             return {
                 x: ((event.clientX - this._offsets.left) / container.offsetWidth) * 2 - 1,
                 y: -((event.clientY - this._offsets.top) / container.offsetHeight) * 2 + 1,
                 screenX: event.clientX - this._offsets.left,
                 screenY: event.clientY - this._offsets.top,
             };
-        };
+        }
         /**
          * Get area of polygon.
          *
@@ -96302,15 +96280,15 @@ var widgetsBase = function (three) {
          *
          * @returns {Number}
          */
-        class_1.prototype.getArea = function (points) {
-            var area = 0;
-            var j = points.length - 1; // the last vertex is the 'previous' one to the first
-            for (var i = 0; i < points.length; i++) {
+        getArea(points) {
+            let area = 0;
+            let j = points.length - 1; // the last vertex is the 'previous' one to the first
+            for (let i = 0; i < points.length; i++) {
                 area += (points[j].x + points[i].x) * (points[j].y - points[i].y);
                 j = i; // j is the previous vertex to i
             }
             return Math.abs(area / 2);
-        };
+        }
         /**
          * Get index of ultrasound region by data coordinates.
          *
@@ -96319,9 +96297,9 @@ var widgetsBase = function (three) {
          *
          * @returns {Number|null}
          */
-        class_1.prototype.getRegionByXY = function (regions, point) {
-            var result = null;
-            regions.some(function (region, ind) {
+        getRegionByXY(regions, point) {
+            let result = null;
+            regions.some((region, ind) => {
                 if (point.x >= region.x0 &&
                     point.x <= region.x1 &&
                     point.y >= region.y0 &&
@@ -96331,7 +96309,7 @@ var widgetsBase = function (three) {
                 }
             });
             return result;
-        };
+        }
         /**
          * Get point inside ultrasound region by data coordinates.
          *
@@ -96340,12 +96318,12 @@ var widgetsBase = function (three) {
          *
          * @returns {Vector2|null}
          */
-        class_1.prototype.getPointInRegion = function (region, point) {
+        getPointInRegion(region, point) {
             if (!region) {
                 return null;
             }
             return new three.Vector2((point.x - region.x0 - (region.axisX || 0)) * region.deltaX, (point.y - region.y0 - (region.axisY || 0)) * region.deltaY);
-        };
+        }
         /**
          * Get point's ultrasound coordinates by data coordinates.
          *
@@ -96354,9 +96332,9 @@ var widgetsBase = function (three) {
          *
          * @returns {Vector2|null}
          */
-        class_1.prototype.getUsPoint = function (regions, point) {
+        getUsPoint(regions, point) {
             return this.getPointInRegion(regions[this.getRegionByXY(regions, point)], point);
-        };
+        }
         /**
          * Get distance between points inside ultrasound region.
          *
@@ -96365,13 +96343,13 @@ var widgetsBase = function (three) {
          *
          * @returns {Number|null}
          */
-        class_1.prototype.getUsDistance = function (pointA, pointB) {
-            var regions = this._params.ultrasoundRegions || [];
+        getUsDistance(pointA, pointB) {
+            const regions = this._params.ultrasoundRegions || [];
             if (regions.length < 1) {
                 return null;
             }
-            var regionA = this.getRegionByXY(regions, pointA);
-            var regionB = this.getRegionByXY(regions, pointB);
+            const regionA = this.getRegionByXY(regions, pointA);
+            const regionB = this.getRegionByXY(regions, pointB);
             if (regionA === null ||
                 regionB === null ||
                 regionA !== regionB ||
@@ -96380,7 +96358,7 @@ var widgetsBase = function (three) {
                 return null;
             }
             return this.getPointInRegion(regions[regionA], pointA).distanceTo(this.getPointInRegion(regions[regionA], pointB));
-        };
+        }
         /**
          * Get distance between points
          *
@@ -96390,14 +96368,14 @@ var widgetsBase = function (three) {
          *
          * @returns {Object}
          */
-        class_1.prototype.getDistanceData = function (pointA, pointB, calibrationFactor) {
-            var distance = null;
-            var units = null;
+        getDistanceData(pointA, pointB, calibrationFactor) {
+            let distance = null;
+            let units = null;
             if (calibrationFactor) {
                 distance = pointA.distanceTo(pointB) * calibrationFactor;
             }
             else if (this._params.ultrasoundRegions && this._params.lps2IJK) {
-                var usDistance = this.getUsDistance(core_utils_1.default.worldToData(this._params.lps2IJK, pointA), core_utils_1.default.worldToData(this._params.lps2IJK, pointB));
+                const usDistance = this.getUsDistance(core_utils_1.default.worldToData(this._params.lps2IJK, pointA), core_utils_1.default.worldToData(this._params.lps2IJK, pointB));
                 if (usDistance !== null) {
                     distance = usDistance * 10;
                     units = 'mm';
@@ -96411,31 +96389,31 @@ var widgetsBase = function (three) {
                 distance = pointA.distanceTo(pointB);
             }
             return {
-                distance: distance,
-                units: units,
+                distance,
+                units,
             };
-        };
-        class_1.prototype.getLineData = function (pointA, pointB) {
-            var line = pointB.clone().sub(pointA);
-            var center = pointB
+        }
+        getLineData(pointA, pointB) {
+            const line = pointB.clone().sub(pointA);
+            const center = pointB
                 .clone()
                 .add(pointA)
                 .multiplyScalar(0.5);
-            var length = line.length();
-            var angle = line.angleTo(new three.Vector3(1, 0, 0));
+            const length = line.length();
+            const angle = line.angleTo(new three.Vector3(1, 0, 0));
             return {
-                line: line,
-                length: length,
+                line,
+                length,
                 transformX: center.x - length / 2,
                 transformY: center.y - this._container.offsetHeight,
                 transformAngle: pointA.y < pointB.y ? angle : -angle,
-                center: center,
+                center,
             };
-        };
-        class_1.prototype.getRectData = function (pointA, pointB) {
-            var line = pointB.clone().sub(pointA);
-            var vertical = line.clone().projectOnVector(new three.Vector3(0, 1, 0));
-            var min = pointA.clone().min(pointB); // coordinates of the top left corner
+        }
+        getRectData(pointA, pointB) {
+            const line = pointB.clone().sub(pointA);
+            const vertical = line.clone().projectOnVector(new three.Vector3(0, 1, 0));
+            const min = pointA.clone().min(pointB); // coordinates of the top left corner
             return {
                 width: line
                     .clone()
@@ -96446,15 +96424,15 @@ var widgetsBase = function (three) {
                 transformY: min.y - this._container.offsetHeight,
                 paddingVector: vertical.clone().normalize(),
             };
-        };
+        }
         /**
          * @param {HTMLElement} label
          * @param {Vector3}     point  label's center coordinates (default)
          * @param {Boolean}     corner if true, then point is the label's top left corner coordinates
          */
-        class_1.prototype.adjustLabelTransform = function (label, point, corner) {
-            var x = Math.round(point.x - (corner ? 0 : label.offsetWidth / 2));
-            var y = Math.round(point.y - (corner ? 0 : label.offsetHeight / 2)) - this._container.offsetHeight;
+        adjustLabelTransform(label, point, corner) {
+            let x = Math.round(point.x - (corner ? 0 : label.offsetWidth / 2));
+            let y = Math.round(point.y - (corner ? 0 : label.offsetHeight / 2)) - this._container.offsetHeight;
             if (x < 0) {
                 x = x > -label.offsetWidth ? 0 : x + label.offsetWidth;
             }
@@ -96474,20 +96452,20 @@ var widgetsBase = function (three) {
                 y = y < 0 ? -label.offsetHeight : y - label.offsetHeight;
             }
             return new three.Vector2(x, y);
-        };
-        class_1.prototype.worldToScreen = function (worldCoordinate) {
-            var screenCoordinates = worldCoordinate.clone();
+        }
+        worldToScreen(worldCoordinate) {
+            const screenCoordinates = worldCoordinate.clone();
             screenCoordinates.project(this._camera);
             screenCoordinates.x = Math.round(((screenCoordinates.x + 1) * this._container.offsetWidth) / 2);
             screenCoordinates.y = Math.round(((-screenCoordinates.y + 1) * this._container.offsetHeight) / 2);
             screenCoordinates.z = 0;
             return screenCoordinates;
-        };
-        class_1.prototype.update = function () {
+        }
+        update() {
             // to be overloaded
             console.log('update() should be overloaded!');
-        };
-        class_1.prototype.updateColor = function () {
+        }
+        updateColor() {
             if (this._active) {
                 this._color = this._colors.active;
             }
@@ -96500,159 +96478,118 @@ var widgetsBase = function (three) {
             else {
                 this._color = this._colors.default;
             }
-        };
+        }
         // tslint:disable-next-line
-        class_1.prototype.setDefaultColor = function (color) {
+        setDefaultColor(color) {
             this._colors.default = color;
             if (this._handles) {
-                this._handles.forEach(function (elem) { return (elem._colors.default = color); });
+                this._handles.forEach(elem => (elem._colors.default = color));
             }
             this.update();
-        };
-        class_1.prototype.show = function () {
+        }
+        show() {
             this.showDOM();
             this.showMesh();
             this.update();
             this._displayed = true;
-        };
-        class_1.prototype.hide = function () {
+        }
+        hide() {
             this.hideDOM();
             this.hideMesh();
             this._displayed = false;
-        };
-        class_1.prototype.hideDOM = function () {
+        }
+        hideDOM() {
             // to be overloaded
             console.log('hideDOM() should be overloaded!');
-        };
-        class_1.prototype.showDOM = function () {
+        }
+        showDOM() {
             // to be overloaded
             console.log('showDOM() should be overloaded!');
-        };
-        class_1.prototype.hideMesh = function () {
+        }
+        hideMesh() {
             this.visible = false;
-        };
-        class_1.prototype.showMesh = function () {
+        }
+        showMesh() {
             if (this._params.hideMesh === true) {
                 return;
             }
             this.visible = true;
-        };
-        class_1.prototype.free = function () {
+        }
+        free() {
             this._camera = null;
             this._container = null;
             this._controls = null;
             this._params = null;
             this._targetMesh = null;
-        };
-        Object.defineProperty(class_1.prototype, "widgetType", {
-            get: function () {
-                return this._widgetType;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "targetMesh", {
-            get: function () {
-                return this._targetMesh;
-            },
-            set: function (targetMesh) {
-                this._targetMesh = targetMesh;
-                this.update();
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "worldPosition", {
-            get: function () {
-                return this._worldPosition;
-            },
-            set: function (worldPosition) {
-                this._worldPosition.copy(worldPosition);
-                this.update();
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "enabled", {
-            get: function () {
-                return this._enabled;
-            },
-            set: function (enabled) {
-                this._enabled = enabled;
-                this.update();
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "selected", {
-            get: function () {
-                return this._selected;
-            },
-            set: function (selected) {
-                this._selected = selected;
-                this.update();
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "hovered", {
-            get: function () {
-                return this._hovered;
-            },
-            set: function (hovered) {
-                this._hovered = hovered;
-                this.update();
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "dragged", {
-            get: function () {
-                return this._dragged;
-            },
-            set: function (dragged) {
-                this._dragged = dragged;
-                this.update();
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "displayed", {
-            get: function () {
-                return this._displayed;
-            },
-            set: function (displayed) {
-                this._displayed = displayed;
-                this.update();
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "active", {
-            get: function () {
-                return this._active;
-            },
-            set: function (active) {
-                this._active = active;
-                this.update();
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(class_1.prototype, "color", {
-            get: function () {
-                return this._color;
-            },
-            // tslint:disable-next-line
-            set: function (color) {
-                this._color = color;
-                this.update();
-            },
-            enumerable: true,
-            configurable: true
-        });
-        return class_1;
-    }(Constructor));
+        }
+        get widgetType() {
+            return this._widgetType;
+        }
+        get targetMesh() {
+            return this._targetMesh;
+        }
+        set targetMesh(targetMesh) {
+            this._targetMesh = targetMesh;
+            this.update();
+        }
+        get worldPosition() {
+            return this._worldPosition;
+        }
+        set worldPosition(worldPosition) {
+            this._worldPosition.copy(worldPosition);
+            this.update();
+        }
+        get enabled() {
+            return this._enabled;
+        }
+        set enabled(enabled) {
+            this._enabled = enabled;
+            this.update();
+        }
+        get selected() {
+            return this._selected;
+        }
+        set selected(selected) {
+            this._selected = selected;
+            this.update();
+        }
+        get hovered() {
+            return this._hovered;
+        }
+        set hovered(hovered) {
+            this._hovered = hovered;
+            this.update();
+        }
+        get dragged() {
+            return this._dragged;
+        }
+        set dragged(dragged) {
+            this._dragged = dragged;
+            this.update();
+        }
+        get displayed() {
+            return this._displayed;
+        }
+        set displayed(displayed) {
+            this._displayed = displayed;
+            this.update();
+        }
+        get active() {
+            return this._active;
+        }
+        set active(active) {
+            this._active = active;
+            this.update();
+        }
+        get color() {
+            return this._color;
+        }
+        // tslint:disable-next-line
+        set color(color) {
+            this._color = color;
+            this.update();
+        }
+    };
 };
 exports.widgetsBase = widgetsBase;
 exports.default = widgetsBase();
