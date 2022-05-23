@@ -7,224 +7,220 @@ import { Object3D, Mesh, ShaderMaterial, DoubleSide } from 'three';
 /**
  * @module helpers/localizer
  */
-const helpersLocalizer = () => {
-  const Constructor = Object3D;
-  return class extends Constructor {
-    constructor(stack, geometry, referencePlane) {
-      //
-      super();
+class helpersLocalizer extends Object3D {
+  constructor(stack, geometry, referencePlane) {
+    //
+    super();
 
-      this._stack = stack;
-      this._referencePlane = referencePlane;
-      this._plane1 = null;
-      this._color1 = null;
-      this._plane2 = null;
-      this._color2 = null;
-      this._plane3 = null;
-      this._color3 = null;
-      this._canvasWidth = 0;
-      this._canvasHeight = 0;
-      this._shadersFragment = ShadersFragment;
-      this._shadersVertex = ShadersVertex;
-      this._uniforms = ShadersUniform.uniforms();
-      this._material = null;
-      this._geometry = geometry;
+    this._stack = stack;
+    this._referencePlane = referencePlane;
+    this._plane1 = null;
+    this._color1 = null;
+    this._plane2 = null;
+    this._color2 = null;
+    this._plane3 = null;
+    this._color3 = null;
+    this._canvasWidth = 0;
+    this._canvasHeight = 0;
+    this._shadersFragment = ShadersFragment;
+    this._shadersVertex = ShadersVertex;
+    this._uniforms = ShadersUniform.uniforms();
+    this._material = null;
+    this._geometry = geometry;
 
-      this._create();
-    }
+    this._create();
+  }
 
-    _create() {
-      this._prepareMaterial();
-      this._mesh = new Mesh(this._geometry, this._material);
-      this._mesh.applyMatrix(this._stack._ijk2LPS);
-      this.add(this._mesh);
-    }
+  _create() {
+    this._prepareMaterial();
+    this._mesh = new Mesh(this._geometry, this._material);
+    this._mesh.applyMatrix(this._stack._ijk2LPS);
+    this.add(this._mesh);
+  }
 
-    _prepareMaterial() {
-      if (!this._material) {
-        // reference plane
-        this._uniforms.uSlice.value = this._referencePlane;
+  _prepareMaterial() {
+    if (!this._material) {
+      // reference plane
+      this._uniforms.uSlice.value = this._referencePlane;
 
-        // localizer planes
-        if (this._plane1) {
-          this._uniforms.uPlane1.value = this._plane1;
-          this._uniforms.uPlaneColor1.value = this._color1;
-        }
-
-        if (this._plane2) {
-          this._uniforms.uPlane2.value = this._plane2;
-          this._uniforms.uPlaneColor2.value = this._color2;
-        }
-
-        if (this._plane3) {
-          this._uniforms.uPlane3.value = this._plane3;
-          this._uniforms.uPlaneColor3.value = this._color3;
-        }
-
-        //
-        this._uniforms.uCanvasWidth.value = this._canvasWidth;
-        this._uniforms.uCanvasHeight.value = this._canvasHeight;
-
-        // generate material
-        let fs = new ShadersFragment(this._uniforms);
-        let vs = new ShadersVertex();
-        this._material = new ShaderMaterial({
-          side: DoubleSide,
-          uniforms: this._uniforms,
-          vertexShader: vs.compute(),
-          fragmentShader: fs.compute(),
-        });
-        this._material.transparent = true;
-      }
-    }
-
-    update() {
-      if (this._mesh) {
-        this.remove(this._mesh);
-        this._mesh.geometry.dispose();
-        this._mesh.geometry = null;
-        this._mesh = null;
+      // localizer planes
+      if (this._plane1) {
+        this._uniforms.uPlane1.value = this._plane1;
+        this._uniforms.uPlaneColor1.value = this._color1;
       }
 
-      this._create();
-    }
+      if (this._plane2) {
+        this._uniforms.uPlane2.value = this._plane2;
+        this._uniforms.uPlaneColor2.value = this._color2;
+      }
 
-    dispose() {
+      if (this._plane3) {
+        this._uniforms.uPlane3.value = this._plane3;
+        this._uniforms.uPlaneColor3.value = this._color3;
+      }
+
       //
-      this._referencePlane = null;
-      this._plane1 = null;
-      this._color1 = null;
-      this._plane2 = null;
-      this._color2 = null;
-      this._plane3 = null;
-      this._color3 = null;
+      this._uniforms.uCanvasWidth.value = this._canvasWidth;
+      this._uniforms.uCanvasHeight.value = this._canvasHeight;
 
-      this._shadersFragment = null;
-      this._shadersVertex = null;
+      // generate material
+      let fs = new ShadersFragment(this._uniforms);
+      let vs = new ShadersVertex();
+      this._material = new ShaderMaterial({
+        side: DoubleSide,
+        uniforms: this._uniforms,
+        vertexShader: vs.compute(),
+        fragmentShader: fs.compute(),
+      });
+      this._material.transparent = true;
+    }
+  }
 
-      this._uniforms = null;
-
-      // material, geometry and mesh
+  update() {
+    if (this._mesh) {
       this.remove(this._mesh);
       this._mesh.geometry.dispose();
       this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
+      this._mesh = null;
+    }
+
+    this._create();
+  }
+
+  dispose() {
+    //
+    this._referencePlane = null;
+    this._plane1 = null;
+    this._color1 = null;
+    this._plane2 = null;
+    this._color2 = null;
+    this._plane3 = null;
+    this._color3 = null;
+
+    this._shadersFragment = null;
+    this._shadersVertex = null;
+
+    this._uniforms = null;
+
+    // material, geometry and mesh
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
+
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    this._stack = null;
+  }
+
+  get geometry() {
+    return this._geometry;
+  }
+
+  set geometry(geometry) {
+    if (this._mesh) {
+      this.remove(this._mesh);
+      this._mesh.geometry.dispose();
+      this._mesh.geometry = null;
       this._mesh = null;
 
       this._geometry.dispose();
       this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      this._stack = null;
     }
 
-    get geometry() {
-      return this._geometry;
-    }
+    this._geometry = geometry;
 
-    set geometry(geometry) {
-      if (this._mesh) {
-        this.remove(this._mesh);
-        this._mesh.geometry.dispose();
-        this._mesh.geometry = null;
-        this._mesh = null;
+    this._create();
+  }
 
-        this._geometry.dispose();
-        this._geometry = null;
-      }
+  get referencePlane() {
+    return this._referencePlane;
+  }
 
-      this._geometry = geometry;
+  set referencePlane(referencePlane) {
+    this._referencePlane = referencePlane;
+    this._uniforms.uSlice.value = this._referencePlane;
+  }
 
-      this._create();
-    }
+  get plane1() {
+    return this._plane1;
+  }
 
-    get referencePlane() {
-      return this._referencePlane;
-    }
+  set plane1(plane1) {
+    this._plane1 = plane1;
+    this._uniforms.uPlane1.value = this._plane1;
+  }
 
-    set referencePlane(referencePlane) {
-      this._referencePlane = referencePlane;
-      this._uniforms.uSlice.value = this._referencePlane;
-    }
+  get color1() {
+    return this._color1;
+  }
 
-    get plane1() {
-      return this._plane1;
-    }
+  set color1(color1) {
+    this._color1 = color1;
+    this._uniforms.uPlaneColor1.value = this._color1;
+  }
 
-    set plane1(plane1) {
-      this._plane1 = plane1;
-      this._uniforms.uPlane1.value = this._plane1;
-    }
+  get plane2() {
+    return this._plane2;
+  }
 
-    get color1() {
-      return this._color1;
-    }
+  set plane2(plane2) {
+    this._plane2 = plane2;
+    this._uniforms.uPlane2.value = this._plane2;
+  }
 
-    set color1(color1) {
-      this._color1 = color1;
-      this._uniforms.uPlaneColor1.value = this._color1;
-    }
+  get color2() {
+    return this._color2;
+  }
 
-    get plane2() {
-      return this._plane2;
-    }
+  set color2(color2) {
+    this._color2 = color2;
+    this._uniforms.uPlaneColor2.value = this._color2;
+  }
 
-    set plane2(plane2) {
-      this._plane2 = plane2;
-      this._uniforms.uPlane2.value = this._plane2;
-    }
+  get plane3() {
+    return this._plane3;
+  }
 
-    get color2() {
-      return this._color2;
-    }
+  set plane3(plane3) {
+    this._plane3 = plane3;
+    this._uniforms.uPlane3.value = this._plane3;
+  }
 
-    set color2(color2) {
-      this._color2 = color2;
-      this._uniforms.uPlaneColor2.value = this._color2;
-    }
+  get color3() {
+    return this._color3;
+  }
 
-    get plane3() {
-      return this._plane3;
-    }
+  set color3(color3) {
+    this._color3 = color3;
+    this._uniforms.uPlaneColor3.value = this._color3;
+  }
 
-    set plane3(plane3) {
-      this._plane3 = plane3;
-      this._uniforms.uPlane3.value = this._plane3;
-    }
+  get canvasWidth() {
+    return this._canvasWidth;
+  }
 
-    get color3() {
-      return this._color3;
-    }
+  set canvasWidth(canvasWidth) {
+    this._canvasWidth = canvasWidth;
+    this._uniforms.uCanvasWidth.value = this._canvasWidth;
+  }
 
-    set color3(color3) {
-      this._color3 = color3;
-      this._uniforms.uPlaneColor3.value = this._color3;
-    }
+  get canvasHeight() {
+    return this._canvasHeight;
+  }
 
-    get canvasWidth() {
-      return this._canvasWidth;
-    }
-
-    set canvasWidth(canvasWidth) {
-      this._canvasWidth = canvasWidth;
-      this._uniforms.uCanvasWidth.value = this._canvasWidth;
-    }
-
-    get canvasHeight() {
-      return this._canvasHeight;
-    }
-
-    set canvasHeight(canvasHeight) {
-      this._canvasHeight = canvasHeight;
-      this._uniforms.uCanvasHeight.value = this._canvasHeight;
-    }
-  };
+  set canvasHeight(canvasHeight) {
+    this._canvasHeight = canvasHeight;
+    this._uniforms.uCanvasHeight.value = this._canvasHeight;
+  }
 };
 
 export { helpersLocalizer };
-export default helpersLocalizer();

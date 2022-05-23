@@ -35,7 +35,7 @@ import { Object3D, Vector3 } from 'three';
  *
  * @module helpers/stack
  */
-class helpersStack extends Constructor {
+class helpersStack extends Object3D {
   constructor(stack) {
     //
     super();
@@ -475,7 +475,4 @@ class helpersStack extends Constructor {
   }
 };
 
-// export factory
 export { helpersStack };
-// default export to
-export default helpersStack();

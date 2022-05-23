@@ -110,7 +110,4 @@ class geometriesSlice extends Constructor {
   }
 };
 
-// export factory
 export { geometriesSlice };
-// default export to
-export default geometriesSlice();

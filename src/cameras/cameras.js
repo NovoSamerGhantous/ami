@@ -1,3 +1,3 @@
-import Orthographic, { camerasOrthographic } from './cameras.orthographic';
+import { camerasOrthographic } from './cameras.orthographic';
 
-export { Orthographic as OrthographicCamera, camerasOrthographic as orthographicCameraFactory };
+export { camerasOrthographic as OrthographicCamera };

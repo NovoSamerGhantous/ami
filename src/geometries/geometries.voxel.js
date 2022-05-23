@@ -54,7 +54,4 @@ class geometriesVoxel extends Constructor {
   }
 };
 
-// export factory
 export { geometriesVoxel };
-// default export to
-export default geometriesVoxel();

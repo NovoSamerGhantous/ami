@@ -103,7 +103,4 @@ class helpersBorder extends Constructor {
   }
 };
 
-// export factory
 export { helpersBorder };
-// default export to
-export default helpersBorder();

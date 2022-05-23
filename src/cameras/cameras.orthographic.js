@@ -725,7 +725,4 @@ class camerasOrthographic extends OrthographicCamera {
   }
 };
 
-// export factory
 export { camerasOrthographic };
-// default export to
-export default camerasOrthographic;

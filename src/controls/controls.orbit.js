@@ -1070,4 +1070,3 @@ const orbit = () => {
 }
 
 export { orbit };
-export default orbit();

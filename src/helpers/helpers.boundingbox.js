@@ -3,109 +3,102 @@ import { Object3D, Vector3, BoxGeometry, Matrix4, MeshBasicMaterial, Mesh, BoxHe
 /**
  * @module helpers/boundingbox
  */
+class helpersBoundingBox extends Object3D {
+  constructor(stack) {
+    //
+    super();
 
-const helpersBoundingBox = () => {
-  const Constructor = Object3D;
-  return class extends Constructor {
-    constructor(stack) {
-      //
-      super();
+    // private vars
+    this._stack = stack;
+    this._visible = true;
+    this._color = 0xffffff;
+    this._material = null;
+    this._geometry = null;
+    this._mesh = null;
+    this._meshStack = null;
 
-      // private vars
-      this._stack = stack;
-      this._visible = true;
-      this._color = 0xffffff;
-      this._material = null;
-      this._geometry = null;
-      this._mesh = null;
-      this._meshStack = null;
+    // create object
+    this._create();
+  }
 
-      // create object
-      this._create();
+  // getters/setters
+  set visible(visible) {
+    this._visible = visible;
+    if (this._mesh) {
+      this._mesh.visible = this._visible;
     }
+  }
 
-    // getters/setters
-    set visible(visible) {
-      this._visible = visible;
-      if (this._mesh) {
-        this._mesh.visible = this._visible;
-      }
+  get visible() {
+    return this._visible;
+  }
+
+  set color(color) {
+    this._color = color;
+    if (this._material) {
+      this._material.color.set(this._color);
     }
+  }
 
-    get visible() {
-      return this._visible;
-    }
+  get color() {
+    return this._color;
+  }
 
-    set color(color) {
-      this._color = color;
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    }
+  // private methods
+  _create() {
+    // Convenience vars
+    const dimensions = this._stack.dimensionsIJK;
+    const halfDimensions = this._stack.halfDimensionsIJK;
+    const offset = new Vector3(-0.5, -0.5, -0.5);
 
-    get color() {
-      return this._color;
-    }
+    // Geometry
+    const geometry = new BoxGeometry(dimensions.x, dimensions.y, dimensions.z);
+    geometry.applyMatrix4(
+      new Matrix4().makeTranslation(
+        halfDimensions.x + offset.x,
+        halfDimensions.y + offset.y,
+        halfDimensions.z + offset.z
+      )
+    );
+    this._geometry = geometry;
 
-    // private methods
-    _create() {
-      // Convenience vars
-      const dimensions = this._stack.dimensionsIJK;
-      const halfDimensions = this._stack.halfDimensionsIJK;
-      const offset = new Vector3(-0.5, -0.5, -0.5);
+    // Material
+    this._material = new MeshBasicMaterial({
+      wireframe: true,
+    });
 
-      // Geometry
-      const geometry = new BoxGeometry(dimensions.x, dimensions.y, dimensions.z);
-      geometry.applyMatrix4(
-        new Matrix4().makeTranslation(
-          halfDimensions.x + offset.x,
-          halfDimensions.y + offset.y,
-          halfDimensions.z + offset.z
-        )
-      );
-      this._geometry = geometry;
+    const mesh = new Mesh(this._geometry, null);
+    mesh.applyMatrix4(this._stack.ijk2LPS);
+    mesh.visible = this._visible;
+    this._meshStack = mesh;
 
-      // Material
-      this._material = new MeshBasicMaterial({
-        wireframe: true,
-      });
+    this._mesh = new BoxHelper(this._meshStack, this._color);
+    this._material = this._mesh.material;
 
-      const mesh = new Mesh(this._geometry, null);
-      mesh.applyMatrix4(this._stack.ijk2LPS);
-      mesh.visible = this._visible;
-      this._meshStack = mesh;
+    this.add(this._mesh);
+  }
 
-      this._mesh = new BoxHelper(this._meshStack, this._color);
-      this._material = this._mesh.material;
-
-      this.add(this._mesh);
-    }
-
-    _update() {
-      if (this._mesh) {
-        this.remove(this._mesh);
-        this._mesh.geometry.dispose();
-        this._mesh.geometry = null;
-        this._mesh.material.dispose();
-        this._mesh.material = null;
-        this._mesh = null;
-      }
-
-      this._create();
-    }
-
-    dispose() {
+  _update() {
+    if (this._mesh) {
+      this.remove(this._mesh);
+      this._mesh.geometry.dispose();
+      this._mesh.geometry = null;
       this._mesh.material.dispose();
       this._mesh.material = null;
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.dispose();
-      this._material = null;
+      this._mesh = null;
     }
-  };
+
+    this._create();
+  }
+
+  dispose() {
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.dispose();
+    this._material = null;
+  }
 };
 
-// export factory
 export { helpersBoundingBox };
-// default export too
-export default helpersBoundingBox();

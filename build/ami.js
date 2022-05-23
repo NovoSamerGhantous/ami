@@ -77937,7 +77937,7 @@ module.exports = g;
 /*! exports provided: name, private, version, main, keywords, author, license, repository, config, lint-staged, prettier, sideEffects, scripts, dependencies, devDependencies, engines, default */
 /***/ (function(module) {
 
-module.exports = {"name":"ami.js","private":true,"version":"0.32.1","main":"build/ami.min.js","keywords":["ami","ami.js","three.js","webgl","dicom","nifti","awesome","medical","imaging","xtk","nrrd","vtk","stl","trk"],"author":{"name":"Nicolas Rannou","email":"nicolas@eunate.ch","url":"https://eunate.ch"},"license":"Apache-2.0","repository":{"type":"git","url":"https://fnndsc.github.io/ami"},"config":{"gaKey":"UA-39303022-3","babel":"--module-bind js=babel-loader --colors --display-error-details"},"lint-staged":{"{{src/**,examples/**, lessons/**}/,}.{js,jsx,json,css,ts,tsx}":["prettier --write","git add"]},"prettier":{"printWidth":100,"singleQuote":true,"trailingComma":"es5","overrides":[{"files":"*.css","options":{"useTabs":false,"tabWidth":2}}]},"sideEffects":false,"scripts":{"precommit":"lint-staged","tslint-check":"tslint-config-prettier-check ./tslint.json","check-codestyle":"prettier-check 'src/**/*.{js,jsx,json,css,ts,tsx}'","fix-all-code-style":"prettier --write '{{src/**,examples/**, lessons/**}/,}*.{js,jsx,json,css,ts,tsx}'","build:ami":"webpack --config webpack.config.build.js --display-error-details","build:ami:prod":"cross-env NODE_ENV=production yarn build:ami","build:clean":"rimraf -rf build/*","build:clean:hot":"rimraf -rf build/*.hot-update.*","dev:ami":"webpack --config webpack.config.build.js --hot --watch --colors","dist:ami":"yarn build:clean && yarn build:ami && yarn build:ami:prod && yarn doc","dist:examples":"node ./scripts/buildDist.js && node ./scripts/router.js examples deploy","dist:clean":"rimraf -rf dist/*","analyze:ami":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami","analyze:ami:prod":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami:prod","clean":"yarn build:clean && yarn dist:clean","example":"node ./scripts/router.js examples","gen:index:examples":"node ./scripts/genIndexFiles.js examples","gen:index:examples:ga":"cross-env NODE_GA=true node ./scripts/genIndexFiles.js examples","test":"karma start","testExamples":"yarn dist:clean && yarn dist:examples","doc":"jsdoc -p -r -R README.md -c jsdoc.json -d dist/doc src","ami":"yarn dist:ami && yarn test","deploy":"yarn dist:clean && yarn build:clean && yarn dist:ami && yarn dist:examples && gh-pages -d dist"},"dependencies":{"OpenJPEG.js":"joedrago/openjpeg#master","dicom-parser":"1.8.1","image-JPEG2000":"ReflexionMed/image-JPEG2000#master","jpeg-lossless-decoder-js":"1.2.3","math-float32-to-binary-string":"^1.0.0","nifti-reader-js":"v0.5.3","nrrd-js":"^0.2.1","pako":"1.0.1","three":"0.140.2"},"devDependencies":{"@types/jasmine":"^3.3.2","@types/node":"^10.11.3","@types/three":"0.140.0","babel-cli":"latest","babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-env":"^1.6.0","babel-runtime":"^6.26.0","compression-webpack-plugin":"^1.0.1","cross-env":"^3.2.3","gh-pages":"^1.2.0","husky":"^1.1.3","jasmine-core":"^2.99.1","jsdoc":"jsdoc3/jsdoc#master","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-jasmine":"^1.1.2","karma-sinon":"^1.0.5","karma-spec-reporter":"^0.0.32","karma-webpack":"3.0.0","lint-staged":"^8.0.4","live-server":"^1.1.0","node-pre-gyp":"^0.10.0","prettier":"^1.15.1","prettier-check":"^2.0.0","puppeteer":"^1.6.1","rimraf":"^2.6.1","rollup-plugin-node-builtins":"^2.1.2","shelljs":"^0.8.2","sinon":"^2.0.0","ts-loader":"^5.2.1","tslint":"^5.11.0","tslint-config-prettier":"^1.15.0","tslint-loader":"^3.6.0","typescript":"^3.1.1","uglifyjs-webpack-plugin":"^1.2.7","webpack":"^4.16.3","webpack-bundle-analyzer":"^2.9.0","webpack-cli":"^3.1.0","webpack-dev-server":"^3.1.5","webpack-watch-livereload-plugin":"^0.0.1"},"engines":{"node":">=6.9.0"}};
+module.exports = {"name":"ami.js","private":true,"version":"0.32.1","main":"build/ami.js","keywords":["ami","ami.js","three.js","webgl","dicom","nifti","awesome","medical","imaging","xtk","nrrd","vtk","stl","trk"],"author":{"name":"Nicolas Rannou","email":"nicolas@eunate.ch","url":"https://eunate.ch"},"license":"Apache-2.0","repository":{"type":"git","url":"https://fnndsc.github.io/ami"},"config":{"gaKey":"UA-39303022-3","babel":"--module-bind js=babel-loader --colors --display-error-details"},"lint-staged":{"{{src/**,examples/**, lessons/**}/,}.{js,jsx,json,css,ts,tsx}":["prettier --write","git add"]},"prettier":{"printWidth":100,"singleQuote":true,"trailingComma":"es5","overrides":[{"files":"*.css","options":{"useTabs":false,"tabWidth":2}}]},"sideEffects":false,"scripts":{"precommit":"lint-staged","tslint-check":"tslint-config-prettier-check ./tslint.json","check-codestyle":"prettier-check 'src/**/*.{js,jsx,json,css,ts,tsx}'","fix-all-code-style":"prettier --write '{{src/**,examples/**, lessons/**}/,}*.{js,jsx,json,css,ts,tsx}'","build:ami":"webpack --config webpack.config.build.js --display-error-details","build:ami:prod":"cross-env NODE_ENV=production yarn build:ami","build:clean":"rimraf -rf build/*","build:clean:hot":"rimraf -rf build/*.hot-update.*","dev:ami":"webpack --config webpack.config.build.js --hot --watch --colors","dist:ami":"yarn build:clean && yarn build:ami && yarn build:ami:prod && yarn doc","dist:examples":"node ./scripts/buildDist.js && node ./scripts/router.js examples deploy","dist:clean":"rimraf -rf dist/*","analyze:ami":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami","analyze:ami:prod":"cross-env NODE_WEBPACK_ANALYZE=true yarn build:ami:prod","clean":"yarn build:clean && yarn dist:clean","example":"node ./scripts/router.js examples","gen:index:examples":"node ./scripts/genIndexFiles.js examples","gen:index:examples:ga":"cross-env NODE_GA=true node ./scripts/genIndexFiles.js examples","test":"karma start","testExamples":"yarn dist:clean && yarn dist:examples","doc":"jsdoc -p -r -R README.md -c jsdoc.json -d dist/doc src","ami":"yarn dist:ami && yarn test","deploy":"yarn dist:clean && yarn build:clean && yarn dist:ami && yarn dist:examples && gh-pages -d dist"},"dependencies":{"OpenJPEG.js":"joedrago/openjpeg#master","dicom-parser":"1.8.1","image-JPEG2000":"ReflexionMed/image-JPEG2000#master","jpeg-lossless-decoder-js":"1.2.3","math-float32-to-binary-string":"^1.0.0","nifti-reader-js":"v0.5.3","nrrd-js":"^0.2.1","pako":"1.0.1","three":"0.140.2"},"devDependencies":{"@types/jasmine":"^3.3.2","@types/node":"^10.11.3","@types/three":"0.140.0","babel-cli":"latest","babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-env":"^1.6.0","babel-runtime":"^6.26.0","compression-webpack-plugin":"^1.0.1","cross-env":"^3.2.3","gh-pages":"^1.2.0","husky":"^1.1.3","jasmine-core":"^2.99.1","jsdoc":"jsdoc3/jsdoc#master","karma":"^2.0.5","karma-chrome-launcher":"^2.2.0","karma-jasmine":"^1.1.2","karma-sinon":"^1.0.5","karma-spec-reporter":"^0.0.32","karma-webpack":"3.0.0","lint-staged":"^8.0.4","live-server":"^1.1.0","node-pre-gyp":"^0.10.0","prettier":"^1.15.1","prettier-check":"^2.0.0","puppeteer":"^1.6.1","rimraf":"^2.6.1","rollup-plugin-node-builtins":"^2.1.2","shelljs":"^0.8.2","sinon":"^2.0.0","ts-loader":"^5.2.1","tslint":"^5.11.0","tslint-config-prettier":"^1.15.0","tslint-loader":"^3.6.0","typescript":"^3.1.1","uglifyjs-webpack-plugin":"^1.2.7","webpack":"^4.16.3","webpack-bundle-analyzer":"^2.9.0","webpack-cli":"^3.1.0","webpack-dev-server":"^3.1.5","webpack-watch-livereload-plugin":"^0.0.1"},"engines":{"node":">=6.9.0"}};
 
 /***/ }),
 
@@ -77945,7 +77945,7 @@ module.exports = {"name":"ami.js","private":true,"version":"0.32.1","main":"buil
 /*!********************!*\
   !*** ./src/ami.ts ***!
   \********************/
-/*! exports provided: OrthographicCamera, orthographicCameraFactory, TrackballControl, trackballControlFactory, TrackballOrthoControl, trackballOrthoControlFactory, OrbitControl, orbitControlFactory, ColorsCore, IntersectionsCore, UtilsCore, ValidatorsCore, SliceGeometry, sliceGeometryFactory, VoxelGeometry, voxelGeometryFactory, BorderHelper, borderHelperFactory, BoundingBoxHelper, boundingBoxHelperFactory, ContourHelper, contourHelperFactory, LocalizerHelper, localizerHelperFactory, LutHelper, lutHelperFactory, SegmentationLutHelper, ProgressBarHelper, ProgressBarEventBasedHelper, SliceHelper, sliceHelperFactory, StackHelper, stackHelperFactory, VolumeRenderingHelper, VolumeRenderingHelperFactory, VolumeLoader, FrameModel, StackModel, SeriesModel, VoxelModel, DicomParser, MghParser, NiftiParser, NrrdParser, SegmentationPreset, ContourUniformShader, ContourFragmentShader, ContourVertexShader, DataUniformShader, DataFragmentShader, DataVertexShader, VRUniformShader, VRFragmentShader, VRVertexShader, LayerUniformShader, LayerFragmentShader, LayerVertexShader, LocalizerUniformShader, LocalizerFragmentShader, LocalizerVertexShader, WidgetsCss, AngleWidget, angleWidgetFactory, AnnotationWidget, annotationWidgetFactory, BiRulerWidget, birulerWidgetFactory, CrossRulerWidget, crossrulerWidgetFactory, EllipseWidget, ellipseWidgetFactory, FreehandWidget, freehandWidgetFactory, HandleWidget, handleWidgetFactory, PeakVelocityWidget, peakVelocityWidgetFactory, PressureHalfTimeWidget, pressureHalfTimeWidgetFactory, PolygonWidget, polygonWidgetFactory, RectangleWidget, rectangleWidgetFactory, RulerWidget, rulerWidgetFactory, VelocityTimeIntegralWidget, velocityTimeIntegralWidgetFactory, VoxelProbeWidget, voxelprobeWidgetFactory */
+/*! exports provided: OrthographicCamera, TrackballControl, TrackballOrthoControl, OrbitControl, ColorsCore, IntersectionsCore, UtilsCore, ValidatorsCore, SliceGeometry, VoxelGeometry, BorderHelper, BoundingBoxHelper, ContourHelper, LocalizerHelper, LutHelper, SegmentationLutHelper, ProgressBarHelper, ProgressBarEventBasedHelper, SliceHelper, StackHelper, VolumeRenderingHelper, VolumeLoader, FrameModel, StackModel, SeriesModel, VoxelModel, DicomParser, MghParser, NiftiParser, NrrdParser, SegmentationPreset, ContourUniformShader, ContourFragmentShader, ContourVertexShader, DataUniformShader, DataFragmentShader, DataVertexShader, VRUniformShader, VRFragmentShader, VRVertexShader, LayerUniformShader, LayerFragmentShader, LayerVertexShader, LocalizerUniformShader, LocalizerFragmentShader, LocalizerVertexShader, WidgetsCss, AngleWidget, AnnotationWidget, BiRulerWidget, CrossRulerWidget, EllipseWidget, FreehandWidget, HandleWidget, PeakVelocityWidget, PressureHalfTimeWidget, PolygonWidget, RectangleWidget, RulerWidget, VelocityTimeIntegralWidget, VoxelProbeWidget */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77953,20 +77953,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cameras_cameras__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cameras/cameras */ "./src/cameras/cameras.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "OrthographicCamera", function() { return _cameras_cameras__WEBPACK_IMPORTED_MODULE_0__["OrthographicCamera"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "orthographicCameraFactory", function() { return _cameras_cameras__WEBPACK_IMPORTED_MODULE_0__["orthographicCameraFactory"]; });
-
 /* harmony import */ var _controls_controls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controls/controls */ "./src/controls/controls.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TrackballControl", function() { return _controls_controls__WEBPACK_IMPORTED_MODULE_1__["TrackballControl"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "trackballControlFactory", function() { return _controls_controls__WEBPACK_IMPORTED_MODULE_1__["trackballControlFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TrackballOrthoControl", function() { return _controls_controls__WEBPACK_IMPORTED_MODULE_1__["TrackballOrthoControl"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "trackballOrthoControlFactory", function() { return _controls_controls__WEBPACK_IMPORTED_MODULE_1__["trackballOrthoControlFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "OrbitControl", function() { return _controls_controls__WEBPACK_IMPORTED_MODULE_1__["OrbitControl"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "orbitControlFactory", function() { return _controls_controls__WEBPACK_IMPORTED_MODULE_1__["orbitControlFactory"]; });
 
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./core/core */ "./src/core/core.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ColorsCore", function() { return _core_core__WEBPACK_IMPORTED_MODULE_2__["ColorsCore"]; });
@@ -77980,32 +77972,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _geometries_geometries__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./geometries/geometries */ "./src/geometries/geometries.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SliceGeometry", function() { return _geometries_geometries__WEBPACK_IMPORTED_MODULE_3__["SliceGeometry"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sliceGeometryFactory", function() { return _geometries_geometries__WEBPACK_IMPORTED_MODULE_3__["sliceGeometryFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VoxelGeometry", function() { return _geometries_geometries__WEBPACK_IMPORTED_MODULE_3__["VoxelGeometry"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "voxelGeometryFactory", function() { return _geometries_geometries__WEBPACK_IMPORTED_MODULE_3__["voxelGeometryFactory"]; });
 
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/helpers */ "./src/helpers/helpers.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BorderHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["BorderHelper"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "borderHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["borderHelperFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BoundingBoxHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["BoundingBoxHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "boundingBoxHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["boundingBoxHelperFactory"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ContourHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["ContourHelper"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "contourHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["contourHelperFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalizerHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["LocalizerHelper"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "localizerHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["localizerHelperFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LutHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["LutHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lutHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["lutHelperFactory"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SegmentationLutHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["SegmentationLutHelper"]; });
 
@@ -78015,15 +77993,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SliceHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["SliceHelper"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sliceHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["sliceHelperFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StackHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["StackHelper"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "stackHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["stackHelperFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VolumeRenderingHelper", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["VolumeRenderingHelper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VolumeRenderingHelperFactory", function() { return _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["VolumeRenderingHelperFactory"]; });
 
 /* harmony import */ var _loaders_loaders__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./loaders/loaders */ "./src/loaders/loaders.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VolumeLoader", function() { return _loaders_loaders__WEBPACK_IMPORTED_MODULE_5__["VolumeLoader"]; });
@@ -78085,59 +78057,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AngleWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["AngleWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "angleWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["angleWidgetFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AnnotationWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["AnnotationWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "annotationWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["annotationWidgetFactory"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BiRulerWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["BiRulerWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "birulerWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["birulerWidgetFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CrossRulerWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["CrossRulerWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "crossrulerWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["crossrulerWidgetFactory"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EllipseWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["EllipseWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ellipseWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["ellipseWidgetFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FreehandWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["FreehandWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "freehandWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["freehandWidgetFactory"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HandleWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["HandleWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "handleWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["handleWidgetFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PeakVelocityWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["PeakVelocityWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "peakVelocityWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["peakVelocityWidgetFactory"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PressureHalfTimeWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["PressureHalfTimeWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "pressureHalfTimeWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["pressureHalfTimeWidgetFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolygonWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["PolygonWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "polygonWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["polygonWidgetFactory"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RectangleWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["RectangleWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "rectangleWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["rectangleWidgetFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RulerWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["RulerWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "rulerWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["rulerWidgetFactory"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VelocityTimeIntegralWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["VelocityTimeIntegralWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "velocityTimeIntegralWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["velocityTimeIntegralWidgetFactory"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VoxelProbeWidget", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["VoxelProbeWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "voxelprobeWidgetFactory", function() { return _widgets_widgets__WEBPACK_IMPORTED_MODULE_10__["voxelprobeWidgetFactory"]; });
 
 
 
@@ -78161,15 +78105,13 @@ console.log(`ami ${packageVersion} (three ${d3Version})`);
 /*!********************************!*\
   !*** ./src/cameras/cameras.js ***!
   \********************************/
-/*! exports provided: OrthographicCamera, orthographicCameraFactory */
+/*! exports provided: OrthographicCamera */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cameras_orthographic__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cameras.orthographic */ "./src/cameras/cameras.orthographic.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "OrthographicCamera", function() { return _cameras_orthographic__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "orthographicCameraFactory", function() { return _cameras_orthographic__WEBPACK_IMPORTED_MODULE_0__["camerasOrthographic"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "OrthographicCamera", function() { return _cameras_orthographic__WEBPACK_IMPORTED_MODULE_0__["camerasOrthographic"]; });
 
 
 
@@ -78181,7 +78123,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************!*\
   !*** ./src/cameras/cameras.orthographic.js ***!
   \*********************************************/
-/*! exports provided: camerasOrthographic, default */
+/*! exports provided: camerasOrthographic */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -78900,10 +78842,7 @@ var camerasOrthographic = function (_OrthographicCamera) {
 
 ;
 
-// export factory
 
-// default export to
-/* harmony default export */ __webpack_exports__["default"] = (camerasOrthographic);
 
 /***/ }),
 
@@ -78911,25 +78850,19 @@ var camerasOrthographic = function (_OrthographicCamera) {
 /*!**********************************!*\
   !*** ./src/controls/controls.js ***!
   \**********************************/
-/*! exports provided: TrackballControl, trackballControlFactory, TrackballOrthoControl, trackballOrthoControlFactory, OrbitControl, orbitControlFactory */
+/*! exports provided: TrackballControl, TrackballOrthoControl, OrbitControl */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controls_trackball__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./controls.trackball */ "./src/controls/controls.trackball.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TrackballControl", function() { return _controls_trackball__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "trackballControlFactory", function() { return _controls_trackball__WEBPACK_IMPORTED_MODULE_0__["trackball"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TrackballControl", function() { return _controls_trackball__WEBPACK_IMPORTED_MODULE_0__["trackball"]; });
 
 /* harmony import */ var _controls_trackballortho__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controls.trackballortho */ "./src/controls/controls.trackballortho.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TrackballOrthoControl", function() { return _controls_trackballortho__WEBPACK_IMPORTED_MODULE_1__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "trackballOrthoControlFactory", function() { return _controls_trackballortho__WEBPACK_IMPORTED_MODULE_1__["trackballOrtho"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TrackballOrthoControl", function() { return _controls_trackballortho__WEBPACK_IMPORTED_MODULE_1__["trackballOrtho"]; });
 
 /* harmony import */ var _controls_orbit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./controls.orbit */ "./src/controls/controls.orbit.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "OrbitControl", function() { return _controls_orbit__WEBPACK_IMPORTED_MODULE_2__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "orbitControlFactory", function() { return _controls_orbit__WEBPACK_IMPORTED_MODULE_2__["orbit"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "OrbitControl", function() { return _controls_orbit__WEBPACK_IMPORTED_MODULE_2__["orbit"]; });
 
 
 
@@ -78943,7 +78876,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************!*\
   !*** ./src/controls/controls.orbit.js ***!
   \****************************************/
-/*! exports provided: orbit, default */
+/*! exports provided: orbit */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -79938,7 +79871,6 @@ var orbit = function orbit() {
 };
 
 
-/* harmony default export */ __webpack_exports__["default"] = (orbit());
 
 /***/ }),
 
@@ -79946,7 +79878,7 @@ var orbit = function orbit() {
 /*!********************************************!*\
   !*** ./src/controls/controls.trackball.js ***!
   \********************************************/
-/*! exports provided: trackball, default */
+/*! exports provided: trackball */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -80639,10 +80571,7 @@ var trackball = function (_EventDispatcher) {
 
 ;
 
-// export factory
 
-// default export to
-/* harmony default export */ __webpack_exports__["default"] = (trackball);
 
 /***/ }),
 
@@ -80650,7 +80579,7 @@ var trackball = function (_EventDispatcher) {
 /*!*************************************************!*\
   !*** ./src/controls/controls.trackballortho.js ***!
   \*************************************************/
-/*! exports provided: trackballOrtho, default */
+/*! exports provided: trackballOrtho */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -81111,10 +81040,7 @@ var trackballOrtho = function (_Constructor) {
 
 ;
 
-// export factory
 
-// default export to
-/* harmony default export */ __webpack_exports__["default"] = (trackballOrtho());
 
 /***/ }),
 
@@ -82542,20 +82468,16 @@ var RLEDecoder = decodeRLE;
 /*!**************************************!*\
   !*** ./src/geometries/geometries.js ***!
   \**************************************/
-/*! exports provided: SliceGeometry, sliceGeometryFactory, VoxelGeometry, voxelGeometryFactory */
+/*! exports provided: SliceGeometry, VoxelGeometry */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _geometries_slice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./geometries.slice */ "./src/geometries/geometries.slice.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SliceGeometry", function() { return _geometries_slice__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sliceGeometryFactory", function() { return _geometries_slice__WEBPACK_IMPORTED_MODULE_0__["geometriesSlice"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SliceGeometry", function() { return _geometries_slice__WEBPACK_IMPORTED_MODULE_0__["geometriesSlice"]; });
 
 /* harmony import */ var _geometries_voxel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./geometries.voxel */ "./src/geometries/geometries.voxel.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VoxelGeometry", function() { return _geometries_voxel__WEBPACK_IMPORTED_MODULE_1__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "voxelGeometryFactory", function() { return _geometries_voxel__WEBPACK_IMPORTED_MODULE_1__["geometriesVoxel"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VoxelGeometry", function() { return _geometries_voxel__WEBPACK_IMPORTED_MODULE_1__["geometriesVoxel"]; });
 
 
 
@@ -82568,7 +82490,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************!*\
   !*** ./src/geometries/geometries.slice.js ***!
   \********************************************/
-/*! exports provided: geometriesSlice, default */
+/*! exports provided: geometriesSlice */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82706,10 +82628,7 @@ var geometriesSlice = function (_Constructor) {
 
 ;
 
-// export factory
 
-// default export to
-/* harmony default export */ __webpack_exports__["default"] = (geometriesSlice());
 
 /***/ }),
 
@@ -82717,7 +82636,7 @@ var geometriesSlice = function (_Constructor) {
 /*!********************************************!*\
   !*** ./src/geometries/geometries.voxel.js ***!
   \********************************************/
-/*! exports provided: geometriesVoxel, default */
+/*! exports provided: geometriesVoxel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82795,10 +82714,7 @@ var geometriesVoxel = function (_Constructor) {
 
 ;
 
-// export factory
 
-// default export to
-/* harmony default export */ __webpack_exports__["default"] = (geometriesVoxel());
 
 /***/ }),
 
@@ -82806,7 +82722,7 @@ var geometriesVoxel = function (_Constructor) {
 /*!***************************************!*\
   !*** ./src/helpers/helpers.border.js ***!
   \***************************************/
-/*! exports provided: helpersBorder, default */
+/*! exports provided: helpersBorder */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82938,10 +82854,7 @@ var helpersBorder = function (_Constructor) {
 
 ;
 
-// export factory
 
-// default export to
-/* harmony default export */ __webpack_exports__["default"] = (helpersBorder());
 
 /***/ }),
 
@@ -82949,7 +82862,7 @@ var helpersBorder = function (_Constructor) {
 /*!********************************************!*\
   !*** ./src/helpers/helpers.boundingbox.js ***!
   \********************************************/
-/*! exports provided: helpersBoundingBox, default */
+/*! exports provided: helpersBoundingBox */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82970,117 +82883,113 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @module helpers/boundingbox
  */
 
-var helpersBoundingBox = function helpersBoundingBox() {
-  var Constructor = three__WEBPACK_IMPORTED_MODULE_0__["Object3D"];
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
+var helpersBoundingBox = function (_Object3D) {
+  _inherits(helpersBoundingBox, _Object3D);
 
-    function _class(stack) {
-      _classCallCheck(this, _class);
+  function helpersBoundingBox(stack) {
+    _classCallCheck(this, helpersBoundingBox);
 
-      // private vars
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this));
-      //
+    // private vars
+    var _this = _possibleConstructorReturn(this, _Object3D.call(this));
+    //
 
 
-      _this._stack = stack;
-      _this._visible = true;
-      _this._color = 0xffffff;
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
-      _this._meshStack = null;
+    _this._stack = stack;
+    _this._visible = true;
+    _this._color = 0xffffff;
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
+    _this._meshStack = null;
 
-      // create object
-      _this._create();
-      return _this;
-    }
+    // create object
+    _this._create();
+    return _this;
+  }
 
-    // getters/setters
+  // getters/setters
 
 
-    // private methods
-    _class.prototype._create = function _create() {
-      // Convenience vars
-      var dimensions = this._stack.dimensionsIJK;
-      var halfDimensions = this._stack.halfDimensionsIJK;
-      var offset = new three__WEBPACK_IMPORTED_MODULE_0__["Vector3"](-0.5, -0.5, -0.5);
+  // private methods
+  helpersBoundingBox.prototype._create = function _create() {
+    // Convenience vars
+    var dimensions = this._stack.dimensionsIJK;
+    var halfDimensions = this._stack.halfDimensionsIJK;
+    var offset = new three__WEBPACK_IMPORTED_MODULE_0__["Vector3"](-0.5, -0.5, -0.5);
 
-      // Geometry
-      var geometry = new three__WEBPACK_IMPORTED_MODULE_0__["BoxGeometry"](dimensions.x, dimensions.y, dimensions.z);
-      geometry.applyMatrix4(new three__WEBPACK_IMPORTED_MODULE_0__["Matrix4"]().makeTranslation(halfDimensions.x + offset.x, halfDimensions.y + offset.y, halfDimensions.z + offset.z));
-      this._geometry = geometry;
+    // Geometry
+    var geometry = new three__WEBPACK_IMPORTED_MODULE_0__["BoxGeometry"](dimensions.x, dimensions.y, dimensions.z);
+    geometry.applyMatrix4(new three__WEBPACK_IMPORTED_MODULE_0__["Matrix4"]().makeTranslation(halfDimensions.x + offset.x, halfDimensions.y + offset.y, halfDimensions.z + offset.z));
+    this._geometry = geometry;
 
-      // Material
-      this._material = new three__WEBPACK_IMPORTED_MODULE_0__["MeshBasicMaterial"]({
-        wireframe: true
-      });
+    // Material
+    this._material = new three__WEBPACK_IMPORTED_MODULE_0__["MeshBasicMaterial"]({
+      wireframe: true
+    });
 
-      var mesh = new three__WEBPACK_IMPORTED_MODULE_0__["Mesh"](this._geometry, null);
-      mesh.applyMatrix4(this._stack.ijk2LPS);
-      mesh.visible = this._visible;
-      this._meshStack = mesh;
+    var mesh = new three__WEBPACK_IMPORTED_MODULE_0__["Mesh"](this._geometry, null);
+    mesh.applyMatrix4(this._stack.ijk2LPS);
+    mesh.visible = this._visible;
+    this._meshStack = mesh;
 
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_0__["BoxHelper"](this._meshStack, this._color);
-      this._material = this._mesh.material;
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_0__["BoxHelper"](this._meshStack, this._color);
+    this._material = this._mesh.material;
 
-      this.add(this._mesh);
-    };
+    this.add(this._mesh);
+  };
 
-    _class.prototype._update = function _update() {
-      if (this._mesh) {
-        this.remove(this._mesh);
-        this._mesh.geometry.dispose();
-        this._mesh.geometry = null;
-        this._mesh.material.dispose();
-        this._mesh.material = null;
-        this._mesh = null;
-      }
-
-      this._create();
-    };
-
-    _class.prototype.dispose = function dispose() {
+  helpersBoundingBox.prototype._update = function _update() {
+    if (this._mesh) {
+      this.remove(this._mesh);
+      this._mesh.geometry.dispose();
+      this._mesh.geometry = null;
       this._mesh.material.dispose();
       this._mesh.material = null;
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.dispose();
-      this._material = null;
-    };
+      this._mesh = null;
+    }
 
-    _createClass(_class, [{
-      key: 'visible',
-      set: function set(visible) {
-        this._visible = visible;
-        if (this._mesh) {
-          this._mesh.visible = this._visible;
-        }
-      },
-      get: function get() {
-        return this._visible;
+    this._create();
+  };
+
+  helpersBoundingBox.prototype.dispose = function dispose() {
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.dispose();
+    this._material = null;
+  };
+
+  _createClass(helpersBoundingBox, [{
+    key: 'visible',
+    set: function set(visible) {
+      this._visible = visible;
+      if (this._mesh) {
+        this._mesh.visible = this._visible;
       }
-    }, {
-      key: 'color',
-      set: function set(color) {
-        this._color = color;
-        if (this._material) {
-          this._material.color.set(this._color);
-        }
-      },
-      get: function get() {
-        return this._color;
+    },
+    get: function get() {
+      return this._visible;
+    }
+  }, {
+    key: 'color',
+    set: function set(color) {
+      this._color = color;
+      if (this._material) {
+        this._material.color.set(this._color);
       }
-    }]);
+    },
+    get: function get() {
+      return this._color;
+    }
+  }]);
 
-    return _class;
-  }(Constructor);
-};
+  return helpersBoundingBox;
+}(three__WEBPACK_IMPORTED_MODULE_0__["Object3D"]);
 
-// export factory
+;
 
-// default export too
-/* harmony default export */ __webpack_exports__["default"] = (helpersBoundingBox());
+
 
 /***/ }),
 
@@ -83088,7 +82997,7 @@ var helpersBoundingBox = function helpersBoundingBox() {
 /*!****************************************!*\
   !*** ./src/helpers/helpers.contour.js ***!
   \****************************************/
-/*! exports provided: helpersContour, default */
+/*! exports provided: helpersContour */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83287,10 +83196,7 @@ var helpersContour = function (_Constructor) {
 
 ;
 
-// export factory
 
-// default export to
-/* harmony default export */ __webpack_exports__["default"] = (helpersContour());
 
 /***/ }),
 
@@ -83298,35 +83204,25 @@ var helpersContour = function (_Constructor) {
 /*!********************************!*\
   !*** ./src/helpers/helpers.js ***!
   \********************************/
-/*! exports provided: BorderHelper, borderHelperFactory, BoundingBoxHelper, boundingBoxHelperFactory, ContourHelper, contourHelperFactory, LocalizerHelper, localizerHelperFactory, LutHelper, lutHelperFactory, SegmentationLutHelper, ProgressBarHelper, ProgressBarEventBasedHelper, SliceHelper, sliceHelperFactory, StackHelper, stackHelperFactory, VolumeRenderingHelper, VolumeRenderingHelperFactory */
+/*! exports provided: BorderHelper, BoundingBoxHelper, ContourHelper, LocalizerHelper, LutHelper, SegmentationLutHelper, ProgressBarHelper, ProgressBarEventBasedHelper, SliceHelper, StackHelper, VolumeRenderingHelper */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_border__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers.border */ "./src/helpers/helpers.border.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BorderHelper", function() { return _helpers_border__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "borderHelperFactory", function() { return _helpers_border__WEBPACK_IMPORTED_MODULE_0__["helpersBorder"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BorderHelper", function() { return _helpers_border__WEBPACK_IMPORTED_MODULE_0__["helpersBorder"]; });
 
 /* harmony import */ var _helpers_boundingbox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers.boundingbox */ "./src/helpers/helpers.boundingbox.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BoundingBoxHelper", function() { return _helpers_boundingbox__WEBPACK_IMPORTED_MODULE_1__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "boundingBoxHelperFactory", function() { return _helpers_boundingbox__WEBPACK_IMPORTED_MODULE_1__["helpersBoundingBox"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BoundingBoxHelper", function() { return _helpers_boundingbox__WEBPACK_IMPORTED_MODULE_1__["helpersBoundingBox"]; });
 
 /* harmony import */ var _helpers_contour__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers.contour */ "./src/helpers/helpers.contour.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ContourHelper", function() { return _helpers_contour__WEBPACK_IMPORTED_MODULE_2__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "contourHelperFactory", function() { return _helpers_contour__WEBPACK_IMPORTED_MODULE_2__["helpersContour"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ContourHelper", function() { return _helpers_contour__WEBPACK_IMPORTED_MODULE_2__["helpersContour"]; });
 
 /* harmony import */ var _helpers_localizer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers.localizer */ "./src/helpers/helpers.localizer.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalizerHelper", function() { return _helpers_localizer__WEBPACK_IMPORTED_MODULE_3__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "localizerHelperFactory", function() { return _helpers_localizer__WEBPACK_IMPORTED_MODULE_3__["helpersLocalizer"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalizerHelper", function() { return _helpers_localizer__WEBPACK_IMPORTED_MODULE_3__["helpersLocalizer"]; });
 
 /* harmony import */ var _helpers_lut__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers.lut */ "./src/helpers/helpers.lut.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LutHelper", function() { return _helpers_lut__WEBPACK_IMPORTED_MODULE_4__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lutHelperFactory", function() { return _helpers_lut__WEBPACK_IMPORTED_MODULE_4__["helpersLut"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LutHelper", function() { return _helpers_lut__WEBPACK_IMPORTED_MODULE_4__["helpersLut"]; });
 
 /* harmony import */ var _helpers_segmentationlut__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers.segmentationlut */ "./src/helpers/helpers.segmentationlut.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SegmentationLutHelper", function() { return _helpers_segmentationlut__WEBPACK_IMPORTED_MODULE_5__["default"]; });
@@ -83338,19 +83234,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProgressBarEventBasedHelper", function() { return _helpers_progressbar_eventbased__WEBPACK_IMPORTED_MODULE_7__["default"]; });
 
 /* harmony import */ var _helpers_slice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers.slice */ "./src/helpers/helpers.slice.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SliceHelper", function() { return _helpers_slice__WEBPACK_IMPORTED_MODULE_8__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sliceHelperFactory", function() { return _helpers_slice__WEBPACK_IMPORTED_MODULE_8__["helpersSlice"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SliceHelper", function() { return _helpers_slice__WEBPACK_IMPORTED_MODULE_8__["helpersSlice"]; });
 
 /* harmony import */ var _helpers_stack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers.stack */ "./src/helpers/helpers.stack.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StackHelper", function() { return _helpers_stack__WEBPACK_IMPORTED_MODULE_9__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "stackHelperFactory", function() { return _helpers_stack__WEBPACK_IMPORTED_MODULE_9__["helpersStack"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StackHelper", function() { return _helpers_stack__WEBPACK_IMPORTED_MODULE_9__["helpersStack"]; });
 
 /* harmony import */ var _helpers_volumerendering__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helpers.volumerendering */ "./src/helpers/helpers.volumerendering.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VolumeRenderingHelper", function() { return _helpers_volumerendering__WEBPACK_IMPORTED_MODULE_10__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VolumeRenderingHelperFactory", function() { return _helpers_volumerendering__WEBPACK_IMPORTED_MODULE_10__["helpersVolumeRendering"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VolumeRenderingHelper", function() { return _helpers_volumerendering__WEBPACK_IMPORTED_MODULE_10__["helpersVolumeRendering"]; });
 
 
 
@@ -83372,7 +83262,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************!*\
   !*** ./src/helpers/helpers.localizer.js ***!
   \******************************************/
-/*! exports provided: helpersLocalizer, default */
+/*! exports provided: helpersLocalizer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83399,237 +83289,236 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module helpers/localizer
  */
-var helpersLocalizer = function helpersLocalizer() {
-  var Constructor = three__WEBPACK_IMPORTED_MODULE_3__["Object3D"];
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(stack, geometry, referencePlane) {
-      _classCallCheck(this, _class);
+var helpersLocalizer = function (_Object3D) {
+  _inherits(helpersLocalizer, _Object3D);
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this));
+  function helpersLocalizer(stack, geometry, referencePlane) {
+    _classCallCheck(this, helpersLocalizer);
+
+    var _this = _possibleConstructorReturn(this, _Object3D.call(this));
+    //
+
+
+    _this._stack = stack;
+    _this._referencePlane = referencePlane;
+    _this._plane1 = null;
+    _this._color1 = null;
+    _this._plane2 = null;
+    _this._color2 = null;
+    _this._plane3 = null;
+    _this._color3 = null;
+    _this._canvasWidth = 0;
+    _this._canvasHeight = 0;
+    _this._shadersFragment = _shaders_shaders_localizer_fragment__WEBPACK_IMPORTED_MODULE_2__["default"];
+    _this._shadersVertex = _shaders_shaders_localizer_vertex__WEBPACK_IMPORTED_MODULE_1__["default"];
+    _this._uniforms = _shaders_shaders_localizer_uniform__WEBPACK_IMPORTED_MODULE_0__["default"].uniforms();
+    _this._material = null;
+    _this._geometry = geometry;
+
+    _this._create();
+    return _this;
+  }
+
+  helpersLocalizer.prototype._create = function _create() {
+    this._prepareMaterial();
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Mesh"](this._geometry, this._material);
+    this._mesh.applyMatrix(this._stack._ijk2LPS);
+    this.add(this._mesh);
+  };
+
+  helpersLocalizer.prototype._prepareMaterial = function _prepareMaterial() {
+    if (!this._material) {
+      // reference plane
+      this._uniforms.uSlice.value = this._referencePlane;
+
+      // localizer planes
+      if (this._plane1) {
+        this._uniforms.uPlane1.value = this._plane1;
+        this._uniforms.uPlaneColor1.value = this._color1;
+      }
+
+      if (this._plane2) {
+        this._uniforms.uPlane2.value = this._plane2;
+        this._uniforms.uPlaneColor2.value = this._color2;
+      }
+
+      if (this._plane3) {
+        this._uniforms.uPlane3.value = this._plane3;
+        this._uniforms.uPlaneColor3.value = this._color3;
+      }
+
       //
+      this._uniforms.uCanvasWidth.value = this._canvasWidth;
+      this._uniforms.uCanvasHeight.value = this._canvasHeight;
 
+      // generate material
+      var fs = new _shaders_shaders_localizer_fragment__WEBPACK_IMPORTED_MODULE_2__["default"](this._uniforms);
+      var vs = new _shaders_shaders_localizer_vertex__WEBPACK_IMPORTED_MODULE_1__["default"]();
+      this._material = new three__WEBPACK_IMPORTED_MODULE_3__["ShaderMaterial"]({
+        side: three__WEBPACK_IMPORTED_MODULE_3__["DoubleSide"],
+        uniforms: this._uniforms,
+        vertexShader: vs.compute(),
+        fragmentShader: fs.compute()
+      });
+      this._material.transparent = true;
+    }
+  };
 
-      _this._stack = stack;
-      _this._referencePlane = referencePlane;
-      _this._plane1 = null;
-      _this._color1 = null;
-      _this._plane2 = null;
-      _this._color2 = null;
-      _this._plane3 = null;
-      _this._color3 = null;
-      _this._canvasWidth = 0;
-      _this._canvasHeight = 0;
-      _this._shadersFragment = _shaders_shaders_localizer_fragment__WEBPACK_IMPORTED_MODULE_2__["default"];
-      _this._shadersVertex = _shaders_shaders_localizer_vertex__WEBPACK_IMPORTED_MODULE_1__["default"];
-      _this._uniforms = _shaders_shaders_localizer_uniform__WEBPACK_IMPORTED_MODULE_0__["default"].uniforms();
-      _this._material = null;
-      _this._geometry = geometry;
-
-      _this._create();
-      return _this;
+  helpersLocalizer.prototype.update = function update() {
+    if (this._mesh) {
+      this.remove(this._mesh);
+      this._mesh.geometry.dispose();
+      this._mesh.geometry = null;
+      this._mesh = null;
     }
 
-    _class.prototype._create = function _create() {
-      this._prepareMaterial();
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Mesh"](this._geometry, this._material);
-      this._mesh.applyMatrix(this._stack._ijk2LPS);
-      this.add(this._mesh);
-    };
+    this._create();
+  };
 
-    _class.prototype._prepareMaterial = function _prepareMaterial() {
-      if (!this._material) {
-        // reference plane
-        this._uniforms.uSlice.value = this._referencePlane;
+  helpersLocalizer.prototype.dispose = function dispose() {
+    //
+    this._referencePlane = null;
+    this._plane1 = null;
+    this._color1 = null;
+    this._plane2 = null;
+    this._color2 = null;
+    this._plane3 = null;
+    this._color3 = null;
 
-        // localizer planes
-        if (this._plane1) {
-          this._uniforms.uPlane1.value = this._plane1;
-          this._uniforms.uPlaneColor1.value = this._color1;
-        }
+    this._shadersFragment = null;
+    this._shadersVertex = null;
 
-        if (this._plane2) {
-          this._uniforms.uPlane2.value = this._plane2;
-          this._uniforms.uPlaneColor2.value = this._color2;
-        }
+    this._uniforms = null;
 
-        if (this._plane3) {
-          this._uniforms.uPlane3.value = this._plane3;
-          this._uniforms.uPlaneColor3.value = this._color3;
-        }
+    // material, geometry and mesh
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
 
-        //
-        this._uniforms.uCanvasWidth.value = this._canvasWidth;
-        this._uniforms.uCanvasHeight.value = this._canvasHeight;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
 
-        // generate material
-        var fs = new _shaders_shaders_localizer_fragment__WEBPACK_IMPORTED_MODULE_2__["default"](this._uniforms);
-        var vs = new _shaders_shaders_localizer_vertex__WEBPACK_IMPORTED_MODULE_1__["default"]();
-        this._material = new three__WEBPACK_IMPORTED_MODULE_3__["ShaderMaterial"]({
-          side: three__WEBPACK_IMPORTED_MODULE_3__["DoubleSide"],
-          uniforms: this._uniforms,
-          vertexShader: vs.compute(),
-          fragmentShader: fs.compute()
-        });
-        this._material.transparent = true;
-      }
-    };
+    this._stack = null;
+  };
 
-    _class.prototype.update = function update() {
+  _createClass(helpersLocalizer, [{
+    key: 'geometry',
+    get: function get() {
+      return this._geometry;
+    },
+    set: function set(geometry) {
       if (this._mesh) {
         this.remove(this._mesh);
         this._mesh.geometry.dispose();
         this._mesh.geometry = null;
         this._mesh = null;
+
+        this._geometry.dispose();
+        this._geometry = null;
       }
+
+      this._geometry = geometry;
 
       this._create();
-    };
+    }
+  }, {
+    key: 'referencePlane',
+    get: function get() {
+      return this._referencePlane;
+    },
+    set: function set(referencePlane) {
+      this._referencePlane = referencePlane;
+      this._uniforms.uSlice.value = this._referencePlane;
+    }
+  }, {
+    key: 'plane1',
+    get: function get() {
+      return this._plane1;
+    },
+    set: function set(plane1) {
+      this._plane1 = plane1;
+      this._uniforms.uPlane1.value = this._plane1;
+    }
+  }, {
+    key: 'color1',
+    get: function get() {
+      return this._color1;
+    },
+    set: function set(color1) {
+      this._color1 = color1;
+      this._uniforms.uPlaneColor1.value = this._color1;
+    }
+  }, {
+    key: 'plane2',
+    get: function get() {
+      return this._plane2;
+    },
+    set: function set(plane2) {
+      this._plane2 = plane2;
+      this._uniforms.uPlane2.value = this._plane2;
+    }
+  }, {
+    key: 'color2',
+    get: function get() {
+      return this._color2;
+    },
+    set: function set(color2) {
+      this._color2 = color2;
+      this._uniforms.uPlaneColor2.value = this._color2;
+    }
+  }, {
+    key: 'plane3',
+    get: function get() {
+      return this._plane3;
+    },
+    set: function set(plane3) {
+      this._plane3 = plane3;
+      this._uniforms.uPlane3.value = this._plane3;
+    }
+  }, {
+    key: 'color3',
+    get: function get() {
+      return this._color3;
+    },
+    set: function set(color3) {
+      this._color3 = color3;
+      this._uniforms.uPlaneColor3.value = this._color3;
+    }
+  }, {
+    key: 'canvasWidth',
+    get: function get() {
+      return this._canvasWidth;
+    },
+    set: function set(canvasWidth) {
+      this._canvasWidth = canvasWidth;
+      this._uniforms.uCanvasWidth.value = this._canvasWidth;
+    }
+  }, {
+    key: 'canvasHeight',
+    get: function get() {
+      return this._canvasHeight;
+    },
+    set: function set(canvasHeight) {
+      this._canvasHeight = canvasHeight;
+      this._uniforms.uCanvasHeight.value = this._canvasHeight;
+    }
+  }]);
 
-    _class.prototype.dispose = function dispose() {
-      //
-      this._referencePlane = null;
-      this._plane1 = null;
-      this._color1 = null;
-      this._plane2 = null;
-      this._color2 = null;
-      this._plane3 = null;
-      this._color3 = null;
+  return helpersLocalizer;
+}(three__WEBPACK_IMPORTED_MODULE_3__["Object3D"]);
 
-      this._shadersFragment = null;
-      this._shadersVertex = null;
-
-      this._uniforms = null;
-
-      // material, geometry and mesh
-      this.remove(this._mesh);
-      this._mesh.geometry.dispose();
-      this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
-      this._mesh = null;
-
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      this._stack = null;
-    };
-
-    _createClass(_class, [{
-      key: 'geometry',
-      get: function get() {
-        return this._geometry;
-      },
-      set: function set(geometry) {
-        if (this._mesh) {
-          this.remove(this._mesh);
-          this._mesh.geometry.dispose();
-          this._mesh.geometry = null;
-          this._mesh = null;
-
-          this._geometry.dispose();
-          this._geometry = null;
-        }
-
-        this._geometry = geometry;
-
-        this._create();
-      }
-    }, {
-      key: 'referencePlane',
-      get: function get() {
-        return this._referencePlane;
-      },
-      set: function set(referencePlane) {
-        this._referencePlane = referencePlane;
-        this._uniforms.uSlice.value = this._referencePlane;
-      }
-    }, {
-      key: 'plane1',
-      get: function get() {
-        return this._plane1;
-      },
-      set: function set(plane1) {
-        this._plane1 = plane1;
-        this._uniforms.uPlane1.value = this._plane1;
-      }
-    }, {
-      key: 'color1',
-      get: function get() {
-        return this._color1;
-      },
-      set: function set(color1) {
-        this._color1 = color1;
-        this._uniforms.uPlaneColor1.value = this._color1;
-      }
-    }, {
-      key: 'plane2',
-      get: function get() {
-        return this._plane2;
-      },
-      set: function set(plane2) {
-        this._plane2 = plane2;
-        this._uniforms.uPlane2.value = this._plane2;
-      }
-    }, {
-      key: 'color2',
-      get: function get() {
-        return this._color2;
-      },
-      set: function set(color2) {
-        this._color2 = color2;
-        this._uniforms.uPlaneColor2.value = this._color2;
-      }
-    }, {
-      key: 'plane3',
-      get: function get() {
-        return this._plane3;
-      },
-      set: function set(plane3) {
-        this._plane3 = plane3;
-        this._uniforms.uPlane3.value = this._plane3;
-      }
-    }, {
-      key: 'color3',
-      get: function get() {
-        return this._color3;
-      },
-      set: function set(color3) {
-        this._color3 = color3;
-        this._uniforms.uPlaneColor3.value = this._color3;
-      }
-    }, {
-      key: 'canvasWidth',
-      get: function get() {
-        return this._canvasWidth;
-      },
-      set: function set(canvasWidth) {
-        this._canvasWidth = canvasWidth;
-        this._uniforms.uCanvasWidth.value = this._canvasWidth;
-      }
-    }, {
-      key: 'canvasHeight',
-      get: function get() {
-        return this._canvasHeight;
-      },
-      set: function set(canvasHeight) {
-        this._canvasHeight = canvasHeight;
-        this._uniforms.uCanvasHeight.value = this._canvasHeight;
-      }
-    }]);
-
-    return _class;
-  }(Constructor);
-};
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (helpersLocalizer());
 
 /***/ }),
 
@@ -83637,7 +83526,7 @@ var helpersLocalizer = function helpersLocalizer() {
 /*!************************************!*\
   !*** ./src/helpers/helpers.lut.js ***!
   \************************************/
-/*! exports provided: helpersLut, default */
+/*! exports provided: helpersLut */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83659,244 +83548,243 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module helpers/lut
  */
-var helpersLut = function helpersLut() {
-  var Constructor = three__WEBPACK_IMPORTED_MODULE_1__["Object3D"];
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(domTarget) {
-      var lut = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'default';
-      var lutO = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'linear';
-      var color = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [[0, 0, 0, 0], [1, 1, 1, 1]];
+var helpersLut = function (_Object3D) {
+  _inherits(helpersLut, _Object3D);
 
-      var _this$_luts, _this$_lutsO;
+  function helpersLut(domTarget) {
+    var lut = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'default';
+    var lutO = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'linear';
+    var color = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [[0, 0, 0, 0], [1, 1, 1, 1]];
 
-      var opacity = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : [[0, 0], [1, 1]];
-      var discrete = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
+    var _this$_luts, _this$_lutsO;
 
-      _classCallCheck(this, _class);
+    var opacity = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : [[0, 0], [1, 1]];
+    var discrete = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this));
-      // min/max (0-1 or real intensities)
-      // show/hide
-      // horizontal/vertical
+    _classCallCheck(this, helpersLut);
+
+    var _this = _possibleConstructorReturn(this, _Object3D.call(this));
+    // min/max (0-1 or real intensities)
+    // show/hide
+    // horizontal/vertical
 
 
-      if (_core_core_utils__WEBPACK_IMPORTED_MODULE_0__["default"].isString(domTarget)) {
-        _this._dom = document.getElementById(domTarget);
-      } else {
-        _this._dom = domTarget;
-      }
-
-      _this._discrete = discrete;
-      _this._color = color;
-      _this._lut = lut;
-      _this._luts = (_this$_luts = {}, _this$_luts[lut] = color, _this$_luts);
-
-      _this._opacity = opacity;
-      _this._lutO = lutO;
-      _this._lutsO = (_this$_lutsO = {}, _this$_lutsO[lutO] = opacity, _this$_lutsO);
-
-      _this.initCanvas();
-      _this.paintCanvas();
-      return _this;
+    if (_core_core_utils__WEBPACK_IMPORTED_MODULE_0__["default"].isString(domTarget)) {
+      _this._dom = document.getElementById(domTarget);
+    } else {
+      _this._dom = domTarget;
     }
 
-    _class.prototype.initCanvas = function initCanvas() {
-      // container
-      this._canvasContainer = this.initCanvasContainer(this._dom);
-      // background
-      this._canvasBg = this.createCanvas();
-      this._canvasContainer.appendChild(this._canvasBg);
-      // foreground
-      this._canvas = this.createCanvas();
-      this._canvasContainer.appendChild(this._canvas);
-    };
+    _this._discrete = discrete;
+    _this._color = color;
+    _this._lut = lut;
+    _this._luts = (_this$_luts = {}, _this$_luts[lut] = color, _this$_luts);
 
-    _class.prototype.initCanvasContainer = function initCanvasContainer(dom) {
-      var canvasContainer = dom;
-      canvasContainer.style.border = '1px solid #F9F9F9';
-      return canvasContainer;
-    };
+    _this._opacity = opacity;
+    _this._lutO = lutO;
+    _this._lutsO = (_this$_lutsO = {}, _this$_lutsO[lutO] = opacity, _this$_lutsO);
 
-    _class.prototype.createCanvas = function createCanvas() {
-      var canvas = document.createElement('canvas');
-      canvas.height = 1;
-      canvas.width = 256;
-      canvas.style.width = '256px';
-      canvas.style.height = '16px';
-      return canvas;
-    };
+    _this.initCanvas();
+    _this.paintCanvas();
+    return _this;
+  }
 
-    _class.prototype.paintCanvas = function paintCanvas() {
+  helpersLut.prototype.initCanvas = function initCanvas() {
+    // container
+    this._canvasContainer = this.initCanvasContainer(this._dom);
+    // background
+    this._canvasBg = this.createCanvas();
+    this._canvasContainer.appendChild(this._canvasBg);
+    // foreground
+    this._canvas = this.createCanvas();
+    this._canvasContainer.appendChild(this._canvas);
+  };
+
+  helpersLut.prototype.initCanvasContainer = function initCanvasContainer(dom) {
+    var canvasContainer = dom;
+    canvasContainer.style.border = '1px solid #F9F9F9';
+    return canvasContainer;
+  };
+
+  helpersLut.prototype.createCanvas = function createCanvas() {
+    var canvas = document.createElement('canvas');
+    canvas.height = 1;
+    canvas.width = 256;
+    canvas.style.width = '256px';
+    canvas.style.height = '16px';
+    return canvas;
+  };
+
+  helpersLut.prototype.paintCanvas = function paintCanvas() {
+    // setup context
+    var ctx = this._canvas.getContext('2d');
+    ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
+    ctx.globalCompositeOperation = 'source-over';
+
+    // apply color
+    if (!this._discrete) {
+      var color = ctx.createLinearGradient(0, 0, this._canvas.width, 0);
+      for (var i = 0; i < this._color.length; i++) {
+        color.addColorStop(this._color[i][0], 'rgba( ' + Math.round(this._color[i][1] * 255) + ', ' + Math.round(this._color[i][2] * 255) + ', ' + Math.round(this._color[i][3] * 255) + ', 1)');
+      }
+
+      ctx.fillStyle = color;
+      ctx.fillRect(0, 0, this._canvas.width, this._canvas.height);
+
       // setup context
-      var ctx = this._canvas.getContext('2d');
-      ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
-      ctx.globalCompositeOperation = 'source-over';
+      ctx.globalCompositeOperation = 'destination-in';
 
-      // apply color
-      if (!this._discrete) {
-        var color = ctx.createLinearGradient(0, 0, this._canvas.width, 0);
-        for (var i = 0; i < this._color.length; i++) {
-          color.addColorStop(this._color[i][0], 'rgba( ' + Math.round(this._color[i][1] * 255) + ', ' + Math.round(this._color[i][2] * 255) + ', ' + Math.round(this._color[i][3] * 255) + ', 1)');
+      // apply opacity
+      var opacity = ctx.createLinearGradient(0, 0, this._canvas.width, 0);
+      for (var _i = 0; _i < this._opacity.length; _i++) {
+        opacity.addColorStop(this._opacity[_i][0], 'rgba(255, 255, 255, ' + this._opacity[_i][1] + ')');
+      }
+      ctx.fillStyle = opacity;
+      ctx.fillRect(0, 0, this._canvas.width, this._canvas.height);
+    } else {
+      ctx.lineWidth = 2 * this._canvas.height;
+
+      for (var _i2 = 0; _i2 < this._color.length; _i2++) {
+        var currentPos = this._color[_i2][0];
+        var nextPos = 1;
+        if (_i2 < this._color.length - 1) {
+          nextPos = this._color[_i2 + 1][0];
+        }
+        var previousPos = 0;
+        if (_i2 > 0) {
+          previousPos = this._color[_i2 - 1][0];
         }
 
-        ctx.fillStyle = color;
-        ctx.fillRect(0, 0, this._canvas.width, this._canvas.height);
+        var from = previousPos + (currentPos - previousPos) / 2;
+        var to = currentPos + (nextPos - currentPos) / 2;
+        var _color = this._color[_i2];
+        var _opacity = this._opacity[_i2] ? this._opacity[_i2][1] : 1;
 
-        // setup context
-        ctx.globalCompositeOperation = 'destination-in';
-
-        // apply opacity
-        var opacity = ctx.createLinearGradient(0, 0, this._canvas.width, 0);
-        for (var _i = 0; _i < this._opacity.length; _i++) {
-          opacity.addColorStop(this._opacity[_i][0], 'rgba(255, 255, 255, ' + this._opacity[_i][1] + ')');
-        }
-        ctx.fillStyle = opacity;
-        ctx.fillRect(0, 0, this._canvas.width, this._canvas.height);
-      } else {
-        ctx.lineWidth = 2 * this._canvas.height;
-
-        for (var _i2 = 0; _i2 < this._color.length; _i2++) {
-          var currentPos = this._color[_i2][0];
-          var nextPos = 1;
-          if (_i2 < this._color.length - 1) {
-            nextPos = this._color[_i2 + 1][0];
-          }
-          var previousPos = 0;
-          if (_i2 > 0) {
-            previousPos = this._color[_i2 - 1][0];
-          }
-
-          var from = previousPos + (currentPos - previousPos) / 2;
-          var to = currentPos + (nextPos - currentPos) / 2;
-          var _color = this._color[_i2];
-          var _opacity = this._opacity[_i2] ? this._opacity[_i2][1] : 1;
-
-          ctx.beginPath();
-          ctx.strokeStyle = 'rgba( ' + Math.round(_color[1] * 255) + ', ' + Math.round(_color[2] * 255) + ', ' + Math.round(_color[3] * 255) + ', ' + _opacity + ')';
-          ctx.moveTo(from * this._canvas.width, 0);
-          ctx.lineTo(to * this._canvas.width, 0);
-          ctx.stroke();
-          ctx.closePath();
-        }
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba( ' + Math.round(_color[1] * 255) + ', ' + Math.round(_color[2] * 255) + ', ' + Math.round(_color[3] * 255) + ', ' + _opacity + ')';
+        ctx.moveTo(from * this._canvas.width, 0);
+        ctx.lineTo(to * this._canvas.width, 0);
+        ctx.stroke();
+        ctx.closePath();
       }
+    }
+  };
+
+  helpersLut.prototype.lutsAvailable = function lutsAvailable() {
+    var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'color';
+
+    var available = [];
+    var luts = this._luts;
+
+    if (type !== 'color') {
+      luts = this._lutsO;
+    }
+
+    for (var i in luts) {
+      available.push(i);
+    }
+
+    return available;
+  };
+
+  // add luts to class' lut (so a user can add its own as well)
+
+
+  helpersLut.presetLuts = function presetLuts() {
+    return {
+      default: [[0, 0, 0, 0], [1, 1, 1, 1]],
+      spectrum: [[0, 0, 0, 0], [0.1, 0, 0, 1], [0.33, 0, 1, 1], [0.5, 0, 1, 0], [0.66, 1, 1, 0], [0.9, 1, 0, 0], [1, 1, 1, 1]],
+      hot_and_cold: [[0, 0, 0, 1], [0.15, 0, 1, 1], [0.3, 0, 1, 0], [0.45, 0, 0, 0], [0.5, 0, 0, 0], [0.55, 0, 0, 0], [0.7, 1, 1, 0], [0.85, 1, 0, 0], [1, 1, 1, 1]],
+      gold: [[0, 0, 0, 0], [0.13, 0.19, 0.03, 0], [0.25, 0.39, 0.12, 0], [0.38, 0.59, 0.26, 0], [0.5, 0.8, 0.46, 0.08], [0.63, 0.99, 0.71, 0.21], [0.75, 0.99, 0.88, 0.34], [0.88, 0.99, 0.99, 0.48], [1, 0.9, 0.95, 0.61]],
+      red: [[0, 0.75, 0, 0], [0.5, 1, 0.5, 0], [0.95, 1, 1, 0], [1, 1, 1, 1]],
+      green: [[0, 0, 0.75, 0], [0.5, 0.5, 1, 0], [0.95, 1, 1, 0], [1, 1, 1, 1]],
+      blue: [[0, 0, 0, 1], [0.5, 0, 0.5, 1], [0.95, 0, 1, 1], [1, 1, 1, 1]],
+      walking_dead: [[0, 0.1, 1, 1], [1, 1, 1, 1]],
+      random: [[0, 0, 0, 0], [0.27, 0.18, 0.18, 0.18], [0.41, 1, 1, 1], [0.7, 1, 0, 0], [1, 1, 1, 1]],
+      muscle_bone: [[0, 0, 0, 0], [0.00392156862745098, 0.00784313725490196, 0, 0], [0.00784313725490196, 0.0196078431372549, 0, 0], [0.011764705882352941, 0.03137254901960784, 0, 0], [0.01568627450980392, 0.0392156862745098, 0, 0.00392156862745098], [0.0196078431372549, 0.050980392156862744, 0.00392156862745098, 0.00392156862745098], [0.023529411764705882, 0.06274509803921569, 0.00392156862745098, 0.00392156862745098], [0.027450980392156862, 0.07058823529411765, 0.00392156862745098, 0.00784313725490196], [0.03137254901960784, 0.08235294117647059, 0.00392156862745098, 0.00784313725490196], [0.03529411764705882, 0.09411764705882353, 0.00784313725490196, 0.00784313725490196], [0.0392156862745098, 0.10196078431372549, 0.00784313725490196, 0.00784313725490196], [0.043137254901960784, 0.11372549019607843, 0.00784313725490196, 0.011764705882352941], [0.047058823529411764, 0.12549019607843137, 0.00784313725490196, 0.011764705882352941], [0.050980392156862744, 0.13333333333333333, 0.011764705882352941, 0.011764705882352941], [0.054901960784313725, 0.1450980392156863, 0.011764705882352941, 0.01568627450980392], [0.058823529411764705, 0.1568627450980392, 0.011764705882352941, 0.01568627450980392], [0.06274509803921569, 0.16470588235294117, 0.011764705882352941, 0.01568627450980392], [0.06666666666666667, 0.17647058823529413, 0.011764705882352941, 0.0196078431372549], [0.07058823529411765, 0.18823529411764706, 0.01568627450980392, 0.0196078431372549], [0.07450980392156863, 0.2, 0.01568627450980392, 0.0196078431372549], [0.0784313725490196, 0.20784313725490197, 0.01568627450980392, 0.0196078431372549], [0.08235294117647059, 0.2196078431372549, 0.01568627450980392, 0.023529411764705882], [0.08627450980392157, 0.23137254901960785, 0.0196078431372549, 0.023529411764705882], [0.09019607843137255, 0.23921568627450981, 0.0196078431372549, 0.023529411764705882], [0.09411764705882353, 0.25098039215686274, 0.0196078431372549, 0.027450980392156862], [0.09803921568627451, 0.2627450980392157, 0.0196078431372549, 0.027450980392156862], [0.10196078431372549, 0.27058823529411763, 0.023529411764705882, 0.027450980392156862], [0.10588235294117647, 0.2823529411764706, 0.023529411764705882, 0.027450980392156862], [0.10980392156862745, 0.29411764705882354, 0.023529411764705882, 0.03137254901960784], [0.11372549019607843, 0.30196078431372547, 0.023529411764705882, 0.03137254901960784], [0.11764705882352941, 0.3137254901960784, 0.023529411764705882, 0.03137254901960784], [0.12156862745098039, 0.3254901960784314, 0.027450980392156862, 0.03529411764705882], [0.12549019607843137, 0.3333333333333333, 0.027450980392156862, 0.03529411764705882], [0.12941176470588237, 0.34509803921568627, 0.027450980392156862, 0.03529411764705882], [0.13333333333333333, 0.3568627450980392, 0.027450980392156862, 0.0392156862745098], [0.13725490196078433, 0.36470588235294116, 0.03137254901960784, 0.0392156862745098], [0.1411764705882353, 0.3764705882352941, 0.03137254901960784, 0.0392156862745098], [0.1450980392156863, 0.38823529411764707, 0.03137254901960784, 0.0392156862745098], [0.14901960784313725, 0.4, 0.03137254901960784, 0.043137254901960784], [0.15294117647058825, 0.40784313725490196, 0.03529411764705882, 0.043137254901960784], [0.1568627450980392, 0.4196078431372549, 0.03529411764705882, 0.043137254901960784], [0.1607843137254902, 0.43137254901960786, 0.03529411764705882, 0.047058823529411764], [0.16470588235294117, 0.4392156862745098, 0.03529411764705882, 0.047058823529411764], [0.16862745098039217, 0.45098039215686275, 0.03529411764705882, 0.047058823529411764], [0.17254901960784313, 0.4627450980392157, 0.0392156862745098, 0.047058823529411764], [0.17647058823529413, 0.47058823529411764, 0.0392156862745098, 0.050980392156862744], [0.1803921568627451, 0.4823529411764706, 0.0392156862745098, 0.050980392156862744], [0.1843137254901961, 0.49411764705882355, 0.0392156862745098, 0.050980392156862744], [0.18823529411764706, 0.5019607843137255, 0.043137254901960784, 0.054901960784313725], [0.19215686274509805, 0.5137254901960784, 0.043137254901960784, 0.054901960784313725], [0.19607843137254902, 0.5254901960784314, 0.043137254901960784, 0.054901960784313725], [0.2, 0.5333333333333333, 0.043137254901960784, 0.058823529411764705], [0.20392156862745098, 0.5450980392156862, 0.047058823529411764, 0.058823529411764705], [0.20784313725490197, 0.5568627450980392, 0.047058823529411764, 0.058823529411764705], [0.21176470588235294, 0.5647058823529412, 0.047058823529411764, 0.058823529411764705], [0.21568627450980393, 0.5764705882352941, 0.047058823529411764, 0.06274509803921569], [0.2196078431372549, 0.5882352941176471, 0.047058823529411764, 0.06274509803921569], [0.2235294117647059, 0.6, 0.050980392156862744, 0.06274509803921569], [0.22745098039215686, 0.6078431372549019, 0.050980392156862744, 0.06666666666666667], [0.23137254901960785, 0.6196078431372549, 0.050980392156862744, 0.06666666666666667], [0.23529411764705882, 0.6313725490196078, 0.050980392156862744, 0.06666666666666667], [0.23921568627450981, 0.6392156862745098, 0.054901960784313725, 0.06666666666666667], [0.24313725490196078, 0.6509803921568628, 0.054901960784313725, 0.07058823529411765], [0.24705882352941178, 0.6627450980392157, 0.054901960784313725, 0.07058823529411765], [0.25098039215686274, 0.6705882352941176, 0.054901960784313725, 0.07058823529411765], [0.2549019607843137, 0.6823529411764706, 0.058823529411764705, 0.07450980392156863], [0.25882352941176473, 0.6941176470588235, 0.058823529411764705, 0.07450980392156863], [0.2627450980392157, 0.7019607843137254, 0.058823529411764705, 0.07450980392156863], [0.26666666666666666, 0.7137254901960784, 0.058823529411764705, 0.0784313725490196], [0.27058823529411763, 0.7254901960784313, 0.058823529411764705, 0.0784313725490196], [0.27450980392156865, 0.7333333333333333, 0.06274509803921569, 0.0784313725490196], [0.2784313725490196, 0.7450980392156863, 0.06274509803921569, 0.0784313725490196], [0.2823529411764706, 0.7568627450980392, 0.06274509803921569, 0.08235294117647059], [0.28627450980392155, 0.7647058823529411, 0.06274509803921569, 0.08235294117647059], [0.2901960784313726, 0.7764705882352941, 0.06666666666666667, 0.08235294117647059], [0.29411764705882354, 0.788235294117647, 0.06666666666666667, 0.08627450980392157], [0.2980392156862745, 0.8, 0.06666666666666667, 0.08627450980392157], [0.30196078431372547, 0.807843137254902, 0.06666666666666667, 0.08627450980392157], [0.3058823529411765, 0.8196078431372549, 0.07058823529411765, 0.08627450980392157], [0.30980392156862746, 0.8313725490196079, 0.07058823529411765, 0.09019607843137255], [0.3137254901960784, 0.8392156862745098, 0.07058823529411765, 0.09019607843137255], [0.3176470588235294, 0.8509803921568627, 0.07058823529411765, 0.09019607843137255], [0.3215686274509804, 0.8627450980392157, 0.07058823529411765, 0.09411764705882353], [0.3254901960784314, 0.8705882352941177, 0.07450980392156863, 0.09411764705882353], [0.32941176470588235, 0.8823529411764706, 0.07450980392156863, 0.09411764705882353], [0.3333333333333333, 0.8941176470588236, 0.07450980392156863, 0.09803921568627451], [0.33725490196078434, 0.9019607843137255, 0.07450980392156863, 0.09803921568627451], [0.3411764705882353, 0.9137254901960784, 0.0784313725490196, 0.09803921568627451], [0.34509803921568627, 0.9254901960784314, 0.0784313725490196, 0.09803921568627451], [0.34901960784313724, 0.9333333333333333, 0.0784313725490196, 0.10196078431372549], [0.35294117647058826, 0.9450980392156862, 0.0784313725490196, 0.10196078431372549], [0.3568627450980392, 0.9568627450980393, 0.08235294117647059, 0.10196078431372549], [0.3607843137254902, 0.9647058823529412, 0.08235294117647059, 0.10588235294117647], [0.36470588235294116, 0.9764705882352941, 0.08235294117647059, 0.10588235294117647], [0.3686274509803922, 0.9882352941176471, 0.08235294117647059, 0.10588235294117647], [0.37254901960784315, 1, 0.08235294117647059, 0.10588235294117647], [0.3764705882352941, 1, 0.09411764705882353, 0.10588235294117647], [0.3803921568627451, 1, 0.10588235294117647, 0.10588235294117647], [0.3843137254901961, 1, 0.11764705882352941, 0.10196078431372549], [0.38823529411764707, 1, 0.12941176470588237, 0.10196078431372549], [0.39215686274509803, 1, 0.1411764705882353, 0.10196078431372549], [0.396078431372549, 1, 0.15294117647058825, 0.09803921568627451], [0.4, 1, 0.16470588235294117, 0.09803921568627451], [0.403921568627451, 1, 0.17647058823529413, 0.09803921568627451], [0.40784313725490196, 1, 0.18823529411764706, 0.09411764705882353], [0.4117647058823529, 1, 0.2, 0.09411764705882353], [0.41568627450980394, 1, 0.21176470588235294, 0.09411764705882353], [0.4196078431372549, 1, 0.2235294117647059, 0.09019607843137255], [0.4235294117647059, 1, 0.23529411764705882, 0.09019607843137255], [0.42745098039215684, 1, 0.24705882352941178, 0.08627450980392157], [0.43137254901960786, 1, 0.25882352941176473, 0.08627450980392157], [0.43529411764705883, 1, 0.27058823529411763, 0.08627450980392157], [0.4392156862745098, 1, 0.2823529411764706, 0.08235294117647059], [0.44313725490196076, 1, 0.29411764705882354, 0.08235294117647059], [0.4470588235294118, 1, 0.3058823529411765, 0.08235294117647059], [0.45098039215686275, 1, 0.3176470588235294, 0.0784313725490196], [0.4549019607843137, 1, 0.32941176470588235, 0.0784313725490196], [0.4588235294117647, 1, 0.3411764705882353, 0.0784313725490196], [0.4627450980392157, 1, 0.35294117647058826, 0.07450980392156863], [0.4666666666666667, 1, 0.36470588235294116, 0.07450980392156863], [0.47058823529411764, 1, 0.3764705882352941, 0.07450980392156863], [0.4745098039215686, 1, 0.38823529411764707, 0.07058823529411765], [0.47843137254901963, 1, 0.4, 0.07058823529411765], [0.4823529411764706, 1, 0.4117647058823529, 0.07058823529411765], [0.48627450980392156, 1, 0.4235294117647059, 0.06666666666666667], [0.49019607843137253, 1, 0.43529411764705883, 0.06666666666666667], [0.49411764705882355, 1, 0.4470588235294118, 0.06274509803921569], [0.4980392156862745, 1, 0.4588235294117647, 0.06274509803921569], [0.5019607843137255, 1, 0.47058823529411764, 0.06274509803921569], [0.5058823529411764, 1, 0.4823529411764706, 0.058823529411764705], [0.5098039215686274, 1, 0.49411764705882355, 0.058823529411764705], [0.5137254901960784, 1, 0.5058823529411764, 0.058823529411764705], [0.5176470588235295, 1, 0.5137254901960784, 0.054901960784313725], [0.5215686274509804, 1, 0.5254901960784314, 0.054901960784313725], [0.5254901960784314, 1, 0.5372549019607843, 0.054901960784313725], [0.5294117647058824, 1, 0.5490196078431373, 0.050980392156862744], [0.5333333333333333, 1, 0.5607843137254902, 0.050980392156862744], [0.5372549019607843, 1, 0.5725490196078431, 0.050980392156862744], [0.5411764705882353, 1, 0.5843137254901961, 0.047058823529411764], [0.5450980392156862, 1, 0.596078431372549, 0.047058823529411764], [0.5490196078431373, 1, 0.6078431372549019, 0.043137254901960784], [0.5529411764705883, 1, 0.6196078431372549, 0.043137254901960784], [0.5568627450980392, 1, 0.6313725490196078, 0.043137254901960784], [0.5607843137254902, 1, 0.6431372549019608, 0.0392156862745098], [0.5647058823529412, 1, 0.6549019607843137, 0.0392156862745098], [0.5686274509803921, 1, 0.6666666666666666, 0.0392156862745098], [0.5725490196078431, 1, 0.6784313725490196, 0.03529411764705882], [0.5764705882352941, 1, 0.6901960784313725, 0.03529411764705882], [0.5803921568627451, 1, 0.6941176470588235, 0.0392156862745098], [0.5843137254901961, 1, 0.7019607843137254, 0.0392156862745098], [0.5882352941176471, 1, 0.7058823529411765, 0.043137254901960784], [0.592156862745098, 1, 0.7098039215686275, 0.043137254901960784], [0.596078431372549, 1, 0.7137254901960784, 0.047058823529411764], [0.6, 1, 0.7176470588235294, 0.047058823529411764], [0.6039215686274509, 1, 0.7254901960784313, 0.050980392156862744], [0.6078431372549019, 1, 0.7294117647058823, 0.050980392156862744], [0.611764705882353, 1, 0.7333333333333333, 0.054901960784313725], [0.615686274509804, 1, 0.7372549019607844, 0.058823529411764705], [0.6196078431372549, 1, 0.7411764705882353, 0.058823529411764705], [0.6235294117647059, 1, 0.7490196078431373, 0.06274509803921569], [0.6274509803921569, 1, 0.7529411764705882, 0.06274509803921569], [0.6313725490196078, 1, 0.7568627450980392, 0.06666666666666667], [0.6352941176470588, 1, 0.7607843137254902, 0.06666666666666667], [0.6392156862745098, 1, 0.7647058823529411, 0.07058823529411765], [0.6431372549019608, 1, 0.7725490196078432, 0.07058823529411765], [0.6470588235294118, 1, 0.7764705882352941, 0.07450980392156863], [0.6509803921568628, 1, 0.7803921568627451, 0.07450980392156863], [0.6549019607843137, 1, 0.7843137254901961, 0.0784313725490196], [0.6588235294117647, 1, 0.788235294117647, 0.08235294117647059], [0.6627450980392157, 1, 0.796078431372549, 0.08235294117647059], [0.6666666666666666, 1, 0.8, 0.08627450980392157], [0.6705882352941176, 1, 0.803921568627451, 0.08627450980392157], [0.6745098039215687, 1, 0.807843137254902, 0.09019607843137255], [0.6784313725490196, 1, 0.8117647058823529, 0.09019607843137255], [0.6823529411764706, 1, 0.8196078431372549, 0.09411764705882353], [0.6862745098039216, 1, 0.8235294117647058, 0.09411764705882353], [0.6901960784313725, 1, 0.8274509803921568, 0.09803921568627451], [0.6941176470588235, 1, 0.8313725490196079, 0.10196078431372549], [0.6980392156862745, 1, 0.8352941176470589, 0.10196078431372549], [0.7019607843137254, 1, 0.8431372549019608, 0.10588235294117647], [0.7058823529411765, 1, 0.8470588235294118, 0.10588235294117647], [0.7098039215686275, 1, 0.8509803921568627, 0.10980392156862745], [0.7137254901960784, 1, 0.8549019607843137, 0.10980392156862745], [0.7176470588235294, 1, 0.8627450980392157, 0.11372549019607843], [0.7215686274509804, 1, 0.8666666666666667, 0.11372549019607843], [0.7254901960784313, 1, 0.8705882352941177, 0.11764705882352941], [0.7294117647058823, 1, 0.8745098039215686, 0.12156862745098039], [0.7333333333333333, 1, 0.8784313725490196, 0.12156862745098039], [0.7372549019607844, 1, 0.8862745098039215, 0.12549019607843137], [0.7411764705882353, 1, 0.8901960784313725, 0.12549019607843137], [0.7450980392156863, 1, 0.8941176470588236, 0.12941176470588237], [0.7490196078431373, 1, 0.8980392156862745, 0.12941176470588237], [0.7529411764705882, 1, 0.9019607843137255, 0.13333333333333333], [0.7568627450980392, 1, 0.9098039215686274, 0.13333333333333333], [0.7607843137254902, 1, 0.9137254901960784, 0.13725490196078433], [0.7647058823529411, 1, 0.9176470588235294, 0.1411764705882353], [0.7686274509803922, 1, 0.9215686274509803, 0.1411764705882353], [0.7725490196078432, 1, 0.9254901960784314, 0.1450980392156863], [0.7764705882352941, 1, 0.9333333333333333, 0.1450980392156863], [0.7803921568627451, 1, 0.9372549019607843, 0.14901960784313725], [0.7843137254901961, 1, 0.9411764705882353, 0.14901960784313725], [0.788235294117647, 1, 0.9450980392156862, 0.15294117647058825], [0.792156862745098, 1, 0.9450980392156862, 0.16862745098039217], [0.796078431372549, 1, 0.9490196078431372, 0.1843137254901961], [0.8, 1, 0.9490196078431372, 0.2], [0.803921568627451, 1, 0.9490196078431372, 0.21568627450980393], [0.807843137254902, 1, 0.9490196078431372, 0.22745098039215686], [0.8117647058823529, 1, 0.9529411764705882, 0.24313725490196078], [0.8156862745098039, 1, 0.9529411764705882, 0.25882352941176473], [0.8196078431372549, 1, 0.9529411764705882, 0.27450980392156865], [0.8235294117647058, 1, 0.9529411764705882, 0.2901960784313726], [0.8274509803921568, 1, 0.9568627450980393, 0.3058823529411765], [0.8313725490196079, 1, 0.9568627450980393, 0.3215686274509804], [0.8352941176470589, 1, 0.9568627450980393, 0.33725490196078434], [0.8392156862745098, 1, 0.9568627450980393, 0.35294117647058826], [0.8431372549019608, 1, 0.9607843137254902, 0.3686274509803922], [0.8470588235294118, 1, 0.9607843137254902, 0.3843137254901961], [0.8509803921568627, 1, 0.9607843137254902, 0.4], [0.8549019607843137, 1, 0.9607843137254902, 0.4117647058823529], [0.8588235294117647, 1, 0.9647058823529412, 0.42745098039215684], [0.8627450980392157, 1, 0.9647058823529412, 0.44313725490196076], [0.8666666666666667, 1, 0.9647058823529412, 0.4588235294117647], [0.8705882352941177, 1, 0.9647058823529412, 0.4745098039215686], [0.8745098039215686, 1, 0.9686274509803922, 0.49019607843137253], [0.8784313725490196, 1, 0.9686274509803922, 0.5058823529411764], [0.8823529411764706, 1, 0.9686274509803922, 0.5215686274509804], [0.8862745098039215, 1, 0.9686274509803922, 0.5372549019607843], [0.8901960784313725, 1, 0.9725490196078431, 0.5529411764705883], [0.8941176470588236, 1, 0.9725490196078431, 0.5686274509803921], [0.8980392156862745, 1, 0.9725490196078431, 0.5843137254901961], [0.9019607843137255, 1, 0.9725490196078431, 0.6], [0.9058823529411765, 1, 0.9725490196078431, 0.611764705882353], [0.9098039215686274, 1, 0.9764705882352941, 0.6274509803921569], [0.9137254901960784, 1, 0.9764705882352941, 0.6431372549019608], [0.9176470588235294, 1, 0.9764705882352941, 0.6588235294117647], [0.9215686274509803, 1, 0.9764705882352941, 0.6745098039215687], [0.9254901960784314, 1, 0.9803921568627451, 0.6901960784313725], [0.9294117647058824, 1, 0.9803921568627451, 0.7058823529411765], [0.9333333333333333, 1, 0.9803921568627451, 0.7215686274509804], [0.9372549019607843, 1, 0.9803921568627451, 0.7372549019607844], [0.9411764705882353, 1, 0.984313725490196, 0.7529411764705882], [0.9450980392156862, 1, 0.984313725490196, 0.7686274509803922], [0.9490196078431372, 1, 0.984313725490196, 0.7843137254901961], [0.9529411764705882, 1, 0.984313725490196, 0.8], [0.9568627450980393, 1, 0.9882352941176471, 0.8117647058823529], [0.9607843137254902, 1, 0.9882352941176471, 0.8274509803921568], [0.9647058823529412, 1, 0.9882352941176471, 0.8431372549019608], [0.9686274509803922, 1, 0.9882352941176471, 0.8588235294117647], [0.9725490196078431, 1, 0.9921568627450981, 0.8745098039215686], [0.9764705882352941, 1, 0.9921568627450981, 0.8901960784313725], [0.9803921568627451, 1, 0.9921568627450981, 0.9058823529411765], [0.984313725490196, 1, 0.9921568627450981, 0.9215686274509803], [0.9882352941176471, 1, 0.996078431372549, 0.9372549019607843], [0.9921568627450981, 1, 0.996078431372549, 0.9529411764705882], [0.996078431372549, 1, 0.996078431372549, 0.9686274509803922], [1, 1, 0.996078431372549, 0.984313725490196]]
     };
+  };
 
-    _class.prototype.lutsAvailable = function lutsAvailable() {
-      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'color';
-
-      var available = [];
-      var luts = this._luts;
-
-      if (type !== 'color') {
-        luts = this._lutsO;
-      }
-
-      for (var i in luts) {
-        available.push(i);
-      }
-
-      return available;
+  helpersLut.presetLutsO = function presetLutsO() {
+    return {
+      linear: [[0, 0], [1, 1]],
+      lowpass: [[0, 0.8], [0.2, 0.6], [0.3, 0.1], [1, 0]],
+      bandpass: [[0, 0], [0.4, 0.8], [0.6, 0.8], [1, 0]],
+      highpass: [[0, 0], [0.7, 0.1], [0.8, 0.6], [1, 0.8]],
+      flat: [[0, 0.7], [1, 1]],
+      random: [[0, 0], [0.38, 0], [0.55, 1], [0.72, 1], [1, 0.05]],
+      linear_full: [[0, 0], [0.00392156862745098, 0.00392156862745098], [0.00784313725490196, 0.00784313725490196], [0.011764705882352941, 0.011764705882352941], [0.01568627450980392, 0.01568627450980392], [0.0196078431372549, 0.0196078431372549], [0.023529411764705882, 0.023529411764705882], [0.027450980392156862, 0.027450980392156862], [0.03137254901960784, 0.03137254901960784], [0.03529411764705882, 0.03529411764705882], [0.0392156862745098, 0.0392156862745098], [0.043137254901960784, 0.043137254901960784], [0.047058823529411764, 0.047058823529411764], [0.050980392156862744, 0.050980392156862744], [0.054901960784313725, 0.054901960784313725], [0.058823529411764705, 0.058823529411764705], [0.06274509803921569, 0.06274509803921569], [0.06666666666666667, 0.06666666666666667], [0.07058823529411765, 0.07058823529411765], [0.07450980392156863, 0.07450980392156863], [0.0784313725490196, 0.0784313725490196], [0.08235294117647059, 0.08235294117647059], [0.08627450980392157, 0.08627450980392157], [0.09019607843137255, 0.09019607843137255], [0.09411764705882353, 0.09411764705882353], [0.09803921568627451, 0.09803921568627451], [0.10196078431372549, 0.10196078431372549], [0.10588235294117647, 0.10588235294117647], [0.10980392156862745, 0.10980392156862745], [0.11372549019607843, 0.11372549019607843], [0.11764705882352941, 0.11764705882352941], [0.12156862745098039, 0.12156862745098039], [0.12549019607843137, 0.12549019607843137], [0.12941176470588237, 0.12941176470588237], [0.13333333333333333, 0.13333333333333333], [0.13725490196078433, 0.13725490196078433], [0.1411764705882353, 0.1411764705882353], [0.1450980392156863, 0.1450980392156863], [0.14901960784313725, 0.14901960784313725], [0.15294117647058825, 0.15294117647058825], [0.1568627450980392, 0.1568627450980392], [0.1607843137254902, 0.1607843137254902], [0.16470588235294117, 0.16470588235294117], [0.16862745098039217, 0.16862745098039217], [0.17254901960784313, 0.17254901960784313], [0.17647058823529413, 0.17647058823529413], [0.1803921568627451, 0.1803921568627451], [0.1843137254901961, 0.1843137254901961], [0.18823529411764706, 0.18823529411764706], [0.19215686274509805, 0.19215686274509805], [0.19607843137254902, 0.19607843137254902], [0.2, 0.2], [0.20392156862745098, 0.20392156862745098], [0.20784313725490197, 0.20784313725490197], [0.21176470588235294, 0.21176470588235294], [0.21568627450980393, 0.21568627450980393], [0.2196078431372549, 0.2196078431372549], [0.2235294117647059, 0.2235294117647059], [0.22745098039215686, 0.22745098039215686], [0.23137254901960785, 0.23137254901960785], [0.23529411764705882, 0.23529411764705882], [0.23921568627450981, 0.23921568627450981], [0.24313725490196078, 0.24313725490196078], [0.24705882352941178, 0.24705882352941178], [0.25098039215686274, 0.25098039215686274], [0.2549019607843137, 0.2549019607843137], [0.25882352941176473, 0.25882352941176473], [0.2627450980392157, 0.2627450980392157], [0.26666666666666666, 0.26666666666666666], [0.27058823529411763, 0.27058823529411763], [0.27450980392156865, 0.27450980392156865], [0.2784313725490196, 0.2784313725490196], [0.2823529411764706, 0.2823529411764706], [0.28627450980392155, 0.28627450980392155], [0.2901960784313726, 0.2901960784313726], [0.29411764705882354, 0.29411764705882354], [0.2980392156862745, 0.2980392156862745], [0.30196078431372547, 0.30196078431372547], [0.3058823529411765, 0.3058823529411765], [0.30980392156862746, 0.30980392156862746], [0.3137254901960784, 0.3137254901960784], [0.3176470588235294, 0.3176470588235294], [0.3215686274509804, 0.3215686274509804], [0.3254901960784314, 0.3254901960784314], [0.32941176470588235, 0.32941176470588235], [0.3333333333333333, 0.3333333333333333], [0.33725490196078434, 0.33725490196078434], [0.3411764705882353, 0.3411764705882353], [0.34509803921568627, 0.34509803921568627], [0.34901960784313724, 0.34901960784313724], [0.35294117647058826, 0.35294117647058826], [0.3568627450980392, 0.3568627450980392], [0.3607843137254902, 0.3607843137254902], [0.36470588235294116, 0.36470588235294116], [0.3686274509803922, 0.3686274509803922], [0.37254901960784315, 0.37254901960784315], [0.3764705882352941, 0.3764705882352941], [0.3803921568627451, 0.3803921568627451], [0.3843137254901961, 0.3843137254901961], [0.38823529411764707, 0.38823529411764707], [0.39215686274509803, 0.39215686274509803], [0.396078431372549, 0.396078431372549], [0.4, 0.4], [0.403921568627451, 0.403921568627451], [0.40784313725490196, 0.40784313725490196], [0.4117647058823529, 0.4117647058823529], [0.41568627450980394, 0.41568627450980394], [0.4196078431372549, 0.4196078431372549], [0.4235294117647059, 0.4235294117647059], [0.42745098039215684, 0.42745098039215684], [0.43137254901960786, 0.43137254901960786], [0.43529411764705883, 0.43529411764705883], [0.4392156862745098, 0.4392156862745098], [0.44313725490196076, 0.44313725490196076], [0.4470588235294118, 0.4470588235294118], [0.45098039215686275, 0.45098039215686275], [0.4549019607843137, 0.4549019607843137], [0.4588235294117647, 0.4588235294117647], [0.4627450980392157, 0.4627450980392157], [0.4666666666666667, 0.4666666666666667], [0.47058823529411764, 0.47058823529411764], [0.4745098039215686, 0.4745098039215686], [0.47843137254901963, 0.47843137254901963], [0.4823529411764706, 0.4823529411764706], [0.48627450980392156, 0.48627450980392156], [0.49019607843137253, 0.49019607843137253], [0.49411764705882355, 0.49411764705882355], [0.4980392156862745, 0.4980392156862745], [0.5019607843137255, 0.5019607843137255], [0.5058823529411764, 0.5058823529411764], [0.5098039215686274, 0.5098039215686274], [0.5137254901960784, 0.5137254901960784], [0.5176470588235295, 0.5176470588235295], [0.5215686274509804, 0.5215686274509804], [0.5254901960784314, 0.5254901960784314], [0.5294117647058824, 0.5294117647058824], [0.5333333333333333, 0.5333333333333333], [0.5372549019607843, 0.5372549019607843], [0.5411764705882353, 0.5411764705882353], [0.5450980392156862, 0.5450980392156862], [0.5490196078431373, 0.5490196078431373], [0.5529411764705883, 0.5529411764705883], [0.5568627450980392, 0.5568627450980392], [0.5607843137254902, 0.5607843137254902], [0.5647058823529412, 0.5647058823529412], [0.5686274509803921, 0.5686274509803921], [0.5725490196078431, 0.5725490196078431], [0.5764705882352941, 0.5764705882352941], [0.5803921568627451, 0.5803921568627451], [0.5843137254901961, 0.5843137254901961], [0.5882352941176471, 0.5882352941176471], [0.592156862745098, 0.592156862745098], [0.596078431372549, 0.596078431372549], [0.6, 0.6], [0.6039215686274509, 0.6039215686274509], [0.6078431372549019, 0.6078431372549019], [0.611764705882353, 0.611764705882353], [0.615686274509804, 0.615686274509804], [0.6196078431372549, 0.6196078431372549], [0.6235294117647059, 0.6235294117647059], [0.6274509803921569, 0.6274509803921569], [0.6313725490196078, 0.6313725490196078], [0.6352941176470588, 0.6352941176470588], [0.6392156862745098, 0.6392156862745098], [0.6431372549019608, 0.6431372549019608], [0.6470588235294118, 0.6470588235294118], [0.6509803921568628, 0.6509803921568628], [0.6549019607843137, 0.6549019607843137], [0.6588235294117647, 0.6588235294117647], [0.6627450980392157, 0.6627450980392157], [0.6666666666666666, 0.6666666666666666], [0.6705882352941176, 0.6705882352941176], [0.6745098039215687, 0.6745098039215687], [0.6784313725490196, 0.6784313725490196], [0.6823529411764706, 0.6823529411764706], [0.6862745098039216, 0.6862745098039216], [0.6901960784313725, 0.6901960784313725], [0.6941176470588235, 0.6941176470588235], [0.6980392156862745, 0.6980392156862745], [0.7019607843137254, 0.7019607843137254], [0.7058823529411765, 0.7058823529411765], [0.7098039215686275, 0.7098039215686275], [0.7137254901960784, 0.7137254901960784], [0.7176470588235294, 0.7176470588235294], [0.7215686274509804, 0.7215686274509804], [0.7254901960784313, 0.7254901960784313], [0.7294117647058823, 0.7294117647058823], [0.7333333333333333, 0.7333333333333333], [0.7372549019607844, 0.7372549019607844], [0.7411764705882353, 0.7411764705882353], [0.7450980392156863, 0.7450980392156863], [0.7490196078431373, 0.7490196078431373], [0.7529411764705882, 0.7529411764705882], [0.7568627450980392, 0.7568627450980392], [0.7607843137254902, 0.7607843137254902], [0.7647058823529411, 0.7647058823529411], [0.7686274509803922, 0.7686274509803922], [0.7725490196078432, 0.7725490196078432], [0.7764705882352941, 0.7764705882352941], [0.7803921568627451, 0.7803921568627451], [0.7843137254901961, 0.7843137254901961], [0.788235294117647, 0.788235294117647], [0.792156862745098, 0.792156862745098], [0.796078431372549, 0.796078431372549], [0.8, 0.8], [0.803921568627451, 0.803921568627451], [0.807843137254902, 0.807843137254902], [0.8117647058823529, 0.8117647058823529], [0.8156862745098039, 0.8156862745098039], [0.8196078431372549, 0.8196078431372549], [0.8235294117647058, 0.8235294117647058], [0.8274509803921568, 0.8274509803921568], [0.8313725490196079, 0.8313725490196079], [0.8352941176470589, 0.8352941176470589], [0.8392156862745098, 0.8392156862745098], [0.8431372549019608, 0.8431372549019608], [0.8470588235294118, 0.8470588235294118], [0.8509803921568627, 0.8509803921568627], [0.8549019607843137, 0.8549019607843137], [0.8588235294117647, 0.8588235294117647], [0.8627450980392157, 0.8627450980392157], [0.8666666666666667, 0.8666666666666667], [0.8705882352941177, 0.8705882352941177], [0.8745098039215686, 0.8745098039215686], [0.8784313725490196, 0.8784313725490196], [0.8823529411764706, 0.8823529411764706], [0.8862745098039215, 0.8862745098039215], [0.8901960784313725, 0.8901960784313725], [0.8941176470588236, 0.8941176470588236], [0.8980392156862745, 0.8980392156862745], [0.9019607843137255, 0.9019607843137255], [0.9058823529411765, 0.9058823529411765], [0.9098039215686274, 0.9098039215686274], [0.9137254901960784, 0.9137254901960784], [0.9176470588235294, 0.9176470588235294], [0.9215686274509803, 0.9215686274509803], [0.9254901960784314, 0.9254901960784314], [0.9294117647058824, 0.9294117647058824], [0.9333333333333333, 0.9333333333333333], [0.9372549019607843, 0.9372549019607843], [0.9411764705882353, 0.9411764705882353], [0.9450980392156862, 0.9450980392156862], [0.9490196078431372, 0.9490196078431372], [0.9529411764705882, 0.9529411764705882], [0.9568627450980393, 0.9568627450980393], [0.9607843137254902, 0.9607843137254902], [0.9647058823529412, 0.9647058823529412], [0.9686274509803922, 0.9686274509803922], [0.9725490196078431, 0.9725490196078431], [0.9764705882352941, 0.9764705882352941], [0.9803921568627451, 0.9803921568627451], [0.984313725490196, 0.984313725490196], [0.9882352941176471, 0.9882352941176471], [0.9921568627450981, 0.9921568627450981], [0.996078431372549, 0.996078431372549], [1, 1]]
     };
+  };
 
-    // add luts to class' lut (so a user can add its own as well)
+  _createClass(helpersLut, [{
+    key: 'texture',
+    get: function get() {
+      var texture = new three__WEBPACK_IMPORTED_MODULE_1__["Texture"](this._canvas);
+      texture.mapping = three__WEBPACK_IMPORTED_MODULE_1__["UVMapping"];
+      texture.wrapS = texture.wrapT = three__WEBPACK_IMPORTED_MODULE_1__["ClampToEdgeWrapping"];
+      texture.magFilter = texture.minFilter = three__WEBPACK_IMPORTED_MODULE_1__["NearestFilter"];
+      texture.premultiplyAlpha = true;
+      texture.needsUpdate = true;
+      return texture;
+    }
+  }, {
+    key: 'lut',
+    set: function set(targetLUT) {
+      this._color = this._luts[targetLUT];
+      this._lut = targetLUT;
 
+      this.paintCanvas();
+    },
+    get: function get() {
+      return this._lut;
+    }
+  }, {
+    key: 'luts',
+    set: function set(newLuts) {
+      this._luts = newLuts;
+    },
+    get: function get() {
+      return this._luts;
+    }
+  }, {
+    key: 'lutO',
+    set: function set(targetLUTO) {
+      this._opacity = this._lutsO[targetLUTO];
+      this._lutO = targetLUTO;
 
-    _class.presetLuts = function presetLuts() {
-      return {
-        default: [[0, 0, 0, 0], [1, 1, 1, 1]],
-        spectrum: [[0, 0, 0, 0], [0.1, 0, 0, 1], [0.33, 0, 1, 1], [0.5, 0, 1, 0], [0.66, 1, 1, 0], [0.9, 1, 0, 0], [1, 1, 1, 1]],
-        hot_and_cold: [[0, 0, 0, 1], [0.15, 0, 1, 1], [0.3, 0, 1, 0], [0.45, 0, 0, 0], [0.5, 0, 0, 0], [0.55, 0, 0, 0], [0.7, 1, 1, 0], [0.85, 1, 0, 0], [1, 1, 1, 1]],
-        gold: [[0, 0, 0, 0], [0.13, 0.19, 0.03, 0], [0.25, 0.39, 0.12, 0], [0.38, 0.59, 0.26, 0], [0.5, 0.8, 0.46, 0.08], [0.63, 0.99, 0.71, 0.21], [0.75, 0.99, 0.88, 0.34], [0.88, 0.99, 0.99, 0.48], [1, 0.9, 0.95, 0.61]],
-        red: [[0, 0.75, 0, 0], [0.5, 1, 0.5, 0], [0.95, 1, 1, 0], [1, 1, 1, 1]],
-        green: [[0, 0, 0.75, 0], [0.5, 0.5, 1, 0], [0.95, 1, 1, 0], [1, 1, 1, 1]],
-        blue: [[0, 0, 0, 1], [0.5, 0, 0.5, 1], [0.95, 0, 1, 1], [1, 1, 1, 1]],
-        walking_dead: [[0, 0.1, 1, 1], [1, 1, 1, 1]],
-        random: [[0, 0, 0, 0], [0.27, 0.18, 0.18, 0.18], [0.41, 1, 1, 1], [0.7, 1, 0, 0], [1, 1, 1, 1]],
-        muscle_bone: [[0, 0, 0, 0], [0.00392156862745098, 0.00784313725490196, 0, 0], [0.00784313725490196, 0.0196078431372549, 0, 0], [0.011764705882352941, 0.03137254901960784, 0, 0], [0.01568627450980392, 0.0392156862745098, 0, 0.00392156862745098], [0.0196078431372549, 0.050980392156862744, 0.00392156862745098, 0.00392156862745098], [0.023529411764705882, 0.06274509803921569, 0.00392156862745098, 0.00392156862745098], [0.027450980392156862, 0.07058823529411765, 0.00392156862745098, 0.00784313725490196], [0.03137254901960784, 0.08235294117647059, 0.00392156862745098, 0.00784313725490196], [0.03529411764705882, 0.09411764705882353, 0.00784313725490196, 0.00784313725490196], [0.0392156862745098, 0.10196078431372549, 0.00784313725490196, 0.00784313725490196], [0.043137254901960784, 0.11372549019607843, 0.00784313725490196, 0.011764705882352941], [0.047058823529411764, 0.12549019607843137, 0.00784313725490196, 0.011764705882352941], [0.050980392156862744, 0.13333333333333333, 0.011764705882352941, 0.011764705882352941], [0.054901960784313725, 0.1450980392156863, 0.011764705882352941, 0.01568627450980392], [0.058823529411764705, 0.1568627450980392, 0.011764705882352941, 0.01568627450980392], [0.06274509803921569, 0.16470588235294117, 0.011764705882352941, 0.01568627450980392], [0.06666666666666667, 0.17647058823529413, 0.011764705882352941, 0.0196078431372549], [0.07058823529411765, 0.18823529411764706, 0.01568627450980392, 0.0196078431372549], [0.07450980392156863, 0.2, 0.01568627450980392, 0.0196078431372549], [0.0784313725490196, 0.20784313725490197, 0.01568627450980392, 0.0196078431372549], [0.08235294117647059, 0.2196078431372549, 0.01568627450980392, 0.023529411764705882], [0.08627450980392157, 0.23137254901960785, 0.0196078431372549, 0.023529411764705882], [0.09019607843137255, 0.23921568627450981, 0.0196078431372549, 0.023529411764705882], [0.09411764705882353, 0.25098039215686274, 0.0196078431372549, 0.027450980392156862], [0.09803921568627451, 0.2627450980392157, 0.0196078431372549, 0.027450980392156862], [0.10196078431372549, 0.27058823529411763, 0.023529411764705882, 0.027450980392156862], [0.10588235294117647, 0.2823529411764706, 0.023529411764705882, 0.027450980392156862], [0.10980392156862745, 0.29411764705882354, 0.023529411764705882, 0.03137254901960784], [0.11372549019607843, 0.30196078431372547, 0.023529411764705882, 0.03137254901960784], [0.11764705882352941, 0.3137254901960784, 0.023529411764705882, 0.03137254901960784], [0.12156862745098039, 0.3254901960784314, 0.027450980392156862, 0.03529411764705882], [0.12549019607843137, 0.3333333333333333, 0.027450980392156862, 0.03529411764705882], [0.12941176470588237, 0.34509803921568627, 0.027450980392156862, 0.03529411764705882], [0.13333333333333333, 0.3568627450980392, 0.027450980392156862, 0.0392156862745098], [0.13725490196078433, 0.36470588235294116, 0.03137254901960784, 0.0392156862745098], [0.1411764705882353, 0.3764705882352941, 0.03137254901960784, 0.0392156862745098], [0.1450980392156863, 0.38823529411764707, 0.03137254901960784, 0.0392156862745098], [0.14901960784313725, 0.4, 0.03137254901960784, 0.043137254901960784], [0.15294117647058825, 0.40784313725490196, 0.03529411764705882, 0.043137254901960784], [0.1568627450980392, 0.4196078431372549, 0.03529411764705882, 0.043137254901960784], [0.1607843137254902, 0.43137254901960786, 0.03529411764705882, 0.047058823529411764], [0.16470588235294117, 0.4392156862745098, 0.03529411764705882, 0.047058823529411764], [0.16862745098039217, 0.45098039215686275, 0.03529411764705882, 0.047058823529411764], [0.17254901960784313, 0.4627450980392157, 0.0392156862745098, 0.047058823529411764], [0.17647058823529413, 0.47058823529411764, 0.0392156862745098, 0.050980392156862744], [0.1803921568627451, 0.4823529411764706, 0.0392156862745098, 0.050980392156862744], [0.1843137254901961, 0.49411764705882355, 0.0392156862745098, 0.050980392156862744], [0.18823529411764706, 0.5019607843137255, 0.043137254901960784, 0.054901960784313725], [0.19215686274509805, 0.5137254901960784, 0.043137254901960784, 0.054901960784313725], [0.19607843137254902, 0.5254901960784314, 0.043137254901960784, 0.054901960784313725], [0.2, 0.5333333333333333, 0.043137254901960784, 0.058823529411764705], [0.20392156862745098, 0.5450980392156862, 0.047058823529411764, 0.058823529411764705], [0.20784313725490197, 0.5568627450980392, 0.047058823529411764, 0.058823529411764705], [0.21176470588235294, 0.5647058823529412, 0.047058823529411764, 0.058823529411764705], [0.21568627450980393, 0.5764705882352941, 0.047058823529411764, 0.06274509803921569], [0.2196078431372549, 0.5882352941176471, 0.047058823529411764, 0.06274509803921569], [0.2235294117647059, 0.6, 0.050980392156862744, 0.06274509803921569], [0.22745098039215686, 0.6078431372549019, 0.050980392156862744, 0.06666666666666667], [0.23137254901960785, 0.6196078431372549, 0.050980392156862744, 0.06666666666666667], [0.23529411764705882, 0.6313725490196078, 0.050980392156862744, 0.06666666666666667], [0.23921568627450981, 0.6392156862745098, 0.054901960784313725, 0.06666666666666667], [0.24313725490196078, 0.6509803921568628, 0.054901960784313725, 0.07058823529411765], [0.24705882352941178, 0.6627450980392157, 0.054901960784313725, 0.07058823529411765], [0.25098039215686274, 0.6705882352941176, 0.054901960784313725, 0.07058823529411765], [0.2549019607843137, 0.6823529411764706, 0.058823529411764705, 0.07450980392156863], [0.25882352941176473, 0.6941176470588235, 0.058823529411764705, 0.07450980392156863], [0.2627450980392157, 0.7019607843137254, 0.058823529411764705, 0.07450980392156863], [0.26666666666666666, 0.7137254901960784, 0.058823529411764705, 0.0784313725490196], [0.27058823529411763, 0.7254901960784313, 0.058823529411764705, 0.0784313725490196], [0.27450980392156865, 0.7333333333333333, 0.06274509803921569, 0.0784313725490196], [0.2784313725490196, 0.7450980392156863, 0.06274509803921569, 0.0784313725490196], [0.2823529411764706, 0.7568627450980392, 0.06274509803921569, 0.08235294117647059], [0.28627450980392155, 0.7647058823529411, 0.06274509803921569, 0.08235294117647059], [0.2901960784313726, 0.7764705882352941, 0.06666666666666667, 0.08235294117647059], [0.29411764705882354, 0.788235294117647, 0.06666666666666667, 0.08627450980392157], [0.2980392156862745, 0.8, 0.06666666666666667, 0.08627450980392157], [0.30196078431372547, 0.807843137254902, 0.06666666666666667, 0.08627450980392157], [0.3058823529411765, 0.8196078431372549, 0.07058823529411765, 0.08627450980392157], [0.30980392156862746, 0.8313725490196079, 0.07058823529411765, 0.09019607843137255], [0.3137254901960784, 0.8392156862745098, 0.07058823529411765, 0.09019607843137255], [0.3176470588235294, 0.8509803921568627, 0.07058823529411765, 0.09019607843137255], [0.3215686274509804, 0.8627450980392157, 0.07058823529411765, 0.09411764705882353], [0.3254901960784314, 0.8705882352941177, 0.07450980392156863, 0.09411764705882353], [0.32941176470588235, 0.8823529411764706, 0.07450980392156863, 0.09411764705882353], [0.3333333333333333, 0.8941176470588236, 0.07450980392156863, 0.09803921568627451], [0.33725490196078434, 0.9019607843137255, 0.07450980392156863, 0.09803921568627451], [0.3411764705882353, 0.9137254901960784, 0.0784313725490196, 0.09803921568627451], [0.34509803921568627, 0.9254901960784314, 0.0784313725490196, 0.09803921568627451], [0.34901960784313724, 0.9333333333333333, 0.0784313725490196, 0.10196078431372549], [0.35294117647058826, 0.9450980392156862, 0.0784313725490196, 0.10196078431372549], [0.3568627450980392, 0.9568627450980393, 0.08235294117647059, 0.10196078431372549], [0.3607843137254902, 0.9647058823529412, 0.08235294117647059, 0.10588235294117647], [0.36470588235294116, 0.9764705882352941, 0.08235294117647059, 0.10588235294117647], [0.3686274509803922, 0.9882352941176471, 0.08235294117647059, 0.10588235294117647], [0.37254901960784315, 1, 0.08235294117647059, 0.10588235294117647], [0.3764705882352941, 1, 0.09411764705882353, 0.10588235294117647], [0.3803921568627451, 1, 0.10588235294117647, 0.10588235294117647], [0.3843137254901961, 1, 0.11764705882352941, 0.10196078431372549], [0.38823529411764707, 1, 0.12941176470588237, 0.10196078431372549], [0.39215686274509803, 1, 0.1411764705882353, 0.10196078431372549], [0.396078431372549, 1, 0.15294117647058825, 0.09803921568627451], [0.4, 1, 0.16470588235294117, 0.09803921568627451], [0.403921568627451, 1, 0.17647058823529413, 0.09803921568627451], [0.40784313725490196, 1, 0.18823529411764706, 0.09411764705882353], [0.4117647058823529, 1, 0.2, 0.09411764705882353], [0.41568627450980394, 1, 0.21176470588235294, 0.09411764705882353], [0.4196078431372549, 1, 0.2235294117647059, 0.09019607843137255], [0.4235294117647059, 1, 0.23529411764705882, 0.09019607843137255], [0.42745098039215684, 1, 0.24705882352941178, 0.08627450980392157], [0.43137254901960786, 1, 0.25882352941176473, 0.08627450980392157], [0.43529411764705883, 1, 0.27058823529411763, 0.08627450980392157], [0.4392156862745098, 1, 0.2823529411764706, 0.08235294117647059], [0.44313725490196076, 1, 0.29411764705882354, 0.08235294117647059], [0.4470588235294118, 1, 0.3058823529411765, 0.08235294117647059], [0.45098039215686275, 1, 0.3176470588235294, 0.0784313725490196], [0.4549019607843137, 1, 0.32941176470588235, 0.0784313725490196], [0.4588235294117647, 1, 0.3411764705882353, 0.0784313725490196], [0.4627450980392157, 1, 0.35294117647058826, 0.07450980392156863], [0.4666666666666667, 1, 0.36470588235294116, 0.07450980392156863], [0.47058823529411764, 1, 0.3764705882352941, 0.07450980392156863], [0.4745098039215686, 1, 0.38823529411764707, 0.07058823529411765], [0.47843137254901963, 1, 0.4, 0.07058823529411765], [0.4823529411764706, 1, 0.4117647058823529, 0.07058823529411765], [0.48627450980392156, 1, 0.4235294117647059, 0.06666666666666667], [0.49019607843137253, 1, 0.43529411764705883, 0.06666666666666667], [0.49411764705882355, 1, 0.4470588235294118, 0.06274509803921569], [0.4980392156862745, 1, 0.4588235294117647, 0.06274509803921569], [0.5019607843137255, 1, 0.47058823529411764, 0.06274509803921569], [0.5058823529411764, 1, 0.4823529411764706, 0.058823529411764705], [0.5098039215686274, 1, 0.49411764705882355, 0.058823529411764705], [0.5137254901960784, 1, 0.5058823529411764, 0.058823529411764705], [0.5176470588235295, 1, 0.5137254901960784, 0.054901960784313725], [0.5215686274509804, 1, 0.5254901960784314, 0.054901960784313725], [0.5254901960784314, 1, 0.5372549019607843, 0.054901960784313725], [0.5294117647058824, 1, 0.5490196078431373, 0.050980392156862744], [0.5333333333333333, 1, 0.5607843137254902, 0.050980392156862744], [0.5372549019607843, 1, 0.5725490196078431, 0.050980392156862744], [0.5411764705882353, 1, 0.5843137254901961, 0.047058823529411764], [0.5450980392156862, 1, 0.596078431372549, 0.047058823529411764], [0.5490196078431373, 1, 0.6078431372549019, 0.043137254901960784], [0.5529411764705883, 1, 0.6196078431372549, 0.043137254901960784], [0.5568627450980392, 1, 0.6313725490196078, 0.043137254901960784], [0.5607843137254902, 1, 0.6431372549019608, 0.0392156862745098], [0.5647058823529412, 1, 0.6549019607843137, 0.0392156862745098], [0.5686274509803921, 1, 0.6666666666666666, 0.0392156862745098], [0.5725490196078431, 1, 0.6784313725490196, 0.03529411764705882], [0.5764705882352941, 1, 0.6901960784313725, 0.03529411764705882], [0.5803921568627451, 1, 0.6941176470588235, 0.0392156862745098], [0.5843137254901961, 1, 0.7019607843137254, 0.0392156862745098], [0.5882352941176471, 1, 0.7058823529411765, 0.043137254901960784], [0.592156862745098, 1, 0.7098039215686275, 0.043137254901960784], [0.596078431372549, 1, 0.7137254901960784, 0.047058823529411764], [0.6, 1, 0.7176470588235294, 0.047058823529411764], [0.6039215686274509, 1, 0.7254901960784313, 0.050980392156862744], [0.6078431372549019, 1, 0.7294117647058823, 0.050980392156862744], [0.611764705882353, 1, 0.7333333333333333, 0.054901960784313725], [0.615686274509804, 1, 0.7372549019607844, 0.058823529411764705], [0.6196078431372549, 1, 0.7411764705882353, 0.058823529411764705], [0.6235294117647059, 1, 0.7490196078431373, 0.06274509803921569], [0.6274509803921569, 1, 0.7529411764705882, 0.06274509803921569], [0.6313725490196078, 1, 0.7568627450980392, 0.06666666666666667], [0.6352941176470588, 1, 0.7607843137254902, 0.06666666666666667], [0.6392156862745098, 1, 0.7647058823529411, 0.07058823529411765], [0.6431372549019608, 1, 0.7725490196078432, 0.07058823529411765], [0.6470588235294118, 1, 0.7764705882352941, 0.07450980392156863], [0.6509803921568628, 1, 0.7803921568627451, 0.07450980392156863], [0.6549019607843137, 1, 0.7843137254901961, 0.0784313725490196], [0.6588235294117647, 1, 0.788235294117647, 0.08235294117647059], [0.6627450980392157, 1, 0.796078431372549, 0.08235294117647059], [0.6666666666666666, 1, 0.8, 0.08627450980392157], [0.6705882352941176, 1, 0.803921568627451, 0.08627450980392157], [0.6745098039215687, 1, 0.807843137254902, 0.09019607843137255], [0.6784313725490196, 1, 0.8117647058823529, 0.09019607843137255], [0.6823529411764706, 1, 0.8196078431372549, 0.09411764705882353], [0.6862745098039216, 1, 0.8235294117647058, 0.09411764705882353], [0.6901960784313725, 1, 0.8274509803921568, 0.09803921568627451], [0.6941176470588235, 1, 0.8313725490196079, 0.10196078431372549], [0.6980392156862745, 1, 0.8352941176470589, 0.10196078431372549], [0.7019607843137254, 1, 0.8431372549019608, 0.10588235294117647], [0.7058823529411765, 1, 0.8470588235294118, 0.10588235294117647], [0.7098039215686275, 1, 0.8509803921568627, 0.10980392156862745], [0.7137254901960784, 1, 0.8549019607843137, 0.10980392156862745], [0.7176470588235294, 1, 0.8627450980392157, 0.11372549019607843], [0.7215686274509804, 1, 0.8666666666666667, 0.11372549019607843], [0.7254901960784313, 1, 0.8705882352941177, 0.11764705882352941], [0.7294117647058823, 1, 0.8745098039215686, 0.12156862745098039], [0.7333333333333333, 1, 0.8784313725490196, 0.12156862745098039], [0.7372549019607844, 1, 0.8862745098039215, 0.12549019607843137], [0.7411764705882353, 1, 0.8901960784313725, 0.12549019607843137], [0.7450980392156863, 1, 0.8941176470588236, 0.12941176470588237], [0.7490196078431373, 1, 0.8980392156862745, 0.12941176470588237], [0.7529411764705882, 1, 0.9019607843137255, 0.13333333333333333], [0.7568627450980392, 1, 0.9098039215686274, 0.13333333333333333], [0.7607843137254902, 1, 0.9137254901960784, 0.13725490196078433], [0.7647058823529411, 1, 0.9176470588235294, 0.1411764705882353], [0.7686274509803922, 1, 0.9215686274509803, 0.1411764705882353], [0.7725490196078432, 1, 0.9254901960784314, 0.1450980392156863], [0.7764705882352941, 1, 0.9333333333333333, 0.1450980392156863], [0.7803921568627451, 1, 0.9372549019607843, 0.14901960784313725], [0.7843137254901961, 1, 0.9411764705882353, 0.14901960784313725], [0.788235294117647, 1, 0.9450980392156862, 0.15294117647058825], [0.792156862745098, 1, 0.9450980392156862, 0.16862745098039217], [0.796078431372549, 1, 0.9490196078431372, 0.1843137254901961], [0.8, 1, 0.9490196078431372, 0.2], [0.803921568627451, 1, 0.9490196078431372, 0.21568627450980393], [0.807843137254902, 1, 0.9490196078431372, 0.22745098039215686], [0.8117647058823529, 1, 0.9529411764705882, 0.24313725490196078], [0.8156862745098039, 1, 0.9529411764705882, 0.25882352941176473], [0.8196078431372549, 1, 0.9529411764705882, 0.27450980392156865], [0.8235294117647058, 1, 0.9529411764705882, 0.2901960784313726], [0.8274509803921568, 1, 0.9568627450980393, 0.3058823529411765], [0.8313725490196079, 1, 0.9568627450980393, 0.3215686274509804], [0.8352941176470589, 1, 0.9568627450980393, 0.33725490196078434], [0.8392156862745098, 1, 0.9568627450980393, 0.35294117647058826], [0.8431372549019608, 1, 0.9607843137254902, 0.3686274509803922], [0.8470588235294118, 1, 0.9607843137254902, 0.3843137254901961], [0.8509803921568627, 1, 0.9607843137254902, 0.4], [0.8549019607843137, 1, 0.9607843137254902, 0.4117647058823529], [0.8588235294117647, 1, 0.9647058823529412, 0.42745098039215684], [0.8627450980392157, 1, 0.9647058823529412, 0.44313725490196076], [0.8666666666666667, 1, 0.9647058823529412, 0.4588235294117647], [0.8705882352941177, 1, 0.9647058823529412, 0.4745098039215686], [0.8745098039215686, 1, 0.9686274509803922, 0.49019607843137253], [0.8784313725490196, 1, 0.9686274509803922, 0.5058823529411764], [0.8823529411764706, 1, 0.9686274509803922, 0.5215686274509804], [0.8862745098039215, 1, 0.9686274509803922, 0.5372549019607843], [0.8901960784313725, 1, 0.9725490196078431, 0.5529411764705883], [0.8941176470588236, 1, 0.9725490196078431, 0.5686274509803921], [0.8980392156862745, 1, 0.9725490196078431, 0.5843137254901961], [0.9019607843137255, 1, 0.9725490196078431, 0.6], [0.9058823529411765, 1, 0.9725490196078431, 0.611764705882353], [0.9098039215686274, 1, 0.9764705882352941, 0.6274509803921569], [0.9137254901960784, 1, 0.9764705882352941, 0.6431372549019608], [0.9176470588235294, 1, 0.9764705882352941, 0.6588235294117647], [0.9215686274509803, 1, 0.9764705882352941, 0.6745098039215687], [0.9254901960784314, 1, 0.9803921568627451, 0.6901960784313725], [0.9294117647058824, 1, 0.9803921568627451, 0.7058823529411765], [0.9333333333333333, 1, 0.9803921568627451, 0.7215686274509804], [0.9372549019607843, 1, 0.9803921568627451, 0.7372549019607844], [0.9411764705882353, 1, 0.984313725490196, 0.7529411764705882], [0.9450980392156862, 1, 0.984313725490196, 0.7686274509803922], [0.9490196078431372, 1, 0.984313725490196, 0.7843137254901961], [0.9529411764705882, 1, 0.984313725490196, 0.8], [0.9568627450980393, 1, 0.9882352941176471, 0.8117647058823529], [0.9607843137254902, 1, 0.9882352941176471, 0.8274509803921568], [0.9647058823529412, 1, 0.9882352941176471, 0.8431372549019608], [0.9686274509803922, 1, 0.9882352941176471, 0.8588235294117647], [0.9725490196078431, 1, 0.9921568627450981, 0.8745098039215686], [0.9764705882352941, 1, 0.9921568627450981, 0.8901960784313725], [0.9803921568627451, 1, 0.9921568627450981, 0.9058823529411765], [0.984313725490196, 1, 0.9921568627450981, 0.9215686274509803], [0.9882352941176471, 1, 0.996078431372549, 0.9372549019607843], [0.9921568627450981, 1, 0.996078431372549, 0.9529411764705882], [0.996078431372549, 1, 0.996078431372549, 0.9686274509803922], [1, 1, 0.996078431372549, 0.984313725490196]]
-      };
-    };
+      this.paintCanvas();
+    },
+    get: function get() {
+      return this._lutO;
+    }
+  }, {
+    key: 'lutsO',
+    set: function set(newLutsO) {
+      this._lutsO = newLutsO;
+    },
+    get: function get() {
+      return this._lutsO;
+    }
+  }, {
+    key: 'discrete',
+    set: function set(discrete) {
+      this._discrete = discrete;
 
-    _class.presetLutsO = function presetLutsO() {
-      return {
-        linear: [[0, 0], [1, 1]],
-        lowpass: [[0, 0.8], [0.2, 0.6], [0.3, 0.1], [1, 0]],
-        bandpass: [[0, 0], [0.4, 0.8], [0.6, 0.8], [1, 0]],
-        highpass: [[0, 0], [0.7, 0.1], [0.8, 0.6], [1, 0.8]],
-        flat: [[0, 0.7], [1, 1]],
-        random: [[0, 0], [0.38, 0], [0.55, 1], [0.72, 1], [1, 0.05]],
-        linear_full: [[0, 0], [0.00392156862745098, 0.00392156862745098], [0.00784313725490196, 0.00784313725490196], [0.011764705882352941, 0.011764705882352941], [0.01568627450980392, 0.01568627450980392], [0.0196078431372549, 0.0196078431372549], [0.023529411764705882, 0.023529411764705882], [0.027450980392156862, 0.027450980392156862], [0.03137254901960784, 0.03137254901960784], [0.03529411764705882, 0.03529411764705882], [0.0392156862745098, 0.0392156862745098], [0.043137254901960784, 0.043137254901960784], [0.047058823529411764, 0.047058823529411764], [0.050980392156862744, 0.050980392156862744], [0.054901960784313725, 0.054901960784313725], [0.058823529411764705, 0.058823529411764705], [0.06274509803921569, 0.06274509803921569], [0.06666666666666667, 0.06666666666666667], [0.07058823529411765, 0.07058823529411765], [0.07450980392156863, 0.07450980392156863], [0.0784313725490196, 0.0784313725490196], [0.08235294117647059, 0.08235294117647059], [0.08627450980392157, 0.08627450980392157], [0.09019607843137255, 0.09019607843137255], [0.09411764705882353, 0.09411764705882353], [0.09803921568627451, 0.09803921568627451], [0.10196078431372549, 0.10196078431372549], [0.10588235294117647, 0.10588235294117647], [0.10980392156862745, 0.10980392156862745], [0.11372549019607843, 0.11372549019607843], [0.11764705882352941, 0.11764705882352941], [0.12156862745098039, 0.12156862745098039], [0.12549019607843137, 0.12549019607843137], [0.12941176470588237, 0.12941176470588237], [0.13333333333333333, 0.13333333333333333], [0.13725490196078433, 0.13725490196078433], [0.1411764705882353, 0.1411764705882353], [0.1450980392156863, 0.1450980392156863], [0.14901960784313725, 0.14901960784313725], [0.15294117647058825, 0.15294117647058825], [0.1568627450980392, 0.1568627450980392], [0.1607843137254902, 0.1607843137254902], [0.16470588235294117, 0.16470588235294117], [0.16862745098039217, 0.16862745098039217], [0.17254901960784313, 0.17254901960784313], [0.17647058823529413, 0.17647058823529413], [0.1803921568627451, 0.1803921568627451], [0.1843137254901961, 0.1843137254901961], [0.18823529411764706, 0.18823529411764706], [0.19215686274509805, 0.19215686274509805], [0.19607843137254902, 0.19607843137254902], [0.2, 0.2], [0.20392156862745098, 0.20392156862745098], [0.20784313725490197, 0.20784313725490197], [0.21176470588235294, 0.21176470588235294], [0.21568627450980393, 0.21568627450980393], [0.2196078431372549, 0.2196078431372549], [0.2235294117647059, 0.2235294117647059], [0.22745098039215686, 0.22745098039215686], [0.23137254901960785, 0.23137254901960785], [0.23529411764705882, 0.23529411764705882], [0.23921568627450981, 0.23921568627450981], [0.24313725490196078, 0.24313725490196078], [0.24705882352941178, 0.24705882352941178], [0.25098039215686274, 0.25098039215686274], [0.2549019607843137, 0.2549019607843137], [0.25882352941176473, 0.25882352941176473], [0.2627450980392157, 0.2627450980392157], [0.26666666666666666, 0.26666666666666666], [0.27058823529411763, 0.27058823529411763], [0.27450980392156865, 0.27450980392156865], [0.2784313725490196, 0.2784313725490196], [0.2823529411764706, 0.2823529411764706], [0.28627450980392155, 0.28627450980392155], [0.2901960784313726, 0.2901960784313726], [0.29411764705882354, 0.29411764705882354], [0.2980392156862745, 0.2980392156862745], [0.30196078431372547, 0.30196078431372547], [0.3058823529411765, 0.3058823529411765], [0.30980392156862746, 0.30980392156862746], [0.3137254901960784, 0.3137254901960784], [0.3176470588235294, 0.3176470588235294], [0.3215686274509804, 0.3215686274509804], [0.3254901960784314, 0.3254901960784314], [0.32941176470588235, 0.32941176470588235], [0.3333333333333333, 0.3333333333333333], [0.33725490196078434, 0.33725490196078434], [0.3411764705882353, 0.3411764705882353], [0.34509803921568627, 0.34509803921568627], [0.34901960784313724, 0.34901960784313724], [0.35294117647058826, 0.35294117647058826], [0.3568627450980392, 0.3568627450980392], [0.3607843137254902, 0.3607843137254902], [0.36470588235294116, 0.36470588235294116], [0.3686274509803922, 0.3686274509803922], [0.37254901960784315, 0.37254901960784315], [0.3764705882352941, 0.3764705882352941], [0.3803921568627451, 0.3803921568627451], [0.3843137254901961, 0.3843137254901961], [0.38823529411764707, 0.38823529411764707], [0.39215686274509803, 0.39215686274509803], [0.396078431372549, 0.396078431372549], [0.4, 0.4], [0.403921568627451, 0.403921568627451], [0.40784313725490196, 0.40784313725490196], [0.4117647058823529, 0.4117647058823529], [0.41568627450980394, 0.41568627450980394], [0.4196078431372549, 0.4196078431372549], [0.4235294117647059, 0.4235294117647059], [0.42745098039215684, 0.42745098039215684], [0.43137254901960786, 0.43137254901960786], [0.43529411764705883, 0.43529411764705883], [0.4392156862745098, 0.4392156862745098], [0.44313725490196076, 0.44313725490196076], [0.4470588235294118, 0.4470588235294118], [0.45098039215686275, 0.45098039215686275], [0.4549019607843137, 0.4549019607843137], [0.4588235294117647, 0.4588235294117647], [0.4627450980392157, 0.4627450980392157], [0.4666666666666667, 0.4666666666666667], [0.47058823529411764, 0.47058823529411764], [0.4745098039215686, 0.4745098039215686], [0.47843137254901963, 0.47843137254901963], [0.4823529411764706, 0.4823529411764706], [0.48627450980392156, 0.48627450980392156], [0.49019607843137253, 0.49019607843137253], [0.49411764705882355, 0.49411764705882355], [0.4980392156862745, 0.4980392156862745], [0.5019607843137255, 0.5019607843137255], [0.5058823529411764, 0.5058823529411764], [0.5098039215686274, 0.5098039215686274], [0.5137254901960784, 0.5137254901960784], [0.5176470588235295, 0.5176470588235295], [0.5215686274509804, 0.5215686274509804], [0.5254901960784314, 0.5254901960784314], [0.5294117647058824, 0.5294117647058824], [0.5333333333333333, 0.5333333333333333], [0.5372549019607843, 0.5372549019607843], [0.5411764705882353, 0.5411764705882353], [0.5450980392156862, 0.5450980392156862], [0.5490196078431373, 0.5490196078431373], [0.5529411764705883, 0.5529411764705883], [0.5568627450980392, 0.5568627450980392], [0.5607843137254902, 0.5607843137254902], [0.5647058823529412, 0.5647058823529412], [0.5686274509803921, 0.5686274509803921], [0.5725490196078431, 0.5725490196078431], [0.5764705882352941, 0.5764705882352941], [0.5803921568627451, 0.5803921568627451], [0.5843137254901961, 0.5843137254901961], [0.5882352941176471, 0.5882352941176471], [0.592156862745098, 0.592156862745098], [0.596078431372549, 0.596078431372549], [0.6, 0.6], [0.6039215686274509, 0.6039215686274509], [0.6078431372549019, 0.6078431372549019], [0.611764705882353, 0.611764705882353], [0.615686274509804, 0.615686274509804], [0.6196078431372549, 0.6196078431372549], [0.6235294117647059, 0.6235294117647059], [0.6274509803921569, 0.6274509803921569], [0.6313725490196078, 0.6313725490196078], [0.6352941176470588, 0.6352941176470588], [0.6392156862745098, 0.6392156862745098], [0.6431372549019608, 0.6431372549019608], [0.6470588235294118, 0.6470588235294118], [0.6509803921568628, 0.6509803921568628], [0.6549019607843137, 0.6549019607843137], [0.6588235294117647, 0.6588235294117647], [0.6627450980392157, 0.6627450980392157], [0.6666666666666666, 0.6666666666666666], [0.6705882352941176, 0.6705882352941176], [0.6745098039215687, 0.6745098039215687], [0.6784313725490196, 0.6784313725490196], [0.6823529411764706, 0.6823529411764706], [0.6862745098039216, 0.6862745098039216], [0.6901960784313725, 0.6901960784313725], [0.6941176470588235, 0.6941176470588235], [0.6980392156862745, 0.6980392156862745], [0.7019607843137254, 0.7019607843137254], [0.7058823529411765, 0.7058823529411765], [0.7098039215686275, 0.7098039215686275], [0.7137254901960784, 0.7137254901960784], [0.7176470588235294, 0.7176470588235294], [0.7215686274509804, 0.7215686274509804], [0.7254901960784313, 0.7254901960784313], [0.7294117647058823, 0.7294117647058823], [0.7333333333333333, 0.7333333333333333], [0.7372549019607844, 0.7372549019607844], [0.7411764705882353, 0.7411764705882353], [0.7450980392156863, 0.7450980392156863], [0.7490196078431373, 0.7490196078431373], [0.7529411764705882, 0.7529411764705882], [0.7568627450980392, 0.7568627450980392], [0.7607843137254902, 0.7607843137254902], [0.7647058823529411, 0.7647058823529411], [0.7686274509803922, 0.7686274509803922], [0.7725490196078432, 0.7725490196078432], [0.7764705882352941, 0.7764705882352941], [0.7803921568627451, 0.7803921568627451], [0.7843137254901961, 0.7843137254901961], [0.788235294117647, 0.788235294117647], [0.792156862745098, 0.792156862745098], [0.796078431372549, 0.796078431372549], [0.8, 0.8], [0.803921568627451, 0.803921568627451], [0.807843137254902, 0.807843137254902], [0.8117647058823529, 0.8117647058823529], [0.8156862745098039, 0.8156862745098039], [0.8196078431372549, 0.8196078431372549], [0.8235294117647058, 0.8235294117647058], [0.8274509803921568, 0.8274509803921568], [0.8313725490196079, 0.8313725490196079], [0.8352941176470589, 0.8352941176470589], [0.8392156862745098, 0.8392156862745098], [0.8431372549019608, 0.8431372549019608], [0.8470588235294118, 0.8470588235294118], [0.8509803921568627, 0.8509803921568627], [0.8549019607843137, 0.8549019607843137], [0.8588235294117647, 0.8588235294117647], [0.8627450980392157, 0.8627450980392157], [0.8666666666666667, 0.8666666666666667], [0.8705882352941177, 0.8705882352941177], [0.8745098039215686, 0.8745098039215686], [0.8784313725490196, 0.8784313725490196], [0.8823529411764706, 0.8823529411764706], [0.8862745098039215, 0.8862745098039215], [0.8901960784313725, 0.8901960784313725], [0.8941176470588236, 0.8941176470588236], [0.8980392156862745, 0.8980392156862745], [0.9019607843137255, 0.9019607843137255], [0.9058823529411765, 0.9058823529411765], [0.9098039215686274, 0.9098039215686274], [0.9137254901960784, 0.9137254901960784], [0.9176470588235294, 0.9176470588235294], [0.9215686274509803, 0.9215686274509803], [0.9254901960784314, 0.9254901960784314], [0.9294117647058824, 0.9294117647058824], [0.9333333333333333, 0.9333333333333333], [0.9372549019607843, 0.9372549019607843], [0.9411764705882353, 0.9411764705882353], [0.9450980392156862, 0.9450980392156862], [0.9490196078431372, 0.9490196078431372], [0.9529411764705882, 0.9529411764705882], [0.9568627450980393, 0.9568627450980393], [0.9607843137254902, 0.9607843137254902], [0.9647058823529412, 0.9647058823529412], [0.9686274509803922, 0.9686274509803922], [0.9725490196078431, 0.9725490196078431], [0.9764705882352941, 0.9764705882352941], [0.9803921568627451, 0.9803921568627451], [0.984313725490196, 0.984313725490196], [0.9882352941176471, 0.9882352941176471], [0.9921568627450981, 0.9921568627450981], [0.996078431372549, 0.996078431372549], [1, 1]]
-      };
-    };
+      this.paintCanvas();
+    },
+    get: function get() {
+      return this._discrete;
+    }
+  }]);
 
-    _createClass(_class, [{
-      key: 'texture',
-      get: function get() {
-        var texture = new three__WEBPACK_IMPORTED_MODULE_1__["Texture"](this._canvas);
-        texture.mapping = three__WEBPACK_IMPORTED_MODULE_1__["UVMapping"];
-        texture.wrapS = texture.wrapT = three__WEBPACK_IMPORTED_MODULE_1__["ClampToEdgeWrapping"];
-        texture.magFilter = texture.minFilter = three__WEBPACK_IMPORTED_MODULE_1__["NearestFilter"];
-        texture.premultiplyAlpha = true;
-        texture.needsUpdate = true;
-        return texture;
-      }
-    }, {
-      key: 'lut',
-      set: function set(targetLUT) {
-        this._color = this._luts[targetLUT];
-        this._lut = targetLUT;
+  return helpersLut;
+}(three__WEBPACK_IMPORTED_MODULE_1__["Object3D"]);
 
-        this.paintCanvas();
-      },
-      get: function get() {
-        return this._lut;
-      }
-    }, {
-      key: 'luts',
-      set: function set(newLuts) {
-        this._luts = newLuts;
-      },
-      get: function get() {
-        return this._luts;
-      }
-    }, {
-      key: 'lutO',
-      set: function set(targetLUTO) {
-        this._opacity = this._lutsO[targetLUTO];
-        this._lutO = targetLUTO;
-
-        this.paintCanvas();
-      },
-      get: function get() {
-        return this._lutO;
-      }
-    }, {
-      key: 'lutsO',
-      set: function set(newLutsO) {
-        this._lutsO = newLutsO;
-      },
-      get: function get() {
-        return this._lutsO;
-      }
-    }, {
-      key: 'discrete',
-      set: function set(discrete) {
-        this._discrete = discrete;
-
-        this.paintCanvas();
-      },
-      get: function get() {
-        return this._discrete;
-      }
-    }]);
-
-    return _class;
-  }(Constructor);
-};
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (helpersLut());
 
 /***/ }),
 
@@ -83904,7 +83792,7 @@ var helpersLut = function helpersLut() {
 /*!***********************************************!*\
   !*** ./src/helpers/helpers.material.mixin.js ***!
   \***********************************************/
-/*! exports provided: helpersMaterialMixin, default */
+/*! exports provided: helpersMaterialMixin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83925,61 +83813,59 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @module helpers/material/mixin
  */
 
-var helpersMaterialMixin = function helpersMaterialMixin() {
-  var Constructor = three__WEBPACK_IMPORTED_MODULE_0__["Object3D"];
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
+var helpersMaterialMixin = function (_Object3D) {
+  _inherits(helpersMaterialMixin, _Object3D);
 
-    function _class() {
-      _classCallCheck(this, _class);
+  function helpersMaterialMixin() {
+    _classCallCheck(this, helpersMaterialMixin);
 
-      return _possibleConstructorReturn(this, _Constructor.apply(this, arguments));
+    return _possibleConstructorReturn(this, _Object3D.apply(this, arguments));
+  }
+
+  helpersMaterialMixin.prototype._createMaterial = function _createMaterial(extraOptions) {
+    // generate shaders on-demand!
+    var fs = new this._shadersFragment(this._uniforms);
+    var vs = new this._shadersVertex();
+
+    // material
+    var globalOptions = {
+      uniforms: this._uniforms,
+      vertexShader: vs.compute(),
+      fragmentShader: fs.compute()
+    };
+
+    var options = Object.assign(extraOptions, globalOptions);
+    this._material = new three__WEBPACK_IMPORTED_MODULE_0__["ShaderMaterial"](options);
+    this._material.needsUpdate = true;
+  };
+
+  helpersMaterialMixin.prototype._updateMaterial = function _updateMaterial() {
+    // generate shaders on-demand!
+    var fs = new this._shadersFragment(this._uniforms);
+    var vs = new this._shadersVertex();
+
+    this._material.vertexShader = vs.compute();
+    this._material.fragmentShader = fs.compute();
+
+    this._material.needsUpdate = true;
+  };
+
+  helpersMaterialMixin.prototype._prepareTexture = function _prepareTexture() {
+    this._textures = [];
+    for (var m = 0; m < this._stack._rawData.length; m++) {
+      var tex = new three__WEBPACK_IMPORTED_MODULE_0__["DataTexture"](this._stack.rawData[m], this._stack.textureSize, this._stack.textureSize, this._stack.textureType, three__WEBPACK_IMPORTED_MODULE_0__["UnsignedByteType"], three__WEBPACK_IMPORTED_MODULE_0__["UVMapping"], three__WEBPACK_IMPORTED_MODULE_0__["ClampToEdgeWrapping"], three__WEBPACK_IMPORTED_MODULE_0__["ClampToEdgeWrapping"], three__WEBPACK_IMPORTED_MODULE_0__["NearestFilter"], three__WEBPACK_IMPORTED_MODULE_0__["NearestFilter"]);
+      tex.needsUpdate = true;
+      tex.flipY = true;
+      this._textures.push(tex);
     }
+  };
 
-    _class.prototype._createMaterial = function _createMaterial(extraOptions) {
-      // generate shaders on-demand!
-      var fs = new this._shadersFragment(this._uniforms);
-      var vs = new this._shadersVertex();
+  return helpersMaterialMixin;
+}(three__WEBPACK_IMPORTED_MODULE_0__["Object3D"]);
 
-      // material
-      var globalOptions = {
-        uniforms: this._uniforms,
-        vertexShader: vs.compute(),
-        fragmentShader: fs.compute()
-      };
-
-      var options = Object.assign(extraOptions, globalOptions);
-      this._material = new three__WEBPACK_IMPORTED_MODULE_0__["ShaderMaterial"](options);
-      this._material.needsUpdate = true;
-    };
-
-    _class.prototype._updateMaterial = function _updateMaterial() {
-      // generate shaders on-demand!
-      var fs = new this._shadersFragment(this._uniforms);
-      var vs = new this._shadersVertex();
-
-      this._material.vertexShader = vs.compute();
-      this._material.fragmentShader = fs.compute();
-
-      this._material.needsUpdate = true;
-    };
-
-    _class.prototype._prepareTexture = function _prepareTexture() {
-      this._textures = [];
-      for (var m = 0; m < this._stack._rawData.length; m++) {
-        var tex = new three__WEBPACK_IMPORTED_MODULE_0__["DataTexture"](this._stack.rawData[m], this._stack.textureSize, this._stack.textureSize, this._stack.textureType, three__WEBPACK_IMPORTED_MODULE_0__["UnsignedByteType"], three__WEBPACK_IMPORTED_MODULE_0__["UVMapping"], three__WEBPACK_IMPORTED_MODULE_0__["ClampToEdgeWrapping"], three__WEBPACK_IMPORTED_MODULE_0__["ClampToEdgeWrapping"], three__WEBPACK_IMPORTED_MODULE_0__["NearestFilter"], three__WEBPACK_IMPORTED_MODULE_0__["NearestFilter"]);
-        tex.needsUpdate = true;
-        tex.flipY = true;
-        this._textures.push(tex);
-      }
-    };
-
-    return _class;
-  }(Constructor);
-};
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (helpersMaterialMixin());
 
 /***/ }),
 
@@ -84450,7 +84336,7 @@ var HelpersSegmentationLut = function () {
 /*!**************************************!*\
   !*** ./src/helpers/helpers.slice.js ***!
   \**************************************/
-/*! exports provided: helpersSlice, default */
+/*! exports provided: helpersSlice */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84483,553 +84369,551 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @module helpers/slice
  */
 
-var helpersSlice = function helpersSlice() {
-  var Constructor = Object(_helpers_helpers_material_mixin__WEBPACK_IMPORTED_MODULE_4__["helpersMaterialMixin"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
+var helpersSlice = function (_helpersMaterialMixin) {
+  _inherits(helpersSlice, _helpersMaterialMixin);
 
-    function _class(stack) {
-      var index = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-      var position = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](0, 0, 0);
-      var direction = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](0, 0, 1);
-      var aabbSpace = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'IJK';
+  function helpersSlice(stack) {
+    var index = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var position = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](0, 0, 0);
+    var direction = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](0, 0, 1);
+    var aabbSpace = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'IJK';
 
-      _classCallCheck(this, _class);
+    _classCallCheck(this, helpersSlice);
 
-      // private vars
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this));
-      //
+    // private vars
+    var _this = _possibleConstructorReturn(this, _helpersMaterialMixin.call(this));
+    //
 
 
-      _this._stack = stack;
+    _this._stack = stack;
 
-      // image settings
-      // index only used to grab window/level and intercept/slope
-      _this._invert = _this._stack.invert;
+    // image settings
+    // index only used to grab window/level and intercept/slope
+    _this._invert = _this._stack.invert;
 
-      _this._lut = 'none';
-      _this._lutTexture = null;
-      // if auto === true, get from index
-      // else from stack which holds the default values
-      _this._intensityAuto = true;
-      _this._interpolation = 1; // default to trilinear interpolation
-      // starts at 0
-      _this._index = index;
-      _this._windowWidth = null;
-      _this._windowCenter = null;
-      _this._opacity = 1;
-      _this._rescaleSlope = null;
-      _this._rescaleIntercept = null;
-      _this._spacing = 1;
-      _this._thickness = 0;
-      _this._thicknessMethod = 0; // default to MIP (Maximum Intensity Projection); 1 - Mean; 2 - MinIP
+    _this._lut = 'none';
+    _this._lutTexture = null;
+    // if auto === true, get from index
+    // else from stack which holds the default values
+    _this._intensityAuto = true;
+    _this._interpolation = 1; // default to trilinear interpolation
+    // starts at 0
+    _this._index = index;
+    _this._windowWidth = null;
+    _this._windowCenter = null;
+    _this._opacity = 1;
+    _this._rescaleSlope = null;
+    _this._rescaleIntercept = null;
+    _this._spacing = 1;
+    _this._thickness = 0;
+    _this._thicknessMethod = 0; // default to MIP (Maximum Intensity Projection); 1 - Mean; 2 - MinIP
 
-      // threshold
-      _this._lowerThreshold = null;
-      _this._upperThreshold = null;
+    // threshold
+    _this._lowerThreshold = null;
+    _this._upperThreshold = null;
 
-      _this._canvasWidth = 0;
-      _this._canvasHeight = 0;
-      _this._borderColor = null;
+    _this._canvasWidth = 0;
+    _this._canvasHeight = 0;
+    _this._borderColor = null;
 
-      // Object3D settings
-      // shape
-      _this._planePosition = position;
-      _this._planeDirection = direction;
-      // change aaBBSpace changes the box dimensions
-      // also changes the transform
-      // there is also a switch to move back mesh to LPS space automatically
-      _this._aaBBspace = aabbSpace; // or LPS -> different transforms, esp for the geometry/mesh
-      _this._material = null;
-      _this._textures = [];
-      _this._shadersFragment = _shaders_shaders_data_fragment__WEBPACK_IMPORTED_MODULE_3__["default"];
-      _this._shadersVertex = _shaders_shaders_data_vertex__WEBPACK_IMPORTED_MODULE_2__["default"];
-      _this._uniforms = _shaders_shaders_data_uniform__WEBPACK_IMPORTED_MODULE_1__["default"].uniforms();
-      _this._geometry = null;
-      _this._mesh = null;
-      _this._visible = true;
+    // Object3D settings
+    // shape
+    _this._planePosition = position;
+    _this._planeDirection = direction;
+    // change aaBBSpace changes the box dimensions
+    // also changes the transform
+    // there is also a switch to move back mesh to LPS space automatically
+    _this._aaBBspace = aabbSpace; // or LPS -> different transforms, esp for the geometry/mesh
+    _this._material = null;
+    _this._textures = [];
+    _this._shadersFragment = _shaders_shaders_data_fragment__WEBPACK_IMPORTED_MODULE_3__["default"];
+    _this._shadersVertex = _shaders_shaders_data_vertex__WEBPACK_IMPORTED_MODULE_2__["default"];
+    _this._uniforms = _shaders_shaders_data_uniform__WEBPACK_IMPORTED_MODULE_1__["default"].uniforms();
+    _this._geometry = null;
+    _this._mesh = null;
+    _this._visible = true;
 
-      // update dimensions, center, etc.
-      // depending on aaBBSpace
-      _this._init();
+    // update dimensions, center, etc.
+    // depending on aaBBSpace
+    _this._init();
 
-      // update object
-      _this._create();
-      return _this;
+    // update object
+    _this._create();
+    return _this;
+  }
+
+  // getters/setters
+
+  helpersSlice.prototype._init = function _init() {
+    if (!this._stack || !this._stack._prepared || !this._stack._packed) {
+      return;
     }
 
-    // getters/setters
+    if (this._aaBBspace === 'IJK') {
+      this._halfDimensions = this._stack.halfDimensionsIJK;
+      this._center = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](this._stack.halfDimensionsIJK.x - 0.5, this._stack.halfDimensionsIJK.y - 0.5, this._stack.halfDimensionsIJK.z - 0.5);
+      this._toAABB = new three__WEBPACK_IMPORTED_MODULE_5__["Matrix4"]();
+    } else {
+      // LPS
+      var aaBBox = this._stack.AABBox();
+      this._halfDimensions = aaBBox.clone().multiplyScalar(0.5);
+      this._center = this._stack.centerAABBox();
+      this._toAABB = this._stack.lps2AABB;
+    }
+  };
 
-    _class.prototype._init = function _init() {
-      if (!this._stack || !this._stack._prepared || !this._stack._packed) {
-        return;
+  // private methods
+
+
+  helpersSlice.prototype._create = function _create() {
+    if (!this._stack || !this._stack.prepared || !this._stack.packed) {
+      return;
+    }
+
+    // Convenience vars
+    try {
+      var SliceGeometryContructor = Object(_geometries_geometries_slice__WEBPACK_IMPORTED_MODULE_0__["geometriesSlice"])();
+      this._geometry = new SliceGeometryContructor(this._halfDimensions, this._center, this._planePosition, this._planeDirection, this._toAABB);
+    } catch (e) {
+      console.log(e);
+      console.log('invalid slice geometry - exiting...');
+      return;
+    }
+
+    if (!this._geometry.vertices) {
+      return;
+    }
+
+    if (!this._material) {
+      //
+      this._uniforms.uTextureSize.value = this._stack.textureSize;
+      this._uniforms.uDataDimensions.value = [this._stack.dimensionsIJK.x, this._stack.dimensionsIJK.y, this._stack.dimensionsIJK.z];
+      this._uniforms.uWorldToData.value = this._stack.lps2IJK;
+      this._uniforms.uNumberOfChannels.value = this._stack.numberOfChannels;
+      this._uniforms.uPixelType.value = this._stack.pixelType;
+      this._uniforms.uBitsAllocated.value = this._stack.bitsAllocated;
+      this._uniforms.uPackedPerPixel.value = this._stack.packedPerPixel;
+      this._uniforms.uSpacing.value = this._spacing;
+      this._uniforms.uThickness.value = this._thickness;
+      this._uniforms.uThicknessMethod.value = this._thicknessMethod;
+      // compute texture if material exist
+      this._prepareTexture();
+      this._uniforms.uTextureContainer.value = this._textures;
+      if (this._stack.textureUnits > 8) {
+        this._uniforms.uTextureContainer.length = 14;
       }
 
-      if (this._aaBBspace === 'IJK') {
-        this._halfDimensions = this._stack.halfDimensionsIJK;
-        this._center = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](this._stack.halfDimensionsIJK.x - 0.5, this._stack.halfDimensionsIJK.y - 0.5, this._stack.halfDimensionsIJK.z - 0.5);
-        this._toAABB = new three__WEBPACK_IMPORTED_MODULE_5__["Matrix4"]();
-      } else {
-        // LPS
-        var aaBBox = this._stack.AABBox();
-        this._halfDimensions = aaBBox.clone().multiplyScalar(0.5);
-        this._center = this._stack.centerAABBox();
-        this._toAABB = this._stack.lps2AABB;
-      }
-    };
+      this._createMaterial({
+        side: three__WEBPACK_IMPORTED_MODULE_5__["DoubleSide"]
+      });
+    }
 
-    // private methods
+    // update intensity related stuff
+    this.updateIntensitySettings();
+    this.updateIntensitySettingsUniforms();
 
+    // create the mesh!
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_5__["Mesh"](this._geometry, this._material);
+    if (this._aaBBspace === 'IJK') {
+      this._mesh.applyMatrix4(this._stack.ijk2LPS);
+    }
 
-    _class.prototype._create = function _create() {
-      if (!this._stack || !this._stack.prepared || !this._stack.packed) {
-        return;
-      }
+    this._mesh.visible = this._visible;
 
-      // Convenience vars
-      try {
-        var SliceGeometryContructor = Object(_geometries_geometries_slice__WEBPACK_IMPORTED_MODULE_0__["geometriesSlice"])();
-        this._geometry = new SliceGeometryContructor(this._halfDimensions, this._center, this._planePosition, this._planeDirection, this._toAABB);
-      } catch (e) {
-        console.log(e);
-        console.log('invalid slice geometry - exiting...');
-        return;
-      }
+    // and add it!
+    this.add(this._mesh);
+  };
 
-      if (!this._geometry.vertices) {
-        return;
+  helpersSlice.prototype.updateIntensitySettings = function updateIntensitySettings() {
+    // if auto, get from frame index
+    if (this._intensityAuto) {
+      this.updateIntensitySetting('windowCenter');
+      this.updateIntensitySetting('windowWidth');
+      this.updateIntensitySetting('rescaleSlope');
+      this.updateIntensitySetting('rescaleIntercept');
+    } else {
+      if (this._windowCenter === null) {
+        this._windowCenter = this._stack.windowCenter;
       }
 
-      if (!this._material) {
-        //
-        this._uniforms.uTextureSize.value = this._stack.textureSize;
-        this._uniforms.uDataDimensions.value = [this._stack.dimensionsIJK.x, this._stack.dimensionsIJK.y, this._stack.dimensionsIJK.z];
-        this._uniforms.uWorldToData.value = this._stack.lps2IJK;
-        this._uniforms.uNumberOfChannels.value = this._stack.numberOfChannels;
-        this._uniforms.uPixelType.value = this._stack.pixelType;
-        this._uniforms.uBitsAllocated.value = this._stack.bitsAllocated;
-        this._uniforms.uPackedPerPixel.value = this._stack.packedPerPixel;
-        this._uniforms.uSpacing.value = this._spacing;
-        this._uniforms.uThickness.value = this._thickness;
-        this._uniforms.uThicknessMethod.value = this._thicknessMethod;
-        // compute texture if material exist
-        this._prepareTexture();
-        this._uniforms.uTextureContainer.value = this._textures;
-        if (this._stack.textureUnits > 8) {
-          this._uniforms.uTextureContainer.length = 14;
-        }
-
-        this._createMaterial({
-          side: three__WEBPACK_IMPORTED_MODULE_5__["DoubleSide"]
-        });
+      if (this._windowWidth === null) {
+        this._windowWidth = this._stack.windowWidth;
       }
 
-      // update intensity related stuff
-      this.updateIntensitySettings();
-      this.updateIntensitySettingsUniforms();
-
-      // create the mesh!
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_5__["Mesh"](this._geometry, this._material);
-      if (this._aaBBspace === 'IJK') {
-        this._mesh.applyMatrix4(this._stack.ijk2LPS);
+      if (this._rescaleSlope === null) {
+        this._rescaleSlope = this._stack.rescaleSlope;
       }
 
-      this._mesh.visible = this._visible;
-
-      // and add it!
-      this.add(this._mesh);
-    };
-
-    _class.prototype.updateIntensitySettings = function updateIntensitySettings() {
-      // if auto, get from frame index
-      if (this._intensityAuto) {
-        this.updateIntensitySetting('windowCenter');
-        this.updateIntensitySetting('windowWidth');
-        this.updateIntensitySetting('rescaleSlope');
-        this.updateIntensitySetting('rescaleIntercept');
-      } else {
-        if (this._windowCenter === null) {
-          this._windowCenter = this._stack.windowCenter;
-        }
-
-        if (this._windowWidth === null) {
-          this._windowWidth = this._stack.windowWidth;
-        }
-
-        if (this._rescaleSlope === null) {
-          this._rescaleSlope = this._stack.rescaleSlope;
-        }
-
-        if (this._rescaleIntercept === null) {
-          this._rescaleIntercept = this._stack.rescaleIntercept;
-        }
+      if (this._rescaleIntercept === null) {
+        this._rescaleIntercept = this._stack.rescaleIntercept;
       }
+    }
 
-      // adding thresholding
-      if (this._upperThreshold === null) {
-        this._upperThreshold = this._stack._minMax[1];
-      }
+    // adding thresholding
+    if (this._upperThreshold === null) {
+      this._upperThreshold = this._stack._minMax[1];
+    }
 
-      if (this._lowerThreshold === null) {
-        this._lowerThreshold = this._stack._minMax[0];
-      }
-    };
+    if (this._lowerThreshold === null) {
+      this._lowerThreshold = this._stack._minMax[0];
+    }
+  };
 
-    _class.prototype.updateIntensitySettingsUniforms = function updateIntensitySettingsUniforms() {
-      // compensate for the offset to only pass > 0 values to shaders
-      // models > models.stack.js : _packTo8Bits
-      var offset = 0;
-      if (this._stack._minMax[0] < 0) {
-        offset -= this._stack._minMax[0];
-      }
+  helpersSlice.prototype.updateIntensitySettingsUniforms = function updateIntensitySettingsUniforms() {
+    // compensate for the offset to only pass > 0 values to shaders
+    // models > models.stack.js : _packTo8Bits
+    var offset = 0;
+    if (this._stack._minMax[0] < 0) {
+      offset -= this._stack._minMax[0];
+    }
 
-      // set slice window center and width
-      this._uniforms.uRescaleSlopeIntercept.value = [this._rescaleSlope, this._rescaleIntercept];
-      this._uniforms.uWindowCenterWidth.value = [offset + this._windowCenter, this._windowWidth];
+    // set slice window center and width
+    this._uniforms.uRescaleSlopeIntercept.value = [this._rescaleSlope, this._rescaleIntercept];
+    this._uniforms.uWindowCenterWidth.value = [offset + this._windowCenter, this._windowWidth];
 
-      // set slice opacity
-      this._uniforms.uOpacity.value = this._opacity;
+    // set slice opacity
+    this._uniforms.uOpacity.value = this._opacity;
 
-      // set slice upper/lower threshold
-      this._uniforms.uLowerUpperThreshold.value = [offset + this._lowerThreshold, offset + this._upperThreshold];
+    // set slice upper/lower threshold
+    this._uniforms.uLowerUpperThreshold.value = [offset + this._lowerThreshold, offset + this._upperThreshold];
 
-      // invert
-      this._uniforms.uInvert.value = this._invert === true ? 1 : 0;
+    // invert
+    this._uniforms.uInvert.value = this._invert === true ? 1 : 0;
 
-      // interpolation
-      this._uniforms.uInterpolation.value = this._interpolation;
+    // interpolation
+    this._uniforms.uInterpolation.value = this._interpolation;
 
-      // lut
-      if (this._lut === 'none') {
-        this._uniforms.uLut.value = 0;
-      } else {
-        this._uniforms.uLut.value = 1;
-        this._uniforms.uTextureLUT.value = this._lutTexture;
-      }
-    };
+    // lut
+    if (this._lut === 'none') {
+      this._uniforms.uLut.value = 0;
+    } else {
+      this._uniforms.uLut.value = 1;
+      this._uniforms.uTextureLUT.value = this._lutTexture;
+    }
+  };
 
-    _class.prototype.updateIntensitySetting = function updateIntensitySetting(setting) {
-      if (this._stack.frame[this._index] && this._stack.frame[this._index][setting]) {
-        this['_' + setting] = this._stack.frame[this._index][setting];
-      } else {
-        this['_' + setting] = this._stack[setting];
-      }
-    };
+  helpersSlice.prototype.updateIntensitySetting = function updateIntensitySetting(setting) {
+    if (this._stack.frame[this._index] && this._stack.frame[this._index][setting]) {
+      this['_' + setting] = this._stack.frame[this._index][setting];
+    } else {
+      this['_' + setting] = this._stack[setting];
+    }
+  };
 
-    _class.prototype._update = function _update() {
-      // update slice
-      if (this._mesh) {
-        this.remove(this._mesh);
-        this._mesh.geometry.dispose();
-        this._mesh.geometry = null;
-        // we do not want to dispose the texture!
-        // this._mesh.material.dispose();
-        // this._mesh.material = null;
-        this._mesh = null;
-      }
-
-      this._create();
-    };
-
-    _class.prototype.dispose = function dispose() {
-      // Release memory
-      for (var j = 0; j < this._textures.length; j++) {
-        this._textures[j].dispose();
-        this._textures[j] = null;
-      }
-      this._textures = null;
-      this._shadersFragment = null;
-      this._shadersVertex = null;
-
-      this._uniforms = null;
-
-      // material, geometry and mesh
+  helpersSlice.prototype._update = function _update() {
+    // update slice
+    if (this._mesh) {
       this.remove(this._mesh);
       this._mesh.geometry.dispose();
       this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
+      // we do not want to dispose the texture!
+      // this._mesh.material.dispose();
+      // this._mesh.material = null;
       this._mesh = null;
+    }
 
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
+    this._create();
+  };
 
-      this._stack = null;
-    };
+  helpersSlice.prototype.dispose = function dispose() {
+    // Release memory
+    for (var j = 0; j < this._textures.length; j++) {
+      this._textures[j].dispose();
+      this._textures[j] = null;
+    }
+    this._textures = null;
+    this._shadersFragment = null;
+    this._shadersVertex = null;
 
-    _class.prototype.cartesianEquation = function cartesianEquation() {
-      // Make sure we have a geometry
-      if (!this._geometry || !this._geometry.vertices || this._geometry.vertices.length < 3) {
-        return new three__WEBPACK_IMPORTED_MODULE_5__["Vector4"]();
-      }
+    this._uniforms = null;
 
-      var vertices = this._geometry.vertices;
-      var dataToWorld = this._stack.ijk2LPS;
-      var p1 = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](vertices[0].x, vertices[0].y, vertices[0].z).applyMatrix4(dataToWorld);
-      var p2 = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](vertices[1].x, vertices[1].y, vertices[1].z).applyMatrix4(dataToWorld);
-      var p3 = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](vertices[2].x, vertices[2].y, vertices[2].z).applyMatrix4(dataToWorld);
-      var v1 = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"]();
-      var v2 = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"]();
-      var normal = v1.subVectors(p3, p2).cross(v2.subVectors(p1, p2)).normalize();
+    // material, geometry and mesh
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
 
-      return new three__WEBPACK_IMPORTED_MODULE_5__["Vector4"](normal.x, normal.y, normal.z, -normal.dot(p1));
-    };
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
 
-    _createClass(_class, [{
-      key: 'stack',
-      get: function get() {
-        return this._stack;
-      },
-      set: function set(stack) {
-        this._stack = stack;
-      }
-    }, {
-      key: 'spacing',
-      get: function get() {
-        return this._spacing;
-      },
-      set: function set(spacing) {
-        this._spacing = spacing;
-        this._uniforms.uSpacing.value = this._spacing;
-      }
-    }, {
-      key: 'thickness',
-      get: function get() {
-        return this._thickness;
-      },
-      set: function set(thickness) {
-        this._thickness = thickness;
-        this._uniforms.uThickness.value = this._thickness;
-      }
-    }, {
-      key: 'thicknessMethod',
-      get: function get() {
-        return this._thicknessMethod;
-      },
-      set: function set(thicknessMethod) {
-        this._thicknessMethod = thicknessMethod;
-        this._uniforms.uThicknessMethod.value = this._thicknessMethod;
-      }
-    }, {
-      key: 'windowWidth',
-      get: function get() {
-        return this._windowWidth;
-      },
-      set: function set(windowWidth) {
-        this._windowWidth = windowWidth;
-        this.updateIntensitySettingsUniforms();
-      }
-    }, {
-      key: 'windowCenter',
-      get: function get() {
-        return this._windowCenter;
-      },
-      set: function set(windowCenter) {
-        this._windowCenter = windowCenter;
-        this.updateIntensitySettingsUniforms();
-      }
-    }, {
-      key: 'opacity',
-      get: function get() {
-        return this._opacity;
-      },
-      set: function set(opacity) {
-        this._opacity = opacity;
-        this.updateIntensitySettingsUniforms();
-      }
+    this._stack = null;
+  };
 
-      // adding thresholding method
+  helpersSlice.prototype.cartesianEquation = function cartesianEquation() {
+    // Make sure we have a geometry
+    if (!this._geometry || !this._geometry.vertices || this._geometry.vertices.length < 3) {
+      return new three__WEBPACK_IMPORTED_MODULE_5__["Vector4"]();
+    }
 
-    }, {
-      key: 'upperThreshold',
-      get: function get() {
-        return this._upperThreshold;
-      },
-      set: function set(upperThreshold) {
-        this._upperThreshold = upperThreshold;
-        this.updateIntensitySettingsUniforms();
-      }
-    }, {
-      key: 'lowerThreshold',
-      get: function get() {
-        return this._lowerThreshold;
-      },
-      set: function set(lowerThreshold) {
-        this._lowerThreshold = lowerThreshold;
-        this.updateIntensitySettingsUniforms();
-      }
-    }, {
-      key: 'rescaleSlope',
-      get: function get() {
-        return this._rescaleSlope;
-      },
-      set: function set(rescaleSlope) {
-        this._rescaleSlope = rescaleSlope;
-        this.updateIntensitySettingsUniforms();
-      }
-    }, {
-      key: 'rescaleIntercept',
-      get: function get() {
-        return this._rescaleIntercept;
-      },
-      set: function set(rescaleIntercept) {
-        this._rescaleIntercept = rescaleIntercept;
-        this.updateIntensitySettingsUniforms();
-      }
-    }, {
-      key: 'invert',
-      get: function get() {
-        return this._invert;
-      },
-      set: function set(invert) {
-        this._invert = invert;
-        this.updateIntensitySettingsUniforms();
-      }
-    }, {
-      key: 'lut',
-      get: function get() {
-        return this._lut;
-      },
-      set: function set(lut) {
-        this._lut = lut;
-      }
-    }, {
-      key: 'lutTexture',
-      get: function get() {
-        return this._lutTexture;
-      },
-      set: function set(lutTexture) {
-        this._lutTexture = lutTexture;
-        this.updateIntensitySettingsUniforms();
-      }
-    }, {
-      key: 'intensityAuto',
-      get: function get() {
-        return this._intensityAuto;
-      },
-      set: function set(intensityAuto) {
-        this._intensityAuto = intensityAuto;
-        this.updateIntensitySettings();
-        this.updateIntensitySettingsUniforms();
-      }
-    }, {
-      key: 'interpolation',
-      get: function get() {
-        return this._interpolation;
-      },
-      set: function set(interpolation) {
-        this._interpolation = interpolation;
-        this.updateIntensitySettingsUniforms();
-        this._updateMaterial();
-      }
-    }, {
-      key: 'index',
-      get: function get() {
-        return this._index;
-      },
-      set: function set(index) {
-        this._index = index;
-        this._update();
-      }
-    }, {
-      key: 'planePosition',
-      set: function set(position) {
-        this._planePosition = position;
-        this._update();
-      },
-      get: function get() {
-        return this._planePosition;
-      }
-    }, {
-      key: 'planeDirection',
-      set: function set(direction) {
-        this._planeDirection = direction;
-        this._update();
-      },
-      get: function get() {
-        return this._planeDirection;
-      }
-    }, {
-      key: 'halfDimensions',
-      set: function set(halfDimensions) {
-        this._halfDimensions = halfDimensions;
-      },
-      get: function get() {
-        return this._halfDimensions;
-      }
-    }, {
-      key: 'center',
-      set: function set(center) {
-        this._center = center;
-      },
-      get: function get() {
-        return this._center;
-      }
-    }, {
-      key: 'aabbSpace',
-      set: function set(aabbSpace) {
-        this._aaBBspace = aabbSpace;
-        this._init();
-      },
-      get: function get() {
-        return this._aaBBspace;
-      }
-    }, {
-      key: 'mesh',
-      set: function set(mesh) {
-        this._mesh = mesh;
-      },
-      get: function get() {
-        return this._mesh;
-      }
-    }, {
-      key: 'geometry',
-      set: function set(geometry) {
-        this._geometry = geometry;
-      },
-      get: function get() {
-        return this._geometry;
-      }
-    }, {
-      key: 'canvasWidth',
-      set: function set(canvasWidth) {
-        this._canvasWidth = canvasWidth;
-        this._uniforms.uCanvasWidth.value = this._canvasWidth;
-      },
-      get: function get() {
-        return this._canvasWidth;
-      }
-    }, {
-      key: 'canvasHeight',
-      set: function set(canvasHeight) {
-        this._canvasHeight = canvasHeight;
-        this._uniforms.uCanvasHeight.value = this._canvasHeight;
-      },
-      get: function get() {
-        return this._canvasHeight;
-      }
-    }, {
-      key: 'borderColor',
-      set: function set(borderColor) {
-        this._borderColor = borderColor;
-        this._uniforms.uBorderColor.value = new three__WEBPACK_IMPORTED_MODULE_5__["Color"](borderColor);
-      },
-      get: function get() {
-        return this._borderColor;
-      }
-    }]);
+    var vertices = this._geometry.vertices;
+    var dataToWorld = this._stack.ijk2LPS;
+    var p1 = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](vertices[0].x, vertices[0].y, vertices[0].z).applyMatrix4(dataToWorld);
+    var p2 = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](vertices[1].x, vertices[1].y, vertices[1].z).applyMatrix4(dataToWorld);
+    var p3 = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"](vertices[2].x, vertices[2].y, vertices[2].z).applyMatrix4(dataToWorld);
+    var v1 = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"]();
+    var v2 = new three__WEBPACK_IMPORTED_MODULE_5__["Vector3"]();
+    var normal = v1.subVectors(p3, p2).cross(v2.subVectors(p1, p2)).normalize();
 
-    return _class;
-  }(Constructor);
-};
+    return new three__WEBPACK_IMPORTED_MODULE_5__["Vector4"](normal.x, normal.y, normal.z, -normal.dot(p1));
+  };
+
+  _createClass(helpersSlice, [{
+    key: 'stack',
+    get: function get() {
+      return this._stack;
+    },
+    set: function set(stack) {
+      this._stack = stack;
+    }
+  }, {
+    key: 'spacing',
+    get: function get() {
+      return this._spacing;
+    },
+    set: function set(spacing) {
+      this._spacing = spacing;
+      this._uniforms.uSpacing.value = this._spacing;
+    }
+  }, {
+    key: 'thickness',
+    get: function get() {
+      return this._thickness;
+    },
+    set: function set(thickness) {
+      this._thickness = thickness;
+      this._uniforms.uThickness.value = this._thickness;
+    }
+  }, {
+    key: 'thicknessMethod',
+    get: function get() {
+      return this._thicknessMethod;
+    },
+    set: function set(thicknessMethod) {
+      this._thicknessMethod = thicknessMethod;
+      this._uniforms.uThicknessMethod.value = this._thicknessMethod;
+    }
+  }, {
+    key: 'windowWidth',
+    get: function get() {
+      return this._windowWidth;
+    },
+    set: function set(windowWidth) {
+      this._windowWidth = windowWidth;
+      this.updateIntensitySettingsUniforms();
+    }
+  }, {
+    key: 'windowCenter',
+    get: function get() {
+      return this._windowCenter;
+    },
+    set: function set(windowCenter) {
+      this._windowCenter = windowCenter;
+      this.updateIntensitySettingsUniforms();
+    }
+  }, {
+    key: 'opacity',
+    get: function get() {
+      return this._opacity;
+    },
+    set: function set(opacity) {
+      this._opacity = opacity;
+      this.updateIntensitySettingsUniforms();
+    }
+
+    // adding thresholding method
+
+  }, {
+    key: 'upperThreshold',
+    get: function get() {
+      return this._upperThreshold;
+    },
+    set: function set(upperThreshold) {
+      this._upperThreshold = upperThreshold;
+      this.updateIntensitySettingsUniforms();
+    }
+  }, {
+    key: 'lowerThreshold',
+    get: function get() {
+      return this._lowerThreshold;
+    },
+    set: function set(lowerThreshold) {
+      this._lowerThreshold = lowerThreshold;
+      this.updateIntensitySettingsUniforms();
+    }
+  }, {
+    key: 'rescaleSlope',
+    get: function get() {
+      return this._rescaleSlope;
+    },
+    set: function set(rescaleSlope) {
+      this._rescaleSlope = rescaleSlope;
+      this.updateIntensitySettingsUniforms();
+    }
+  }, {
+    key: 'rescaleIntercept',
+    get: function get() {
+      return this._rescaleIntercept;
+    },
+    set: function set(rescaleIntercept) {
+      this._rescaleIntercept = rescaleIntercept;
+      this.updateIntensitySettingsUniforms();
+    }
+  }, {
+    key: 'invert',
+    get: function get() {
+      return this._invert;
+    },
+    set: function set(invert) {
+      this._invert = invert;
+      this.updateIntensitySettingsUniforms();
+    }
+  }, {
+    key: 'lut',
+    get: function get() {
+      return this._lut;
+    },
+    set: function set(lut) {
+      this._lut = lut;
+    }
+  }, {
+    key: 'lutTexture',
+    get: function get() {
+      return this._lutTexture;
+    },
+    set: function set(lutTexture) {
+      this._lutTexture = lutTexture;
+      this.updateIntensitySettingsUniforms();
+    }
+  }, {
+    key: 'intensityAuto',
+    get: function get() {
+      return this._intensityAuto;
+    },
+    set: function set(intensityAuto) {
+      this._intensityAuto = intensityAuto;
+      this.updateIntensitySettings();
+      this.updateIntensitySettingsUniforms();
+    }
+  }, {
+    key: 'interpolation',
+    get: function get() {
+      return this._interpolation;
+    },
+    set: function set(interpolation) {
+      this._interpolation = interpolation;
+      this.updateIntensitySettingsUniforms();
+      this._updateMaterial();
+    }
+  }, {
+    key: 'index',
+    get: function get() {
+      return this._index;
+    },
+    set: function set(index) {
+      this._index = index;
+      this._update();
+    }
+  }, {
+    key: 'planePosition',
+    set: function set(position) {
+      this._planePosition = position;
+      this._update();
+    },
+    get: function get() {
+      return this._planePosition;
+    }
+  }, {
+    key: 'planeDirection',
+    set: function set(direction) {
+      this._planeDirection = direction;
+      this._update();
+    },
+    get: function get() {
+      return this._planeDirection;
+    }
+  }, {
+    key: 'halfDimensions',
+    set: function set(halfDimensions) {
+      this._halfDimensions = halfDimensions;
+    },
+    get: function get() {
+      return this._halfDimensions;
+    }
+  }, {
+    key: 'center',
+    set: function set(center) {
+      this._center = center;
+    },
+    get: function get() {
+      return this._center;
+    }
+  }, {
+    key: 'aabbSpace',
+    set: function set(aabbSpace) {
+      this._aaBBspace = aabbSpace;
+      this._init();
+    },
+    get: function get() {
+      return this._aaBBspace;
+    }
+  }, {
+    key: 'mesh',
+    set: function set(mesh) {
+      this._mesh = mesh;
+    },
+    get: function get() {
+      return this._mesh;
+    }
+  }, {
+    key: 'geometry',
+    set: function set(geometry) {
+      this._geometry = geometry;
+    },
+    get: function get() {
+      return this._geometry;
+    }
+  }, {
+    key: 'canvasWidth',
+    set: function set(canvasWidth) {
+      this._canvasWidth = canvasWidth;
+      this._uniforms.uCanvasWidth.value = this._canvasWidth;
+    },
+    get: function get() {
+      return this._canvasWidth;
+    }
+  }, {
+    key: 'canvasHeight',
+    set: function set(canvasHeight) {
+      this._canvasHeight = canvasHeight;
+      this._uniforms.uCanvasHeight.value = this._canvasHeight;
+    },
+    get: function get() {
+      return this._canvasHeight;
+    }
+  }, {
+    key: 'borderColor',
+    set: function set(borderColor) {
+      this._borderColor = borderColor;
+      this._uniforms.uBorderColor.value = new three__WEBPACK_IMPORTED_MODULE_5__["Color"](borderColor);
+    },
+    get: function get() {
+      return this._borderColor;
+    }
+  }]);
+
+  return helpersSlice;
+}(_helpers_helpers_material_mixin__WEBPACK_IMPORTED_MODULE_4__["helpersMaterialMixin"]);
+
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (helpersSlice());
 
 /***/ }),
 
@@ -85037,7 +84921,7 @@ var helpersSlice = function helpersSlice() {
 /*!**************************************!*\
   !*** ./src/helpers/helpers.stack.js ***!
   \**************************************/
-/*! exports provided: helpersStack, default */
+/*! exports provided: helpersStack */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85093,13 +84977,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @module helpers/stack
  */
 
-var helpersStack = function (_Constructor) {
-  _inherits(helpersStack, _Constructor);
+var helpersStack = function (_Object3D) {
+  _inherits(helpersStack, _Object3D);
 
   function helpersStack(stack) {
     _classCallCheck(this, helpersStack);
 
-    var _this = _possibleConstructorReturn(this, _Constructor.call(this));
+    var _this = _possibleConstructorReturn(this, _Object3D.call(this));
     //
 
 
@@ -85582,14 +85466,11 @@ var helpersStack = function (_Constructor) {
   }]);
 
   return helpersStack;
-}(Constructor);
+}(three__WEBPACK_IMPORTED_MODULE_3__["Object3D"]);
 
 ;
 
-// export factory
 
-// default export to
-/* harmony default export */ __webpack_exports__["default"] = (helpersStack());
 
 /***/ }),
 
@@ -85597,7 +85478,7 @@ var helpersStack = function (_Constructor) {
 /*!************************************************!*\
   !*** ./src/helpers/helpers.volumerendering.js ***!
   \************************************************/
-/*! exports provided: helpersVolumeRendering, default */
+/*! exports provided: helpersVolumeRendering */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85628,243 +85509,241 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @module helpers/volumerendering
  */
 
-var helpersVolumeRendering = function helpersVolumeRendering() {
-  var Constructor = Object(_helpers_helpers_material_mixin__WEBPACK_IMPORTED_MODULE_3__["helpersMaterialMixin"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
+var helpersVolumeRendering = function (_helpersMaterialMixin) {
+  _inherits(helpersVolumeRendering, _helpersMaterialMixin);
 
-    function _class(stack) {
-      _classCallCheck(this, _class);
+  function helpersVolumeRendering(stack) {
+    _classCallCheck(this, helpersVolumeRendering);
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this));
-      //
+    var _this = _possibleConstructorReturn(this, _helpersMaterialMixin.call(this));
+    //
 
 
-      _this._stack = stack;
-      _this._textures = [];
-      _this._shadersFragment = _shaders_shaders_vr_fragment__WEBPACK_IMPORTED_MODULE_2__["default"];
-      _this._shadersVertex = _shaders_shaders_vr_vertex__WEBPACK_IMPORTED_MODULE_1__["default"];
-      _this._uniforms = _shaders_shaders_vr_uniform__WEBPACK_IMPORTED_MODULE_0__["default"].uniforms();
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
+    _this._stack = stack;
+    _this._textures = [];
+    _this._shadersFragment = _shaders_shaders_vr_fragment__WEBPACK_IMPORTED_MODULE_2__["default"];
+    _this._shadersVertex = _shaders_shaders_vr_vertex__WEBPACK_IMPORTED_MODULE_1__["default"];
+    _this._uniforms = _shaders_shaders_vr_uniform__WEBPACK_IMPORTED_MODULE_0__["default"].uniforms();
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      _this._algorithm = 0; // ray marching
-      _this._alphaCorrection = 0.5; // default
-      _this._interpolation = 1; // default to trilinear interpolation
-      _this._shading = 1; // shading is on by default
-      _this._shininess = 10.0;
-      _this._steps = 256; // default
-      _this._offset = 0;
-      _this._windowCenter = 0.0;
-      _this._windowWidth = 1.0;
+    _this._algorithm = 0; // ray marching
+    _this._alphaCorrection = 0.5; // default
+    _this._interpolation = 1; // default to trilinear interpolation
+    _this._shading = 1; // shading is on by default
+    _this._shininess = 10.0;
+    _this._steps = 256; // default
+    _this._offset = 0;
+    _this._windowCenter = 0.0;
+    _this._windowWidth = 1.0;
 
-      _this._create();
-      return _this;
+    _this._create();
+    return _this;
+  }
+
+  helpersVolumeRendering.prototype._create = function _create() {
+    this._prepareStack();
+    this._prepareTexture();
+    this._prepareMaterial();
+    this._prepareGeometry();
+
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_4__["Mesh"](this._geometry, this._material);
+    this.add(this._mesh);
+  };
+
+  helpersVolumeRendering.prototype._prepareStack = function _prepareStack() {
+    if (!this._stack.prepared) {
+      this._stack.prepare();
     }
 
-    _class.prototype._create = function _create() {
-      this._prepareStack();
-      this._prepareTexture();
-      this._prepareMaterial();
-      this._prepareGeometry();
+    if (!this._stack.packed) {
+      this._stack.pack();
+    }
 
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_4__["Mesh"](this._geometry, this._material);
-      this.add(this._mesh);
-    };
+    // compensate for the offset to only pass > 0 values to shaders
+    // models > models.stack.js : _packTo8Bits
+    this._offset = Math.min(0, this._stack._minMax[0]);
+    this._windowCenter = this._stack.windowCenter;
+    this._windowWidth = this._stack.windowWidth * 0.8; // multiply for better default visualization
+  };
 
-    _class.prototype._prepareStack = function _prepareStack() {
-      if (!this._stack.prepared) {
-        this._stack.prepare();
-      }
+  helpersVolumeRendering.prototype._prepareMaterial = function _prepareMaterial() {
+    // uniforms
+    this._uniforms = _shaders_shaders_vr_uniform__WEBPACK_IMPORTED_MODULE_0__["default"].uniforms();
+    this._uniforms.uWorldBBox.value = this._stack.worldBoundingBox();
+    this._uniforms.uTextureSize.value = this._stack.textureSize;
+    this._uniforms.uTextureContainer.value = this._textures;
+    if (this._stack.textureUnits > 8) {
+      this._uniforms.uTextureContainer.length = 14;
+    }
+    this._uniforms.uWorldToData.value = this._stack.lps2IJK;
+    this._uniforms.uNumberOfChannels.value = this._stack.numberOfChannels;
+    this._uniforms.uPixelType.value = this._stack.pixelType;
+    this._uniforms.uBitsAllocated.value = this._stack.bitsAllocated;
+    this._uniforms.uPackedPerPixel.value = this._stack.packedPerPixel;
+    this._uniforms.uWindowCenterWidth.value = [this._windowCenter - this._offset, this._windowWidth];
+    this._uniforms.uRescaleSlopeIntercept.value = [this._stack.rescaleSlope, this._stack.rescaleIntercept];
+    this._uniforms.uDataDimensions.value = [this._stack.dimensionsIJK.x, this._stack.dimensionsIJK.y, this._stack.dimensionsIJK.z];
+    this._uniforms.uAlphaCorrection.value = this._alphaCorrection;
+    this._uniforms.uInterpolation.value = this._interpolation;
+    this._uniforms.uShading.value = this._shading;
+    this._uniforms.uShininess.value = this._shininess;
+    this._uniforms.uSteps.value = this._steps;
+    this._uniforms.uAlgorithm.value = this._algorithm;
 
-      if (!this._stack.packed) {
-        this._stack.pack();
-      }
+    this._createMaterial({
+      side: three__WEBPACK_IMPORTED_MODULE_4__["BackSide"],
+      transparent: true
+    });
+  };
 
-      // compensate for the offset to only pass > 0 values to shaders
-      // models > models.stack.js : _packTo8Bits
-      this._offset = Math.min(0, this._stack._minMax[0]);
-      this._windowCenter = this._stack.windowCenter;
-      this._windowWidth = this._stack.windowWidth * 0.8; // multiply for better default visualization
-    };
+  helpersVolumeRendering.prototype._prepareGeometry = function _prepareGeometry() {
+    var worldBBox = this._stack.worldBoundingBox();
+    var centerLPS = this._stack.worldCenter();
 
-    _class.prototype._prepareMaterial = function _prepareMaterial() {
-      // uniforms
-      this._uniforms = _shaders_shaders_vr_uniform__WEBPACK_IMPORTED_MODULE_0__["default"].uniforms();
-      this._uniforms.uWorldBBox.value = this._stack.worldBoundingBox();
-      this._uniforms.uTextureSize.value = this._stack.textureSize;
-      this._uniforms.uTextureContainer.value = this._textures;
-      if (this._stack.textureUnits > 8) {
-        this._uniforms.uTextureContainer.length = 14;
-      }
-      this._uniforms.uWorldToData.value = this._stack.lps2IJK;
-      this._uniforms.uNumberOfChannels.value = this._stack.numberOfChannels;
-      this._uniforms.uPixelType.value = this._stack.pixelType;
-      this._uniforms.uBitsAllocated.value = this._stack.bitsAllocated;
-      this._uniforms.uPackedPerPixel.value = this._stack.packedPerPixel;
-      this._uniforms.uWindowCenterWidth.value = [this._windowCenter - this._offset, this._windowWidth];
-      this._uniforms.uRescaleSlopeIntercept.value = [this._stack.rescaleSlope, this._stack.rescaleIntercept];
-      this._uniforms.uDataDimensions.value = [this._stack.dimensionsIJK.x, this._stack.dimensionsIJK.y, this._stack.dimensionsIJK.z];
-      this._uniforms.uAlphaCorrection.value = this._alphaCorrection;
-      this._uniforms.uInterpolation.value = this._interpolation;
-      this._uniforms.uShading.value = this._shading;
-      this._uniforms.uShininess.value = this._shininess;
+    this._geometry = new three__WEBPACK_IMPORTED_MODULE_4__["BoxGeometry"](worldBBox[1] - worldBBox[0], worldBBox[3] - worldBBox[2], worldBBox[5] - worldBBox[4]);
+    this._geometry.applyMatrix4(new three__WEBPACK_IMPORTED_MODULE_4__["Matrix4"]().makeTranslation(centerLPS.x, centerLPS.y, centerLPS.z));
+  };
+
+  helpersVolumeRendering.prototype.dispose = function dispose() {
+    // Release memory
+    for (var j = 0; j < this._textures.length; j++) {
+      this._textures[j].dispose();
+      this._textures[j] = null;
+    }
+    this._textures = null;
+    this._shadersFragment = null;
+    this._shadersVertex = null;
+
+    this._uniforms.uTextureContainer = null;
+    this._uniforms.uTextureLUT = null;
+    this._uniforms = null;
+
+    // material, geometry and mesh
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
+
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    this._stack = null;
+  };
+
+  _createClass(helpersVolumeRendering, [{
+    key: 'uniforms',
+    get: function get() {
+      return this._uniforms;
+    },
+    set: function set(uniforms) {
+      this._uniforms = uniforms;
+    }
+  }, {
+    key: 'mesh',
+    set: function set(mesh) {
+      this._mesh = mesh;
+    },
+    get: function get() {
+      return this._mesh;
+    }
+  }, {
+    key: 'stack',
+    get: function get() {
+      return this._stack;
+    },
+    set: function set(stack) {
+      this._stack = stack;
+    }
+  }, {
+    key: 'windowCenter',
+    get: function get() {
+      return this._windowCenter;
+    },
+    set: function set(windowCenter) {
+      this._windowCenter = windowCenter;
+      this._uniforms.uWindowCenterWidth.value[0] = this._windowCenter - this._offset;
+    }
+  }, {
+    key: 'windowWidth',
+    get: function get() {
+      return this._windowWidth;
+    },
+    set: function set(windowWidth) {
+      this._windowWidth = Math.max(1, windowWidth);
+      this._uniforms.uWindowCenterWidth.value[1] = this._windowWidth;
+    }
+  }, {
+    key: 'steps',
+    get: function get() {
+      return this._steps;
+    },
+    set: function set(steps) {
+      this._steps = steps;
       this._uniforms.uSteps.value = this._steps;
+    }
+  }, {
+    key: 'alphaCorrection',
+    get: function get() {
+      return this._alphaCorrection;
+    },
+    set: function set(alphaCorrection) {
+      this._alphaCorrection = alphaCorrection;
+      this._uniforms.uAlphaCorrection.value = this._alphaCorrection;
+    }
+  }, {
+    key: 'interpolation',
+    get: function get() {
+      return this._interpolation;
+    },
+    set: function set(interpolation) {
+      this._interpolation = interpolation;
+      this._uniforms.uInterpolation.value = this._interpolation;
+      this._updateMaterial();
+    }
+  }, {
+    key: 'shading',
+    get: function get() {
+      return this._shading;
+    },
+    set: function set(shading) {
+      this._shading = shading;
+      this._uniforms.uShading.value = this._shading;
+    }
+  }, {
+    key: 'shininess',
+    get: function get() {
+      return this._shininess;
+    },
+    set: function set(shininess) {
+      this._shininess = shininess;
+      this._uniforms.uShininess.value = this._shininess;
+    }
+  }, {
+    key: 'algorithm',
+    get: function get() {
+      return this._algorithm;
+    },
+    set: function set(algorithm) {
+      this._algorithm = algorithm;
       this._uniforms.uAlgorithm.value = this._algorithm;
+    }
+  }]);
 
-      this._createMaterial({
-        side: three__WEBPACK_IMPORTED_MODULE_4__["BackSide"],
-        transparent: true
-      });
-    };
+  return helpersVolumeRendering;
+}(_helpers_helpers_material_mixin__WEBPACK_IMPORTED_MODULE_3__["helpersMaterialMixin"]);
 
-    _class.prototype._prepareGeometry = function _prepareGeometry() {
-      var worldBBox = this._stack.worldBoundingBox();
-      var centerLPS = this._stack.worldCenter();
-
-      this._geometry = new three__WEBPACK_IMPORTED_MODULE_4__["BoxGeometry"](worldBBox[1] - worldBBox[0], worldBBox[3] - worldBBox[2], worldBBox[5] - worldBBox[4]);
-      this._geometry.applyMatrix4(new three__WEBPACK_IMPORTED_MODULE_4__["Matrix4"]().makeTranslation(centerLPS.x, centerLPS.y, centerLPS.z));
-    };
-
-    _class.prototype.dispose = function dispose() {
-      // Release memory
-      for (var j = 0; j < this._textures.length; j++) {
-        this._textures[j].dispose();
-        this._textures[j] = null;
-      }
-      this._textures = null;
-      this._shadersFragment = null;
-      this._shadersVertex = null;
-
-      this._uniforms.uTextureContainer = null;
-      this._uniforms.uTextureLUT = null;
-      this._uniforms = null;
-
-      // material, geometry and mesh
-      this.remove(this._mesh);
-      this._mesh.geometry.dispose();
-      this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
-      this._mesh = null;
-
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      this._stack = null;
-    };
-
-    _createClass(_class, [{
-      key: 'uniforms',
-      get: function get() {
-        return this._uniforms;
-      },
-      set: function set(uniforms) {
-        this._uniforms = uniforms;
-      }
-    }, {
-      key: 'mesh',
-      set: function set(mesh) {
-        this._mesh = mesh;
-      },
-      get: function get() {
-        return this._mesh;
-      }
-    }, {
-      key: 'stack',
-      get: function get() {
-        return this._stack;
-      },
-      set: function set(stack) {
-        this._stack = stack;
-      }
-    }, {
-      key: 'windowCenter',
-      get: function get() {
-        return this._windowCenter;
-      },
-      set: function set(windowCenter) {
-        this._windowCenter = windowCenter;
-        this._uniforms.uWindowCenterWidth.value[0] = this._windowCenter - this._offset;
-      }
-    }, {
-      key: 'windowWidth',
-      get: function get() {
-        return this._windowWidth;
-      },
-      set: function set(windowWidth) {
-        this._windowWidth = Math.max(1, windowWidth);
-        this._uniforms.uWindowCenterWidth.value[1] = this._windowWidth;
-      }
-    }, {
-      key: 'steps',
-      get: function get() {
-        return this._steps;
-      },
-      set: function set(steps) {
-        this._steps = steps;
-        this._uniforms.uSteps.value = this._steps;
-      }
-    }, {
-      key: 'alphaCorrection',
-      get: function get() {
-        return this._alphaCorrection;
-      },
-      set: function set(alphaCorrection) {
-        this._alphaCorrection = alphaCorrection;
-        this._uniforms.uAlphaCorrection.value = this._alphaCorrection;
-      }
-    }, {
-      key: 'interpolation',
-      get: function get() {
-        return this._interpolation;
-      },
-      set: function set(interpolation) {
-        this._interpolation = interpolation;
-        this._uniforms.uInterpolation.value = this._interpolation;
-        this._updateMaterial();
-      }
-    }, {
-      key: 'shading',
-      get: function get() {
-        return this._shading;
-      },
-      set: function set(shading) {
-        this._shading = shading;
-        this._uniforms.uShading.value = this._shading;
-      }
-    }, {
-      key: 'shininess',
-      get: function get() {
-        return this._shininess;
-      },
-      set: function set(shininess) {
-        this._shininess = shininess;
-        this._uniforms.uShininess.value = this._shininess;
-      }
-    }, {
-      key: 'algorithm',
-      get: function get() {
-        return this._algorithm;
-      },
-      set: function set(algorithm) {
-        this._algorithm = algorithm;
-        this._uniforms.uAlgorithm.value = this._algorithm;
-      }
-    }]);
-
-    return _class;
-  }(Constructor);
-};
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (helpersVolumeRendering());
 
 /***/ }),
 
@@ -95407,7 +95286,7 @@ var ShadersVertex = function () {
 /*!**************************************!*\
   !*** ./src/widgets/widgets.angle.js ***!
   \**************************************/
-/*! exports provided: widgetsAngle, default */
+/*! exports provided: widgetsAngle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -95431,411 +95310,410 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/angle
  */
-var widgetsAngle = function widgetsAngle() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsAngle = function (_widgetsBase) {
+  _inherits(widgetsAngle, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsAngle(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsAngle);
 
-      _this._widgetType = 'Angle';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (optional: worldPosition)
+    _this._widgetType = 'Angle';
 
-      // outgoing values
-      _this._opangle = null;
+    // incoming parameters (optional: worldPosition)
 
-      _this._moving = false;
-      _this._domHovered = false;
-      _this._defaultAngle = true;
+    // outgoing values
+    _this._opangle = null;
 
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
+    _this._moving = false;
+    _this._domHovered = false;
+    _this._defaultAngle = true;
 
-      // dom stuff
-      _this._line = null;
-      _this._line2 = null;
-      _this._label = null;
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      // add handles
-      _this._handles = [];
+    // dom stuff
+    _this._line = null;
+    _this._line2 = null;
+    _this._label = null;
 
-      var handle = void 0;
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-      for (var i = 0; i < 3; i++) {
-        handle = new WidgetsHandle(targetMesh, controls, params);
-        _this.add(handle);
-        _this._handles.push(handle);
-      }
-      _this._handles[1].active = true;
-      _this._handles[1].tracking = true;
-      _this._handles[2].active = true;
-      _this._handles[2].tracking = true;
+    // add handles
+    _this._handles = [];
 
-      _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._moveHandle);
-      _this._handles.push(_this._moveHandle);
-      _this._moveHandle.hide();
+    var handle = void 0;
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+    for (var i = 0; i < 3; i++) {
+      handle = new WidgetsHandle(targetMesh, controls, params);
+      _this.add(handle);
+      _this._handles.push(handle);
+    }
+    _this._handles[1].active = true;
+    _this._handles[1].tracking = true;
+    _this._handles[2].active = true;
+    _this._handles[2].tracking = true;
 
-      _this.create();
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._handles.push(_this._moveHandle);
+    _this._moveHandle.hide();
 
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHover = _this.onHover.bind(_this);
-      _this.addEventListeners();
-      return _this;
+    _this.create();
+
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
+    _this.addEventListeners();
+    return _this;
+  }
+
+  widgetsAngle.prototype.addEventListeners = function addEventListeners() {
+    this._container.addEventListener('wheel', this.onMove);
+
+    this._line.addEventListener('mouseenter', this.onHover);
+    this._line.addEventListener('mouseleave', this.onHover);
+    this._line2.addEventListener('mouseenter', this.onHover);
+    this._line2.addEventListener('mouseleave', this.onHover);
+    this._label.addEventListener('mouseenter', this.onHover);
+    this._label.addEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsAngle.prototype.removeEventListeners = function removeEventListeners() {
+    this._container.removeEventListener('wheel', this.onMove);
+
+    this._line.removeEventListener('mouseenter', this.onHover);
+    this._line.removeEventListener('mouseleave', this.onHover);
+    this._line2.removeEventListener('mouseenter', this.onHover);
+    this._line2.removeEventListener('mouseleave', this.onHover);
+    this._label.removeEventListener('mouseenter', this.onHover);
+    this._label.removeEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsAngle.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._container.addEventListener('wheel', this.onMove);
+    this.hoverMesh();
 
-      this._line.addEventListener('mouseenter', this.onHover);
-      this._line.addEventListener('mouseleave', this.onHover);
-      this._line2.addEventListener('mouseenter', this.onHover);
-      this._line2.addEventListener('mouseleave', this.onHover);
-      this._label.addEventListener('mouseenter', this.onHover);
-      this._label.addEventListener('mouseleave', this.onHover);
-    };
+    this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._handles[2].hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._container.removeEventListener('wheel', this.onMove);
+  widgetsAngle.prototype.hoverMesh = function hoverMesh() {
+    // check raycast intersection, do we want to hover on mesh or just css?
+  };
 
-      this._line.removeEventListener('mouseenter', this.onHover);
-      this._line.removeEventListener('mouseleave', this.onHover);
-      this._line2.removeEventListener('mouseenter', this.onHover);
-      this._line2.removeEventListener('mouseleave', this.onHover);
-      this._label.removeEventListener('mouseenter', this.onHover);
-      this._label.removeEventListener('mouseleave', this.onHover);
-    };
+  widgetsAngle.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+  widgetsAngle.prototype.onStart = function onStart(evt) {
+    this._moveHandle.onMove(evt, true);
 
-      this.hoverMesh();
+    this._handles[0].onStart(evt);
+    this._handles[1].onStart(evt);
+    this._handles[2].onStart(evt);
 
-      this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._handles[2].hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active || this._domHovered;
 
-    _class.prototype.hoverMesh = function hoverMesh() {
-      // check raycast intersection, do we want to hover on mesh or just css?
-    };
+    if (this._domHovered && !this._handles[1].tracking && !this._handles[2].tracking) {
+      this._moving = true;
+      this._controls.enabled = false;
+    }
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+    this.update();
+  };
 
-    _class.prototype.onStart = function onStart(evt) {
+  widgetsAngle.prototype.onMove = function onMove(evt) {
+    var _this2 = this;
+
+    if (this._active) {
+      var prevPosition = this._moveHandle.worldPosition.clone();
+
+      this._dragged = true;
       this._moveHandle.onMove(evt, true);
 
-      this._handles[0].onStart(evt);
-      this._handles[1].onStart(evt);
-      this._handles[2].onStart(evt);
-
-      this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active || this._domHovered;
-
-      if (this._domHovered && !this._handles[1].tracking && !this._handles[2].tracking) {
-        this._moving = true;
-        this._controls.enabled = false;
-      }
-
-      this.update();
-    };
-
-    _class.prototype.onMove = function onMove(evt) {
-      var _this2 = this;
-
-      if (this._active) {
-        var prevPosition = this._moveHandle.worldPosition.clone();
-
-        this._dragged = true;
-        this._moveHandle.onMove(evt, true);
-
-        if (this._moving) {
-          this._handles.slice(0, -1).forEach(function (handle) {
-            handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
-          });
-        }
-      } else {
-        this.onHover(null);
-      }
-
-      this._handles[0].onMove(evt);
-      this._handles[1].onMove(evt);
-      this._handles[2].onMove(evt);
-
-      this.update();
-    };
-
-    _class.prototype.onEnd = function onEnd() {
-      this._handles[0].onEnd(); // First Handle
-
-      if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10 || !this._handles[1].tracking && this._handles[2].tracking && this._handles[1].screenPosition.distanceTo(this._handles[2].screenPosition) < 10) {
-        return;
-      }
-
-      if (!this._dragged && this._active && !this._handles[2].tracking) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles[0].selected = this._selected;
-      }
-
-      // Third Handle
-      if (this._handles[1].active) {
-        this._handles[2].onEnd();
-      } else if (this._dragged || !this._handles[2].tracking) {
-        this._handles[2].tracking = false;
-        this._handles[2].onEnd();
-      } else {
-        this._handles[2].tracking = false;
-      }
-      this._handles[2].selected = this._selected;
-
-      // Second Handle
-      if (this._dragged || !this._handles[1].tracking) {
-        this._handles[1].tracking = false;
-        this._handles[1].onEnd();
-      } else {
-        this._handles[1].tracking = false;
-      }
-      this._handles[1].selected = this._selected;
-
-      this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active;
-      this._dragged = this._handles[2].tracking;
-      this._moving = false;
-      this.update();
-    };
-
-    _class.prototype.create = function create() {
-      this.createMesh();
-      this.createDOM();
-    };
-
-    _class.prototype.createMesh = function createMesh() {
-      // geometry
-      // this._geometry = new three.Geometry();
-      // this._geometry.vertices = [
-      //   this._handles[0].worldPosition,
-      //   this._handles[1].worldPosition,
-      //   this._handles[1].worldPosition,
-      //   this._handles[2].worldPosition,
-      // ];
-      this._geometry = new three__WEBPACK_IMPORTED_MODULE_2__["BufferGeometry"]();
-      var positions = new Float32Array(4 * 3);
-      this._geometry.setAttribute('position', new three__WEBPACK_IMPORTED_MODULE_2__["BufferAttribute"](positions, 3));
-      var index = 0;
-      positions[index++] = this._handles[0].worldPosition.x;
-      positions[index++] = this._handles[0].worldPosition.y;
-      positions[index++] = this._handles[0].worldPosition.z;
-
-      positions[index++] = this._handles[1].worldPosition.x;
-      positions[index++] = this._handles[1].worldPosition.y;
-      positions[index++] = this._handles[1].worldPosition.z;
-
-      positions[index++] = this._handles[1].worldPosition.x;
-      positions[index++] = this._handles[1].worldPosition.y;
-      positions[index++] = this._handles[1].worldPosition.z;
-
-      positions[index++] = this._handles[2].worldPosition.x;
-      positions[index++] = this._handles[2].worldPosition.y;
-      positions[index++] = this._handles[2].worldPosition.z;
-
-      // material
-      this._material = new three__WEBPACK_IMPORTED_MODULE_2__["LineBasicMaterial"]();
-
-      this.updateMeshColor();
-
-      // mesh
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_2__["LineSegments"](this._geometry, this._material);
-      this._mesh.visible = true;
-      this.add(this._mesh);
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this._line = document.createElement('div');
-      this._line.className = 'widgets-line';
-      this._container.appendChild(this._line);
-
-      this._line2 = document.createElement('div');
-      this._line2.className = 'widgets-line';
-      this._container.appendChild(this._line2);
-
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-      this._container.appendChild(this._label);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._line.style.display = 'none';
-      this._line2.style.display = 'none';
-      this._label.style.display = 'none';
-
-      this._handles.forEach(function (elem) {
-        return elem.hideDOM();
-      });
-    };
-
-    _class.prototype.showDOM = function showDOM() {
-      this._line.style.display = '';
-      this._line2.style.display = '';
-      this._label.style.display = '';
-
-      this._handles[0].showDOM();
-      this._handles[1].showDOM();
-      this._handles[2].showDOM();
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      this._handles[0].update();
-      this._handles[1].update();
-      this._handles[2].update();
-
-      // calculate values
-      this._opangle = this._handles[1].worldPosition.clone().sub(this._handles[0].worldPosition).angleTo(this._handles[1].worldPosition.clone().sub(this._handles[2].worldPosition)) * 180 / Math.PI || 0.0;
-      this._opangle = this._defaultAngle ? this._opangle : 360 - this._opangle;
-
-      this.updateMeshColor();
-      this.updateMeshPosition();
-
-      this.updateDOM();
-    };
-
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
-
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._geometry) {
-        this._geometry.verticesNeedUpdate = true;
-      }
-    };
-
-    _class.prototype.updateDOM = function updateDOM() {
-      this.updateDOMColor();
-
-      // update first line
-      var lineData = this.getLineData(this._handles[1].screenPosition, this._handles[0].screenPosition);
-
-      this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n            rotate(' + lineData.transformAngle + 'rad)';
-      this._line.style.width = lineData.length + 'px';
-
-      // update second line
-      var line2Data = this.getLineData(this._handles[1].screenPosition, this._handles[2].screenPosition);
-
-      this._line2.style.transform = 'translate3D(' + line2Data.transformX + 'px, ' + line2Data.transformY + 'px, 0)\n            rotate(' + line2Data.transformAngle + 'rad)';
-      this._line2.style.width = line2Data.length + 'px';
-
-      // update angle and label
-      this._label.innerHTML = this._opangle.toFixed(2) + '&deg;';
-
-      var paddingNormVector = lineData.line.clone().add(line2Data.line).normalize().negate();
-      var normAngle = paddingNormVector.angleTo(new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](1, 0, 0));
-
-      if (normAngle > Math.PI / 2) {
-        normAngle = Math.PI - normAngle;
-      }
-
-      var labelPadding = Math.tan(normAngle) < this._label.offsetHeight / this._label.offsetWidth ? this._label.offsetWidth / 2 / Math.cos(normAngle) + 15 // 15px padding
-      : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - normAngle) + 15;
-      var paddingPoint = this._handles[1].screenPosition.clone().add(paddingNormVector.multiplyScalar(labelPadding));
-      var transform = this.adjustLabelTransform(this._label, paddingPoint);
-
-      this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      this._line.style.backgroundColor = this._color;
-      this._line2.style.backgroundColor = this._color;
-      this._label.style.borderColor = this._color;
-    };
-
-    _class.prototype.free = function free() {
-      var _this3 = this;
-
-      this.removeEventListeners();
-
-      this._handles.forEach(function (h) {
-        _this3.remove(h);
-        h.free();
-      });
-      this._handles = [];
-
-      this._container.removeChild(this._line);
-      this._container.removeChild(this._line2);
-      this._container.removeChild(this._label);
-
-      // mesh, geometry, material
-      this.remove(this._mesh);
-      this._mesh.geometry.dispose();
-      this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
-      this._mesh = null;
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    _class.prototype.toggleDefaultAngle = function toggleDefaultAngle() {
-      this._defaultAngle = !this._defaultAngle;
-    };
-
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
+      if (this._moving) {
+        this._handles.slice(0, -1).forEach(function (handle) {
+          handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
         });
-        this.update();
       }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles[0].worldPosition.copy(worldPosition);
-        this._handles[1].worldPosition.copy(worldPosition);
-        this._handles[2].worldPosition.copy(worldPosition);
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }, {
-      key: 'angle',
-      get: function get() {
-        return this._opangle;
-      }
-    }]);
+    } else {
+      this.onHover(null);
+    }
 
-    return _class;
-  }(Constructor);
-};
+    this._handles[0].onMove(evt);
+    this._handles[1].onMove(evt);
+    this._handles[2].onMove(evt);
+
+    this.update();
+  };
+
+  widgetsAngle.prototype.onEnd = function onEnd() {
+    this._handles[0].onEnd(); // First Handle
+
+    if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10 || !this._handles[1].tracking && this._handles[2].tracking && this._handles[1].screenPosition.distanceTo(this._handles[2].screenPosition) < 10) {
+      return;
+    }
+
+    if (!this._dragged && this._active && !this._handles[2].tracking) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handles[0].selected = this._selected;
+    }
+
+    // Third Handle
+    if (this._handles[1].active) {
+      this._handles[2].onEnd();
+    } else if (this._dragged || !this._handles[2].tracking) {
+      this._handles[2].tracking = false;
+      this._handles[2].onEnd();
+    } else {
+      this._handles[2].tracking = false;
+    }
+    this._handles[2].selected = this._selected;
+
+    // Second Handle
+    if (this._dragged || !this._handles[1].tracking) {
+      this._handles[1].tracking = false;
+      this._handles[1].onEnd();
+    } else {
+      this._handles[1].tracking = false;
+    }
+    this._handles[1].selected = this._selected;
+
+    this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active;
+    this._dragged = this._handles[2].tracking;
+    this._moving = false;
+    this.update();
+  };
+
+  widgetsAngle.prototype.create = function create() {
+    this.createMesh();
+    this.createDOM();
+  };
+
+  widgetsAngle.prototype.createMesh = function createMesh() {
+    // geometry
+    // this._geometry = new three.Geometry();
+    // this._geometry.vertices = [
+    //   this._handles[0].worldPosition,
+    //   this._handles[1].worldPosition,
+    //   this._handles[1].worldPosition,
+    //   this._handles[2].worldPosition,
+    // ];
+    this._geometry = new three__WEBPACK_IMPORTED_MODULE_2__["BufferGeometry"]();
+    var positions = new Float32Array(4 * 3);
+    this._geometry.setAttribute('position', new three__WEBPACK_IMPORTED_MODULE_2__["BufferAttribute"](positions, 3));
+    var index = 0;
+    positions[index++] = this._handles[0].worldPosition.x;
+    positions[index++] = this._handles[0].worldPosition.y;
+    positions[index++] = this._handles[0].worldPosition.z;
+
+    positions[index++] = this._handles[1].worldPosition.x;
+    positions[index++] = this._handles[1].worldPosition.y;
+    positions[index++] = this._handles[1].worldPosition.z;
+
+    positions[index++] = this._handles[1].worldPosition.x;
+    positions[index++] = this._handles[1].worldPosition.y;
+    positions[index++] = this._handles[1].worldPosition.z;
+
+    positions[index++] = this._handles[2].worldPosition.x;
+    positions[index++] = this._handles[2].worldPosition.y;
+    positions[index++] = this._handles[2].worldPosition.z;
+
+    // material
+    this._material = new three__WEBPACK_IMPORTED_MODULE_2__["LineBasicMaterial"]();
+
+    this.updateMeshColor();
+
+    // mesh
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_2__["LineSegments"](this._geometry, this._material);
+    this._mesh.visible = true;
+    this.add(this._mesh);
+  };
+
+  widgetsAngle.prototype.createDOM = function createDOM() {
+    this._line = document.createElement('div');
+    this._line.className = 'widgets-line';
+    this._container.appendChild(this._line);
+
+    this._line2 = document.createElement('div');
+    this._line2.className = 'widgets-line';
+    this._container.appendChild(this._line2);
+
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+    this._container.appendChild(this._label);
+
+    this.updateDOMColor();
+  };
+
+  widgetsAngle.prototype.hideDOM = function hideDOM() {
+    this._line.style.display = 'none';
+    this._line2.style.display = 'none';
+    this._label.style.display = 'none';
+
+    this._handles.forEach(function (elem) {
+      return elem.hideDOM();
+    });
+  };
+
+  widgetsAngle.prototype.showDOM = function showDOM() {
+    this._line.style.display = '';
+    this._line2.style.display = '';
+    this._label.style.display = '';
+
+    this._handles[0].showDOM();
+    this._handles[1].showDOM();
+    this._handles[2].showDOM();
+  };
+
+  widgetsAngle.prototype.update = function update() {
+    this.updateColor();
+
+    this._handles[0].update();
+    this._handles[1].update();
+    this._handles[2].update();
+
+    // calculate values
+    this._opangle = this._handles[1].worldPosition.clone().sub(this._handles[0].worldPosition).angleTo(this._handles[1].worldPosition.clone().sub(this._handles[2].worldPosition)) * 180 / Math.PI || 0.0;
+    this._opangle = this._defaultAngle ? this._opangle : 360 - this._opangle;
+
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    this.updateDOM();
+  };
+
+  widgetsAngle.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsAngle.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._geometry) {
+      this._geometry.verticesNeedUpdate = true;
+    }
+  };
+
+  widgetsAngle.prototype.updateDOM = function updateDOM() {
+    this.updateDOMColor();
+
+    // update first line
+    var lineData = this.getLineData(this._handles[1].screenPosition, this._handles[0].screenPosition);
+
+    this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n            rotate(' + lineData.transformAngle + 'rad)';
+    this._line.style.width = lineData.length + 'px';
+
+    // update second line
+    var line2Data = this.getLineData(this._handles[1].screenPosition, this._handles[2].screenPosition);
+
+    this._line2.style.transform = 'translate3D(' + line2Data.transformX + 'px, ' + line2Data.transformY + 'px, 0)\n            rotate(' + line2Data.transformAngle + 'rad)';
+    this._line2.style.width = line2Data.length + 'px';
+
+    // update angle and label
+    this._label.innerHTML = this._opangle.toFixed(2) + '&deg;';
+
+    var paddingNormVector = lineData.line.clone().add(line2Data.line).normalize().negate();
+    var normAngle = paddingNormVector.angleTo(new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](1, 0, 0));
+
+    if (normAngle > Math.PI / 2) {
+      normAngle = Math.PI - normAngle;
+    }
+
+    var labelPadding = Math.tan(normAngle) < this._label.offsetHeight / this._label.offsetWidth ? this._label.offsetWidth / 2 / Math.cos(normAngle) + 15 // 15px padding
+    : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - normAngle) + 15;
+    var paddingPoint = this._handles[1].screenPosition.clone().add(paddingNormVector.multiplyScalar(labelPadding));
+    var transform = this.adjustLabelTransform(this._label, paddingPoint);
+
+    this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
+  };
+
+  widgetsAngle.prototype.updateDOMColor = function updateDOMColor() {
+    this._line.style.backgroundColor = this._color;
+    this._line2.style.backgroundColor = this._color;
+    this._label.style.borderColor = this._color;
+  };
+
+  widgetsAngle.prototype.free = function free() {
+    var _this3 = this;
+
+    this.removeEventListeners();
+
+    this._handles.forEach(function (h) {
+      _this3.remove(h);
+      h.free();
+    });
+    this._handles = [];
+
+    this._container.removeChild(this._line);
+    this._container.removeChild(this._line2);
+    this._container.removeChild(this._label);
+
+    // mesh, geometry, material
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  widgetsAngle.prototype.toggleDefaultAngle = function toggleDefaultAngle() {
+    this._defaultAngle = !this._defaultAngle;
+  };
+
+  _createClass(widgetsAngle, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handles.forEach(function (elem) {
+        return elem.targetMesh = targetMesh;
+      });
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handles[0].worldPosition.copy(worldPosition);
+      this._handles[1].worldPosition.copy(worldPosition);
+      this._handles[2].worldPosition.copy(worldPosition);
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }, {
+    key: 'angle',
+    get: function get() {
+      return this._opangle;
+    }
+  }]);
+
+  return widgetsAngle;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
+
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsAngle());
 
 /***/ }),
 
@@ -95843,7 +95721,7 @@ var widgetsAngle = function widgetsAngle() {
 /*!*******************************************!*\
   !*** ./src/widgets/widgets.annotation.js ***!
   \*******************************************/
-/*! exports provided: widgetsAnnotation, default */
+/*! exports provided: widgetsAnnotation */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -95868,423 +95746,422 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @module widgets/annotation
  * @todo: add option to show only label (without mesh, dots and lines)
  */
-var widgetsAnnotation = function widgetsAnnotation() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_1__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsAnnotation = function (_widgetsBase) {
+  _inherits(widgetsAnnotation, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsAnnotation(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsAnnotation);
 
-      _this._widgetType = 'Annotation';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (optional: worldPosition)
+    _this._widgetType = 'Annotation';
 
-      _this._initialized = false; // set to true when the name of the label is entered
-      _this._movinglabel = null; // bool that turns true when the label is moving with the mouse
-      _this._labelmoved = false; // bool that turns true once the label is moved by the user (at least once)
-      _this._labelhovered = false;
-      _this._manuallabeldisplay = false; // Make true to force the label to be displayed
+    // incoming parameters (optional: worldPosition)
 
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._meshline = null;
-      _this._cone = null;
+    _this._initialized = false; // set to true when the name of the label is entered
+    _this._movinglabel = null; // bool that turns true when the label is moving with the mouse
+    _this._labelmoved = false; // bool that turns true once the label is moved by the user (at least once)
+    _this._labelhovered = false;
+    _this._manuallabeldisplay = false; // Make true to force the label to be displayed
 
-      // dom stuff
-      _this._line = null;
-      _this._dashline = null;
-      _this._label = null;
-      _this._labeltext = null;
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._meshline = null;
+    _this._cone = null;
 
-      // var
-      _this._labelOffset = new three__WEBPACK_IMPORTED_MODULE_0__["Vector3"](); // difference between label center and second handle
-      _this._mouseLabelOffset = new three__WEBPACK_IMPORTED_MODULE_0__["Vector3"](); // difference between mouse coordinates and label center
+    // dom stuff
+    _this._line = null;
+    _this._dashline = null;
+    _this._label = null;
+    _this._labeltext = null;
 
-      // add handles
-      _this._handles = [];
+    // var
+    _this._labelOffset = new three__WEBPACK_IMPORTED_MODULE_0__["Vector3"](); // difference between label center and second handle
+    _this._mouseLabelOffset = new three__WEBPACK_IMPORTED_MODULE_0__["Vector3"](); // difference between mouse coordinates and label center
 
-      var handle = void 0;
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])();
-      for (var i = 0; i < 2; i++) {
-        handle = new WidgetsHandle(targetMesh, controls, params);
-        _this.add(handle);
-        _this._handles.push(handle);
-      }
-      _this._handles[1].active = true;
+    // add handles
+    _this._handles = [];
 
-      _this.create();
-      _this.initOffsets();
+    var handle = void 0;
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])();
+    for (var i = 0; i < 2; i++) {
+      handle = new WidgetsHandle(targetMesh, controls, params);
+      _this.add(handle);
+      _this._handles.push(handle);
+    }
+    _this._handles[1].active = true;
 
-      _this.onResize = _this.onResize.bind(_this);
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHoverlabel = _this.onHoverlabel.bind(_this);
-      _this.notonHoverlabel = _this.notonHoverlabel.bind(_this);
-      _this.changelabeltext = _this.changelabeltext.bind(_this);
+    _this.create();
+    _this.initOffsets();
 
-      _this.addEventListeners();
-      return _this;
+    _this.onResize = _this.onResize.bind(_this);
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHoverlabel = _this.onHoverlabel.bind(_this);
+    _this.notonHoverlabel = _this.notonHoverlabel.bind(_this);
+    _this.changelabeltext = _this.changelabeltext.bind(_this);
+
+    _this.addEventListeners();
+    return _this;
+  }
+
+  widgetsAnnotation.prototype.addEventListeners = function addEventListeners() {
+    addEventListener('resize', this.onResize);
+
+    this._label.addEventListener('mouseenter', this.onHoverlabel);
+    this._label.addEventListener('mouseleave', this.notonHoverlabel);
+    this._label.addEventListener('dblclick', this.changelabeltext);
+
+    this._container.addEventListener('wheel', this.onMove);
+  };
+
+  widgetsAnnotation.prototype.removeEventListeners = function removeEventListeners() {
+    removeEventListener('resize', this.onResize);
+
+    this._label.removeEventListener('mouseenter', this.onHoverlabel);
+    this._label.removeEventListener('mouseleave', this.notonHoverlabel);
+    this._label.removeEventListener('dblclick', this.changelabeltext);
+
+    this._container.removeEventListener('wheel', this.onMove);
+  };
+
+  widgetsAnnotation.prototype.onResize = function onResize() {
+    this.initOffsets();
+  };
+
+  widgetsAnnotation.prototype.onHoverlabel = function onHoverlabel() {
+    // this function is called when mouse enters the label with "mouseenter" event
+    this._labelhovered = true;
+    this._container.style.cursor = 'pointer';
+  };
+
+  widgetsAnnotation.prototype.notonHoverlabel = function notonHoverlabel() {
+    // this function is called when mouse leaves the label with "mouseleave" event
+    this._labelhovered = false;
+    this._container.style.cursor = 'default';
+  };
+
+  widgetsAnnotation.prototype.onStart = function onStart(evt) {
+    if (this._labelhovered) {
+      // if label hovered then it should be moved
+      // save mouse coordinates offset from label center
+      var offsets = this.getMouseOffsets(evt, this._container);
+      var paddingPoint = this._handles[1].screenPosition.clone().sub(this._labelOffset);
+
+      this._mouseLabelOffset = new three__WEBPACK_IMPORTED_MODULE_0__["Vector3"](offsets.screenX - paddingPoint.x, offsets.screenY - paddingPoint.y, 0);
+      this._movinglabel = true;
+      this._labelmoved = true;
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      addEventListener('resize', this.onResize);
+    this._handles[0].onStart(evt);
+    this._handles[1].onStart(evt);
 
-      this._label.addEventListener('mouseenter', this.onHoverlabel);
-      this._label.addEventListener('mouseleave', this.notonHoverlabel);
-      this._label.addEventListener('dblclick', this.changelabeltext);
+    this._active = this._handles[0].active || this._handles[1].active || this._labelhovered;
 
-      this._container.addEventListener('wheel', this.onMove);
-    };
+    this.update();
+  };
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      removeEventListener('resize', this.onResize);
+  widgetsAnnotation.prototype.onMove = function onMove(evt) {
+    if (this._movinglabel) {
+      var offsets = this.getMouseOffsets(evt, this._container);
 
-      this._label.removeEventListener('mouseenter', this.onHoverlabel);
-      this._label.removeEventListener('mouseleave', this.notonHoverlabel);
-      this._label.removeEventListener('dblclick', this.changelabeltext);
+      this._labelOffset = new three__WEBPACK_IMPORTED_MODULE_0__["Vector3"](this._handles[1].screenPosition.x - offsets.screenX + this._mouseLabelOffset.x, this._handles[1].screenPosition.y - offsets.screenY + this._mouseLabelOffset.y, 0);
+      this._controls.enabled = false;
+    }
 
-      this._container.removeEventListener('wheel', this.onMove);
-    };
+    if (this._active) {
+      this._dragged = true;
+    }
 
-    _class.prototype.onResize = function onResize() {
-      this.initOffsets();
-    };
+    this._handles[0].onMove(evt);
+    this._handles[1].onMove(evt);
 
-    _class.prototype.onHoverlabel = function onHoverlabel() {
-      // this function is called when mouse enters the label with "mouseenter" event
-      this._labelhovered = true;
-      this._container.style.cursor = 'pointer';
-    };
+    this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._labelhovered;
 
-    _class.prototype.notonHoverlabel = function notonHoverlabel() {
-      // this function is called when mouse leaves the label with "mouseleave" event
-      this._labelhovered = false;
-      this._container.style.cursor = 'default';
-    };
+    this.update();
+  };
 
-    _class.prototype.onStart = function onStart(evt) {
-      if (this._labelhovered) {
-        // if label hovered then it should be moved
-        // save mouse coordinates offset from label center
-        var offsets = this.getMouseOffsets(evt, this._container);
-        var paddingPoint = this._handles[1].screenPosition.clone().sub(this._labelOffset);
+  widgetsAnnotation.prototype.onEnd = function onEnd() {
+    this._handles[0].onEnd(); // First Handle
 
-        this._mouseLabelOffset = new three__WEBPACK_IMPORTED_MODULE_0__["Vector3"](offsets.screenX - paddingPoint.x, offsets.screenY - paddingPoint.y, 0);
-        this._movinglabel = true;
-        this._labelmoved = true;
-      }
+    // Second Handle
+    if (this._dragged || !this._handles[1].tracking) {
+      this._handles[1].tracking = false;
+      this._handles[1].onEnd();
+    } else {
+      this._handles[1].tracking = false;
+    }
 
-      this._handles[0].onStart(evt);
-      this._handles[1].onStart(evt);
+    if (!this._dragged && this._active && this._initialized) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handles[0].selected = this._selected;
+      this._handles[1].selected = this._selected;
+    }
 
-      this._active = this._handles[0].active || this._handles[1].active || this._labelhovered;
+    if (!this._initialized) {
+      this._labelOffset = this._handles[1].screenPosition.clone().sub(this._handles[0].screenPosition).multiplyScalar(0.5);
+      this.setlabeltext();
+      this._initialized = true;
+    }
 
-      this.update();
-    };
+    this._active = this._handles[0].active || this._handles[1].active;
+    this._dragged = false;
+    this._movinglabel = false;
+    this.update();
+  };
 
-    _class.prototype.onMove = function onMove(evt) {
-      if (this._movinglabel) {
-        var offsets = this.getMouseOffsets(evt, this._container);
+  widgetsAnnotation.prototype.setlabeltext = function setlabeltext() {
+    // called when the user creates a new arrow
+    while (!this._labeltext) {
+      this._labeltext = prompt('Please enter the annotation text', '');
+    }
+    this.displaylabel();
+  };
 
-        this._labelOffset = new three__WEBPACK_IMPORTED_MODULE_0__["Vector3"](this._handles[1].screenPosition.x - offsets.screenX + this._mouseLabelOffset.x, this._handles[1].screenPosition.y - offsets.screenY + this._mouseLabelOffset.y, 0);
-        this._controls.enabled = false;
-      }
+  widgetsAnnotation.prototype.changelabeltext = function changelabeltext() {
+    // called when the user does double click in the label
+    this._labeltext = prompt('Please enter a new annotation text', this._label.innerHTML);
+    this.displaylabel();
+  };
 
-      if (this._active) {
-        this._dragged = true;
-      }
+  widgetsAnnotation.prototype.displaylabel = function displaylabel() {
+    this._label.innerHTML = typeof this._labeltext === 'string' && this._labeltext.length > 0 // avoid error
+    ? this._labeltext : ''; // empty string is passed or Cancel is pressed
+    // show the label (in css an empty string is used to revert display=none)
+    this._label.style.display = '';
+    this._dashline.style.display = '';
+    this._label.style.transform = 'translate3D(\n        ' + (this._handles[1].screenPosition.x - this._labelOffset.x - this._label.offsetWidth / 2) + 'px,\n        ' + (this._handles[1].screenPosition.y - this._labelOffset.y - this._label.offsetHeight / 2 - this._container.offsetHeight) + 'px, 0)';
+  };
 
-      this._handles[0].onMove(evt);
-      this._handles[1].onMove(evt);
+  widgetsAnnotation.prototype.create = function create() {
+    this.createMesh();
+    this.createDOM();
+  };
 
-      this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._labelhovered;
+  widgetsAnnotation.prototype.createMesh = function createMesh() {
+    // material
+    this._material = new three__WEBPACK_IMPORTED_MODULE_0__["LineBasicMaterial"]();
 
-      this.update();
-    };
+    this.updateMeshColor();
 
-    _class.prototype.onEnd = function onEnd() {
-      this._handles[0].onEnd(); // First Handle
+    // line geometry
+    // this._geometry = new three.Geometry();
+    // this._geometry.vertices.push(this._handles[0].worldPosition);
+    // this._geometry.vertices.push(this._handles[1].worldPosition);
+    this._geometry = new three__WEBPACK_IMPORTED_MODULE_0__["BufferGeometry"]();
+    var positions = new Float32Array(2 * 3);
+    this._geometry.setAttribute('position', new three__WEBPACK_IMPORTED_MODULE_0__["BufferAttribute"](positions, 3));
+    var index = 0;
+    positions[index++] = this._handles[0].worldPosition.x;
+    positions[index++] = this._handles[0].worldPosition.y;
+    positions[index++] = this._handles[0].worldPosition.z;
 
-      // Second Handle
-      if (this._dragged || !this._handles[1].tracking) {
-        this._handles[1].tracking = false;
-        this._handles[1].onEnd();
-      } else {
-        this._handles[1].tracking = false;
-      }
+    positions[index++] = this._handles[1].worldPosition.x;
+    positions[index++] = this._handles[1].worldPosition.y;
+    positions[index++] = this._handles[1].worldPosition.z;
 
-      if (!this._dragged && this._active && this._initialized) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles[0].selected = this._selected;
-        this._handles[1].selected = this._selected;
-      }
+    // line mesh
+    this._meshline = new three__WEBPACK_IMPORTED_MODULE_0__["Line"](this._geometry, this._material);
+    this._meshline.visible = true;
 
-      if (!this._initialized) {
-        this._labelOffset = this._handles[1].screenPosition.clone().sub(this._handles[0].screenPosition).multiplyScalar(0.5);
-        this.setlabeltext();
-        this._initialized = true;
-      }
+    this.add(this._meshline);
 
-      this._active = this._handles[0].active || this._handles[1].active;
-      this._dragged = false;
-      this._movinglabel = false;
-      this.update();
-    };
+    // cone geometry
+    this._conegeometry = new three__WEBPACK_IMPORTED_MODULE_0__["CylinderGeometry"](0, 2, 10);
+    this._conegeometry.translate(0, -5, 0);
+    this._conegeometry.rotateX(-Math.PI / 2);
 
-    _class.prototype.setlabeltext = function setlabeltext() {
-      // called when the user creates a new arrow
-      while (!this._labeltext) {
-        this._labeltext = prompt('Please enter the annotation text', '');
-      }
+    // cone mesh
+    this._cone = new three__WEBPACK_IMPORTED_MODULE_0__["Mesh"](this._conegeometry, this._material);
+    this._cone.visible = true;
+
+    this.add(this._cone);
+  };
+
+  widgetsAnnotation.prototype.createDOM = function createDOM() {
+    this._line = document.createElement('div');
+    this._line.className = 'widgets-line';
+    this._container.appendChild(this._line);
+
+    this._dashline = document.createElement('div');
+    this._dashline.className = 'widgets-dashline';
+    this._dashline.style.display = 'none';
+    this._container.appendChild(this._dashline);
+
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+    this._label.style.display = 'none';
+    this._container.appendChild(this._label);
+
+    this.updateDOMColor();
+  };
+
+  widgetsAnnotation.prototype.update = function update() {
+    this.updateColor();
+
+    this._handles[0].update();
+    this._handles[1].update();
+
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    this.updateDOM();
+  };
+
+  widgetsAnnotation.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsAnnotation.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._geometry) {
+      this._geometry.verticesNeedUpdate = true;
+    }
+
+    if (this._cone) {
+      this._cone.position.copy(this._handles[1].worldPosition);
+      this._cone.lookAt(this._handles[0].worldPosition);
+    }
+  };
+
+  widgetsAnnotation.prototype.updateDOM = function updateDOM() {
+    this.updateDOMColor();
+
+    // update line
+    var lineData = this.getLineData(this._handles[0].screenPosition, this._handles[1].screenPosition);
+
+    this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n        rotate(' + lineData.transformAngle + 'rad)';
+    this._line.style.width = lineData.length + 'px';
+
+    // update label
+    var paddingVector = lineData.line.multiplyScalar(0.5);
+    var paddingPoint = this._handles[1].screenPosition.clone().sub(this._labelmoved ? this._labelOffset // if the label is moved, then its position is defined by labelOffset
+    : paddingVector); // otherwise it's placed in the center of the line
+    var labelPosition = this.adjustLabelTransform(this._label, paddingPoint);
+
+    this._label.style.transform = 'translate3D(' + labelPosition.x + 'px, ' + labelPosition.y + 'px, 0)';
+
+    // create the label without the interaction of the user. Useful when we need to create the label manually
+    if (this._manuallabeldisplay) {
       this.displaylabel();
-    };
+    }
 
-    _class.prototype.changelabeltext = function changelabeltext() {
-      // called when the user does double click in the label
-      this._labeltext = prompt('Please enter a new annotation text', this._label.innerHTML);
-      this.displaylabel();
-    };
+    // update dash line
+    var minLine = this.getLineData(this._handles[0].screenPosition, paddingPoint);
+    var lineCL = this.getLineData(lineData.center, paddingPoint);
+    var line1L = this.getLineData(this._handles[1].screenPosition, paddingPoint);
 
-    _class.prototype.displaylabel = function displaylabel() {
-      this._label.innerHTML = typeof this._labeltext === 'string' && this._labeltext.length > 0 // avoid error
-      ? this._labeltext : ''; // empty string is passed or Cancel is pressed
-      // show the label (in css an empty string is used to revert display=none)
-      this._label.style.display = '';
-      this._dashline.style.display = '';
-      this._label.style.transform = 'translate3D(\n        ' + (this._handles[1].screenPosition.x - this._labelOffset.x - this._label.offsetWidth / 2) + 'px,\n        ' + (this._handles[1].screenPosition.y - this._labelOffset.y - this._label.offsetHeight / 2 - this._container.offsetHeight) + 'px, 0)';
-    };
+    if (minLine.length > lineCL.length) {
+      minLine = lineCL;
+    }
+    if (minLine.length > line1L.length) {
+      minLine = line1L;
+    }
 
-    _class.prototype.create = function create() {
-      this.createMesh();
-      this.createDOM();
-    };
+    this._dashline.style.transform = 'translate3D(' + minLine.transformX + 'px, ' + minLine.transformY + 'px, 0)\n        rotate(' + minLine.transformAngle + 'rad)';
+    this._dashline.style.width = minLine.length + 'px';
+  };
 
-    _class.prototype.createMesh = function createMesh() {
-      // material
-      this._material = new three__WEBPACK_IMPORTED_MODULE_0__["LineBasicMaterial"]();
+  widgetsAnnotation.prototype.updateDOMColor = function updateDOMColor() {
+    this._line.style.backgroundColor = this._color;
+    this._dashline.style.borderTop = '1.5px dashed ' + this._color;
+    this._label.style.borderColor = this._color;
+  };
 
-      this.updateMeshColor();
+  widgetsAnnotation.prototype.hideDOM = function hideDOM() {
+    this._line.style.display = 'none';
+    this._dashline.style.display = 'none';
+    this._label.style.display = 'none';
+    this._handles.forEach(function (elem) {
+      return elem.hideDOM();
+    });
+  };
 
-      // line geometry
-      // this._geometry = new three.Geometry();
-      // this._geometry.vertices.push(this._handles[0].worldPosition);
-      // this._geometry.vertices.push(this._handles[1].worldPosition);
-      this._geometry = new three__WEBPACK_IMPORTED_MODULE_0__["BufferGeometry"]();
-      var positions = new Float32Array(2 * 3);
-      this._geometry.setAttribute('position', new three__WEBPACK_IMPORTED_MODULE_0__["BufferAttribute"](positions, 3));
-      var index = 0;
-      positions[index++] = this._handles[0].worldPosition.x;
-      positions[index++] = this._handles[0].worldPosition.y;
-      positions[index++] = this._handles[0].worldPosition.z;
+  widgetsAnnotation.prototype.showDOM = function showDOM() {
+    this._line.style.display = '';
+    this._dashline.style.display = '';
+    this._label.style.display = '';
+    this._handles.forEach(function (elem) {
+      return elem.showDOM();
+    });
+  };
 
-      positions[index++] = this._handles[1].worldPosition.x;
-      positions[index++] = this._handles[1].worldPosition.y;
-      positions[index++] = this._handles[1].worldPosition.z;
+  widgetsAnnotation.prototype.free = function free() {
+    var _this2 = this;
 
-      // line mesh
-      this._meshline = new three__WEBPACK_IMPORTED_MODULE_0__["Line"](this._geometry, this._material);
-      this._meshline.visible = true;
+    this.removeEventListeners();
 
-      this.add(this._meshline);
+    this._handles.forEach(function (h) {
+      _this2.remove(h);
+      h.free();
+    });
+    this._handles = [];
 
-      // cone geometry
-      this._conegeometry = new three__WEBPACK_IMPORTED_MODULE_0__["CylinderGeometry"](0, 2, 10);
-      this._conegeometry.translate(0, -5, 0);
-      this._conegeometry.rotateX(-Math.PI / 2);
+    this._container.removeChild(this._line);
+    this._container.removeChild(this._dashline);
+    this._container.removeChild(this._label);
 
-      // cone mesh
-      this._cone = new three__WEBPACK_IMPORTED_MODULE_0__["Mesh"](this._conegeometry, this._material);
-      this._cone.visible = true;
+    // mesh, geometry, material
+    this.remove(this._meshline);
+    this._meshline.geometry.dispose();
+    this._meshline.geometry = null;
+    this._meshline.material.dispose();
+    this._meshline.material = null;
+    this._meshline = null;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+    this.remove(this._cone);
+    this._cone.geometry.dispose();
+    this._cone.geometry = null;
+    this._cone.material.dispose();
+    this._cone.material = null;
+    this._cone = null;
+    this._conegeometry.dispose();
+    this._conegeometry = null;
 
-      this.add(this._cone);
-    };
+    _widgetsBase.prototype.free.call(this);
+  };
 
-    _class.prototype.createDOM = function createDOM() {
-      this._line = document.createElement('div');
-      this._line.className = 'widgets-line';
-      this._container.appendChild(this._line);
-
-      this._dashline = document.createElement('div');
-      this._dashline.className = 'widgets-dashline';
-      this._dashline.style.display = 'none';
-      this._container.appendChild(this._dashline);
-
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-      this._label.style.display = 'none';
-      this._container.appendChild(this._label);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      this._handles[0].update();
-      this._handles[1].update();
-
-      this.updateMeshColor();
-      this.updateMeshPosition();
-
-      this.updateDOM();
-    };
-
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
-
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._geometry) {
-        this._geometry.verticesNeedUpdate = true;
-      }
-
-      if (this._cone) {
-        this._cone.position.copy(this._handles[1].worldPosition);
-        this._cone.lookAt(this._handles[0].worldPosition);
-      }
-    };
-
-    _class.prototype.updateDOM = function updateDOM() {
-      this.updateDOMColor();
-
-      // update line
-      var lineData = this.getLineData(this._handles[0].screenPosition, this._handles[1].screenPosition);
-
-      this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n        rotate(' + lineData.transformAngle + 'rad)';
-      this._line.style.width = lineData.length + 'px';
-
-      // update label
-      var paddingVector = lineData.line.multiplyScalar(0.5);
-      var paddingPoint = this._handles[1].screenPosition.clone().sub(this._labelmoved ? this._labelOffset // if the label is moved, then its position is defined by labelOffset
-      : paddingVector); // otherwise it's placed in the center of the line
-      var labelPosition = this.adjustLabelTransform(this._label, paddingPoint);
-
-      this._label.style.transform = 'translate3D(' + labelPosition.x + 'px, ' + labelPosition.y + 'px, 0)';
-
-      // create the label without the interaction of the user. Useful when we need to create the label manually
-      if (this._manuallabeldisplay) {
-        this.displaylabel();
-      }
-
-      // update dash line
-      var minLine = this.getLineData(this._handles[0].screenPosition, paddingPoint);
-      var lineCL = this.getLineData(lineData.center, paddingPoint);
-      var line1L = this.getLineData(this._handles[1].screenPosition, paddingPoint);
-
-      if (minLine.length > lineCL.length) {
-        minLine = lineCL;
-      }
-      if (minLine.length > line1L.length) {
-        minLine = line1L;
-      }
-
-      this._dashline.style.transform = 'translate3D(' + minLine.transformX + 'px, ' + minLine.transformY + 'px, 0)\n        rotate(' + minLine.transformAngle + 'rad)';
-      this._dashline.style.width = minLine.length + 'px';
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      this._line.style.backgroundColor = this._color;
-      this._dashline.style.borderTop = '1.5px dashed ' + this._color;
-      this._label.style.borderColor = this._color;
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._line.style.display = 'none';
-      this._dashline.style.display = 'none';
-      this._label.style.display = 'none';
+  _createClass(widgetsAnnotation, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
       this._handles.forEach(function (elem) {
-        return elem.hideDOM();
+        return elem.targetMesh = targetMesh;
       });
-    };
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handles[0].worldPosition.copy(worldPosition);
+      this._handles[1].worldPosition.copy(worldPosition);
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }]);
 
-    _class.prototype.showDOM = function showDOM() {
-      this._line.style.display = '';
-      this._dashline.style.display = '';
-      this._label.style.display = '';
-      this._handles.forEach(function (elem) {
-        return elem.showDOM();
-      });
-    };
+  return widgetsAnnotation;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_1__["widgetsBase"]);
 
-    _class.prototype.free = function free() {
-      var _this2 = this;
-
-      this.removeEventListeners();
-
-      this._handles.forEach(function (h) {
-        _this2.remove(h);
-        h.free();
-      });
-      this._handles = [];
-
-      this._container.removeChild(this._line);
-      this._container.removeChild(this._dashline);
-      this._container.removeChild(this._label);
-
-      // mesh, geometry, material
-      this.remove(this._meshline);
-      this._meshline.geometry.dispose();
-      this._meshline.geometry = null;
-      this._meshline.material.dispose();
-      this._meshline.material = null;
-      this._meshline = null;
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-      this.remove(this._cone);
-      this._cone.geometry.dispose();
-      this._cone.geometry = null;
-      this._cone.material.dispose();
-      this._cone.material = null;
-      this._cone = null;
-      this._conegeometry.dispose();
-      this._conegeometry = null;
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
-        });
-        this.update();
-      }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles[0].worldPosition.copy(worldPosition);
-        this._handles[1].worldPosition.copy(worldPosition);
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }]);
-
-    return _class;
-  }(Constructor);
-};
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsAnnotation());
 
 /***/ }),
 
@@ -96292,7 +96169,7 @@ var widgetsAnnotation = function widgetsAnnotation() {
 /*!*************************************!*\
   !*** ./src/widgets/widgets.base.ts ***!
   \*************************************/
-/*! exports provided: widgetsBase, default */
+/*! exports provided: widgetsBase */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96310,392 +96187,389 @@ __webpack_require__.r(__webpack_exports__);
  * @module Abstract Widget
  */
 // tslint:disable-next-line
-const widgetsBase = () => {
-    const Constructor = three__WEBPACK_IMPORTED_MODULE_3__["Object3D"];
-    return class extends Constructor {
-        constructor(targetMesh, controls, params) {
-            super();
-            this._widgetType = 'Base';
-            this._params = params;
-            if (params.hideMesh === true) {
-                this.visible = false;
-            }
-            const elementStyle = document.getElementById('ami-widgets');
-            if (elementStyle === null) {
-                const styleEl = document.createElement('style');
-                styleEl.id = 'ami-widgets';
-                styleEl.innerHTML = _widgets_css__WEBPACK_IMPORTED_MODULE_0__["default"].code;
-                document.head.appendChild(styleEl);
-            }
-            this._enabled = true;
-            this._selected = false;
-            this._hovered = true;
-            this._active = true;
-            this._colors = {
-                default: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].blue,
-                active: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].yellow,
-                hover: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].red,
-                select: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].green,
-                text: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].white,
-                error: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].lightRed,
-            };
-            this._color = this._colors.default;
-            this._dragged = false;
-            // can not call it visible because it conflicts with THREE.Object3D
-            this._displayed = true;
-            this._targetMesh = targetMesh;
-            this._controls = controls;
-            this._camera = controls.object;
-            this._container = controls.domElement;
-            this._worldPosition = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](); // LPS position
-            if (params.worldPosition) {
-                this._worldPosition.copy(params.worldPosition);
-            }
-            else if (this._targetMesh !== null) {
-                this._worldPosition.copy(this._targetMesh.position);
-            }
+class widgetsBase extends three__WEBPACK_IMPORTED_MODULE_3__["Object3D"] {
+    constructor(targetMesh, controls, params) {
+        super();
+        this._widgetType = 'Base';
+        this._params = params;
+        if (params.hideMesh === true) {
+            this.visible = false;
         }
-        initOffsets() {
-            const box = this._container.getBoundingClientRect();
-            const body = document.body;
-            const docEl = document.documentElement;
-            const scrollTop = scrollY || docEl.scrollTop || body.scrollTop;
-            const scrollLeft = scrollX || docEl.scrollLeft || body.scrollLeft;
-            const clientTop = docEl.clientTop || body.clientTop || 0;
-            const clientLeft = docEl.clientLeft || body.clientLeft || 0;
-            this._offsets = {
-                top: Math.round(box.top + scrollTop - clientTop),
-                left: Math.round(box.left + scrollLeft - clientLeft),
-            };
+        const elementStyle = document.getElementById('ami-widgets');
+        if (elementStyle === null) {
+            const styleEl = document.createElement('style');
+            styleEl.id = 'ami-widgets';
+            styleEl.innerHTML = _widgets_css__WEBPACK_IMPORTED_MODULE_0__["default"].code;
+            document.head.appendChild(styleEl);
         }
-        getMouseOffsets(event, container) {
-            return {
-                x: ((event.clientX - this._offsets.left) / container.offsetWidth) * 2 - 1,
-                y: -((event.clientY - this._offsets.top) / container.offsetHeight) * 2 + 1,
-                screenX: event.clientX - this._offsets.left,
-                screenY: event.clientY - this._offsets.top,
-            };
+        this._enabled = true;
+        this._selected = false;
+        this._hovered = true;
+        this._active = true;
+        this._colors = {
+            default: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].blue,
+            active: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].yellow,
+            hover: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].red,
+            select: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].green,
+            text: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].white,
+            error: _core_core_colors__WEBPACK_IMPORTED_MODULE_1__["COLORS"].lightRed,
+        };
+        this._color = this._colors.default;
+        this._dragged = false;
+        // can not call it visible because it conflicts with THREE.Object3D
+        this._displayed = true;
+        this._targetMesh = targetMesh;
+        this._controls = controls;
+        this._camera = controls.object;
+        this._container = controls.domElement;
+        this._worldPosition = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](); // LPS position
+        if (params.worldPosition) {
+            this._worldPosition.copy(params.worldPosition);
         }
-        /**
-         * Get area of polygon.
-         *
-         * @param {Array} points Ordered vertices' coordinates
-         *
-         * @returns {Number}
-         */
-        getArea(points) {
-            let area = 0;
-            let j = points.length - 1; // the last vertex is the 'previous' one to the first
-            for (let i = 0; i < points.length; i++) {
-                area += (points[j].x + points[i].x) * (points[j].y - points[i].y);
-                j = i; // j is the previous vertex to i
+        else if (this._targetMesh !== null) {
+            this._worldPosition.copy(this._targetMesh.position);
+        }
+    }
+    initOffsets() {
+        const box = this._container.getBoundingClientRect();
+        const body = document.body;
+        const docEl = document.documentElement;
+        const scrollTop = scrollY || docEl.scrollTop || body.scrollTop;
+        const scrollLeft = scrollX || docEl.scrollLeft || body.scrollLeft;
+        const clientTop = docEl.clientTop || body.clientTop || 0;
+        const clientLeft = docEl.clientLeft || body.clientLeft || 0;
+        this._offsets = {
+            top: Math.round(box.top + scrollTop - clientTop),
+            left: Math.round(box.left + scrollLeft - clientLeft),
+        };
+    }
+    getMouseOffsets(event, container) {
+        return {
+            x: ((event.clientX - this._offsets.left) / container.offsetWidth) * 2 - 1,
+            y: -((event.clientY - this._offsets.top) / container.offsetHeight) * 2 + 1,
+            screenX: event.clientX - this._offsets.left,
+            screenY: event.clientY - this._offsets.top,
+        };
+    }
+    /**
+     * Get area of polygon.
+     *
+     * @param {Array} points Ordered vertices' coordinates
+     *
+     * @returns {Number}
+     */
+    getArea(points) {
+        let area = 0;
+        let j = points.length - 1; // the last vertex is the 'previous' one to the first
+        for (let i = 0; i < points.length; i++) {
+            area += (points[j].x + points[i].x) * (points[j].y - points[i].y);
+            j = i; // j is the previous vertex to i
+        }
+        return Math.abs(area / 2);
+    }
+    /**
+     * Get index of ultrasound region by data coordinates.
+     *
+     * @param {Array}   regions US regions
+     * @param {Vector3} point   Data coordinates
+     *
+     * @returns {Number|null}
+     */
+    getRegionByXY(regions, point) {
+        let result = null;
+        regions.some((region, ind) => {
+            if (point.x >= region.x0 &&
+                point.x <= region.x1 &&
+                point.y >= region.y0 &&
+                point.y <= region.y1) {
+                result = ind;
+                return true;
             }
-            return Math.abs(area / 2);
+        });
+        return result;
+    }
+    /**
+     * Get point inside ultrasound region by data coordinates.
+     *
+     * @param {Object}  region US region data
+     * @param {Vector3} point  Data coordinates
+     *
+     * @returns {Vector2|null}
+     */
+    getPointInRegion(region, point) {
+        if (!region) {
+            return null;
         }
-        /**
-         * Get index of ultrasound region by data coordinates.
-         *
-         * @param {Array}   regions US regions
-         * @param {Vector3} point   Data coordinates
-         *
-         * @returns {Number|null}
-         */
-        getRegionByXY(regions, point) {
-            let result = null;
-            regions.some((region, ind) => {
-                if (point.x >= region.x0 &&
-                    point.x <= region.x1 &&
-                    point.y >= region.y0 &&
-                    point.y <= region.y1) {
-                    result = ind;
-                    return true;
-                }
-            });
-            return result;
+        return new three__WEBPACK_IMPORTED_MODULE_3__["Vector2"]((point.x - region.x0 - (region.axisX || 0)) * region.deltaX, (point.y - region.y0 - (region.axisY || 0)) * region.deltaY);
+    }
+    /**
+     * Get point's ultrasound coordinates by data coordinates.
+     *
+     * @param {Array}   regions US regions
+     * @param {Vector3} point   Data coordinates
+     *
+     * @returns {Vector2|null}
+     */
+    getUsPoint(regions, point) {
+        return this.getPointInRegion(regions[this.getRegionByXY(regions, point)], point);
+    }
+    /**
+     * Get distance between points inside ultrasound region.
+     *
+     * @param {Vector3} pointA Begin data coordinates
+     * @param {Vector3} pointB End data coordinates
+     *
+     * @returns {Number|null}
+     */
+    getUsDistance(pointA, pointB) {
+        const regions = this._params.ultrasoundRegions || [];
+        if (regions.length < 1) {
+            return null;
         }
-        /**
-         * Get point inside ultrasound region by data coordinates.
-         *
-         * @param {Object}  region US region data
-         * @param {Vector3} point  Data coordinates
-         *
-         * @returns {Vector2|null}
-         */
-        getPointInRegion(region, point) {
-            if (!region) {
-                return null;
-            }
-            return new three__WEBPACK_IMPORTED_MODULE_3__["Vector2"]((point.x - region.x0 - (region.axisX || 0)) * region.deltaX, (point.y - region.y0 - (region.axisY || 0)) * region.deltaY);
+        const regionA = this.getRegionByXY(regions, pointA);
+        const regionB = this.getRegionByXY(regions, pointB);
+        if (regionA === null ||
+            regionB === null ||
+            regionA !== regionB ||
+            regions[regionA].unitsX !== 'cm' ||
+            regions[regionA].unitsY !== 'cm') {
+            return null;
         }
-        /**
-         * Get point's ultrasound coordinates by data coordinates.
-         *
-         * @param {Array}   regions US regions
-         * @param {Vector3} point   Data coordinates
-         *
-         * @returns {Vector2|null}
-         */
-        getUsPoint(regions, point) {
-            return this.getPointInRegion(regions[this.getRegionByXY(regions, point)], point);
+        return this.getPointInRegion(regions[regionA], pointA).distanceTo(this.getPointInRegion(regions[regionA], pointB));
+    }
+    /**
+     * Get distance between points
+     *
+     * @param {Vector3} pointA Begin world coordinates
+     * @param {Vector3} pointB End world coordinates
+     * @param {number}  cf     Calibration factor
+     *
+     * @returns {Object}
+     */
+    getDistanceData(pointA, pointB, calibrationFactor) {
+        let distance = null;
+        let units = null;
+        if (calibrationFactor) {
+            distance = pointA.distanceTo(pointB) * calibrationFactor;
         }
-        /**
-         * Get distance between points inside ultrasound region.
-         *
-         * @param {Vector3} pointA Begin data coordinates
-         * @param {Vector3} pointB End data coordinates
-         *
-         * @returns {Number|null}
-         */
-        getUsDistance(pointA, pointB) {
-            const regions = this._params.ultrasoundRegions || [];
-            if (regions.length < 1) {
-                return null;
-            }
-            const regionA = this.getRegionByXY(regions, pointA);
-            const regionB = this.getRegionByXY(regions, pointB);
-            if (regionA === null ||
-                regionB === null ||
-                regionA !== regionB ||
-                regions[regionA].unitsX !== 'cm' ||
-                regions[regionA].unitsY !== 'cm') {
-                return null;
-            }
-            return this.getPointInRegion(regions[regionA], pointA).distanceTo(this.getPointInRegion(regions[regionA], pointB));
-        }
-        /**
-         * Get distance between points
-         *
-         * @param {Vector3} pointA Begin world coordinates
-         * @param {Vector3} pointB End world coordinates
-         * @param {number}  cf     Calibration factor
-         *
-         * @returns {Object}
-         */
-        getDistanceData(pointA, pointB, calibrationFactor) {
-            let distance = null;
-            let units = null;
-            if (calibrationFactor) {
-                distance = pointA.distanceTo(pointB) * calibrationFactor;
-            }
-            else if (this._params.ultrasoundRegions && this._params.lps2IJK) {
-                const usDistance = this.getUsDistance(_core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, pointA), _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, pointB));
-                if (usDistance !== null) {
-                    distance = usDistance * 10;
-                    units = 'mm';
-                }
-                else {
-                    distance = pointA.distanceTo(pointB);
-                    units = this._params.pixelSpacing ? 'mm' : 'units';
-                }
+        else if (this._params.ultrasoundRegions && this._params.lps2IJK) {
+            const usDistance = this.getUsDistance(_core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, pointA), _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, pointB));
+            if (usDistance !== null) {
+                distance = usDistance * 10;
+                units = 'mm';
             }
             else {
                 distance = pointA.distanceTo(pointB);
+                units = this._params.pixelSpacing ? 'mm' : 'units';
             }
-            return {
-                distance,
-                units,
-            };
         }
-        getLineData(pointA, pointB) {
-            const line = pointB.clone().sub(pointA);
-            const center = pointB
+        else {
+            distance = pointA.distanceTo(pointB);
+        }
+        return {
+            distance,
+            units,
+        };
+    }
+    getLineData(pointA, pointB) {
+        const line = pointB.clone().sub(pointA);
+        const center = pointB
+            .clone()
+            .add(pointA)
+            .multiplyScalar(0.5);
+        const length = line.length();
+        const angle = line.angleTo(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](1, 0, 0));
+        return {
+            line,
+            length,
+            transformX: center.x - length / 2,
+            transformY: center.y - this._container.offsetHeight,
+            transformAngle: pointA.y < pointB.y ? angle : -angle,
+            center,
+        };
+    }
+    getRectData(pointA, pointB) {
+        const line = pointB.clone().sub(pointA);
+        const vertical = line.clone().projectOnVector(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](0, 1, 0));
+        const min = pointA.clone().min(pointB); // coordinates of the top left corner
+        return {
+            width: line
                 .clone()
-                .add(pointA)
-                .multiplyScalar(0.5);
-            const length = line.length();
-            const angle = line.angleTo(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](1, 0, 0));
-            return {
-                line,
-                length,
-                transformX: center.x - length / 2,
-                transformY: center.y - this._container.offsetHeight,
-                transformAngle: pointA.y < pointB.y ? angle : -angle,
-                center,
-            };
+                .projectOnVector(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](1, 0, 0))
+                .length(),
+            height: vertical.length(),
+            transformX: min.x,
+            transformY: min.y - this._container.offsetHeight,
+            paddingVector: vertical.clone().normalize(),
+        };
+    }
+    /**
+     * @param {HTMLElement} label
+     * @param {Vector3}     point  label's center coordinates (default)
+     * @param {Boolean}     corner if true, then point is the label's top left corner coordinates
+     */
+    adjustLabelTransform(label, point, corner) {
+        let x = Math.round(point.x - (corner ? 0 : label.offsetWidth / 2));
+        let y = Math.round(point.y - (corner ? 0 : label.offsetHeight / 2)) - this._container.offsetHeight;
+        if (x < 0) {
+            x = x > -label.offsetWidth ? 0 : x + label.offsetWidth;
         }
-        getRectData(pointA, pointB) {
-            const line = pointB.clone().sub(pointA);
-            const vertical = line.clone().projectOnVector(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](0, 1, 0));
-            const min = pointA.clone().min(pointB); // coordinates of the top left corner
-            return {
-                width: line
-                    .clone()
-                    .projectOnVector(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](1, 0, 0))
-                    .length(),
-                height: vertical.length(),
-                transformX: min.x,
-                transformY: min.y - this._container.offsetHeight,
-                paddingVector: vertical.clone().normalize(),
-            };
+        else if (x > this._container.offsetWidth - label.offsetWidth) {
+            x =
+                x < this._container.offsetWidth
+                    ? this._container.offsetWidth - label.offsetWidth
+                    : x - label.offsetWidth;
         }
-        /**
-         * @param {HTMLElement} label
-         * @param {Vector3}     point  label's center coordinates (default)
-         * @param {Boolean}     corner if true, then point is the label's top left corner coordinates
-         */
-        adjustLabelTransform(label, point, corner) {
-            let x = Math.round(point.x - (corner ? 0 : label.offsetWidth / 2));
-            let y = Math.round(point.y - (corner ? 0 : label.offsetHeight / 2)) - this._container.offsetHeight;
-            if (x < 0) {
-                x = x > -label.offsetWidth ? 0 : x + label.offsetWidth;
-            }
-            else if (x > this._container.offsetWidth - label.offsetWidth) {
-                x =
-                    x < this._container.offsetWidth
-                        ? this._container.offsetWidth - label.offsetWidth
-                        : x - label.offsetWidth;
-            }
-            if (y < -this._container.offsetHeight) {
-                y =
-                    y > -this._container.offsetHeight - label.offsetHeight
-                        ? -this._container.offsetHeight
-                        : y + label.offsetHeight;
-            }
-            else if (y > -label.offsetHeight) {
-                y = y < 0 ? -label.offsetHeight : y - label.offsetHeight;
-            }
-            return new three__WEBPACK_IMPORTED_MODULE_3__["Vector2"](x, y);
+        if (y < -this._container.offsetHeight) {
+            y =
+                y > -this._container.offsetHeight - label.offsetHeight
+                    ? -this._container.offsetHeight
+                    : y + label.offsetHeight;
         }
-        worldToScreen(worldCoordinate) {
-            const screenCoordinates = worldCoordinate.clone();
-            screenCoordinates.project(this._camera);
-            screenCoordinates.x = Math.round(((screenCoordinates.x + 1) * this._container.offsetWidth) / 2);
-            screenCoordinates.y = Math.round(((-screenCoordinates.y + 1) * this._container.offsetHeight) / 2);
-            screenCoordinates.z = 0;
-            return screenCoordinates;
+        else if (y > -label.offsetHeight) {
+            y = y < 0 ? -label.offsetHeight : y - label.offsetHeight;
         }
-        update() {
-            // to be overloaded
-            console.log('update() should be overloaded!');
+        return new three__WEBPACK_IMPORTED_MODULE_3__["Vector2"](x, y);
+    }
+    worldToScreen(worldCoordinate) {
+        const screenCoordinates = worldCoordinate.clone();
+        screenCoordinates.project(this._camera);
+        screenCoordinates.x = Math.round(((screenCoordinates.x + 1) * this._container.offsetWidth) / 2);
+        screenCoordinates.y = Math.round(((-screenCoordinates.y + 1) * this._container.offsetHeight) / 2);
+        screenCoordinates.z = 0;
+        return screenCoordinates;
+    }
+    update() {
+        // to be overloaded
+        console.log('update() should be overloaded!');
+    }
+    updateColor() {
+        if (this._active) {
+            this._color = this._colors.active;
         }
-        updateColor() {
-            if (this._active) {
-                this._color = this._colors.active;
-            }
-            else if (this._hovered) {
-                this._color = this._colors.hover;
-            }
-            else if (this._selected) {
-                this._color = this._colors.select;
-            }
-            else {
-                this._color = this._colors.default;
-            }
+        else if (this._hovered) {
+            this._color = this._colors.hover;
         }
-        // tslint:disable-next-line
-        setDefaultColor(color) {
-            this._colors.default = color;
-            if (this._handles) {
-                this._handles.forEach(elem => (elem._colors.default = color));
-            }
-            this.update();
+        else if (this._selected) {
+            this._color = this._colors.select;
         }
-        show() {
-            this.showDOM();
-            this.showMesh();
-            this.update();
-            this._displayed = true;
+        else {
+            this._color = this._colors.default;
         }
-        hide() {
-            this.hideDOM();
-            this.hideMesh();
-            this._displayed = false;
+    }
+    // tslint:disable-next-line
+    setDefaultColor(color) {
+        this._colors.default = color;
+        if (this._handles) {
+            this._handles.forEach(elem => (elem._colors.default = color));
         }
-        hideDOM() {
-            // to be overloaded
-            console.log('hideDOM() should be overloaded!');
+        this.update();
+    }
+    show() {
+        this.showDOM();
+        this.showMesh();
+        this.update();
+        this._displayed = true;
+    }
+    hide() {
+        this.hideDOM();
+        this.hideMesh();
+        this._displayed = false;
+    }
+    hideDOM() {
+        // to be overloaded
+        console.log('hideDOM() should be overloaded!');
+    }
+    showDOM() {
+        // to be overloaded
+        console.log('showDOM() should be overloaded!');
+    }
+    hideMesh() {
+        this.visible = false;
+    }
+    showMesh() {
+        if (this._params.hideMesh === true) {
+            return;
         }
-        showDOM() {
-            // to be overloaded
-            console.log('showDOM() should be overloaded!');
-        }
-        hideMesh() {
-            this.visible = false;
-        }
-        showMesh() {
-            if (this._params.hideMesh === true) {
-                return;
-            }
-            this.visible = true;
-        }
-        free() {
-            this._camera = null;
-            this._container = null;
-            this._controls = null;
-            this._params = null;
-            this._targetMesh = null;
-        }
-        get widgetType() {
-            return this._widgetType;
-        }
-        get targetMesh() {
-            return this._targetMesh;
-        }
-        set targetMesh(targetMesh) {
-            this._targetMesh = targetMesh;
-            this.update();
-        }
-        get worldPosition() {
-            return this._worldPosition;
-        }
-        set worldPosition(worldPosition) {
-            this._worldPosition.copy(worldPosition);
-            this.update();
-        }
-        get enabled() {
-            return this._enabled;
-        }
-        set enabled(enabled) {
-            this._enabled = enabled;
-            this.update();
-        }
-        get selected() {
-            return this._selected;
-        }
-        set selected(selected) {
-            this._selected = selected;
-            this.update();
-        }
-        get hovered() {
-            return this._hovered;
-        }
-        set hovered(hovered) {
-            this._hovered = hovered;
-            this.update();
-        }
-        get dragged() {
-            return this._dragged;
-        }
-        set dragged(dragged) {
-            this._dragged = dragged;
-            this.update();
-        }
-        get displayed() {
-            return this._displayed;
-        }
-        set displayed(displayed) {
-            this._displayed = displayed;
-            this.update();
-        }
-        get active() {
-            return this._active;
-        }
-        set active(active) {
-            this._active = active;
-            this.update();
-        }
-        get color() {
-            return this._color;
-        }
-        // tslint:disable-next-line
-        set color(color) {
-            this._color = color;
-            this.update();
-        }
-    };
-};
+        this.visible = true;
+    }
+    free() {
+        this._camera = null;
+        this._container = null;
+        this._controls = null;
+        this._params = null;
+        this._targetMesh = null;
+    }
+    get widgetType() {
+        return this._widgetType;
+    }
+    get targetMesh() {
+        return this._targetMesh;
+    }
+    set targetMesh(targetMesh) {
+        this._targetMesh = targetMesh;
+        this.update();
+    }
+    get worldPosition() {
+        return this._worldPosition;
+    }
+    set worldPosition(worldPosition) {
+        this._worldPosition.copy(worldPosition);
+        this.update();
+    }
+    get enabled() {
+        return this._enabled;
+    }
+    set enabled(enabled) {
+        this._enabled = enabled;
+        this.update();
+    }
+    get selected() {
+        return this._selected;
+    }
+    set selected(selected) {
+        this._selected = selected;
+        this.update();
+    }
+    get hovered() {
+        return this._hovered;
+    }
+    set hovered(hovered) {
+        this._hovered = hovered;
+        this.update();
+    }
+    get dragged() {
+        return this._dragged;
+    }
+    set dragged(dragged) {
+        this._dragged = dragged;
+        this.update();
+    }
+    get displayed() {
+        return this._displayed;
+    }
+    set displayed(displayed) {
+        this._displayed = displayed;
+        this.update();
+    }
+    get active() {
+        return this._active;
+    }
+    set active(active) {
+        this._active = active;
+        this.update();
+    }
+    get color() {
+        return this._color;
+    }
+    // tslint:disable-next-line
+    set color(color) {
+        this._color = color;
+        this.update();
+    }
+}
+;
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsBase());
 
 
 /***/ }),
@@ -96704,7 +96578,7 @@ const widgetsBase = () => {
 /*!****************************************!*\
   !*** ./src/widgets/widgets.biruler.js ***!
   \****************************************/
-/*! exports provided: widgetsBiruler, default */
+/*! exports provided: widgetsBiruler */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96728,445 +96602,444 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/biruler
  */
-var widgetsBiruler = function widgetsBiruler() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_1__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsBiruler = function (_widgetsBase) {
+  _inherits(widgetsBiruler, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsBiruler(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsBiruler);
 
-      _this._widgetType = 'BiRuler';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (optional: lps2IJK, pixelSpacing, ultrasoundRegions, worldPosition)
-      _this._calibrationFactor = params.calibrationFactor || null;
+    _this._widgetType = 'BiRuler';
 
-      // outgoing values
-      _this._distance = null;
-      _this._distance2 = null;
-      _this._units = !_this._calibrationFactor && !params.pixelSpacing ? 'units' : 'mm';
+    // incoming parameters (optional: lps2IJK, pixelSpacing, ultrasoundRegions, worldPosition)
+    _this._calibrationFactor = params.calibrationFactor || null;
 
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
+    // outgoing values
+    _this._distance = null;
+    _this._distance2 = null;
+    _this._units = !_this._calibrationFactor && !params.pixelSpacing ? 'units' : 'mm';
 
-      // dom stuff
-      _this._line = null;
-      _this._label = null;
-      _this._line2 = null;
-      _this._label2 = null;
-      _this._dashline = null;
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      // add handles
-      _this._handles = [];
+    // dom stuff
+    _this._line = null;
+    _this._label = null;
+    _this._line2 = null;
+    _this._label2 = null;
+    _this._dashline = null;
 
-      var handle = void 0;
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])();
-      for (var i = 0; i < 4; i++) {
-        handle = new WidgetsHandle(targetMesh, controls, params);
-        _this.add(handle);
-        _this._handles.push(handle);
-      }
-      _this._handles[1].active = true;
-      _this._handles[1].tracking = true;
-      _this._handles[3].active = true;
-      _this._handles[3].tracking = true;
+    // add handles
+    _this._handles = [];
 
-      _this.create();
+    var handle = void 0;
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])();
+    for (var i = 0; i < 4; i++) {
+      handle = new WidgetsHandle(targetMesh, controls, params);
+      _this.add(handle);
+      _this._handles.push(handle);
+    }
+    _this._handles[1].active = true;
+    _this._handles[1].tracking = true;
+    _this._handles[3].active = true;
+    _this._handles[3].tracking = true;
 
-      _this.onMove = _this.onMove.bind(_this);
-      _this.addEventListeners();
-      return _this;
+    _this.create();
+
+    _this.onMove = _this.onMove.bind(_this);
+    _this.addEventListeners();
+    return _this;
+  }
+
+  widgetsBiruler.prototype.addEventListeners = function addEventListeners() {
+    this._container.addEventListener('wheel', this.onMove);
+  };
+
+  widgetsBiruler.prototype.removeEventListeners = function removeEventListeners() {
+    this._container.removeEventListener('wheel', this.onMove);
+  };
+
+  widgetsBiruler.prototype.onStart = function onStart(evt) {
+    this._handles.forEach(function (elem) {
+      return elem.onStart(evt);
+    });
+
+    this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active || this._handles[3].active;
+
+    this.update();
+  };
+
+  widgetsBiruler.prototype.onMove = function onMove(evt) {
+    if (this._active) {
+      this._dragged = true;
+    } else {
+      this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._handles[2].hovered || this._handles[3].hovered;
+      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._container.addEventListener('wheel', this.onMove);
-    };
+    this._handles.forEach(function (elem) {
+      return elem.onMove(evt);
+    });
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._container.removeEventListener('wheel', this.onMove);
-    };
+    this.update();
+  };
 
-    _class.prototype.onStart = function onStart(evt) {
+  widgetsBiruler.prototype.onEnd = function onEnd() {
+    this._handles[0].onEnd();
+    this._handles[2].onEnd();
+
+    if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
+      return;
+    }
+
+    if (!this._dragged && this._active && !this._handles[3].tracking) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handles[0].selected = this._selected;
+      this._handles[2].selected = this._selected;
+    }
+
+    // Fourth Handle
+    if (this._handles[1].active) {
+      this._handles[3].onEnd();
+    } else if (this._dragged || !this._handles[3].tracking) {
+      this._handles[3].tracking = false;
+      this._handles[3].onEnd();
+    } else {
+      this._handles[3].tracking = false;
+    }
+    this._handles[3].selected = this._selected;
+
+    // Second Handle
+    if (this._dragged || !this._handles[1].tracking) {
+      this._handles[1].tracking = false;
+      this._handles[1].onEnd();
+    } else {
+      this._handles[1].tracking = false;
+    }
+    this._handles[1].selected = this._selected;
+
+    this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active || this._handles[3].active;
+    this._dragged = false;
+    this.update();
+  };
+
+  widgetsBiruler.prototype.create = function create() {
+    this.createMesh();
+    this.createDOM();
+  };
+
+  widgetsBiruler.prototype.createMesh = function createMesh() {
+    // geometry
+    // this._geometry = new three.Geometry();
+    // this._geometry.vertices = [
+    //   this._handles[0].worldPosition,
+    //   this._handles[1].worldPosition,
+    //   this._handles[2].worldPosition,
+    //   this._handles[3].worldPosition,
+    // ];
+    this._geometry = new BufferGeometry();
+    var positions = new Float32Array(4 * 3);
+    this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+    var index = 0;
+    positions[index++] = this._handles[0].worldPosition.x;
+    positions[index++] = this._handles[0].worldPosition.y;
+    positions[index++] = this._handles[0].worldPosition.z;
+
+    positions[index++] = this._handles[1].worldPosition.x;
+    positions[index++] = this._handles[1].worldPosition.y;
+    positions[index++] = this._handles[1].worldPosition.z;
+
+    positions[index++] = this._handles[2].worldPosition.x;
+    positions[index++] = this._handles[2].worldPosition.y;
+    positions[index++] = this._handles[2].worldPosition.z;
+
+    positions[index++] = this._handles[3].worldPosition.x;
+    positions[index++] = this._handles[3].worldPosition.y;
+    positions[index++] = this._handles[3].worldPosition.z;
+
+    // material
+    this._material = new three__WEBPACK_IMPORTED_MODULE_0__["LineBasicMaterial"]();
+
+    this.updateMeshColor();
+
+    // mesh
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_0__["LineSegments"](this._geometry, this._material);
+    this._mesh.visible = true;
+    this.add(this._mesh);
+  };
+
+  widgetsBiruler.prototype.createDOM = function createDOM() {
+    this._line = document.createElement('div');
+    this._line.className = 'widgets-line';
+    this._container.appendChild(this._line);
+
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+    this._container.appendChild(this._label);
+
+    this._line2 = document.createElement('div');
+    this._line2.className = 'widgets-line';
+    this._container.appendChild(this._line2);
+
+    this._label2 = document.createElement('div');
+    this._label2.className = 'widgets-label';
+    this._container.appendChild(this._label2);
+
+    this._dashline = document.createElement('div');
+    this._dashline.className = 'widgets-dashline';
+    this._container.appendChild(this._dashline);
+
+    this.updateDOMColor();
+  };
+
+  widgetsBiruler.prototype.hideDOM = function hideDOM() {
+    this._line.style.display = 'none';
+    this._label.style.display = 'none';
+    this._line2.style.display = 'none';
+    this._label2.style.display = 'none';
+    this._dashline.style.display = 'none';
+
+    this._handles.forEach(function (elem) {
+      return elem.hideDOM();
+    });
+  };
+
+  widgetsBiruler.prototype.showDOM = function showDOM() {
+    this._line.style.display = '';
+    this._label.style.display = '';
+    this._line2.style.display = '';
+    this._label2.style.display = '';
+    this._dashline.style.display = '';
+
+    this._handles.forEach(function (elem) {
+      return elem.showDOM();
+    });
+  };
+
+  widgetsBiruler.prototype.update = function update() {
+    this.updateColor();
+
+    this._handles.forEach(function (elem) {
+      return elem.update();
+    });
+
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    this.updateDOM();
+  };
+
+  widgetsBiruler.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsBiruler.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._geometry) {
+      this._geometry.verticesNeedUpdate = true;
+    }
+  };
+
+  widgetsBiruler.prototype.updateDOM = function updateDOM() {
+    this.updateDOMColor();
+
+    // update first line
+    var lineData = this.getLineData(this._handles[0].screenPosition, this._handles[1].screenPosition);
+
+    this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n                rotate(' + lineData.transformAngle + 'rad)';
+    this._line.style.width = lineData.length + 'px';
+
+    // update second line
+    var line2Data = this.getLineData(this._handles[2].screenPosition, this._handles[3].screenPosition);
+
+    this._line2.style.transform = 'translate3D(' + line2Data.transformX + 'px, ' + line2Data.transformY + 'px, 0)\n                rotate(' + line2Data.transformAngle + 'rad)';
+    this._line2.style.width = line2Data.length + 'px';
+
+    // update dash line
+    var line1Center = this._handles[0].worldPosition.clone().add(this._handles[1].worldPosition).multiplyScalar(0.5);
+    var line2Center = this._handles[2].worldPosition.clone().add(this._handles[3].worldPosition).multiplyScalar(0.5);
+    var dashLineData = this.getLineData(this.worldToScreen(line1Center), this.worldToScreen(line2Center));
+
+    this._dashline.style.transform = 'translate3D(' + dashLineData.transformX + 'px, ' + dashLineData.transformY + 'px, 0)\n                rotate(' + dashLineData.transformAngle + 'rad)';
+    this._dashline.style.width = dashLineData.length + 'px';
+
+    // update labels
+    var distanceData = this.getDistanceData(this._handles[0].worldPosition, this._handles[1].worldPosition, this._calibrationFactor);
+    var distanceData2 = this.getDistanceData(this._handles[2].worldPosition, this._handles[3].worldPosition, this._calibrationFactor);
+    var title = 'Calibration is required to display the distance in mm';
+
+    this._distance = distanceData.distance;
+    this._distance2 = distanceData2.distance;
+    if (distanceData.units && distanceData2.units && distanceData.units === distanceData2.units) {
+      this._units = distanceData.units;
+    } else {
+      if (!distanceData.units) {
+        distanceData.units = this._units;
+      }
+      if (!distanceData2.units) {
+        distanceData2.units = this._units;
+      }
+    }
+
+    if (distanceData.units === 'units' && !this._label.hasAttribute('title')) {
+      this._label.setAttribute('title', title);
+      this._label.style.color = this._colors.error;
+    } else if (distanceData.units !== 'units' && this._label.hasAttribute('title')) {
+      this._label.removeAttribute('title');
+      this._label.style.color = this._colors.text;
+    }
+    if (distanceData2.units === 'units' && !this._label2.hasAttribute('title')) {
+      this._label2.setAttribute('title', title);
+      this._label2.style.color = this._colors.error;
+    } else if (distanceData2.units !== 'units' && this._label2.hasAttribute('title')) {
+      this._label2.removeAttribute('title');
+      this._label2.style.color = this._colors.text;
+    }
+    this._label.innerHTML = this._distance.toFixed(2) + ' ' + distanceData.units;
+    this._label2.innerHTML = this._distance2.toFixed(2) + ' ' + distanceData2.units;
+
+    var angle = Math.abs(lineData.transformAngle);
+    if (angle > Math.PI / 2) {
+      angle = Math.PI - angle;
+    }
+
+    var labelPadding = Math.tan(angle) < this._label.offsetHeight / this._label.offsetWidth ? this._label.offsetWidth / 2 / Math.cos(angle) + 15 // 5px for each handle + padding
+    : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle) + 15;
+    var paddingVector = lineData.line.normalize().multiplyScalar(labelPadding);
+    var paddingPoint = lineData.length > labelPadding * 2 ? this._handles[1].screenPosition.clone().sub(paddingVector) : this._handles[1].screenPosition.clone().add(paddingVector);
+    var transform = this.adjustLabelTransform(this._label, paddingPoint);
+
+    this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
+
+    var angle2 = Math.abs(line2Data.transformAngle);
+    if (angle2 > Math.PI / 2) {
+      angle2 = Math.PI - angle2;
+    }
+
+    var label2Padding = Math.tan(angle2) < this._label2.offsetHeight / this._label2.offsetWidth ? this._label2.offsetWidth / 2 / Math.cos(angle2) + 15 // 5px for each handle + padding
+    : this._label2.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle2) + 15;
+    var paddingVector2 = line2Data.line.normalize().multiplyScalar(label2Padding);
+    var paddingPoint2 = line2Data.length > label2Padding * 2 ? this._handles[3].screenPosition.clone().sub(paddingVector2) : this._handles[3].screenPosition.clone().add(paddingVector2);
+    var transform2 = this.adjustLabelTransform(this._label2, paddingPoint2);
+
+    this._label2.style.transform = 'translate3D(' + transform2.x + 'px, ' + transform2.y + 'px, 0)';
+  };
+
+  widgetsBiruler.prototype.updateDOMColor = function updateDOMColor() {
+    this._line.style.backgroundColor = this._color;
+    this._label.style.borderColor = this._color;
+
+    this._line2.style.backgroundColor = this._color;
+    this._label2.style.borderColor = this._color;
+
+    this._dashline.style.borderTop = '1.5px dashed ' + this._color;
+  };
+
+  widgetsBiruler.prototype.free = function free() {
+    var _this2 = this;
+
+    this.removeEventListeners();
+
+    this._handles.forEach(function (h) {
+      _this2.remove(h);
+      h.free();
+    });
+    this._handles = [];
+
+    this._container.removeChild(this._line);
+    this._container.removeChild(this._label);
+    this._container.removeChild(this._line2);
+    this._container.removeChild(this._label2);
+    this._container.removeChild(this._dashline);
+
+    // mesh, geometry, material
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  /**
+   * Get length of rulers
+   *
+   * @return {Array}
+   */
+
+
+  widgetsBiruler.prototype.getDistances = function getDistances() {
+    return [this._distance, this._distance2];
+  };
+
+  _createClass(widgetsBiruler, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
       this._handles.forEach(function (elem) {
-        return elem.onStart(evt);
+        return elem.targetMesh = targetMesh;
       });
-
-      this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active || this._handles[3].active;
-
       this.update();
-    };
-
-    _class.prototype.onMove = function onMove(evt) {
-      if (this._active) {
-        this._dragged = true;
-      } else {
-        this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._handles[2].hovered || this._handles[3].hovered;
-        this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-      }
-
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
       this._handles.forEach(function (elem) {
-        return elem.onMove(evt);
+        return elem.worldPosition.copy(worldPosition);
       });
-
+      this._worldPosition.copy(worldPosition);
       this.update();
-    };
-
-    _class.prototype.onEnd = function onEnd() {
-      this._handles[0].onEnd();
-      this._handles[2].onEnd();
-
-      if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
-        return;
-      }
-
-      if (!this._dragged && this._active && !this._handles[3].tracking) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles[0].selected = this._selected;
-        this._handles[2].selected = this._selected;
-      }
-
-      // Fourth Handle
-      if (this._handles[1].active) {
-        this._handles[3].onEnd();
-      } else if (this._dragged || !this._handles[3].tracking) {
-        this._handles[3].tracking = false;
-        this._handles[3].onEnd();
-      } else {
-        this._handles[3].tracking = false;
-      }
-      this._handles[3].selected = this._selected;
-
-      // Second Handle
-      if (this._dragged || !this._handles[1].tracking) {
-        this._handles[1].tracking = false;
-        this._handles[1].onEnd();
-      } else {
-        this._handles[1].tracking = false;
-      }
-      this._handles[1].selected = this._selected;
-
-      this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active || this._handles[3].active;
-      this._dragged = false;
+    }
+  }, {
+    key: 'calibrationFactor',
+    get: function get() {
+      return this._calibrationFactor;
+    },
+    set: function set(calibrationFactor) {
+      this._calibrationFactor = calibrationFactor;
+      this._units = 'mm';
       this.update();
-    };
+    }
+  }, {
+    key: 'shotestDistance',
+    get: function get() {
+      return this._distance < this._distance2 ? this._distance : this._distance2;
+    }
+  }, {
+    key: 'longestDistance',
+    get: function get() {
+      return this._distance > this._distance2 ? this._distance : this._distance2;
+    }
+  }]);
 
-    _class.prototype.create = function create() {
-      this.createMesh();
-      this.createDOM();
-    };
+  return widgetsBiruler;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_1__["widgetsBase"]);
 
-    _class.prototype.createMesh = function createMesh() {
-      // geometry
-      // this._geometry = new three.Geometry();
-      // this._geometry.vertices = [
-      //   this._handles[0].worldPosition,
-      //   this._handles[1].worldPosition,
-      //   this._handles[2].worldPosition,
-      //   this._handles[3].worldPosition,
-      // ];
-      this._geometry = new BufferGeometry();
-      var positions = new Float32Array(4 * 3);
-      this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
-      var index = 0;
-      positions[index++] = this._handles[0].worldPosition.x;
-      positions[index++] = this._handles[0].worldPosition.y;
-      positions[index++] = this._handles[0].worldPosition.z;
-
-      positions[index++] = this._handles[1].worldPosition.x;
-      positions[index++] = this._handles[1].worldPosition.y;
-      positions[index++] = this._handles[1].worldPosition.z;
-
-      positions[index++] = this._handles[2].worldPosition.x;
-      positions[index++] = this._handles[2].worldPosition.y;
-      positions[index++] = this._handles[2].worldPosition.z;
-
-      positions[index++] = this._handles[3].worldPosition.x;
-      positions[index++] = this._handles[3].worldPosition.y;
-      positions[index++] = this._handles[3].worldPosition.z;
-
-      // material
-      this._material = new three__WEBPACK_IMPORTED_MODULE_0__["LineBasicMaterial"]();
-
-      this.updateMeshColor();
-
-      // mesh
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_0__["LineSegments"](this._geometry, this._material);
-      this._mesh.visible = true;
-      this.add(this._mesh);
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this._line = document.createElement('div');
-      this._line.className = 'widgets-line';
-      this._container.appendChild(this._line);
-
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-      this._container.appendChild(this._label);
-
-      this._line2 = document.createElement('div');
-      this._line2.className = 'widgets-line';
-      this._container.appendChild(this._line2);
-
-      this._label2 = document.createElement('div');
-      this._label2.className = 'widgets-label';
-      this._container.appendChild(this._label2);
-
-      this._dashline = document.createElement('div');
-      this._dashline.className = 'widgets-dashline';
-      this._container.appendChild(this._dashline);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._line.style.display = 'none';
-      this._label.style.display = 'none';
-      this._line2.style.display = 'none';
-      this._label2.style.display = 'none';
-      this._dashline.style.display = 'none';
-
-      this._handles.forEach(function (elem) {
-        return elem.hideDOM();
-      });
-    };
-
-    _class.prototype.showDOM = function showDOM() {
-      this._line.style.display = '';
-      this._label.style.display = '';
-      this._line2.style.display = '';
-      this._label2.style.display = '';
-      this._dashline.style.display = '';
-
-      this._handles.forEach(function (elem) {
-        return elem.showDOM();
-      });
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      this._handles.forEach(function (elem) {
-        return elem.update();
-      });
-
-      this.updateMeshColor();
-      this.updateMeshPosition();
-
-      this.updateDOM();
-    };
-
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
-
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._geometry) {
-        this._geometry.verticesNeedUpdate = true;
-      }
-    };
-
-    _class.prototype.updateDOM = function updateDOM() {
-      this.updateDOMColor();
-
-      // update first line
-      var lineData = this.getLineData(this._handles[0].screenPosition, this._handles[1].screenPosition);
-
-      this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n                rotate(' + lineData.transformAngle + 'rad)';
-      this._line.style.width = lineData.length + 'px';
-
-      // update second line
-      var line2Data = this.getLineData(this._handles[2].screenPosition, this._handles[3].screenPosition);
-
-      this._line2.style.transform = 'translate3D(' + line2Data.transformX + 'px, ' + line2Data.transformY + 'px, 0)\n                rotate(' + line2Data.transformAngle + 'rad)';
-      this._line2.style.width = line2Data.length + 'px';
-
-      // update dash line
-      var line1Center = this._handles[0].worldPosition.clone().add(this._handles[1].worldPosition).multiplyScalar(0.5);
-      var line2Center = this._handles[2].worldPosition.clone().add(this._handles[3].worldPosition).multiplyScalar(0.5);
-      var dashLineData = this.getLineData(this.worldToScreen(line1Center), this.worldToScreen(line2Center));
-
-      this._dashline.style.transform = 'translate3D(' + dashLineData.transformX + 'px, ' + dashLineData.transformY + 'px, 0)\n                rotate(' + dashLineData.transformAngle + 'rad)';
-      this._dashline.style.width = dashLineData.length + 'px';
-
-      // update labels
-      var distanceData = this.getDistanceData(this._handles[0].worldPosition, this._handles[1].worldPosition, this._calibrationFactor);
-      var distanceData2 = this.getDistanceData(this._handles[2].worldPosition, this._handles[3].worldPosition, this._calibrationFactor);
-      var title = 'Calibration is required to display the distance in mm';
-
-      this._distance = distanceData.distance;
-      this._distance2 = distanceData2.distance;
-      if (distanceData.units && distanceData2.units && distanceData.units === distanceData2.units) {
-        this._units = distanceData.units;
-      } else {
-        if (!distanceData.units) {
-          distanceData.units = this._units;
-        }
-        if (!distanceData2.units) {
-          distanceData2.units = this._units;
-        }
-      }
-
-      if (distanceData.units === 'units' && !this._label.hasAttribute('title')) {
-        this._label.setAttribute('title', title);
-        this._label.style.color = this._colors.error;
-      } else if (distanceData.units !== 'units' && this._label.hasAttribute('title')) {
-        this._label.removeAttribute('title');
-        this._label.style.color = this._colors.text;
-      }
-      if (distanceData2.units === 'units' && !this._label2.hasAttribute('title')) {
-        this._label2.setAttribute('title', title);
-        this._label2.style.color = this._colors.error;
-      } else if (distanceData2.units !== 'units' && this._label2.hasAttribute('title')) {
-        this._label2.removeAttribute('title');
-        this._label2.style.color = this._colors.text;
-      }
-      this._label.innerHTML = this._distance.toFixed(2) + ' ' + distanceData.units;
-      this._label2.innerHTML = this._distance2.toFixed(2) + ' ' + distanceData2.units;
-
-      var angle = Math.abs(lineData.transformAngle);
-      if (angle > Math.PI / 2) {
-        angle = Math.PI - angle;
-      }
-
-      var labelPadding = Math.tan(angle) < this._label.offsetHeight / this._label.offsetWidth ? this._label.offsetWidth / 2 / Math.cos(angle) + 15 // 5px for each handle + padding
-      : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle) + 15;
-      var paddingVector = lineData.line.normalize().multiplyScalar(labelPadding);
-      var paddingPoint = lineData.length > labelPadding * 2 ? this._handles[1].screenPosition.clone().sub(paddingVector) : this._handles[1].screenPosition.clone().add(paddingVector);
-      var transform = this.adjustLabelTransform(this._label, paddingPoint);
-
-      this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
-
-      var angle2 = Math.abs(line2Data.transformAngle);
-      if (angle2 > Math.PI / 2) {
-        angle2 = Math.PI - angle2;
-      }
-
-      var label2Padding = Math.tan(angle2) < this._label2.offsetHeight / this._label2.offsetWidth ? this._label2.offsetWidth / 2 / Math.cos(angle2) + 15 // 5px for each handle + padding
-      : this._label2.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle2) + 15;
-      var paddingVector2 = line2Data.line.normalize().multiplyScalar(label2Padding);
-      var paddingPoint2 = line2Data.length > label2Padding * 2 ? this._handles[3].screenPosition.clone().sub(paddingVector2) : this._handles[3].screenPosition.clone().add(paddingVector2);
-      var transform2 = this.adjustLabelTransform(this._label2, paddingPoint2);
-
-      this._label2.style.transform = 'translate3D(' + transform2.x + 'px, ' + transform2.y + 'px, 0)';
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      this._line.style.backgroundColor = this._color;
-      this._label.style.borderColor = this._color;
-
-      this._line2.style.backgroundColor = this._color;
-      this._label2.style.borderColor = this._color;
-
-      this._dashline.style.borderTop = '1.5px dashed ' + this._color;
-    };
-
-    _class.prototype.free = function free() {
-      var _this2 = this;
-
-      this.removeEventListeners();
-
-      this._handles.forEach(function (h) {
-        _this2.remove(h);
-        h.free();
-      });
-      this._handles = [];
-
-      this._container.removeChild(this._line);
-      this._container.removeChild(this._label);
-      this._container.removeChild(this._line2);
-      this._container.removeChild(this._label2);
-      this._container.removeChild(this._dashline);
-
-      // mesh, geometry, material
-      this.remove(this._mesh);
-      this._mesh.geometry.dispose();
-      this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
-      this._mesh = null;
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    /**
-     * Get length of rulers
-     *
-     * @return {Array}
-     */
+;
 
 
-    _class.prototype.getDistances = function getDistances() {
-      return [this._distance, this._distance2];
-    };
-
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
-        });
-        this.update();
-      }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles.forEach(function (elem) {
-          return elem.worldPosition.copy(worldPosition);
-        });
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }, {
-      key: 'calibrationFactor',
-      get: function get() {
-        return this._calibrationFactor;
-      },
-      set: function set(calibrationFactor) {
-        this._calibrationFactor = calibrationFactor;
-        this._units = 'mm';
-        this.update();
-      }
-    }, {
-      key: 'shotestDistance',
-      get: function get() {
-        return this._distance < this._distance2 ? this._distance : this._distance2;
-      }
-    }, {
-      key: 'longestDistance',
-      get: function get() {
-        return this._distance > this._distance2 ? this._distance : this._distance2;
-      }
-    }]);
-
-    return _class;
-  }(Constructor);
-};
-
-
-/* harmony default export */ __webpack_exports__["default"] = (widgetsBiruler());
 
 /***/ }),
 
@@ -97174,7 +97047,7 @@ var widgetsBiruler = function widgetsBiruler() {
 /*!*******************************************!*\
   !*** ./src/widgets/widgets.crossRuler.js ***!
   \*******************************************/
-/*! exports provided: widgetsCrossRuler, default */
+/*! exports provided: widgetsCrossRuler */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97199,598 +97072,597 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/crossRuler
  */
-var widgetsCrossRuler = function widgetsCrossRuler() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsCrossRuler = function (_widgetsBase) {
+  _inherits(widgetsCrossRuler, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsCrossRuler(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsCrossRuler);
 
-      _this._widgetType = 'CrossRuler';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (optional: lps2IJK, pixelSpacing, ultrasoundRegions, worldPosition)
-      _this._calibrationFactor = params.calibrationFactor || null;
+    _this._widgetType = 'CrossRuler';
 
-      _this._distances = null; // from intersection point to handles
-      _this._line01 = null; // vector from 0 to 1st handle
-      _this._normal = null; // normal vector to line01
+    // incoming parameters (optional: lps2IJK, pixelSpacing, ultrasoundRegions, worldPosition)
+    _this._calibrationFactor = params.calibrationFactor || null;
 
-      // outgoing values
-      _this._distance = null;
-      _this._distance2 = null;
-      _this._units = !_this._calibrationFactor && !params.pixelSpacing ? 'units' : 'mm';
+    _this._distances = null; // from intersection point to handles
+    _this._line01 = null; // vector from 0 to 1st handle
+    _this._normal = null; // normal vector to line01
 
-      _this._domHovered = false;
-      _this._moving = false;
+    // outgoing values
+    _this._distance = null;
+    _this._distance2 = null;
+    _this._units = !_this._calibrationFactor && !params.pixelSpacing ? 'units' : 'mm';
 
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
+    _this._domHovered = false;
+    _this._moving = false;
 
-      // dom stuff
-      _this._line = null;
-      _this._line2 = null;
-      _this._label = null;
-      _this._label2 = null;
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      // add handles
-      _this._handles = [];
+    // dom stuff
+    _this._line = null;
+    _this._line2 = null;
+    _this._label = null;
+    _this._label2 = null;
 
-      var handle = void 0;
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-      for (var i = 0; i < 4; i++) {
-        handle = new WidgetsHandle(targetMesh, controls, params);
-        _this.add(handle);
-        _this._handles.push(handle);
-      }
-      _this._handles[1].active = true;
-      _this._handles[1].tracking = true;
+    // add handles
+    _this._handles = [];
 
-      _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._moveHandle);
-      _this._handles.push(_this._moveHandle);
-      _this._moveHandle.hide();
+    var handle = void 0;
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+    for (var i = 0; i < 4; i++) {
+      handle = new WidgetsHandle(targetMesh, controls, params);
+      _this.add(handle);
+      _this._handles.push(handle);
+    }
+    _this._handles[1].active = true;
+    _this._handles[1].tracking = true;
 
-      _this.onHover = _this.onHover.bind(_this);
-      _this.onMove = _this.onMove.bind(_this);
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._handles.push(_this._moveHandle);
+    _this._moveHandle.hide();
 
-      _this.create();
+    _this.onHover = _this.onHover.bind(_this);
+    _this.onMove = _this.onMove.bind(_this);
 
-      _this.addEventListeners();
-      return _this;
+    _this.create();
+
+    _this.addEventListeners();
+    return _this;
+  }
+
+  widgetsCrossRuler.prototype.addEventListeners = function addEventListeners() {
+    this._line.addEventListener('mouseenter', this.onHover);
+    this._line.addEventListener('mouseleave', this.onHover);
+    this._line2.addEventListener('mouseenter', this.onHover);
+    this._line2.addEventListener('mouseleave', this.onHover);
+
+    this._container.addEventListener('wheel', this.onMove);
+  };
+
+  widgetsCrossRuler.prototype.removeEventListeners = function removeEventListeners() {
+    this._line.removeEventListener('mouseenter', this.onHover);
+    this._line.removeEventListener('mouseleave', this.onHover);
+    this._line2.removeEventListener('mouseenter', this.onHover);
+    this._line2.removeEventListener('mouseleave', this.onHover);
+
+    this._container.removeEventListener('wheel', this.onMove);
+  };
+
+  widgetsCrossRuler.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._line.addEventListener('mouseenter', this.onHover);
-      this._line.addEventListener('mouseleave', this.onHover);
-      this._line2.addEventListener('mouseenter', this.onHover);
-      this._line2.addEventListener('mouseleave', this.onHover);
+    this.hoverMesh();
 
-      this._container.addEventListener('wheel', this.onMove);
-    };
+    this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._handles[2].hovered || this._handles[3].hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._line.removeEventListener('mouseenter', this.onHover);
-      this._line.removeEventListener('mouseleave', this.onHover);
-      this._line2.removeEventListener('mouseenter', this.onHover);
-      this._line2.removeEventListener('mouseleave', this.onHover);
+  widgetsCrossRuler.prototype.hoverMesh = function hoverMesh() {
+    // check raycast intersection, do we want to hover on mesh or just css?
+  };
 
-      this._container.removeEventListener('wheel', this.onMove);
-    };
+  widgetsCrossRuler.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+  widgetsCrossRuler.prototype.onStart = function onStart(evt) {
+    this._moveHandle.onMove(evt, true);
 
-      this.hoverMesh();
+    this._handles.slice(0, -1).forEach(function (elem) {
+      return elem.onStart(evt);
+    });
 
-      this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._handles[2].hovered || this._handles[3].hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active || this._handles[3].active || this._domHovered;
 
-    _class.prototype.hoverMesh = function hoverMesh() {
-      // check raycast intersection, do we want to hover on mesh or just css?
-    };
+    if (this._domHovered && this._distances) {
+      this._moving = true;
+      this._controls.enabled = false;
+    }
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+    this.update();
+  };
 
-    _class.prototype.onStart = function onStart(evt) {
+  widgetsCrossRuler.prototype.onMove = function onMove(evt) {
+    var _this2 = this;
+
+    if (this._active) {
+      var prevPosition = this._moveHandle.worldPosition.clone();
+
+      this._dragged = true;
       this._moveHandle.onMove(evt, true);
 
-      this._handles.slice(0, -1).forEach(function (elem) {
-        return elem.onStart(evt);
-      });
-
-      this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active || this._handles[3].active || this._domHovered;
-
-      if (this._domHovered && this._distances) {
-        this._moving = true;
-        this._controls.enabled = false;
+      if (this._moving) {
+        this._handles.slice(0, -1).forEach(function (handle) {
+          handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
+        });
       }
+    } else {
+      this.onHover(null);
+    }
 
-      this.update();
-    };
+    this._handles.slice(0, -1).forEach(function (elem) {
+      return elem.onMove(evt);
+    });
 
-    _class.prototype.onMove = function onMove(evt) {
-      var _this2 = this;
-
-      if (this._active) {
-        var prevPosition = this._moveHandle.worldPosition.clone();
-
-        this._dragged = true;
-        this._moveHandle.onMove(evt, true);
-
-        if (this._moving) {
-          this._handles.slice(0, -1).forEach(function (handle) {
-            handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
-          });
-        }
-      } else {
-        this.onHover(null);
+    if (this._distances) {
+      if (this._handles[0].active || this._handles[1].active) {
+        this.repositionOrtho(); // change worldPosition of 2nd and 3rd handle
+      } else if (this._handles[2].active || this._handles[3].active) {
+        this.recalculateOrtho();
       }
-
-      this._handles.slice(0, -1).forEach(function (elem) {
-        return elem.onMove(evt);
-      });
-
-      if (this._distances) {
-        if (this._handles[0].active || this._handles[1].active) {
-          this.repositionOrtho(); // change worldPosition of 2nd and 3rd handle
-        } else if (this._handles[2].active || this._handles[3].active) {
-          this.recalculateOrtho();
-        }
-      }
-      this.update();
-    };
-
-    _class.prototype.onEnd = function onEnd() {
-      this._handles[0].onEnd();
-      this._handles[2].onEnd();
-      this._handles[3].onEnd();
-
-      if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
-        return;
-      }
-
-      if (!this._dragged && this._active && !this._handles[1].tracking) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles[0].selected = this._selected;
-        this._handles[2].selected = this._selected;
-        this._handles[3].selected = this._selected;
-      }
-
-      // Second Handle
-      if (this._dragged || !this._handles[1].tracking) {
-        this._handles[1].tracking = false;
-        this._handles[1].onEnd();
-      } else {
-        this._handles[1].tracking = false;
-      }
-      this._handles[1].selected = this._selected;
-
-      this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active || this._handles[3].active;
-      this._dragged = false;
-      this._moving = false;
-
-      if (!this._distances) {
-        this.initOrtho();
-      }
-      this.update();
-    };
-
-    _class.prototype.create = function create() {
-      this.createMesh();
-      this.createDOM();
-    };
-
-    _class.prototype.createMesh = function createMesh() {
-      // geometry
-      // this._geometry = new three.Geometry();
-      // this._geometry.vertices = [
-      //   this._handles[0].worldPosition,
-      //   this._handles[1].worldPosition,
-      //   this._handles[2].worldPosition,
-      //   this._handles[3].worldPosition,
-      // ];
-      this._geometry = new BufferGeometry();
-      var positions = new Float32Array(4 * 3);
-      this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
-      var index = 0;
-      positions[index++] = this._handles[0].worldPosition.x;
-      positions[index++] = this._handles[0].worldPosition.y;
-      positions[index++] = this._handles[0].worldPosition.z;
-
-      positions[index++] = this._handles[1].worldPosition.x;
-      positions[index++] = this._handles[1].worldPosition.y;
-      positions[index++] = this._handles[1].worldPosition.z;
-
-      positions[index++] = this._handles[2].worldPosition.x;
-      positions[index++] = this._handles[2].worldPosition.y;
-      positions[index++] = this._handles[2].worldPosition.z;
-
-      positions[index++] = this._handles[3].worldPosition.x;
-      positions[index++] = this._handles[3].worldPosition.y;
-      positions[index++] = this._handles[3].worldPosition.z;
-
-      // material
-      this._material = new three__WEBPACK_IMPORTED_MODULE_2__["LineBasicMaterial"]();
-
-      this.updateMeshColor();
-
-      // mesh
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_2__["LineSegments"](this._geometry, this._material);
-      this._mesh.visible = true;
-      this.add(this._mesh);
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this._line = document.createElement('div');
-      this._line.className = 'widgets-line';
-      this._container.appendChild(this._line);
-
-      this._line2 = document.createElement('div');
-      this._line2.className = 'widgets-line';
-      this._container.appendChild(this._line2);
-
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-      this._container.appendChild(this._label);
-
-      this._label2 = document.createElement('div');
-      this._label2.className = 'widgets-label';
-      this._container.appendChild(this._label2);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._line.style.display = 'none';
-      this._line2.style.display = 'none';
-      this._label.style.display = 'none';
-      this._label2.style.display = 'none';
-
-      this._handles.slice(0, -1).forEach(function (elem) {
-        return elem.hideDOM();
-      });
-    };
-
-    _class.prototype.showDOM = function showDOM() {
-      this._line.style.display = '';
-      this._line2.style.display = '';
-      this._label.style.display = '';
-      this._label2.style.display = '';
-
-      this._handles.slice(0, -1).forEach(function (elem) {
-        return elem.showDOM();
-      });
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      this._handles.slice(0, -1).forEach(function (elem) {
-        return elem.update();
-      });
-
-      this.updateMeshColor();
-      this.updateMeshPosition();
-
-      this.updateDOM();
-    };
-
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
-
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._geometry) {
-        this._geometry.verticesNeedUpdate = true;
-      }
-    };
-
-    _class.prototype.updateDOM = function updateDOM() {
-      this.updateDOMColor();
-
-      // update first line
-      var lineData = this.getLineData(this._handles[0].screenPosition, this._handles[1].screenPosition);
-
-      this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n            rotate(' + lineData.transformAngle + 'rad)';
-      this._line.style.width = lineData.length + 'px';
-
-      // update second line
-      var line2Data = this.getLineData(this._handles[2].screenPosition, this._handles[3].screenPosition);
-
-      this._line2.style.transform = 'translate3D(' + line2Data.transformX + 'px, ' + line2Data.transformY + 'px, 0)\n            rotate(' + line2Data.transformAngle + 'rad)';
-      this._line2.style.width = line2Data.length + 'px';
-
-      // update labels
-      var distanceData = this.getDistanceData(this._handles[0].worldPosition, this._handles[1].worldPosition, this._calibrationFactor);
-      var distanceData2 = this.getDistanceData(this._handles[2].worldPosition, this._handles[3].worldPosition, this._calibrationFactor);
-      var title = 'Calibration is required to display the distance in mm';
-
-      this._distance = distanceData.distance;
-      this._distance2 = distanceData2.distance;
-      if (distanceData.units && distanceData2.units && distanceData.units === distanceData2.units) {
-        this._units = distanceData.units;
-      } else {
-        if (!distanceData.units) {
-          distanceData.units = this._units;
-        }
-        if (!distanceData2.units) {
-          distanceData2.units = this._units;
-        }
-      }
-
-      if (distanceData.units === 'units' && !this._label.hasAttribute('title')) {
-        this._label.setAttribute('title', title);
-        this._label.style.color = this._colors.error;
-      } else if (distanceData.units !== 'units' && this._label.hasAttribute('title')) {
-        this._label.removeAttribute('title');
-        this._label.style.color = this._colors.text;
-      }
-      if (distanceData2.units === 'units' && !this._label2.hasAttribute('title')) {
-        this._label2.setAttribute('title', title);
-        this._label2.style.color = this._colors.error;
-      } else if (distanceData2.units !== 'units' && this._label2.hasAttribute('title')) {
-        this._label2.removeAttribute('title');
-        this._label2.style.color = this._colors.text;
-      }
-      this._label.innerHTML = this._distance.toFixed(2) + ' ' + distanceData.units;
-      this._label2.innerHTML = this._distance2.toFixed(2) + ' ' + distanceData2.units;
-
-      var angle = Math.abs(lineData.transformAngle);
-      if (angle > Math.PI / 2) {
-        angle = Math.PI - angle;
-      }
-
-      var labelPadding = Math.tan(angle) < this._label.offsetHeight / this._label.offsetWidth ? this._label.offsetWidth / 2 / Math.cos(angle) + 15 // 5px for each handle + padding
-      : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle) + 15,
-          paddingVector = lineData.line.normalize().multiplyScalar(labelPadding),
-          paddingPoint = lineData.length > labelPadding * 4 ? this._handles[1].screenPosition.clone().sub(paddingVector) : this._handles[1].screenPosition.clone().add(paddingVector),
-          transform = this.adjustLabelTransform(this._label, paddingPoint);
-
-      this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
-
-      var angle2 = Math.abs(line2Data.transformAngle);
-      if (angle2 > Math.PI / 2) {
-        angle2 = Math.PI - angle2;
-      }
-
-      var label2Padding = Math.tan(angle2) < this._label2.offsetHeight / this._label2.offsetWidth ? this._label2.offsetWidth / 2 / Math.cos(angle2) + 15 // 5px for each handle + padding
-      : this._label2.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle2) + 15,
-          paddingVector2 = line2Data.line.normalize().multiplyScalar(label2Padding),
-          paddingPoint2 = line2Data.length > label2Padding * 4 ? this._handles[3].screenPosition.clone().sub(paddingVector2) : this._handles[3].screenPosition.clone().add(paddingVector2),
-          transform2 = this.adjustLabelTransform(this._label2, paddingPoint2);
-
-      this._label2.style.transform = 'translate3D(' + transform2.x + 'px, ' + transform2.y + 'px, 0)';
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      this._line.style.backgroundColor = this._color;
-      this._line2.style.backgroundColor = this._color;
-      this._label.style.borderColor = this._color;
-      this._label2.style.borderColor = this._color;
-    };
-
-    _class.prototype.free = function free() {
-      var _this3 = this;
-
-      this.removeEventListeners();
-
-      this._handles.forEach(function (h) {
-        _this3.remove(h);
-        h.free();
-      });
-      this._handles = [];
-
-      this._container.removeChild(this._line);
-      this._container.removeChild(this._line2);
-      this._container.removeChild(this._label);
-      this._container.removeChild(this._label2);
-
-      // mesh, geometry, material
-      this.remove(this._mesh);
-      this._mesh.geometry.dispose();
-      this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
-      this._mesh = null;
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    _class.prototype.initLineAndNormal = function initLineAndNormal() {
-      this._line01 = this._handles[1].worldPosition.clone().sub(this._handles[0].worldPosition);
-      this._normal = this._line01.clone().cross(this._camera._direction).normalize();
-    };
-
-    _class.prototype.initOrtho = function initOrtho() {
-      // called onEnd if distances are null
-      this.initLineAndNormal();
-
-      var center = this._handles[1].worldPosition.clone().add(this._handles[0].worldPosition).multiplyScalar(0.5);
-      var halfLength = this._line01.length() / 2;
-      var normLine = this._normal.clone().multiplyScalar(halfLength * 0.8);
-      var normLength = normLine.length();
-
-      this._handles[2].worldPosition.copy(center.clone().add(normLine));
-      this._handles[3].worldPosition.copy(center.clone().sub(normLine));
-
-      this._distances = [halfLength, halfLength, normLength, normLength];
-    };
-
-    _class.prototype.repositionOrtho = function repositionOrtho() {
-      // called onMove if 0 or 1st handle is active
-      this.initLineAndNormal();
-      this._distances[0] *= this._line01.length() / (this._distances[0] + this._distances[1]);
-      this._distances[1] = this._line01.length() - this._distances[0];
-
-      var intersect = this._handles[0].worldPosition.clone().add(this._line01.clone().normalize().multiplyScalar(this._distances[0]));
-
-      this._handles[2].worldPosition.copy(intersect.clone().add(this._normal.clone().multiplyScalar(this._distances[2])));
-      this._handles[3].worldPosition.copy(intersect.clone().sub(this._normal.clone().multiplyScalar(this._distances[3])));
-    };
-
-    _class.prototype.recalculateOrtho = function recalculateOrtho() {
-      // called onMove if 2nd or 3rd handle is active
-      var activeInd = this._handles[2].active ? 2 : 3;
-      var lines = [];
-      var intersect = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]();
-
-      lines[2] = this._handles[2].worldPosition.clone().sub(this._handles[0].worldPosition);
-      lines[3] = this._handles[3].worldPosition.clone().sub(this._handles[0].worldPosition);
-      new three__WEBPACK_IMPORTED_MODULE_2__["Ray"](this._handles[0].worldPosition, this._line01.clone().normalize()).closestPointToPoint(this._handles[activeInd].worldPosition, intersect);
-
-      var isOutside = intersect.clone().sub(this._handles[0].worldPosition).length() > this._line01.length();
-      // if intersection is outside of the line01 then change worldPosition of active handle
-      if (isOutside || intersect.equals(this._handles[0].worldPosition)) {
-        if (isOutside) {
-          intersect.copy(this._handles[1].worldPosition);
-        }
-
-        this._handles[activeInd].worldPosition.copy(intersect.clone().add(lines[activeInd].clone().projectOnVector(this._normal)));
-      }
-
-      if (lines[2].cross(this._line01).angleTo(this._camera._direction) > 0.01) {
-        this._handles[2].worldPosition.copy(intersect); // 2nd handle should always be above line01
-      }
-      if (lines[3].cross(this._line01).angleTo(this._camera._direction) < Math.PI - 0.01) {
-        this._handles[3].worldPosition.copy(intersect); // 3nd handle should always be below line01
-      }
-
-      lines[0] = this._normal.clone().multiplyScalar(this._distances[5 - activeInd]);
-      if (activeInd === 2) {
-        lines[0].negate();
-      }
-      this._handles[5 - activeInd].worldPosition.copy(intersect.clone().add(lines[0]));
-
-      this._distances[activeInd] = intersect.distanceTo(this._handles[activeInd].worldPosition);
-      this._distances[0] = intersect.distanceTo(this._handles[0].worldPosition);
-      this._distances[1] = intersect.distanceTo(this._handles[1].worldPosition);
-    };
-
-    /**
-     * Get length of rulers
-     *
-     * @return {Array}
-     */
-
-
-    _class.prototype.getDimensions = function getDimensions() {
-      return [this._distance, this._distance2];
-    };
-
-    /**
-     * Get CrossRuler handles position
-     *
-     * @return {Array.<Vector3>} First begin, first end, second begin, second end
-     */
-
-
-    _class.prototype.getCoordinates = function getCoordinates() {
-      return [this._handles[0].worldPosition, this._handles[1].worldPosition, this._handles[2].worldPosition, this._handles[3].worldPosition];
-    };
-
-    /**
-     * Set CrossRuler handles position
-     *
-     * @param {Vector3} first   The beginning of the first line
-     * @param {Vector3} second  The end of the first line
-     * @param {Vector3} third   The beginning of the second line (clockwise relative to the first line)
-     * @param {Vector3} fourth  The end of the second line
-     */
-
-
-    _class.prototype.initCoordinates = function initCoordinates(first, second, third, fourth) {
-      var intersectR = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]();
-      var intersectS = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]();
-      var ray = new three__WEBPACK_IMPORTED_MODULE_2__["Ray"](first);
-
-      ray.lookAt(second);
-      ray.distanceSqToSegment(third, fourth, intersectR, intersectS);
-
-      if (intersectR.distanceTo(intersectS) > 0.01 && intersectR.distanceTo(first) > second.distanceTo(first) + 0.01) {
-        console.warn('Lines do not intersect');
-
-        return;
-      }
-
-      this.active = false;
-      this.hovered = false;
-      this.setDefaultColor('#198');
-      this._worldPosition.copy(first);
-      this._handles[0].worldPosition.copy(first);
-      this._handles[1].worldPosition.copy(second);
-      this._handles[1].active = false;
+    }
+    this.update();
+  };
+
+  widgetsCrossRuler.prototype.onEnd = function onEnd() {
+    this._handles[0].onEnd();
+    this._handles[2].onEnd();
+    this._handles[3].onEnd();
+
+    if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
+      return;
+    }
+
+    if (!this._dragged && this._active && !this._handles[1].tracking) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handles[0].selected = this._selected;
+      this._handles[2].selected = this._selected;
+      this._handles[3].selected = this._selected;
+    }
+
+    // Second Handle
+    if (this._dragged || !this._handles[1].tracking) {
       this._handles[1].tracking = false;
-      this._handles[2].worldPosition.copy(third);
-      this._handles[3].worldPosition.copy(fourth);
-      this._distances = [intersectR.distanceTo(first), intersectR.distanceTo(second), intersectR.distanceTo(third), intersectR.distanceTo(fourth)];
+      this._handles[1].onEnd();
+    } else {
+      this._handles[1].tracking = false;
+    }
+    this._handles[1].selected = this._selected;
 
-      this.initLineAndNormal();
+    this._active = this._handles[0].active || this._handles[1].active || this._handles[2].active || this._handles[3].active;
+    this._dragged = false;
+    this._moving = false;
+
+    if (!this._distances) {
+      this.initOrtho();
+    }
+    this.update();
+  };
+
+  widgetsCrossRuler.prototype.create = function create() {
+    this.createMesh();
+    this.createDOM();
+  };
+
+  widgetsCrossRuler.prototype.createMesh = function createMesh() {
+    // geometry
+    // this._geometry = new three.Geometry();
+    // this._geometry.vertices = [
+    //   this._handles[0].worldPosition,
+    //   this._handles[1].worldPosition,
+    //   this._handles[2].worldPosition,
+    //   this._handles[3].worldPosition,
+    // ];
+    this._geometry = new BufferGeometry();
+    var positions = new Float32Array(4 * 3);
+    this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+    var index = 0;
+    positions[index++] = this._handles[0].worldPosition.x;
+    positions[index++] = this._handles[0].worldPosition.y;
+    positions[index++] = this._handles[0].worldPosition.z;
+
+    positions[index++] = this._handles[1].worldPosition.x;
+    positions[index++] = this._handles[1].worldPosition.y;
+    positions[index++] = this._handles[1].worldPosition.z;
+
+    positions[index++] = this._handles[2].worldPosition.x;
+    positions[index++] = this._handles[2].worldPosition.y;
+    positions[index++] = this._handles[2].worldPosition.z;
+
+    positions[index++] = this._handles[3].worldPosition.x;
+    positions[index++] = this._handles[3].worldPosition.y;
+    positions[index++] = this._handles[3].worldPosition.z;
+
+    // material
+    this._material = new three__WEBPACK_IMPORTED_MODULE_2__["LineBasicMaterial"]();
+
+    this.updateMeshColor();
+
+    // mesh
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_2__["LineSegments"](this._geometry, this._material);
+    this._mesh.visible = true;
+    this.add(this._mesh);
+  };
+
+  widgetsCrossRuler.prototype.createDOM = function createDOM() {
+    this._line = document.createElement('div');
+    this._line.className = 'widgets-line';
+    this._container.appendChild(this._line);
+
+    this._line2 = document.createElement('div');
+    this._line2.className = 'widgets-line';
+    this._container.appendChild(this._line2);
+
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+    this._container.appendChild(this._label);
+
+    this._label2 = document.createElement('div');
+    this._label2.className = 'widgets-label';
+    this._container.appendChild(this._label2);
+
+    this.updateDOMColor();
+  };
+
+  widgetsCrossRuler.prototype.hideDOM = function hideDOM() {
+    this._line.style.display = 'none';
+    this._line2.style.display = 'none';
+    this._label.style.display = 'none';
+    this._label2.style.display = 'none';
+
+    this._handles.slice(0, -1).forEach(function (elem) {
+      return elem.hideDOM();
+    });
+  };
+
+  widgetsCrossRuler.prototype.showDOM = function showDOM() {
+    this._line.style.display = '';
+    this._line2.style.display = '';
+    this._label.style.display = '';
+    this._label2.style.display = '';
+
+    this._handles.slice(0, -1).forEach(function (elem) {
+      return elem.showDOM();
+    });
+  };
+
+  widgetsCrossRuler.prototype.update = function update() {
+    this.updateColor();
+
+    this._handles.slice(0, -1).forEach(function (elem) {
+      return elem.update();
+    });
+
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    this.updateDOM();
+  };
+
+  widgetsCrossRuler.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsCrossRuler.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._geometry) {
+      this._geometry.verticesNeedUpdate = true;
+    }
+  };
+
+  widgetsCrossRuler.prototype.updateDOM = function updateDOM() {
+    this.updateDOMColor();
+
+    // update first line
+    var lineData = this.getLineData(this._handles[0].screenPosition, this._handles[1].screenPosition);
+
+    this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n            rotate(' + lineData.transformAngle + 'rad)';
+    this._line.style.width = lineData.length + 'px';
+
+    // update second line
+    var line2Data = this.getLineData(this._handles[2].screenPosition, this._handles[3].screenPosition);
+
+    this._line2.style.transform = 'translate3D(' + line2Data.transformX + 'px, ' + line2Data.transformY + 'px, 0)\n            rotate(' + line2Data.transformAngle + 'rad)';
+    this._line2.style.width = line2Data.length + 'px';
+
+    // update labels
+    var distanceData = this.getDistanceData(this._handles[0].worldPosition, this._handles[1].worldPosition, this._calibrationFactor);
+    var distanceData2 = this.getDistanceData(this._handles[2].worldPosition, this._handles[3].worldPosition, this._calibrationFactor);
+    var title = 'Calibration is required to display the distance in mm';
+
+    this._distance = distanceData.distance;
+    this._distance2 = distanceData2.distance;
+    if (distanceData.units && distanceData2.units && distanceData.units === distanceData2.units) {
+      this._units = distanceData.units;
+    } else {
+      if (!distanceData.units) {
+        distanceData.units = this._units;
+      }
+      if (!distanceData2.units) {
+        distanceData2.units = this._units;
+      }
+    }
+
+    if (distanceData.units === 'units' && !this._label.hasAttribute('title')) {
+      this._label.setAttribute('title', title);
+      this._label.style.color = this._colors.error;
+    } else if (distanceData.units !== 'units' && this._label.hasAttribute('title')) {
+      this._label.removeAttribute('title');
+      this._label.style.color = this._colors.text;
+    }
+    if (distanceData2.units === 'units' && !this._label2.hasAttribute('title')) {
+      this._label2.setAttribute('title', title);
+      this._label2.style.color = this._colors.error;
+    } else if (distanceData2.units !== 'units' && this._label2.hasAttribute('title')) {
+      this._label2.removeAttribute('title');
+      this._label2.style.color = this._colors.text;
+    }
+    this._label.innerHTML = this._distance.toFixed(2) + ' ' + distanceData.units;
+    this._label2.innerHTML = this._distance2.toFixed(2) + ' ' + distanceData2.units;
+
+    var angle = Math.abs(lineData.transformAngle);
+    if (angle > Math.PI / 2) {
+      angle = Math.PI - angle;
+    }
+
+    var labelPadding = Math.tan(angle) < this._label.offsetHeight / this._label.offsetWidth ? this._label.offsetWidth / 2 / Math.cos(angle) + 15 // 5px for each handle + padding
+    : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle) + 15,
+        paddingVector = lineData.line.normalize().multiplyScalar(labelPadding),
+        paddingPoint = lineData.length > labelPadding * 4 ? this._handles[1].screenPosition.clone().sub(paddingVector) : this._handles[1].screenPosition.clone().add(paddingVector),
+        transform = this.adjustLabelTransform(this._label, paddingPoint);
+
+    this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
+
+    var angle2 = Math.abs(line2Data.transformAngle);
+    if (angle2 > Math.PI / 2) {
+      angle2 = Math.PI - angle2;
+    }
+
+    var label2Padding = Math.tan(angle2) < this._label2.offsetHeight / this._label2.offsetWidth ? this._label2.offsetWidth / 2 / Math.cos(angle2) + 15 // 5px for each handle + padding
+    : this._label2.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle2) + 15,
+        paddingVector2 = line2Data.line.normalize().multiplyScalar(label2Padding),
+        paddingPoint2 = line2Data.length > label2Padding * 4 ? this._handles[3].screenPosition.clone().sub(paddingVector2) : this._handles[3].screenPosition.clone().add(paddingVector2),
+        transform2 = this.adjustLabelTransform(this._label2, paddingPoint2);
+
+    this._label2.style.transform = 'translate3D(' + transform2.x + 'px, ' + transform2.y + 'px, 0)';
+  };
+
+  widgetsCrossRuler.prototype.updateDOMColor = function updateDOMColor() {
+    this._line.style.backgroundColor = this._color;
+    this._line2.style.backgroundColor = this._color;
+    this._label.style.borderColor = this._color;
+    this._label2.style.borderColor = this._color;
+  };
+
+  widgetsCrossRuler.prototype.free = function free() {
+    var _this3 = this;
+
+    this.removeEventListeners();
+
+    this._handles.forEach(function (h) {
+      _this3.remove(h);
+      h.free();
+    });
+    this._handles = [];
+
+    this._container.removeChild(this._line);
+    this._container.removeChild(this._line2);
+    this._container.removeChild(this._label);
+    this._container.removeChild(this._label2);
+
+    // mesh, geometry, material
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  widgetsCrossRuler.prototype.initLineAndNormal = function initLineAndNormal() {
+    this._line01 = this._handles[1].worldPosition.clone().sub(this._handles[0].worldPosition);
+    this._normal = this._line01.clone().cross(this._camera._direction).normalize();
+  };
+
+  widgetsCrossRuler.prototype.initOrtho = function initOrtho() {
+    // called onEnd if distances are null
+    this.initLineAndNormal();
+
+    var center = this._handles[1].worldPosition.clone().add(this._handles[0].worldPosition).multiplyScalar(0.5);
+    var halfLength = this._line01.length() / 2;
+    var normLine = this._normal.clone().multiplyScalar(halfLength * 0.8);
+    var normLength = normLine.length();
+
+    this._handles[2].worldPosition.copy(center.clone().add(normLine));
+    this._handles[3].worldPosition.copy(center.clone().sub(normLine));
+
+    this._distances = [halfLength, halfLength, normLength, normLength];
+  };
+
+  widgetsCrossRuler.prototype.repositionOrtho = function repositionOrtho() {
+    // called onMove if 0 or 1st handle is active
+    this.initLineAndNormal();
+    this._distances[0] *= this._line01.length() / (this._distances[0] + this._distances[1]);
+    this._distances[1] = this._line01.length() - this._distances[0];
+
+    var intersect = this._handles[0].worldPosition.clone().add(this._line01.clone().normalize().multiplyScalar(this._distances[0]));
+
+    this._handles[2].worldPosition.copy(intersect.clone().add(this._normal.clone().multiplyScalar(this._distances[2])));
+    this._handles[3].worldPosition.copy(intersect.clone().sub(this._normal.clone().multiplyScalar(this._distances[3])));
+  };
+
+  widgetsCrossRuler.prototype.recalculateOrtho = function recalculateOrtho() {
+    // called onMove if 2nd or 3rd handle is active
+    var activeInd = this._handles[2].active ? 2 : 3;
+    var lines = [];
+    var intersect = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]();
+
+    lines[2] = this._handles[2].worldPosition.clone().sub(this._handles[0].worldPosition);
+    lines[3] = this._handles[3].worldPosition.clone().sub(this._handles[0].worldPosition);
+    new three__WEBPACK_IMPORTED_MODULE_2__["Ray"](this._handles[0].worldPosition, this._line01.clone().normalize()).closestPointToPoint(this._handles[activeInd].worldPosition, intersect);
+
+    var isOutside = intersect.clone().sub(this._handles[0].worldPosition).length() > this._line01.length();
+    // if intersection is outside of the line01 then change worldPosition of active handle
+    if (isOutside || intersect.equals(this._handles[0].worldPosition)) {
+      if (isOutside) {
+        intersect.copy(this._handles[1].worldPosition);
+      }
+
+      this._handles[activeInd].worldPosition.copy(intersect.clone().add(lines[activeInd].clone().projectOnVector(this._normal)));
+    }
+
+    if (lines[2].cross(this._line01).angleTo(this._camera._direction) > 0.01) {
+      this._handles[2].worldPosition.copy(intersect); // 2nd handle should always be above line01
+    }
+    if (lines[3].cross(this._line01).angleTo(this._camera._direction) < Math.PI - 0.01) {
+      this._handles[3].worldPosition.copy(intersect); // 3nd handle should always be below line01
+    }
+
+    lines[0] = this._normal.clone().multiplyScalar(this._distances[5 - activeInd]);
+    if (activeInd === 2) {
+      lines[0].negate();
+    }
+    this._handles[5 - activeInd].worldPosition.copy(intersect.clone().add(lines[0]));
+
+    this._distances[activeInd] = intersect.distanceTo(this._handles[activeInd].worldPosition);
+    this._distances[0] = intersect.distanceTo(this._handles[0].worldPosition);
+    this._distances[1] = intersect.distanceTo(this._handles[1].worldPosition);
+  };
+
+  /**
+   * Get length of rulers
+   *
+   * @return {Array}
+   */
+
+
+  widgetsCrossRuler.prototype.getDimensions = function getDimensions() {
+    return [this._distance, this._distance2];
+  };
+
+  /**
+   * Get CrossRuler handles position
+   *
+   * @return {Array.<Vector3>} First begin, first end, second begin, second end
+   */
+
+
+  widgetsCrossRuler.prototype.getCoordinates = function getCoordinates() {
+    return [this._handles[0].worldPosition, this._handles[1].worldPosition, this._handles[2].worldPosition, this._handles[3].worldPosition];
+  };
+
+  /**
+   * Set CrossRuler handles position
+   *
+   * @param {Vector3} first   The beginning of the first line
+   * @param {Vector3} second  The end of the first line
+   * @param {Vector3} third   The beginning of the second line (clockwise relative to the first line)
+   * @param {Vector3} fourth  The end of the second line
+   */
+
+
+  widgetsCrossRuler.prototype.initCoordinates = function initCoordinates(first, second, third, fourth) {
+    var intersectR = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]();
+    var intersectS = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]();
+    var ray = new three__WEBPACK_IMPORTED_MODULE_2__["Ray"](first);
+
+    ray.lookAt(second);
+    ray.distanceSqToSegment(third, fourth, intersectR, intersectS);
+
+    if (intersectR.distanceTo(intersectS) > 0.01 && intersectR.distanceTo(first) > second.distanceTo(first) + 0.01) {
+      console.warn('Lines do not intersect');
+
+      return;
+    }
+
+    this.active = false;
+    this.hovered = false;
+    this.setDefaultColor('#198');
+    this._worldPosition.copy(first);
+    this._handles[0].worldPosition.copy(first);
+    this._handles[1].worldPosition.copy(second);
+    this._handles[1].active = false;
+    this._handles[1].tracking = false;
+    this._handles[2].worldPosition.copy(third);
+    this._handles[3].worldPosition.copy(fourth);
+    this._distances = [intersectR.distanceTo(first), intersectR.distanceTo(second), intersectR.distanceTo(third), intersectR.distanceTo(fourth)];
+
+    this.initLineAndNormal();
+    this.update();
+  };
+
+  _createClass(widgetsCrossRuler, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handles.forEach(function (elem) {
+        return elem.targetMesh = targetMesh;
+      });
       this.update();
-    };
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handles.slice(0, -1).forEach(function (elem) {
+        return elem.worldPosition.copy(worldPosition);
+      });
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }, {
+    key: 'calibrationFactor',
+    get: function get() {
+      return this._calibrationFactor;
+    },
+    set: function set(calibrationFactor) {
+      this._calibrationFactor = calibrationFactor;
+      this._units = 'mm';
+      this.update();
+    }
+  }]);
 
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
-        });
-        this.update();
-      }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles.slice(0, -1).forEach(function (elem) {
-          return elem.worldPosition.copy(worldPosition);
-        });
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }, {
-      key: 'calibrationFactor',
-      get: function get() {
-        return this._calibrationFactor;
-      },
-      set: function set(calibrationFactor) {
-        this._calibrationFactor = calibrationFactor;
-        this._units = 'mm';
-        this.update();
-      }
-    }]);
+  return widgetsCrossRuler;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
 
-    return _class;
-  }(Constructor);
-};
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsCrossRuler());
 
 /***/ }),
 
@@ -97833,7 +97705,7 @@ var WidgetsCss = function () {
 /*!****************************************!*\
   !*** ./src/widgets/widgets.ellipse.js ***!
   \****************************************/
-/*! exports provided: widgetsEllipse, default */
+/*! exports provided: widgetsEllipse */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97859,457 +97731,456 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/ellipse
  */
-var widgetsEllipse = function widgetsEllipse() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsEllipse = function (_widgetsBase) {
+  _inherits(widgetsEllipse, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsEllipse(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsEllipse);
 
-      _this._widgetType = 'Ellipse';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (optional: frameIndex, worldPosition)
-      _this._stack = params.stack; // required
-      _this._calibrationFactor = params.calibrationFactor || null;
+    _this._widgetType = 'Ellipse';
 
-      // outgoing values
-      _this._area = null;
-      _this._units = !_this._calibrationFactor && !params.stack.frame[params.frameIndex].pixelSpacing ? 'units' : 'cm²';
+    // incoming parameters (optional: frameIndex, worldPosition)
+    _this._stack = params.stack; // required
+    _this._calibrationFactor = params.calibrationFactor || null;
 
-      _this._moving = false;
-      _this._domHovered = false;
+    // outgoing values
+    _this._area = null;
+    _this._units = !_this._calibrationFactor && !params.stack.frame[params.frameIndex].pixelSpacing ? 'units' : 'cm²';
 
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
+    _this._moving = false;
+    _this._domHovered = false;
 
-      // dom stuff
-      _this._rectangle = null;
-      _this._ellipse = null;
-      _this._label = null;
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      // add handles
-      _this._handles = [];
+    // dom stuff
+    _this._rectangle = null;
+    _this._ellipse = null;
+    _this._label = null;
 
-      var handle = void 0;
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-      for (var i = 0; i < 2; i++) {
-        handle = new WidgetsHandle(targetMesh, controls, params);
-        _this.add(handle);
-        _this._handles.push(handle);
-      }
-      _this._handles[1].active = true;
-      _this._handles[1].tracking = true;
+    // add handles
+    _this._handles = [];
 
-      _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._moveHandle);
-      _this._handles.push(_this._moveHandle);
-      _this._moveHandle.hide();
+    var handle = void 0;
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+    for (var i = 0; i < 2; i++) {
+      handle = new WidgetsHandle(targetMesh, controls, params);
+      _this.add(handle);
+      _this._handles.push(handle);
+    }
+    _this._handles[1].active = true;
+    _this._handles[1].tracking = true;
 
-      _this.create();
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._handles.push(_this._moveHandle);
+    _this._moveHandle.hide();
 
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHover = _this.onHover.bind(_this);
-      _this.addEventListeners();
-      return _this;
+    _this.create();
+
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
+    _this.addEventListeners();
+    return _this;
+  }
+
+  widgetsEllipse.prototype.addEventListeners = function addEventListeners() {
+    this._container.addEventListener('wheel', this.onMove);
+
+    this._rectangle.addEventListener('mouseenter', this.onHover);
+    this._rectangle.addEventListener('mouseleave', this.onHover);
+    this._ellipse.addEventListener('mouseenter', this.onHover);
+    this._ellipse.addEventListener('mouseleave', this.onHover);
+    this._label.addEventListener('mouseenter', this.onHover);
+    this._label.addEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsEllipse.prototype.removeEventListeners = function removeEventListeners() {
+    this._container.removeEventListener('wheel', this.onMove);
+
+    this._rectangle.removeEventListener('mouseenter', this.onHover);
+    this._rectangle.removeEventListener('mouseleave', this.onHover);
+    this._ellipse.removeEventListener('mouseenter', this.onHover);
+    this._ellipse.removeEventListener('mouseleave', this.onHover);
+    this._label.removeEventListener('mouseenter', this.onHover);
+    this._label.removeEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsEllipse.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._container.addEventListener('wheel', this.onMove);
+    this.hoverMesh();
 
-      this._rectangle.addEventListener('mouseenter', this.onHover);
-      this._rectangle.addEventListener('mouseleave', this.onHover);
-      this._ellipse.addEventListener('mouseenter', this.onHover);
-      this._ellipse.addEventListener('mouseleave', this.onHover);
-      this._label.addEventListener('mouseenter', this.onHover);
-      this._label.addEventListener('mouseleave', this.onHover);
-    };
+    this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._container.removeEventListener('wheel', this.onMove);
+  widgetsEllipse.prototype.hoverMesh = function hoverMesh() {
+    // check raycast intersection, if we want to hover on mesh instead of just css
+  };
 
-      this._rectangle.removeEventListener('mouseenter', this.onHover);
-      this._rectangle.removeEventListener('mouseleave', this.onHover);
-      this._ellipse.removeEventListener('mouseenter', this.onHover);
-      this._ellipse.removeEventListener('mouseleave', this.onHover);
-      this._label.removeEventListener('mouseenter', this.onHover);
-      this._label.removeEventListener('mouseleave', this.onHover);
-    };
+  widgetsEllipse.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+  widgetsEllipse.prototype.onStart = function onStart(evt) {
+    this._moveHandle.onMove(evt, true);
 
-      this.hoverMesh();
+    this._handles[0].onStart(evt);
+    this._handles[1].onStart(evt);
 
-      this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    this._active = this._handles[0].active || this._handles[1].active || this._domHovered;
 
-    _class.prototype.hoverMesh = function hoverMesh() {
-      // check raycast intersection, if we want to hover on mesh instead of just css
-    };
+    if (this._domHovered && !this._handles[1].tracking) {
+      this._moving = true;
+      this._controls.enabled = false;
+    }
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+    this.update();
+  };
 
-    _class.prototype.onStart = function onStart(evt) {
+  widgetsEllipse.prototype.onMove = function onMove(evt) {
+    var _this2 = this;
+
+    if (this._active) {
+      var prevPosition = this._moveHandle.worldPosition.clone();
+
+      this._dragged = true;
       this._moveHandle.onMove(evt, true);
 
-      this._handles[0].onStart(evt);
-      this._handles[1].onStart(evt);
-
-      this._active = this._handles[0].active || this._handles[1].active || this._domHovered;
-
-      if (this._domHovered && !this._handles[1].tracking) {
-        this._moving = true;
-        this._controls.enabled = false;
-      }
-
-      this.update();
-    };
-
-    _class.prototype.onMove = function onMove(evt) {
-      var _this2 = this;
-
-      if (this._active) {
-        var prevPosition = this._moveHandle.worldPosition.clone();
-
-        this._dragged = true;
-        this._moveHandle.onMove(evt, true);
-
-        if (this._moving) {
-          this._handles.slice(0, -1).forEach(function (handle) {
-            handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
-          });
-        }
-
-        this.updateRoI(true);
-      } else {
-        this.onHover(null);
-      }
-
-      this._handles[0].onMove(evt);
-      this._handles[1].onMove(evt);
-
-      this.update();
-    };
-
-    _class.prototype.onEnd = function onEnd() {
-      this._handles[0].onEnd(); // First Handle
-
-      if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
-        return;
-      }
-
-      if (!this._dragged && this._active && !this._handles[1].tracking) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles[0].selected = this._selected;
-      }
-
-      // Second Handle
-      if (this._dragged || !this._handles[1].tracking) {
-        this._handles[1].tracking = false;
-        this._handles[1].onEnd();
-      } else {
-        this._handles[1].tracking = false;
-      }
-      this._handles[1].selected = this._selected;
-
-      this._active = this._handles[0].active || this._handles[1].active;
-      this._dragged = false;
-      this._moving = false;
-
-      this.updateRoI(); // TODO: if (this._dragged || !this._initialized)
-      this.update();
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._handles.forEach(function (elem) {
-        return elem.hideDOM();
-      });
-
-      this._rectangle.style.display = 'none';
-      this._ellipse.style.display = 'none';
-      this._label.style.display = 'none';
-    };
-
-    _class.prototype.showDOM = function showDOM() {
-      this._handles[0].showDOM();
-      this._handles[1].showDOM();
-
-      this._rectangle.style.display = '';
-      this._ellipse.style.display = '';
-      this._label.style.display = '';
-    };
-
-    _class.prototype.create = function create() {
-      this.createMaterial();
-      this.createDOM();
-    };
-
-    _class.prototype.createMaterial = function createMaterial() {
-      this._material = new three__WEBPACK_IMPORTED_MODULE_3__["MeshBasicMaterial"]();
-      this._material.transparent = true;
-      this._material.opacity = 0.2;
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this._rectangle = document.createElement('div');
-      this._rectangle.className = 'widgets-rectangle-helper';
-      this._container.appendChild(this._rectangle);
-
-      this._ellipse = document.createElement('div');
-      this._ellipse.className = 'widgets-ellipse';
-      this._container.appendChild(this._ellipse);
-
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-
-      // measurements
-      var measurementsContainer = document.createElement('div');
-      // Mean / SD
-      var meanSDContainer = document.createElement('div');
-      meanSDContainer.className = 'mean-sd';
-      measurementsContainer.appendChild(meanSDContainer);
-      // Max / Min
-      var maxMinContainer = document.createElement('div');
-      maxMinContainer.className = 'max-min';
-      measurementsContainer.appendChild(maxMinContainer);
-      // Area
-      var areaContainer = document.createElement('div');
-      areaContainer.className = 'area';
-      measurementsContainer.appendChild(areaContainer);
-
-      this._label.appendChild(measurementsContainer);
-
-      this._container.appendChild(this._label);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      this._handles[0].update();
-      this._handles[1].update();
-
-      this.updateMeshColor();
-      this.updateMeshPosition();
-
-      this.updateDOM();
-    };
-
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
-
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._mesh) {
-        this.remove(this._mesh);
-      }
-
-      var vec01 = this._handles[1].worldPosition.clone().sub(this._handles[0].worldPosition);
-      var height = vec01.clone().projectOnVector(this._camera.up).length();
-      var width = vec01.clone().projectOnVector(this._camera._right).length();
-
-      if (width === 0 || height === 0) {
-        return;
-      }
-
-      this._geometry = new three__WEBPACK_IMPORTED_MODULE_3__["ShapeGeometry"](new three__WEBPACK_IMPORTED_MODULE_3__["Shape"](new three__WEBPACK_IMPORTED_MODULE_3__["EllipseCurve"](0, 0, width / 2, height / 2, 0, 2 * Math.PI, false).getPoints(50)));
-
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Mesh"](this._geometry, this._material);
-      this._mesh.position.copy(this._handles[0].worldPosition.clone().add(vec01.multiplyScalar(0.5)));
-      this._mesh.rotation.copy(this._camera.rotation);
-      this._mesh.visible = true;
-      this.add(this._mesh);
-    };
-
-    _class.prototype.updateRoI = function updateRoI(clear) {
-      if (!this._geometry) {
-        return;
-      }
-
-      var meanSDContainer = this._label.querySelector('.mean-sd');
-      var maxMinContainer = this._label.querySelector('.max-min');
-
-      if (clear) {
-        meanSDContainer.innerHTML = '';
-        maxMinContainer.innerHTML = '';
-
-        return;
-      }
-
-      var roi = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getRoI(this._mesh, this._camera, this._stack);
-
-      if (roi !== null) {
-        meanSDContainer.innerHTML = 'Mean: ' + roi.mean.toFixed(1) + ' / SD: ' + roi.sd.toFixed(1);
-        maxMinContainer.innerHTML = 'Max: ' + roi.max.toFixed() + ' / Min: ' + roi.min.toFixed();
-      } else {
-        meanSDContainer.innerHTML = '';
-        maxMinContainer.innerHTML = '';
-      }
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      this._rectangle.style.borderColor = this._color;
-      this._ellipse.style.borderColor = this._color;
-      this._label.style.borderColor = this._color;
-    };
-
-    _class.prototype.updateDOM = function updateDOM() {
-      if (!this._geometry) {
-        return;
-      }
-
-      this.updateDOMColor();
-
-      var regions = this._stack.frame[this._params.frameIndex].ultrasoundRegions || [];
-
-      this._area = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getGeometryArea(this._geometry);
-      if (this._calibrationFactor) {
-        this._area *= Math.pow(this._calibrationFactor, 2);
-      } else if (regions && regions.length > 0 && this._stack.lps2IJK) {
-        var region0 = this.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._stack.lps2IJK, this._handles[0].worldPosition));
-        var region1 = this.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._stack.lps2IJK, this._handles[1].worldPosition));
-
-        if (region0 !== null && region1 !== null && region0 === region1 && regions[region0].unitsX === 'cm' && regions[region0].unitsY === 'cm') {
-          this._area *= Math.pow(regions[region0].deltaX, 2);
-          this._units = 'cm²';
-        } else if (this._stack.frame[this._params.frameIndex].pixelSpacing) {
-          this._area /= 100;
-          this._units = 'cm²';
-        } else {
-          this._units = 'units';
-        }
-      } else if (this._units === 'cm²') {
-        this._area /= 100;
-      }
-
-      if (this._units === 'units' && !this._label.hasAttribute('title')) {
-        this._label.setAttribute('title', 'Calibration is required to display the area in cm²');
-        this._label.style.color = this._colors.error;
-      } else if (this._units !== 'units' && this._label.hasAttribute('title')) {
-        this._label.removeAttribute('title');
-        this._label.style.color = this._colors.text;
-      }
-      this._label.querySelector('.area').innerHTML = 'Area: ' + this._area.toFixed(2) + ' ' + this._units;
-
-      var rectData = this.getRectData(this._handles[0].screenPosition, this._handles[1].screenPosition);
-      var labelTransform = this.adjustLabelTransform(this._label, this._handles[1].screenPosition.clone().add(rectData.paddingVector.multiplyScalar(15 + this._label.offsetHeight / 2)));
-
-      // update rectangle
-      this._rectangle.style.transform = 'translate3D(' + rectData.transformX + 'px, ' + rectData.transformY + 'px, 0)';
-      this._rectangle.style.width = rectData.width + 'px';
-      this._rectangle.style.height = rectData.height + 'px';
-
-      // update ellipse
-      this._ellipse.style.transform = 'translate3D(' + rectData.transformX + 'px, ' + rectData.transformY + 'px, 0)';
-      this._ellipse.style.width = rectData.width + 'px';
-      this._ellipse.style.height = rectData.height + 'px';
-
-      // update label
-      this._label.style.transform = 'translate3D(' + labelTransform.x + 'px,' + labelTransform.y + 'px, 0)';
-    };
-
-    _class.prototype.free = function free() {
-      var _this3 = this;
-
-      this.removeEventListeners();
-
-      this._handles.forEach(function (h) {
-        _this3.remove(h);
-        h.free();
-      });
-      this._handles = [];
-
-      this._container.removeChild(this._rectangle);
-      this._container.removeChild(this._ellipse);
-      this._container.removeChild(this._label);
-
-      // mesh, geometry, material
-      if (this._mesh) {
-        this.remove(this._mesh);
-        this._mesh.geometry.dispose();
-        this._mesh.geometry = null;
-        this._mesh.material.dispose();
-        this._mesh.material = null;
-        this._mesh = null;
-      }
-      if (this._geometry) {
-        this._geometry.dispose();
-        this._geometry = null;
-      }
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      this._stack = null;
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    _class.prototype.getMeasurements = function getMeasurements() {
-      return {
-        area: this._area,
-        units: this._units
-      };
-    };
-
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
+      if (this._moving) {
+        this._handles.slice(0, -1).forEach(function (handle) {
+          handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
         });
-        this.update();
       }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles[0].worldPosition.copy(worldPosition);
-        this._handles[1].worldPosition.copy(worldPosition);
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }, {
-      key: 'calibrationFactor',
-      get: function get() {
-        return this._calibrationFactor;
-      },
-      set: function set(calibrationFactor) {
-        this._calibrationFactor = calibrationFactor;
+
+      this.updateRoI(true);
+    } else {
+      this.onHover(null);
+    }
+
+    this._handles[0].onMove(evt);
+    this._handles[1].onMove(evt);
+
+    this.update();
+  };
+
+  widgetsEllipse.prototype.onEnd = function onEnd() {
+    this._handles[0].onEnd(); // First Handle
+
+    if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
+      return;
+    }
+
+    if (!this._dragged && this._active && !this._handles[1].tracking) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handles[0].selected = this._selected;
+    }
+
+    // Second Handle
+    if (this._dragged || !this._handles[1].tracking) {
+      this._handles[1].tracking = false;
+      this._handles[1].onEnd();
+    } else {
+      this._handles[1].tracking = false;
+    }
+    this._handles[1].selected = this._selected;
+
+    this._active = this._handles[0].active || this._handles[1].active;
+    this._dragged = false;
+    this._moving = false;
+
+    this.updateRoI(); // TODO: if (this._dragged || !this._initialized)
+    this.update();
+  };
+
+  widgetsEllipse.prototype.hideDOM = function hideDOM() {
+    this._handles.forEach(function (elem) {
+      return elem.hideDOM();
+    });
+
+    this._rectangle.style.display = 'none';
+    this._ellipse.style.display = 'none';
+    this._label.style.display = 'none';
+  };
+
+  widgetsEllipse.prototype.showDOM = function showDOM() {
+    this._handles[0].showDOM();
+    this._handles[1].showDOM();
+
+    this._rectangle.style.display = '';
+    this._ellipse.style.display = '';
+    this._label.style.display = '';
+  };
+
+  widgetsEllipse.prototype.create = function create() {
+    this.createMaterial();
+    this.createDOM();
+  };
+
+  widgetsEllipse.prototype.createMaterial = function createMaterial() {
+    this._material = new three__WEBPACK_IMPORTED_MODULE_3__["MeshBasicMaterial"]();
+    this._material.transparent = true;
+    this._material.opacity = 0.2;
+  };
+
+  widgetsEllipse.prototype.createDOM = function createDOM() {
+    this._rectangle = document.createElement('div');
+    this._rectangle.className = 'widgets-rectangle-helper';
+    this._container.appendChild(this._rectangle);
+
+    this._ellipse = document.createElement('div');
+    this._ellipse.className = 'widgets-ellipse';
+    this._container.appendChild(this._ellipse);
+
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+
+    // measurements
+    var measurementsContainer = document.createElement('div');
+    // Mean / SD
+    var meanSDContainer = document.createElement('div');
+    meanSDContainer.className = 'mean-sd';
+    measurementsContainer.appendChild(meanSDContainer);
+    // Max / Min
+    var maxMinContainer = document.createElement('div');
+    maxMinContainer.className = 'max-min';
+    measurementsContainer.appendChild(maxMinContainer);
+    // Area
+    var areaContainer = document.createElement('div');
+    areaContainer.className = 'area';
+    measurementsContainer.appendChild(areaContainer);
+
+    this._label.appendChild(measurementsContainer);
+
+    this._container.appendChild(this._label);
+
+    this.updateDOMColor();
+  };
+
+  widgetsEllipse.prototype.update = function update() {
+    this.updateColor();
+
+    this._handles[0].update();
+    this._handles[1].update();
+
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    this.updateDOM();
+  };
+
+  widgetsEllipse.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsEllipse.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._mesh) {
+      this.remove(this._mesh);
+    }
+
+    var vec01 = this._handles[1].worldPosition.clone().sub(this._handles[0].worldPosition);
+    var height = vec01.clone().projectOnVector(this._camera.up).length();
+    var width = vec01.clone().projectOnVector(this._camera._right).length();
+
+    if (width === 0 || height === 0) {
+      return;
+    }
+
+    this._geometry = new three__WEBPACK_IMPORTED_MODULE_3__["ShapeGeometry"](new three__WEBPACK_IMPORTED_MODULE_3__["Shape"](new three__WEBPACK_IMPORTED_MODULE_3__["EllipseCurve"](0, 0, width / 2, height / 2, 0, 2 * Math.PI, false).getPoints(50)));
+
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Mesh"](this._geometry, this._material);
+    this._mesh.position.copy(this._handles[0].worldPosition.clone().add(vec01.multiplyScalar(0.5)));
+    this._mesh.rotation.copy(this._camera.rotation);
+    this._mesh.visible = true;
+    this.add(this._mesh);
+  };
+
+  widgetsEllipse.prototype.updateRoI = function updateRoI(clear) {
+    if (!this._geometry) {
+      return;
+    }
+
+    var meanSDContainer = this._label.querySelector('.mean-sd');
+    var maxMinContainer = this._label.querySelector('.max-min');
+
+    if (clear) {
+      meanSDContainer.innerHTML = '';
+      maxMinContainer.innerHTML = '';
+
+      return;
+    }
+
+    var roi = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getRoI(this._mesh, this._camera, this._stack);
+
+    if (roi !== null) {
+      meanSDContainer.innerHTML = 'Mean: ' + roi.mean.toFixed(1) + ' / SD: ' + roi.sd.toFixed(1);
+      maxMinContainer.innerHTML = 'Max: ' + roi.max.toFixed() + ' / Min: ' + roi.min.toFixed();
+    } else {
+      meanSDContainer.innerHTML = '';
+      maxMinContainer.innerHTML = '';
+    }
+  };
+
+  widgetsEllipse.prototype.updateDOMColor = function updateDOMColor() {
+    this._rectangle.style.borderColor = this._color;
+    this._ellipse.style.borderColor = this._color;
+    this._label.style.borderColor = this._color;
+  };
+
+  widgetsEllipse.prototype.updateDOM = function updateDOM() {
+    if (!this._geometry) {
+      return;
+    }
+
+    this.updateDOMColor();
+
+    var regions = this._stack.frame[this._params.frameIndex].ultrasoundRegions || [];
+
+    this._area = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getGeometryArea(this._geometry);
+    if (this._calibrationFactor) {
+      this._area *= Math.pow(this._calibrationFactor, 2);
+    } else if (regions && regions.length > 0 && this._stack.lps2IJK) {
+      var region0 = this.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._stack.lps2IJK, this._handles[0].worldPosition));
+      var region1 = this.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._stack.lps2IJK, this._handles[1].worldPosition));
+
+      if (region0 !== null && region1 !== null && region0 === region1 && regions[region0].unitsX === 'cm' && regions[region0].unitsY === 'cm') {
+        this._area *= Math.pow(regions[region0].deltaX, 2);
         this._units = 'cm²';
-        this.update();
+      } else if (this._stack.frame[this._params.frameIndex].pixelSpacing) {
+        this._area /= 100;
+        this._units = 'cm²';
+      } else {
+        this._units = 'units';
       }
-    }]);
+    } else if (this._units === 'cm²') {
+      this._area /= 100;
+    }
 
-    return _class;
-  }(Constructor);
-};
+    if (this._units === 'units' && !this._label.hasAttribute('title')) {
+      this._label.setAttribute('title', 'Calibration is required to display the area in cm²');
+      this._label.style.color = this._colors.error;
+    } else if (this._units !== 'units' && this._label.hasAttribute('title')) {
+      this._label.removeAttribute('title');
+      this._label.style.color = this._colors.text;
+    }
+    this._label.querySelector('.area').innerHTML = 'Area: ' + this._area.toFixed(2) + ' ' + this._units;
+
+    var rectData = this.getRectData(this._handles[0].screenPosition, this._handles[1].screenPosition);
+    var labelTransform = this.adjustLabelTransform(this._label, this._handles[1].screenPosition.clone().add(rectData.paddingVector.multiplyScalar(15 + this._label.offsetHeight / 2)));
+
+    // update rectangle
+    this._rectangle.style.transform = 'translate3D(' + rectData.transformX + 'px, ' + rectData.transformY + 'px, 0)';
+    this._rectangle.style.width = rectData.width + 'px';
+    this._rectangle.style.height = rectData.height + 'px';
+
+    // update ellipse
+    this._ellipse.style.transform = 'translate3D(' + rectData.transformX + 'px, ' + rectData.transformY + 'px, 0)';
+    this._ellipse.style.width = rectData.width + 'px';
+    this._ellipse.style.height = rectData.height + 'px';
+
+    // update label
+    this._label.style.transform = 'translate3D(' + labelTransform.x + 'px,' + labelTransform.y + 'px, 0)';
+  };
+
+  widgetsEllipse.prototype.free = function free() {
+    var _this3 = this;
+
+    this.removeEventListeners();
+
+    this._handles.forEach(function (h) {
+      _this3.remove(h);
+      h.free();
+    });
+    this._handles = [];
+
+    this._container.removeChild(this._rectangle);
+    this._container.removeChild(this._ellipse);
+    this._container.removeChild(this._label);
+
+    // mesh, geometry, material
+    if (this._mesh) {
+      this.remove(this._mesh);
+      this._mesh.geometry.dispose();
+      this._mesh.geometry = null;
+      this._mesh.material.dispose();
+      this._mesh.material = null;
+      this._mesh = null;
+    }
+    if (this._geometry) {
+      this._geometry.dispose();
+      this._geometry = null;
+    }
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    this._stack = null;
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  widgetsEllipse.prototype.getMeasurements = function getMeasurements() {
+    return {
+      area: this._area,
+      units: this._units
+    };
+  };
+
+  _createClass(widgetsEllipse, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handles.forEach(function (elem) {
+        return elem.targetMesh = targetMesh;
+      });
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handles[0].worldPosition.copy(worldPosition);
+      this._handles[1].worldPosition.copy(worldPosition);
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }, {
+    key: 'calibrationFactor',
+    get: function get() {
+      return this._calibrationFactor;
+    },
+    set: function set(calibrationFactor) {
+      this._calibrationFactor = calibrationFactor;
+      this._units = 'cm²';
+      this.update();
+    }
+  }]);
+
+  return widgetsEllipse;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
+
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsEllipse());
 
 /***/ }),
 
@@ -98317,7 +98188,7 @@ var widgetsEllipse = function widgetsEllipse() {
 /*!*****************************************!*\
   !*** ./src/widgets/widgets.freehand.js ***!
   \*****************************************/
-/*! exports provided: widgetsFreehand, default */
+/*! exports provided: widgetsFreehand */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98344,629 +98215,628 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/freehand
  */
-var widgetsFreehand = function widgetsFreehand() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsFreehand = function (_widgetsBase) {
+  _inherits(widgetsFreehand, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsFreehand(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsFreehand);
 
-      _this._widgetType = 'Freehand';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (optional: frameIndex, worldPosition)
-      _this._stack = params.stack; // required
-      _this._calibrationFactor = params.calibrationFactor || null;
+    _this._widgetType = 'Freehand';
 
-      // outgoing values
-      _this._area = null;
-      _this._units = !_this._calibrationFactor && !params.stack.frame[params.frameIndex].pixelSpacing ? 'units' : 'cm²';
+    // incoming parameters (optional: frameIndex, worldPosition)
+    _this._stack = params.stack; // required
+    _this._calibrationFactor = params.calibrationFactor || null;
 
-      _this._initialized = false; // set to true onEnd if number of handles > 2
-      _this._moving = false;
-      _this._domHovered = false;
+    // outgoing values
+    _this._area = null;
+    _this._units = !_this._calibrationFactor && !params.stack.frame[params.frameIndex].pixelSpacing ? 'units' : 'cm²';
 
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
+    _this._initialized = false; // set to true onEnd if number of handles > 2
+    _this._moving = false;
+    _this._domHovered = false;
 
-      // dom stuff
-      _this._lines = [];
-      _this._label = null;
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      // add handles
-      _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+    // dom stuff
+    _this._lines = [];
+    _this._label = null;
 
-      var handle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(handle);
-      _this._handles.push(handle);
+    // add handles
+    _this._handles = [];
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
 
-      _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._moveHandle);
-      _this._moveHandle.hide();
+    var handle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(handle);
+    _this._handles.push(handle);
 
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHover = _this.onHover.bind(_this);
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._moveHandle.hide();
 
-      _this.create();
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
 
-      _this.addEventListeners();
-      return _this;
+    _this.create();
+
+    _this.addEventListeners();
+    return _this;
+  }
+
+  widgetsFreehand.prototype.addEventListeners = function addEventListeners() {
+    this._container.addEventListener('wheel', this.onMove);
+
+    this._label.addEventListener('mouseenter', this.onHover);
+    this._label.addEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsFreehand.prototype.removeEventListeners = function removeEventListeners() {
+    this._container.removeEventListener('wheel', this.onMove);
+
+    this._label.removeEventListener('mouseenter', this.onHover);
+    this._label.removeEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsFreehand.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._container.addEventListener('wheel', this.onMove);
+    this.hoverMesh();
 
-      this._label.addEventListener('mouseenter', this.onHover);
-      this._label.addEventListener('mouseleave', this.onHover);
-    };
+    var hovered = false;
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._container.removeEventListener('wheel', this.onMove);
+    this._handles.forEach(function (elem) {
+      return hovered = hovered || elem.hovered;
+    });
 
-      this._label.removeEventListener('mouseenter', this.onHover);
-      this._label.removeEventListener('mouseleave', this.onHover);
-    };
+    this._hovered = hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+  widgetsFreehand.prototype.hoverMesh = function hoverMesh() {
+    // check raycast intersection, if we want to hover on mesh instead of just css
+  };
 
-      this.hoverMesh();
+  widgetsFreehand.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
 
-      var hovered = false;
+  widgetsFreehand.prototype.onStart = function onStart(evt) {
+    var active = false;
 
-      this._handles.forEach(function (elem) {
-        return hovered = hovered || elem.hovered;
-      });
+    this._moveHandle.onMove(evt, true);
+    this._handles.forEach(function (elem) {
+      elem.onStart(evt);
+      active = active || elem.active;
+    });
 
-      this._hovered = hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    this._active = active || this._domHovered;
 
-    _class.prototype.hoverMesh = function hoverMesh() {
-      // check raycast intersection, if we want to hover on mesh instead of just css
-    };
+    if (this._domHovered && this._initialized) {
+      this._moving = true;
+      this._controls.enabled = false;
+    }
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+    this.update();
+  };
 
-    _class.prototype.onStart = function onStart(evt) {
-      var active = false;
+  widgetsFreehand.prototype.onMove = function onMove(evt) {
+    var _this2 = this;
 
-      this._moveHandle.onMove(evt, true);
-      this._handles.forEach(function (elem) {
-        elem.onStart(evt);
-        active = active || elem.active;
-      });
+    var hovered = false;
 
-      this._active = active || this._domHovered;
-
-      if (this._domHovered && this._initialized) {
-        this._moving = true;
-        this._controls.enabled = false;
-      }
-
-      this.update();
-    };
-
-    _class.prototype.onMove = function onMove(evt) {
-      var _this2 = this;
-
-      var hovered = false;
-
-      if (this.active) {
-        this._dragged = true;
-
-        if (!this._initialized) {
-          this._handles[this._handles.length - 1].hovered = false;
-          this._handles[this._handles.length - 1].active = false;
-          this._handles[this._handles.length - 1].tracking = false;
-
-          var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-          var handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
-
-          handle.hovered = true;
-          handle.active = true;
-          handle.tracking = true;
-          this.add(handle);
-          this._handles.push(handle);
-
-          this.createLine();
-        } else {
-          var prevPosition = this._moveHandle.worldPosition.clone();
-
-          this._moveHandle.onMove(evt, true);
-          if (this._mesh) {
-            this.remove(this._mesh);
-          }
-          this.updateDOMContent(true);
-          if (this._moving) {
-            this._handles.forEach(function (handle) {
-              handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
-            });
-          }
-        }
-      }
-
-      this._handles.forEach(function (elem) {
-        elem.onMove(evt);
-        hovered = hovered || elem.hovered;
-      });
-
-      this._hovered = hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-
-      if (this.active && this._handles.length > 2) {
-        this.pushPopHandle();
-      }
-
-      this.update();
-    };
-
-    _class.prototype.onEnd = function onEnd() {
-      var _this3 = this;
-
-      if (this._handles.length < 3) {
-        return;
-      }
-
-      var active = false;
-
-      this._handles.slice(0, -1).forEach(function (elem) {
-        elem.onEnd();
-        active = active || elem.active;
-      });
-
-      // Last Handle
-      if (this._dragged || !this._handles[this._handles.length - 1].tracking) {
-        this._handles[this._handles.length - 1].tracking = false;
-        this._handles[this._handles.length - 1].onEnd();
-      } else {
-        this._handles[this._handles.length - 1].tracking = false;
-      }
-
-      if (this._lines.length < this._handles.length) {
-        this.createLine();
-      }
-
-      if (this._dragged || !this._initialized) {
-        this.updateMesh();
-        this.updateDOMContent();
-      }
-
-      if (!this._dragged && this._active) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles.forEach(function (elem) {
-          return elem.selected = _this3._selected;
-        });
-      }
-      this._active = active || this._handles[this._handles.length - 1].active;
-      this._dragged = false;
-      this._moving = false;
-      this._initialized = true;
-
-      this.update();
-    };
-
-    _class.prototype.create = function create() {
-      this.createMaterial();
-      this.createDOM();
-    };
-
-    _class.prototype.createMaterial = function createMaterial() {
-      this._material = new three__WEBPACK_IMPORTED_MODULE_3__["MeshBasicMaterial"]({ side: three__WEBPACK_IMPORTED_MODULE_3__["DoubleSide"] });
-      this._material.transparent = true;
-      this._material.opacity = 0.2;
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-
-      // measurements
-      var measurementsContainer = document.createElement('div');
-      // Mean / SD
-      var meanSDContainer = document.createElement('div');
-      meanSDContainer.className = 'mean-sd';
-      measurementsContainer.appendChild(meanSDContainer);
-      // Max / Min
-      var maxMinContainer = document.createElement('div');
-      maxMinContainer.className = 'max-min';
-      measurementsContainer.appendChild(maxMinContainer);
-      // Area
-      var areaContainer = document.createElement('div');
-      areaContainer.className = 'area';
-      measurementsContainer.appendChild(areaContainer);
-
-      this._label.appendChild(measurementsContainer);
-
-      this._container.appendChild(this._label);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.createLine = function createLine() {
-      var line = document.createElement('div');
-
-      line.className = 'widgets-line';
-      line.addEventListener('mouseenter', this.onHover);
-      line.addEventListener('mouseleave', this.onHover);
-      this._lines.push(line);
-      this._container.appendChild(line);
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._handles.forEach(function (elem) {
-        return elem.hideDOM();
-      });
-
-      this._lines.forEach(function (elem) {
-        return elem.style.display = 'none';
-      });
-      this._label.style.display = 'none';
-    };
-
-    _class.prototype.showDOM = function showDOM() {
-      this._handles.forEach(function (elem) {
-        return elem.showDOM();
-      });
-
-      this._lines.forEach(function (elem) {
-        return elem.style.display = '';
-      });
-      this._label.style.display = '';
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      // update handles
-      this._handles.forEach(function (elem) {
-        return elem.update();
-      });
-
-      // mesh stuff
-      this.updateMeshColor();
-      this.updateMeshPosition();
-
-      // DOM stuff
-      this.updateDOMColor();
-      this.updateDOMPosition();
-    };
-
-    _class.prototype.updateMesh = function updateMesh() {
-      if (this._mesh) {
-        this.remove(this._mesh);
-      }
-
-      var points = [];
-
-      this._handles.forEach(function (elem) {
-        return points.push(elem.worldPosition);
-      });
-
-      var center = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].centerOfMass(points);
-      // direction from first point to center
-      var referenceDirection = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[0], center).normalize();
-      var direction = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().crossVectors(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[0], center), // side 1
-      new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[1], center) // side 2
-      );
-      var base = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().crossVectors(referenceDirection, direction).normalize();
-      var orderedpoints = [];
-
-      // other lines // if inter, return location + angle
-      for (var j = 0; j < points.length; j++) {
-        var point = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](points[j].x, points[j].y, points[j].z);
-        point.direction = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[j], center).normalize();
-
-        var x = referenceDirection.dot(point.direction);
-        var y = base.dot(point.direction);
-        point.xy = { x: x, y: y };
-        point.angle = Math.atan2(y, x) * (180 / Math.PI);
-
-        orderedpoints.push(point);
-      }
-
-      // override to catch console.warn "THREE.ShapeUtils: Unable to triangulate polygon! in triangulate()"
-      this._shapeWarn = false;
-      var oldWarn = console.warn;
-      console.warn = function () {
-        for (var _len = arguments.length, rest = Array(_len), _key = 0; _key < _len; _key++) {
-          rest[_key] = arguments[_key];
-        }
-
-        if (rest[0] === 'three.ShapeUtils: Unable to triangulate polygon! in triangulate()') {
-          this._shapeWarn = true;
-        }
-        return oldWarn.apply(console, rest);
-      }.bind(this);
-
-      // create the shape
-      var shape = new three__WEBPACK_IMPORTED_MODULE_3__["Shape"]();
-      // move to first point!
-      shape.moveTo(orderedpoints[0].xy.x, orderedpoints[0].xy.y);
-
-      // loop through all points!
-      for (var l = 1; l < orderedpoints.length; l++) {
-        // project each on plane!
-        shape.lineTo(orderedpoints[l].xy.x, orderedpoints[l].xy.y);
-      }
-
-      // close the shape!
-      shape.lineTo(orderedpoints[0].xy.x, orderedpoints[0].xy.y);
-
-      this._geometry = new three__WEBPACK_IMPORTED_MODULE_3__["ShapeGeometry"](shape);
-
-      console.warn = oldWarn;
-
-      this._geometry.vertices = orderedpoints;
-      this._geometry.verticesNeedUpdate = true;
-      this._geometry.elementsNeedUpdate = true;
-
-      this.updateMeshColor();
-
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Mesh"](this._geometry, this._material);
-      this._mesh.visible = true;
-      this.add(this._mesh);
-    };
-
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
-
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._geometry) {
-        this._geometry.verticesNeedUpdate = true;
-      }
-    };
-
-    _class.prototype.isPointOnLine = function isPointOnLine(pointA, pointB, pointToCheck) {
-      var c = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]();
-      c.crossVectors(pointA.clone().sub(pointToCheck), pointB.clone().sub(pointToCheck));
-      return !c.length();
-    };
-
-    _class.prototype.pushPopHandle = function pushPopHandle() {
-      var handle0 = this._handles[this._handles.length - 3];
-      var handle1 = this._handles[this._handles.length - 2];
-      var newhandle = this._handles[this._handles.length - 1];
-
-      var isOnLine = this.isPointOnLine(handle0.worldPosition, handle1.worldPosition, newhandle.worldPosition);
-
-      if (isOnLine || handle0.screenPosition.distanceTo(newhandle.screenPosition) < 25) {
-        this.remove(handle1);
-        handle1.free();
-
-        this._handles[this._handles.length - 2] = newhandle;
-        this._handles.pop();
-
-        this._container.removeChild(this._lines.pop());
-      }
-
-      return isOnLine;
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      var _this4 = this;
-
-      if (this._handles.length >= 2) {
-        this._lines.forEach(function (elem) {
-          return elem.style.backgroundColor = _this4._color;
-        });
-      }
-      this._label.style.borderColor = this._color;
-    };
-
-    _class.prototype.updateDOMContent = function updateDOMContent(clear) {
-      var _this5 = this;
-
-      var meanSDContainer = this._label.querySelector('.mean-sd');
-      var maxMinContainer = this._label.querySelector('.max-min');
-      var areaContainer = this._label.querySelector('.area');
-
-      if (clear) {
-        meanSDContainer.innerHTML = '';
-        maxMinContainer.innerHTML = '';
-        areaContainer.innerHTML = '';
-
-        return;
-      }
-
-      var regions = this._stack.frame[this._params.frameIndex].ultrasoundRegions || [];
-
-      this._area = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getGeometryArea(this._geometry); // this.getArea result is changed on dragging
-      if (this._calibrationFactor) {
-        this._area *= Math.pow(this._calibrationFactor, 2);
-      } else if (regions && regions.length > 0 && this._stack.lps2IJK) {
-        var same = true;
-        var cRegion = void 0;
-        var pRegion = void 0;
-
-        this._handles.forEach(function (elem) {
-          cRegion = _this5.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(_this5._stack.lps2IJK, elem.worldPosition));
-          if (cRegion === null || regions[cRegion].unitsX !== 'cm' || pRegion !== undefined && pRegion !== cRegion) {
-            same = false;
-          }
-          pRegion = cRegion;
-        });
-
-        if (same) {
-          this._area *= Math.pow(regions[cRegion].deltaX, 2);
-          this._units = 'cm²';
-        } else if (this._stack.frame[this._params.frameIndex].pixelSpacing) {
-          this._area /= 100;
-          this._units = 'cm²';
-        } else {
-          this._units = 'units';
-        }
-      } else if (this._units === 'cm²') {
-        this._area /= 100;
-      }
-
-      var title = this._units === 'units' ? 'Calibration is required to display the area in cm². ' : '';
-
-      if (this._shapeWarn) {
-        title += 'Values may be incorrect due to triangulation error.';
-      }
-      if (title !== '' && !this._label.hasAttribute('title')) {
-        this._label.setAttribute('title', title);
-        this._label.style.color = this._colors.error;
-      } else if (title === '' && this._label.hasAttribute('title')) {
-        this._label.removeAttribute('title');
-        this._label.style.color = this._colors.text;
-      }
-
-      var roi = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getRoI(this._mesh, this._camera, this._stack);
-
-      if (roi !== null) {
-        meanSDContainer.innerHTML = 'Mean: ' + roi.mean.toFixed(1) + ' / SD: ' + roi.sd.toFixed(1);
-        maxMinContainer.innerHTML = 'Max: ' + roi.max.toFixed() + ' / Min: ' + roi.min.toFixed();
-      } else {
-        meanSDContainer.innerHTML = '';
-        maxMinContainer.innerHTML = '';
-      }
-      areaContainer.innerHTML = 'Area: ' + this._area.toFixed(2) + ' ' + this._units;
-    };
-
-    _class.prototype.updateDOMPosition = function updateDOMPosition() {
-      var _this6 = this;
-
-      if (this._handles.length < 2) {
-        return;
-      }
-      // update lines and get coordinates of lowest handle
-      var labelPosition = null;
-
-      this._lines.forEach(function (elem, ind) {
-        var lineData = _this6.getLineData(_this6._handles[ind].screenPosition, _this6._handles[ind + 1 === _this6._handles.length ? 0 : ind + 1].screenPosition);
-
-        elem.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n                rotate(' + lineData.transformAngle + 'rad)';
-        elem.style.width = lineData.length + 'px';
-
-        if (labelPosition === null || labelPosition.y < _this6._handles[ind].screenPosition.y) {
-          labelPosition = _this6._handles[ind].screenPosition.clone();
-        }
-      });
+    if (this.active) {
+      this._dragged = true;
 
       if (!this._initialized) {
-        return;
+        this._handles[this._handles.length - 1].hovered = false;
+        this._handles[this._handles.length - 1].active = false;
+        this._handles[this._handles.length - 1].tracking = false;
+
+        var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+        var handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
+
+        handle.hovered = true;
+        handle.active = true;
+        handle.tracking = true;
+        this.add(handle);
+        this._handles.push(handle);
+
+        this.createLine();
+      } else {
+        var prevPosition = this._moveHandle.worldPosition.clone();
+
+        this._moveHandle.onMove(evt, true);
+        if (this._mesh) {
+          this.remove(this._mesh);
+        }
+        this.updateDOMContent(true);
+        if (this._moving) {
+          this._handles.forEach(function (handle) {
+            handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
+          });
+        }
+      }
+    }
+
+    this._handles.forEach(function (elem) {
+      elem.onMove(evt);
+      hovered = hovered || elem.hovered;
+    });
+
+    this._hovered = hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+
+    if (this.active && this._handles.length > 2) {
+      this.pushPopHandle();
+    }
+
+    this.update();
+  };
+
+  widgetsFreehand.prototype.onEnd = function onEnd() {
+    var _this3 = this;
+
+    if (this._handles.length < 3) {
+      return;
+    }
+
+    var active = false;
+
+    this._handles.slice(0, -1).forEach(function (elem) {
+      elem.onEnd();
+      active = active || elem.active;
+    });
+
+    // Last Handle
+    if (this._dragged || !this._handles[this._handles.length - 1].tracking) {
+      this._handles[this._handles.length - 1].tracking = false;
+      this._handles[this._handles.length - 1].onEnd();
+    } else {
+      this._handles[this._handles.length - 1].tracking = false;
+    }
+
+    if (this._lines.length < this._handles.length) {
+      this.createLine();
+    }
+
+    if (this._dragged || !this._initialized) {
+      this.updateMesh();
+      this.updateDOMContent();
+    }
+
+    if (!this._dragged && this._active) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handles.forEach(function (elem) {
+        return elem.selected = _this3._selected;
+      });
+    }
+    this._active = active || this._handles[this._handles.length - 1].active;
+    this._dragged = false;
+    this._moving = false;
+    this._initialized = true;
+
+    this.update();
+  };
+
+  widgetsFreehand.prototype.create = function create() {
+    this.createMaterial();
+    this.createDOM();
+  };
+
+  widgetsFreehand.prototype.createMaterial = function createMaterial() {
+    this._material = new three__WEBPACK_IMPORTED_MODULE_3__["MeshBasicMaterial"]({ side: three__WEBPACK_IMPORTED_MODULE_3__["DoubleSide"] });
+    this._material.transparent = true;
+    this._material.opacity = 0.2;
+  };
+
+  widgetsFreehand.prototype.createDOM = function createDOM() {
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+
+    // measurements
+    var measurementsContainer = document.createElement('div');
+    // Mean / SD
+    var meanSDContainer = document.createElement('div');
+    meanSDContainer.className = 'mean-sd';
+    measurementsContainer.appendChild(meanSDContainer);
+    // Max / Min
+    var maxMinContainer = document.createElement('div');
+    maxMinContainer.className = 'max-min';
+    measurementsContainer.appendChild(maxMinContainer);
+    // Area
+    var areaContainer = document.createElement('div');
+    areaContainer.className = 'area';
+    measurementsContainer.appendChild(areaContainer);
+
+    this._label.appendChild(measurementsContainer);
+
+    this._container.appendChild(this._label);
+
+    this.updateDOMColor();
+  };
+
+  widgetsFreehand.prototype.createLine = function createLine() {
+    var line = document.createElement('div');
+
+    line.className = 'widgets-line';
+    line.addEventListener('mouseenter', this.onHover);
+    line.addEventListener('mouseleave', this.onHover);
+    this._lines.push(line);
+    this._container.appendChild(line);
+  };
+
+  widgetsFreehand.prototype.hideDOM = function hideDOM() {
+    this._handles.forEach(function (elem) {
+      return elem.hideDOM();
+    });
+
+    this._lines.forEach(function (elem) {
+      return elem.style.display = 'none';
+    });
+    this._label.style.display = 'none';
+  };
+
+  widgetsFreehand.prototype.showDOM = function showDOM() {
+    this._handles.forEach(function (elem) {
+      return elem.showDOM();
+    });
+
+    this._lines.forEach(function (elem) {
+      return elem.style.display = '';
+    });
+    this._label.style.display = '';
+  };
+
+  widgetsFreehand.prototype.update = function update() {
+    this.updateColor();
+
+    // update handles
+    this._handles.forEach(function (elem) {
+      return elem.update();
+    });
+
+    // mesh stuff
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    // DOM stuff
+    this.updateDOMColor();
+    this.updateDOMPosition();
+  };
+
+  widgetsFreehand.prototype.updateMesh = function updateMesh() {
+    if (this._mesh) {
+      this.remove(this._mesh);
+    }
+
+    var points = [];
+
+    this._handles.forEach(function (elem) {
+      return points.push(elem.worldPosition);
+    });
+
+    var center = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].centerOfMass(points);
+    // direction from first point to center
+    var referenceDirection = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[0], center).normalize();
+    var direction = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().crossVectors(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[0], center), // side 1
+    new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[1], center) // side 2
+    );
+    var base = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().crossVectors(referenceDirection, direction).normalize();
+    var orderedpoints = [];
+
+    // other lines // if inter, return location + angle
+    for (var j = 0; j < points.length; j++) {
+      var point = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](points[j].x, points[j].y, points[j].z);
+      point.direction = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[j], center).normalize();
+
+      var x = referenceDirection.dot(point.direction);
+      var y = base.dot(point.direction);
+      point.xy = { x: x, y: y };
+      point.angle = Math.atan2(y, x) * (180 / Math.PI);
+
+      orderedpoints.push(point);
+    }
+
+    // override to catch console.warn "THREE.ShapeUtils: Unable to triangulate polygon! in triangulate()"
+    this._shapeWarn = false;
+    var oldWarn = console.warn;
+    console.warn = function () {
+      for (var _len = arguments.length, rest = Array(_len), _key = 0; _key < _len; _key++) {
+        rest[_key] = arguments[_key];
       }
 
-      // update label
-      labelPosition.y += 15 + this._label.offsetHeight / 2;
-      labelPosition = this.adjustLabelTransform(this._label, labelPosition);
+      if (rest[0] === 'three.ShapeUtils: Unable to triangulate polygon! in triangulate()') {
+        this._shapeWarn = true;
+      }
+      return oldWarn.apply(console, rest);
+    }.bind(this);
 
-      this._label.style.transform = 'translate3D(' + labelPosition.x + 'px, ' + labelPosition.y + 'px, 0)';
-    };
+    // create the shape
+    var shape = new three__WEBPACK_IMPORTED_MODULE_3__["Shape"]();
+    // move to first point!
+    shape.moveTo(orderedpoints[0].xy.x, orderedpoints[0].xy.y);
 
-    _class.prototype.free = function free() {
-      var _this7 = this;
+    // loop through all points!
+    for (var l = 1; l < orderedpoints.length; l++) {
+      // project each on plane!
+      shape.lineTo(orderedpoints[l].xy.x, orderedpoints[l].xy.y);
+    }
 
-      this.removeEventListeners();
+    // close the shape!
+    shape.lineTo(orderedpoints[0].xy.x, orderedpoints[0].xy.y);
 
-      this._handles.forEach(function (h) {
-        _this7.remove(h);
-        h.free();
-      });
-      this._handles = [];
+    this._geometry = new three__WEBPACK_IMPORTED_MODULE_3__["ShapeGeometry"](shape);
 
-      this.remove(this._moveHandle);
-      this._moveHandle.free();
-      this._moveHandle = null;
+    console.warn = oldWarn;
 
+    this._geometry.vertices = orderedpoints;
+    this._geometry.verticesNeedUpdate = true;
+    this._geometry.elementsNeedUpdate = true;
+
+    this.updateMeshColor();
+
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Mesh"](this._geometry, this._material);
+    this._mesh.visible = true;
+    this.add(this._mesh);
+  };
+
+  widgetsFreehand.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsFreehand.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._geometry) {
+      this._geometry.verticesNeedUpdate = true;
+    }
+  };
+
+  widgetsFreehand.prototype.isPointOnLine = function isPointOnLine(pointA, pointB, pointToCheck) {
+    var c = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]();
+    c.crossVectors(pointA.clone().sub(pointToCheck), pointB.clone().sub(pointToCheck));
+    return !c.length();
+  };
+
+  widgetsFreehand.prototype.pushPopHandle = function pushPopHandle() {
+    var handle0 = this._handles[this._handles.length - 3];
+    var handle1 = this._handles[this._handles.length - 2];
+    var newhandle = this._handles[this._handles.length - 1];
+
+    var isOnLine = this.isPointOnLine(handle0.worldPosition, handle1.worldPosition, newhandle.worldPosition);
+
+    if (isOnLine || handle0.screenPosition.distanceTo(newhandle.screenPosition) < 25) {
+      this.remove(handle1);
+      handle1.free();
+
+      this._handles[this._handles.length - 2] = newhandle;
+      this._handles.pop();
+
+      this._container.removeChild(this._lines.pop());
+    }
+
+    return isOnLine;
+  };
+
+  widgetsFreehand.prototype.updateDOMColor = function updateDOMColor() {
+    var _this4 = this;
+
+    if (this._handles.length >= 2) {
       this._lines.forEach(function (elem) {
-        elem.removeEventListener('mouseenter', _this7.onHover);
-        elem.removeEventListener('mouseleave', _this7.onHover);
-        _this7._container.removeChild(elem);
+        return elem.style.backgroundColor = _this4._color;
       });
-      this._lines = [];
-      this._container.removeChild(this._label);
+    }
+    this._label.style.borderColor = this._color;
+  };
 
-      // mesh, geometry, material
-      if (this._mesh) {
-        this.remove(this._mesh);
-        this._mesh.geometry.dispose();
-        this._mesh.geometry = null;
-        this._mesh.material.dispose();
-        this._mesh.material = null;
-        this._mesh = null;
-      }
-      if (this._geometry) {
-        this._geometry.dispose();
-        this._geometry = null;
-      }
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
+  widgetsFreehand.prototype.updateDOMContent = function updateDOMContent(clear) {
+    var _this5 = this;
 
-      this._stack = null;
+    var meanSDContainer = this._label.querySelector('.mean-sd');
+    var maxMinContainer = this._label.querySelector('.max-min');
+    var areaContainer = this._label.querySelector('.area');
 
-      _Constructor.prototype.free.call(this);
-    };
+    if (clear) {
+      meanSDContainer.innerHTML = '';
+      maxMinContainer.innerHTML = '';
+      areaContainer.innerHTML = '';
 
-    _class.prototype.getMeasurements = function getMeasurements() {
-      return {
-        area: this._area,
-        units: this._units
-      };
-    };
+      return;
+    }
 
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
-        });
-        this._moveHandle.targetMesh = targetMesh;
-        this.update();
-      }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles.forEach(function (elem) {
-          return elem._worldPosition.copy(worldPosition);
-        });
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }, {
-      key: 'calibrationFactor',
-      get: function get() {
-        return this._calibrationFactor;
-      },
-      set: function set(calibrationFactor) {
-        this._calibrationFactor = calibrationFactor;
+    var regions = this._stack.frame[this._params.frameIndex].ultrasoundRegions || [];
+
+    this._area = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getGeometryArea(this._geometry); // this.getArea result is changed on dragging
+    if (this._calibrationFactor) {
+      this._area *= Math.pow(this._calibrationFactor, 2);
+    } else if (regions && regions.length > 0 && this._stack.lps2IJK) {
+      var same = true;
+      var cRegion = void 0;
+      var pRegion = void 0;
+
+      this._handles.forEach(function (elem) {
+        cRegion = _this5.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(_this5._stack.lps2IJK, elem.worldPosition));
+        if (cRegion === null || regions[cRegion].unitsX !== 'cm' || pRegion !== undefined && pRegion !== cRegion) {
+          same = false;
+        }
+        pRegion = cRegion;
+      });
+
+      if (same) {
+        this._area *= Math.pow(regions[cRegion].deltaX, 2);
         this._units = 'cm²';
-        this.update();
+      } else if (this._stack.frame[this._params.frameIndex].pixelSpacing) {
+        this._area /= 100;
+        this._units = 'cm²';
+      } else {
+        this._units = 'units';
       }
-    }]);
+    } else if (this._units === 'cm²') {
+      this._area /= 100;
+    }
 
-    return _class;
-  }(Constructor);
-};
+    var title = this._units === 'units' ? 'Calibration is required to display the area in cm². ' : '';
+
+    if (this._shapeWarn) {
+      title += 'Values may be incorrect due to triangulation error.';
+    }
+    if (title !== '' && !this._label.hasAttribute('title')) {
+      this._label.setAttribute('title', title);
+      this._label.style.color = this._colors.error;
+    } else if (title === '' && this._label.hasAttribute('title')) {
+      this._label.removeAttribute('title');
+      this._label.style.color = this._colors.text;
+    }
+
+    var roi = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getRoI(this._mesh, this._camera, this._stack);
+
+    if (roi !== null) {
+      meanSDContainer.innerHTML = 'Mean: ' + roi.mean.toFixed(1) + ' / SD: ' + roi.sd.toFixed(1);
+      maxMinContainer.innerHTML = 'Max: ' + roi.max.toFixed() + ' / Min: ' + roi.min.toFixed();
+    } else {
+      meanSDContainer.innerHTML = '';
+      maxMinContainer.innerHTML = '';
+    }
+    areaContainer.innerHTML = 'Area: ' + this._area.toFixed(2) + ' ' + this._units;
+  };
+
+  widgetsFreehand.prototype.updateDOMPosition = function updateDOMPosition() {
+    var _this6 = this;
+
+    if (this._handles.length < 2) {
+      return;
+    }
+    // update lines and get coordinates of lowest handle
+    var labelPosition = null;
+
+    this._lines.forEach(function (elem, ind) {
+      var lineData = _this6.getLineData(_this6._handles[ind].screenPosition, _this6._handles[ind + 1 === _this6._handles.length ? 0 : ind + 1].screenPosition);
+
+      elem.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n                rotate(' + lineData.transformAngle + 'rad)';
+      elem.style.width = lineData.length + 'px';
+
+      if (labelPosition === null || labelPosition.y < _this6._handles[ind].screenPosition.y) {
+        labelPosition = _this6._handles[ind].screenPosition.clone();
+      }
+    });
+
+    if (!this._initialized) {
+      return;
+    }
+
+    // update label
+    labelPosition.y += 15 + this._label.offsetHeight / 2;
+    labelPosition = this.adjustLabelTransform(this._label, labelPosition);
+
+    this._label.style.transform = 'translate3D(' + labelPosition.x + 'px, ' + labelPosition.y + 'px, 0)';
+  };
+
+  widgetsFreehand.prototype.free = function free() {
+    var _this7 = this;
+
+    this.removeEventListeners();
+
+    this._handles.forEach(function (h) {
+      _this7.remove(h);
+      h.free();
+    });
+    this._handles = [];
+
+    this.remove(this._moveHandle);
+    this._moveHandle.free();
+    this._moveHandle = null;
+
+    this._lines.forEach(function (elem) {
+      elem.removeEventListener('mouseenter', _this7.onHover);
+      elem.removeEventListener('mouseleave', _this7.onHover);
+      _this7._container.removeChild(elem);
+    });
+    this._lines = [];
+    this._container.removeChild(this._label);
+
+    // mesh, geometry, material
+    if (this._mesh) {
+      this.remove(this._mesh);
+      this._mesh.geometry.dispose();
+      this._mesh.geometry = null;
+      this._mesh.material.dispose();
+      this._mesh.material = null;
+      this._mesh = null;
+    }
+    if (this._geometry) {
+      this._geometry.dispose();
+      this._geometry = null;
+    }
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    this._stack = null;
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  widgetsFreehand.prototype.getMeasurements = function getMeasurements() {
+    return {
+      area: this._area,
+      units: this._units
+    };
+  };
+
+  _createClass(widgetsFreehand, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handles.forEach(function (elem) {
+        return elem.targetMesh = targetMesh;
+      });
+      this._moveHandle.targetMesh = targetMesh;
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handles.forEach(function (elem) {
+        return elem._worldPosition.copy(worldPosition);
+      });
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }, {
+    key: 'calibrationFactor',
+    get: function get() {
+      return this._calibrationFactor;
+    },
+    set: function set(calibrationFactor) {
+      this._calibrationFactor = calibrationFactor;
+      this._units = 'cm²';
+      this.update();
+    }
+  }]);
+
+  return widgetsFreehand;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
+
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsFreehand());
 
 /***/ }),
 
@@ -98974,7 +98844,7 @@ var widgetsFreehand = function widgetsFreehand() {
 /*!***************************************!*\
   !*** ./src/widgets/widgets.handle.js ***!
   \***************************************/
-/*! exports provided: widgetsHandle, default */
+/*! exports provided: widgetsHandle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98998,347 +98868,346 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/handle
  */
-var widgetsHandle = function widgetsHandle() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsHandle = function (_widgetsBase) {
+  _inherits(widgetsHandle, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsHandle(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsHandle);
 
-      _this._widgetType = 'Handle';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (optional: worldPosition)
-      if (params.hideHandleMesh === true) {
-        _this.visible = false;
-      }
+    _this._widgetType = 'Handle';
 
-      // if no target mesh, use plane for FREE dragging.
-      _this._plane = {
-        position: new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](),
-        direction: new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]()
-      };
-      _this._offset = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]();
-      _this._raycaster = new three__WEBPACK_IMPORTED_MODULE_2__["Raycaster"]();
-
-      _this._active = false;
-      _this._hovered = false;
-      _this._tracking = false;
-
-      _this._mouse = new three__WEBPACK_IMPORTED_MODULE_2__["Vector2"]();
-
-      _this._initialized = false;
-
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
-      _this._meshHovered = false;
-
-      // dom stuff
-      _this._dom = null;
-      _this._domHovered = false;
-
-      _this._screenPosition = _this.worldToScreen(_this._worldPosition);
-
-      _this.create();
-      _this.initOffsets();
-
-      // event listeners
-      _this.onResize = _this.onResize.bind(_this);
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHover = _this.onHover.bind(_this);
-      _this.addEventListeners();
-      return _this;
+    // incoming parameters (optional: worldPosition)
+    if (params.hideHandleMesh === true) {
+      _this.visible = false;
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      addEventListener('resize', this.onResize);
-
-      this._dom.addEventListener('mouseenter', this.onHover);
-      this._dom.addEventListener('mouseleave', this.onHover);
-
-      this._container.addEventListener('wheel', this.onMove);
+    // if no target mesh, use plane for FREE dragging.
+    _this._plane = {
+      position: new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](),
+      direction: new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]()
     };
+    _this._offset = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]();
+    _this._raycaster = new three__WEBPACK_IMPORTED_MODULE_2__["Raycaster"]();
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      removeEventListener('resize', this.onResize);
+    _this._active = false;
+    _this._hovered = false;
+    _this._tracking = false;
 
-      this._dom.removeEventListener('mouseenter', this.onHover);
-      this._dom.removeEventListener('mouseleave', this.onHover);
+    _this._mouse = new three__WEBPACK_IMPORTED_MODULE_2__["Vector2"]();
 
-      this._container.removeEventListener('wheel', this.onMove);
-    };
+    _this._initialized = false;
 
-    _class.prototype.onResize = function onResize() {
-      this.initOffsets();
-    };
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
+    _this._meshHovered = false;
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+    // dom stuff
+    _this._dom = null;
+    _this._domHovered = false;
 
-      this.hoverMesh();
+    _this._screenPosition = _this.worldToScreen(_this._worldPosition);
 
-      this._hovered = this._meshHovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    _this.create();
+    _this.initOffsets();
 
-    _class.prototype.hoverMesh = function hoverMesh() {
-      // check raycast intersection, do we want to hover on mesh or just css?
-      var intersectsHandle = this._raycaster.intersectObject(this._mesh);
-      this._meshHovered = intersectsHandle.length > 0;
-    };
+    // event listeners
+    _this.onResize = _this.onResize.bind(_this);
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
+    _this.addEventListeners();
+    return _this;
+  }
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+  widgetsHandle.prototype.addEventListeners = function addEventListeners() {
+    addEventListener('resize', this.onResize);
 
-    _class.prototype.onStart = function onStart(evt) {
-      var offsets = this.getMouseOffsets(evt, this._container);
-      this._mouse.set(offsets.x, offsets.y);
+    this._dom.addEventListener('mouseenter', this.onHover);
+    this._dom.addEventListener('mouseleave', this.onHover);
 
-      // update raycaster
-      this._raycaster.setFromCamera(this._mouse, this._camera);
-      this._raycaster.ray.position = this._raycaster.ray.origin;
+    this._container.addEventListener('wheel', this.onMove);
+  };
 
-      if (this._hovered) {
-        this._active = true;
-        this._controls.enabled = false;
+  widgetsHandle.prototype.removeEventListeners = function removeEventListeners() {
+    removeEventListener('resize', this.onResize);
 
-        if (this._targetMesh) {
-          var intersectsTarget = this._raycaster.intersectObject(this._targetMesh);
-          if (intersectsTarget.length > 0) {
-            this._offset.copy(intersectsTarget[0].point).sub(this._worldPosition);
-          }
-        } else {
-          this._plane.position.copy(this._worldPosition);
-          this._plane.direction.copy(this._camera.getWorldDirection());
-          var intersection = _core_core_intersections__WEBPACK_IMPORTED_MODULE_1__["default"].rayPlane(this._raycaster.ray, this._plane);
-          if (intersection !== null) {
-            this._offset.copy(intersection).sub(this._plane.position);
-          }
-        }
+    this._dom.removeEventListener('mouseenter', this.onHover);
+    this._dom.removeEventListener('mouseleave', this.onHover);
 
-        this.update();
-      }
-    };
+    this._container.removeEventListener('wheel', this.onMove);
+  };
 
-    /**
-     * @param {Object} evt - Browser event
-     * @param {Boolean} forced - true to move inactive handles
-     */
+  widgetsHandle.prototype.onResize = function onResize() {
+    this.initOffsets();
+  };
 
+  widgetsHandle.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
+    }
 
-    _class.prototype.onMove = function onMove(evt, forced) {
-      var offsets = this.getMouseOffsets(evt, this._container);
-      this._mouse.set(offsets.x, offsets.y);
+    this.hoverMesh();
 
-      // update raycaster
-      // set ray.position to satisfy CoreIntersections::rayPlane API
-      this._raycaster.setFromCamera(this._mouse, this._camera);
-      this._raycaster.ray.position = this._raycaster.ray.origin;
+    this._hovered = this._meshHovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
 
-      if (this._active || forced) {
-        this._dragged = true;
+  widgetsHandle.prototype.hoverMesh = function hoverMesh() {
+    // check raycast intersection, do we want to hover on mesh or just css?
+    var intersectsHandle = this._raycaster.intersectObject(this._mesh);
+    this._meshHovered = intersectsHandle.length > 0;
+  };
 
-        if (this._targetMesh !== null) {
-          var intersectsTarget = this._raycaster.intersectObject(this._targetMesh);
-          if (intersectsTarget.length > 0) {
-            this._worldPosition.copy(intersectsTarget[0].point.sub(this._offset));
-          }
-        } else {
-          if (this._plane.direction.length() === 0) {
-            // free mode!this._targetMesh
-            this._plane.position.copy(this._worldPosition);
-            this._plane.direction.copy(this._camera.getWorldDirection());
-          }
+  widgetsHandle.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
 
-          var intersection = _core_core_intersections__WEBPACK_IMPORTED_MODULE_1__["default"].rayPlane(this._raycaster.ray, this._plane);
-          if (intersection !== null) {
-            this._worldPosition.copy(intersection.sub(this._offset));
-          }
+  widgetsHandle.prototype.onStart = function onStart(evt) {
+    var offsets = this.getMouseOffsets(evt, this._container);
+    this._mouse.set(offsets.x, offsets.y);
+
+    // update raycaster
+    this._raycaster.setFromCamera(this._mouse, this._camera);
+    this._raycaster.ray.position = this._raycaster.ray.origin;
+
+    if (this._hovered) {
+      this._active = true;
+      this._controls.enabled = false;
+
+      if (this._targetMesh) {
+        var intersectsTarget = this._raycaster.intersectObject(this._targetMesh);
+        if (intersectsTarget.length > 0) {
+          this._offset.copy(intersectsTarget[0].point).sub(this._worldPosition);
         }
       } else {
-        this.onHover(null);
+        this._plane.position.copy(this._worldPosition);
+        this._plane.direction.copy(this._camera.getWorldDirection());
+        var intersection = _core_core_intersections__WEBPACK_IMPORTED_MODULE_1__["default"].rayPlane(this._raycaster.ray, this._plane);
+        if (intersection !== null) {
+          this._offset.copy(intersection).sub(this._plane.position);
+        }
       }
 
       this.update();
-    };
+    }
+  };
 
-    _class.prototype.onEnd = function onEnd() {
-      if (this._tracking === true) {
-        // stay active and keep controls disabled
-        return;
+  /**
+   * @param {Object} evt - Browser event
+   * @param {Boolean} forced - true to move inactive handles
+   */
+
+
+  widgetsHandle.prototype.onMove = function onMove(evt, forced) {
+    var offsets = this.getMouseOffsets(evt, this._container);
+    this._mouse.set(offsets.x, offsets.y);
+
+    // update raycaster
+    // set ray.position to satisfy CoreIntersections::rayPlane API
+    this._raycaster.setFromCamera(this._mouse, this._camera);
+    this._raycaster.ray.position = this._raycaster.ray.origin;
+
+    if (this._active || forced) {
+      this._dragged = true;
+
+      if (this._targetMesh !== null) {
+        var intersectsTarget = this._raycaster.intersectObject(this._targetMesh);
+        if (intersectsTarget.length > 0) {
+          this._worldPosition.copy(intersectsTarget[0].point.sub(this._offset));
+        }
+      } else {
+        if (this._plane.direction.length() === 0) {
+          // free mode!this._targetMesh
+          this._plane.position.copy(this._worldPosition);
+          this._plane.direction.copy(this._camera.getWorldDirection());
+        }
+
+        var intersection = _core_core_intersections__WEBPACK_IMPORTED_MODULE_1__["default"].rayPlane(this._raycaster.ray, this._plane);
+        if (intersection !== null) {
+          this._worldPosition.copy(intersection.sub(this._offset));
+        }
       }
+    } else {
+      this.onHover(null);
+    }
 
-      if (!this._dragged && this._active && this._initialized) {
-        this._selected = !this._selected; // change state if there was no dragging
-      }
+    this.update();
+  };
 
-      this._initialized = true;
-      this._active = false;
-      this._dragged = false;
-      this._controls.enabled = true;
+  widgetsHandle.prototype.onEnd = function onEnd() {
+    if (this._tracking === true) {
+      // stay active and keep controls disabled
+      return;
+    }
 
-      this.update();
-    };
+    if (!this._dragged && this._active && this._initialized) {
+      this._selected = !this._selected; // change state if there was no dragging
+    }
 
-    _class.prototype.create = function create() {
-      this.createMesh();
-      this.createDOM();
-    };
+    this._initialized = true;
+    this._active = false;
+    this._dragged = false;
+    this._controls.enabled = true;
 
-    _class.prototype.createMesh = function createMesh() {
-      // geometry
-      this._geometry = new three__WEBPACK_IMPORTED_MODULE_2__["SphereGeometry"](1, 16, 16);
+    this.update();
+  };
 
-      // material
-      this._material = new three__WEBPACK_IMPORTED_MODULE_2__["MeshBasicMaterial"]({
-        wireframe: true,
-        wireframeLinewidth: 2
-      });
+  widgetsHandle.prototype.create = function create() {
+    this.createMesh();
+    this.createDOM();
+  };
 
-      this.updateMeshColor();
+  widgetsHandle.prototype.createMesh = function createMesh() {
+    // geometry
+    this._geometry = new three__WEBPACK_IMPORTED_MODULE_2__["SphereGeometry"](1, 16, 16);
 
-      // mesh
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_2__["Mesh"](this._geometry, this._material);
+    // material
+    this._material = new three__WEBPACK_IMPORTED_MODULE_2__["MeshBasicMaterial"]({
+      wireframe: true,
+      wireframeLinewidth: 2
+    });
+
+    this.updateMeshColor();
+
+    // mesh
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_2__["Mesh"](this._geometry, this._material);
+    this._mesh.position.copy(this._worldPosition);
+    this._mesh.visible = true;
+
+    this.add(this._mesh);
+  };
+
+  widgetsHandle.prototype.createDOM = function createDOM() {
+    this._dom = document.createElement('div');
+    this._dom.className = 'widgets-handle';
+
+    this._dom.style.transform = 'translate3D(\n      ' + this._screenPosition.x + 'px,\n      ' + (this._screenPosition.y - this._container.offsetHeight) + 'px, 0)';
+
+    this.updateDOMColor();
+
+    this._container.appendChild(this._dom);
+  };
+
+  widgetsHandle.prototype.update = function update() {
+    // general update
+    this.updateColor();
+
+    // update screen position of handle
+    this._screenPosition = this.worldToScreen(this._worldPosition);
+
+    // mesh stuff
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    // DOM stuff
+    this.updateDOMColor();
+    this.updateDOMPosition();
+  };
+
+  widgetsHandle.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsHandle.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._mesh) {
       this._mesh.position.copy(this._worldPosition);
-      this._mesh.visible = true;
+    }
+  };
 
-      this.add(this._mesh);
-    };
+  widgetsHandle.prototype.updateDOMPosition = function updateDOMPosition() {
+    if (this._dom) {
+      this._dom.style.transform = 'translate3D(' + this._screenPosition.x + 'px,\n        ' + (this._screenPosition.y - this._container.offsetHeight) + 'px, 0)';
+    }
+  };
 
-    _class.prototype.createDOM = function createDOM() {
-      this._dom = document.createElement('div');
-      this._dom.className = 'widgets-handle';
+  widgetsHandle.prototype.updateDOMColor = function updateDOMColor() {
+    this._dom.style.borderColor = this._color;
+  };
 
-      this._dom.style.transform = 'translate3D(\n      ' + this._screenPosition.x + 'px,\n      ' + (this._screenPosition.y - this._container.offsetHeight) + 'px, 0)';
+  widgetsHandle.prototype.showMesh = function showMesh() {
+    if (this._params.hideMesh === true || this._params.hideHandleMesh === true) {
+      return;
+    }
 
-      this.updateDOMColor();
+    this.visible = true;
+  };
 
-      this._container.appendChild(this._dom);
-    };
+  widgetsHandle.prototype.free = function free() {
+    // events
+    this.removeEventListeners();
+    // dom
+    this._container.removeChild(this._dom);
+    // mesh, geometry, material
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
 
-    _class.prototype.update = function update() {
-      // general update
-      this.updateColor();
+    _widgetsBase.prototype.free.call(this);
+  };
 
-      // update screen position of handle
-      this._screenPosition = this.worldToScreen(this._worldPosition);
+  widgetsHandle.prototype.hideDOM = function hideDOM() {
+    this._dom.style.display = 'none';
+  };
 
-      // mesh stuff
-      this.updateMeshColor();
-      this.updateMeshPosition();
+  widgetsHandle.prototype.showDOM = function showDOM() {
+    this._dom.style.display = '';
+  };
 
-      // DOM stuff
-      this.updateDOMColor();
-      this.updateDOMPosition();
-    };
+  _createClass(widgetsHandle, [{
+    key: 'screenPosition',
+    get: function get() {
+      return this._screenPosition;
+    },
+    set: function set(screenPosition) {
+      this._screenPosition = screenPosition;
+    }
+  }, {
+    key: 'active',
+    get: function get() {
+      return this._active;
+    },
+    set: function set(active) {
+      this._active = active;
+      // this._tracking = this._active;
+      this._controls.enabled = !this._active;
 
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
+      this.update();
+    }
+  }, {
+    key: 'tracking',
+    get: function get() {
+      return this._tracking;
+    },
+    set: function set(tracking) {
+      this._tracking = tracking;
+      this.update();
+    }
+  }]);
 
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._mesh) {
-        this._mesh.position.copy(this._worldPosition);
-      }
-    };
+  return widgetsHandle;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
 
-    _class.prototype.updateDOMPosition = function updateDOMPosition() {
-      if (this._dom) {
-        this._dom.style.transform = 'translate3D(' + this._screenPosition.x + 'px,\n        ' + (this._screenPosition.y - this._container.offsetHeight) + 'px, 0)';
-      }
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      this._dom.style.borderColor = this._color;
-    };
-
-    _class.prototype.showMesh = function showMesh() {
-      if (this._params.hideMesh === true || this._params.hideHandleMesh === true) {
-        return;
-      }
-
-      this.visible = true;
-    };
-
-    _class.prototype.free = function free() {
-      // events
-      this.removeEventListeners();
-      // dom
-      this._container.removeChild(this._dom);
-      // mesh, geometry, material
-      this.remove(this._mesh);
-      this._mesh.geometry.dispose();
-      this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
-      this._mesh = null;
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._dom.style.display = 'none';
-    };
-
-    _class.prototype.showDOM = function showDOM() {
-      this._dom.style.display = '';
-    };
-
-    _createClass(_class, [{
-      key: 'screenPosition',
-      get: function get() {
-        return this._screenPosition;
-      },
-      set: function set(screenPosition) {
-        this._screenPosition = screenPosition;
-      }
-    }, {
-      key: 'active',
-      get: function get() {
-        return this._active;
-      },
-      set: function set(active) {
-        this._active = active;
-        // this._tracking = this._active;
-        this._controls.enabled = !this._active;
-
-        this.update();
-      }
-    }, {
-      key: 'tracking',
-      get: function get() {
-        return this._tracking;
-      },
-      set: function set(tracking) {
-        this._tracking = tracking;
-        this.update();
-      }
-    }]);
-
-    return _class;
-  }(Constructor);
-};
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsHandle());
 
 /***/ }),
 
@@ -99346,7 +99215,7 @@ var widgetsHandle = function widgetsHandle() {
 /*!********************************!*\
   !*** ./src/widgets/widgets.js ***!
   \********************************/
-/*! exports provided: WidgetsCss, AngleWidget, angleWidgetFactory, AnnotationWidget, annotationWidgetFactory, BiRulerWidget, birulerWidgetFactory, CrossRulerWidget, crossrulerWidgetFactory, EllipseWidget, ellipseWidgetFactory, FreehandWidget, freehandWidgetFactory, HandleWidget, handleWidgetFactory, PeakVelocityWidget, peakVelocityWidgetFactory, PressureHalfTimeWidget, pressureHalfTimeWidgetFactory, PolygonWidget, polygonWidgetFactory, RectangleWidget, rectangleWidgetFactory, RulerWidget, rulerWidgetFactory, VelocityTimeIntegralWidget, velocityTimeIntegralWidgetFactory, VoxelProbeWidget, voxelprobeWidgetFactory */
+/*! exports provided: WidgetsCss, AngleWidget, AnnotationWidget, BiRulerWidget, CrossRulerWidget, EllipseWidget, FreehandWidget, HandleWidget, PeakVelocityWidget, PressureHalfTimeWidget, PolygonWidget, RectangleWidget, RulerWidget, VelocityTimeIntegralWidget, VoxelProbeWidget */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99355,74 +99224,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WidgetsCss", function() { return _widgets_css__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
 /* harmony import */ var _widgets_angle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./widgets.angle */ "./src/widgets/widgets.angle.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AngleWidget", function() { return _widgets_angle__WEBPACK_IMPORTED_MODULE_1__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "angleWidgetFactory", function() { return _widgets_angle__WEBPACK_IMPORTED_MODULE_1__["widgetsAngle"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AngleWidget", function() { return _widgets_angle__WEBPACK_IMPORTED_MODULE_1__["widgetsAngle"]; });
 
 /* harmony import */ var _widgets_annotation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./widgets.annotation */ "./src/widgets/widgets.annotation.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AnnotationWidget", function() { return _widgets_annotation__WEBPACK_IMPORTED_MODULE_2__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "annotationWidgetFactory", function() { return _widgets_annotation__WEBPACK_IMPORTED_MODULE_2__["widgetsAnnotation"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AnnotationWidget", function() { return _widgets_annotation__WEBPACK_IMPORTED_MODULE_2__["widgetsAnnotation"]; });
 
 /* harmony import */ var _widgets_biruler__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./widgets.biruler */ "./src/widgets/widgets.biruler.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BiRulerWidget", function() { return _widgets_biruler__WEBPACK_IMPORTED_MODULE_3__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "birulerWidgetFactory", function() { return _widgets_biruler__WEBPACK_IMPORTED_MODULE_3__["widgetsBiruler"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BiRulerWidget", function() { return _widgets_biruler__WEBPACK_IMPORTED_MODULE_3__["widgetsBiruler"]; });
 
 /* harmony import */ var _widgets_crossRuler__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./widgets.crossRuler */ "./src/widgets/widgets.crossRuler.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CrossRulerWidget", function() { return _widgets_crossRuler__WEBPACK_IMPORTED_MODULE_4__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "crossrulerWidgetFactory", function() { return _widgets_crossRuler__WEBPACK_IMPORTED_MODULE_4__["widgetsCrossRuler"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CrossRulerWidget", function() { return _widgets_crossRuler__WEBPACK_IMPORTED_MODULE_4__["widgetsCrossRuler"]; });
 
 /* harmony import */ var _widgets_ellipse__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./widgets.ellipse */ "./src/widgets/widgets.ellipse.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EllipseWidget", function() { return _widgets_ellipse__WEBPACK_IMPORTED_MODULE_5__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ellipseWidgetFactory", function() { return _widgets_ellipse__WEBPACK_IMPORTED_MODULE_5__["widgetsEllipse"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EllipseWidget", function() { return _widgets_ellipse__WEBPACK_IMPORTED_MODULE_5__["widgetsEllipse"]; });
 
 /* harmony import */ var _widgets_freehand__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./widgets.freehand */ "./src/widgets/widgets.freehand.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FreehandWidget", function() { return _widgets_freehand__WEBPACK_IMPORTED_MODULE_6__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "freehandWidgetFactory", function() { return _widgets_freehand__WEBPACK_IMPORTED_MODULE_6__["widgetsFreehand"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FreehandWidget", function() { return _widgets_freehand__WEBPACK_IMPORTED_MODULE_6__["widgetsFreehand"]; });
 
 /* harmony import */ var _widgets_handle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./widgets.handle */ "./src/widgets/widgets.handle.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HandleWidget", function() { return _widgets_handle__WEBPACK_IMPORTED_MODULE_7__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "handleWidgetFactory", function() { return _widgets_handle__WEBPACK_IMPORTED_MODULE_7__["widgetsHandle"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HandleWidget", function() { return _widgets_handle__WEBPACK_IMPORTED_MODULE_7__["widgetsHandle"]; });
 
 /* harmony import */ var _widgets_peakVelocity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./widgets.peakVelocity */ "./src/widgets/widgets.peakVelocity.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PeakVelocityWidget", function() { return _widgets_peakVelocity__WEBPACK_IMPORTED_MODULE_8__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "peakVelocityWidgetFactory", function() { return _widgets_peakVelocity__WEBPACK_IMPORTED_MODULE_8__["widgetsPeakVelocity"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PeakVelocityWidget", function() { return _widgets_peakVelocity__WEBPACK_IMPORTED_MODULE_8__["widgetsPeakVelocity"]; });
 
 /* harmony import */ var _widgets_pressureHalfTime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./widgets.pressureHalfTime */ "./src/widgets/widgets.pressureHalfTime.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PressureHalfTimeWidget", function() { return _widgets_pressureHalfTime__WEBPACK_IMPORTED_MODULE_9__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "pressureHalfTimeWidgetFactory", function() { return _widgets_pressureHalfTime__WEBPACK_IMPORTED_MODULE_9__["widgetsPressureHalfTime"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PressureHalfTimeWidget", function() { return _widgets_pressureHalfTime__WEBPACK_IMPORTED_MODULE_9__["widgetsPressureHalfTime"]; });
 
 /* harmony import */ var _widgets_polygon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./widgets.polygon */ "./src/widgets/widgets.polygon.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolygonWidget", function() { return _widgets_polygon__WEBPACK_IMPORTED_MODULE_10__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "polygonWidgetFactory", function() { return _widgets_polygon__WEBPACK_IMPORTED_MODULE_10__["widgetsPolygon"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolygonWidget", function() { return _widgets_polygon__WEBPACK_IMPORTED_MODULE_10__["widgetsPolygon"]; });
 
 /* harmony import */ var _widgets_rectangle__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./widgets.rectangle */ "./src/widgets/widgets.rectangle.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RectangleWidget", function() { return _widgets_rectangle__WEBPACK_IMPORTED_MODULE_11__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "rectangleWidgetFactory", function() { return _widgets_rectangle__WEBPACK_IMPORTED_MODULE_11__["widgetsRectangle"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RectangleWidget", function() { return _widgets_rectangle__WEBPACK_IMPORTED_MODULE_11__["widgetsRectangle"]; });
 
 /* harmony import */ var _widgets_ruler__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./widgets.ruler */ "./src/widgets/widgets.ruler.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RulerWidget", function() { return _widgets_ruler__WEBPACK_IMPORTED_MODULE_12__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "rulerWidgetFactory", function() { return _widgets_ruler__WEBPACK_IMPORTED_MODULE_12__["widgetsRuler"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RulerWidget", function() { return _widgets_ruler__WEBPACK_IMPORTED_MODULE_12__["widgetsRuler"]; });
 
 /* harmony import */ var _widgets_velocityTimeIntegral__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./widgets.velocityTimeIntegral */ "./src/widgets/widgets.velocityTimeIntegral.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VelocityTimeIntegralWidget", function() { return _widgets_velocityTimeIntegral__WEBPACK_IMPORTED_MODULE_13__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "velocityTimeIntegralWidgetFactory", function() { return _widgets_velocityTimeIntegral__WEBPACK_IMPORTED_MODULE_13__["widgetsVelocityTimeIntegral"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VelocityTimeIntegralWidget", function() { return _widgets_velocityTimeIntegral__WEBPACK_IMPORTED_MODULE_13__["widgetsVelocityTimeIntegral"]; });
 
 /* harmony import */ var _widgets_voxelProbe__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./widgets.voxelProbe */ "./src/widgets/widgets.voxelProbe.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VoxelProbeWidget", function() { return _widgets_voxelProbe__WEBPACK_IMPORTED_MODULE_14__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "voxelprobeWidgetFactory", function() { return _widgets_voxelProbe__WEBPACK_IMPORTED_MODULE_14__["widgetsVoxelprobe"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VoxelProbeWidget", function() { return _widgets_voxelProbe__WEBPACK_IMPORTED_MODULE_14__["widgetsVoxelprobe"]; });
 
 
 
@@ -99449,7 +99290,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************!*\
   !*** ./src/widgets/widgets.peakVelocity.js ***!
   \*********************************************/
-/*! exports provided: widgetsPeakVelocity, default */
+/*! exports provided: widgetsPeakVelocity */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99473,295 +99314,293 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/peakVelocity (Gradient)
  */
-var widgetsPeakVelocity = function widgetsPeakVelocity() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
 
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
+var widgetsPeakVelocity = function (_widgetsBase) {
+  _inherits(widgetsPeakVelocity, _widgetsBase);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  function widgetsPeakVelocity(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      _classCallCheck(this, _class);
+    _classCallCheck(this, widgetsPeakVelocity);
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      _this._widgetType = 'PeakVelocity';
+    _this._widgetType = 'PeakVelocity';
 
-      // incoming parameters (required: lps2IJK, worldPosition)
-      _this._regions = params.ultrasoundRegions || []; // required
-      if (_this._regions.length < 1) {
-        throw new Error('Ultrasound regions should not be empty!');
-      }
-
-      // outgoing values
-      _this._velocity = null;
-      _this._gradient = null;
-
-      _this._container.style.cursor = 'pointer';
-      _this._controls.enabled = false; // controls should be disabled for widgets with a single handle
-      _this._initialized = false; // set to true onEnd
-      _this._active = true;
-      _this._domHovered = false;
-      _this._initialRegion = _this.getRegionByXY(_this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(params.lps2IJK, params.worldPosition));
-      if (_this._initialRegion === null) {
-        throw new Error('Invalid initial UltraSound region!');
-      }
-
-      // dom stuff
-      _this._line = null;
-      _this._label = null;
-
-      // handle (represent line)
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-      _this._handle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._handle);
-
-      _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._moveHandle);
-      _this._moveHandle.hide();
-
-      _this.create();
-
-      // event listeners
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHover = _this.onHover.bind(_this);
-      _this.addEventListeners();
-      return _this;
+    // incoming parameters (required: lps2IJK, worldPosition)
+    _this._regions = params.ultrasoundRegions || []; // required
+    if (_this._regions.length < 1) {
+      throw new Error('Ultrasound regions should not be empty!');
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._container.addEventListener('wheel', this.onMove);
+    // outgoing values
+    _this._velocity = null;
+    _this._gradient = null;
 
-      this._line.addEventListener('mouseenter', this.onHover);
-      this._line.addEventListener('mouseleave', this.onHover);
-      this._label.addEventListener('mouseenter', this.onHover);
-      this._label.addEventListener('mouseleave', this.onHover);
-    };
+    _this._container.style.cursor = 'pointer';
+    _this._controls.enabled = false; // controls should be disabled for widgets with a single handle
+    _this._initialized = false; // set to true onEnd
+    _this._active = true;
+    _this._domHovered = false;
+    _this._initialRegion = _this.getRegionByXY(_this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(params.lps2IJK, params.worldPosition));
+    if (_this._initialRegion === null) {
+      throw new Error('Invalid initial UltraSound region!');
+    }
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._container.removeEventListener('wheel', this.onMove);
+    // dom stuff
+    _this._line = null;
+    _this._label = null;
 
-      this._line.removeEventListener('mouseenter', this.onHover);
-      this._line.removeEventListener('mouseleave', this.onHover);
-      this._label.removeEventListener('mouseenter', this.onHover);
-      this._label.removeEventListener('mouseleave', this.onHover);
-    };
+    // handle (represent line)
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+    _this._handle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._handle);
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._moveHandle.hide();
 
-      this._hovered = this._handle.hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    _this.create();
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+    // event listeners
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
+    _this.addEventListeners();
+    return _this;
+  }
 
-    _class.prototype.onStart = function onStart(evt) {
+  widgetsPeakVelocity.prototype.addEventListeners = function addEventListeners() {
+    this._container.addEventListener('wheel', this.onMove);
+
+    this._line.addEventListener('mouseenter', this.onHover);
+    this._line.addEventListener('mouseleave', this.onHover);
+    this._label.addEventListener('mouseenter', this.onHover);
+    this._label.addEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsPeakVelocity.prototype.removeEventListeners = function removeEventListeners() {
+    this._container.removeEventListener('wheel', this.onMove);
+
+    this._line.removeEventListener('mouseenter', this.onHover);
+    this._line.removeEventListener('mouseleave', this.onHover);
+    this._label.removeEventListener('mouseenter', this.onHover);
+    this._label.removeEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsPeakVelocity.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
+    }
+
+    this._hovered = this._handle.hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
+
+  widgetsPeakVelocity.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
+
+  widgetsPeakVelocity.prototype.onStart = function onStart(evt) {
+    this._moveHandle.onMove(evt, true);
+    this._handle.onStart(evt);
+
+    this._active = this._handle.active || this._domHovered;
+
+    if (this._domHovered) {
+      this._controls.enabled = false;
+    }
+
+    this.update();
+  };
+
+  widgetsPeakVelocity.prototype.onMove = function onMove(evt) {
+    if (this._active) {
+      var prevPosition = this._moveHandle.worldPosition.clone();
+
       this._moveHandle.onMove(evt, true);
-      this._handle.onStart(evt);
 
-      this._active = this._handle.active || this._domHovered;
+      var shift = this._moveHandle.worldPosition.clone().sub(prevPosition);
 
-      if (this._domHovered) {
-        this._controls.enabled = false;
+      if (!this.isCorrectRegion(shift)) {
+        this._moveHandle.worldPosition.copy(prevPosition);
+
+        return;
       }
+
+      if (!this._handle.active) {
+        this._handle.worldPosition.add(shift);
+      }
+      this._dragged = true;
+    } else {
+      this.onHover(null);
+    }
+
+    this._handle.onMove(evt);
+    this.update();
+  };
+
+  widgetsPeakVelocity.prototype.onEnd = function onEnd() {
+    this._handle.onEnd();
+
+    if (!this._dragged && this._active && this._initialized) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handle.selected = this._selected;
+    }
+
+    this._initialized = true;
+    this._active = false;
+    this._dragged = false;
+
+    this.update();
+  };
+
+  widgetsPeakVelocity.prototype.isCorrectRegion = function isCorrectRegion(shift) {
+    var region = this.getRegionByXY(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handle.worldPosition.clone().add(shift)));
+
+    return region !== null && region === this._initialRegion && this._regions[region].unitsY === 'cm/sec';
+  };
+
+  widgetsPeakVelocity.prototype.create = function create() {
+    this.createDOM();
+  };
+
+  widgetsPeakVelocity.prototype.createDOM = function createDOM() {
+    this._line = document.createElement('div');
+    this._line.className = 'widgets-dashline';
+    this._container.appendChild(this._line);
+
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+
+    // Measurements
+    var measurementsContainer = document.createElement('div');
+    // Peak Velocity
+    var pvContainer = document.createElement('div');
+    pvContainer.className = 'peakVelocity';
+    measurementsContainer.appendChild(pvContainer);
+    // Gradient
+    var gradientContainer = document.createElement('div');
+    gradientContainer.className = 'gradient';
+    measurementsContainer.appendChild(gradientContainer);
+
+    this._label.appendChild(measurementsContainer);
+    this._container.appendChild(this._label);
+
+    this.updateDOMColor();
+  };
+
+  widgetsPeakVelocity.prototype.update = function update() {
+    this.updateColor();
+
+    this._handle.update();
+    this._worldPosition.copy(this._handle.worldPosition);
+
+    this.updateDOM();
+  };
+
+  widgetsPeakVelocity.prototype.updateDOM = function updateDOM() {
+    this.updateDOMColor();
+
+    var point = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._worldPosition);
+    var region = this._regions[this.getRegionByXY(this._regions, point)];
+    var usPosition = this.getPointInRegion(region, point);
+
+    this._velocity = Math.abs(usPosition.y / 100);
+    this._gradient = 4 * Math.pow(this._velocity, 2);
+
+    // content
+    this._label.querySelector('.peakVelocity').innerHTML = this._velocity.toFixed(2) + ' m/s';
+    this._label.querySelector('.gradient').innerHTML = this._gradient.toFixed(2) + ' mmhg';
+
+    // position
+    var transform = this.adjustLabelTransform(this._label, this._handle.screenPosition, true);
+
+    this._line.style.transform = 'translate3D(' + (transform.x - (point.x - region.x0) * this._camera.zoom) + 'px, ' + transform.y + 'px, 0)';
+    this._line.style.width = (region.x1 - region.x0) * this._camera.zoom + 'px';
+    this._label.style.transform = 'translate3D(' + (transform.x + 10) + 'px, ' + (transform.y + 10) + 'px, 0)';
+  };
+
+  widgetsPeakVelocity.prototype.updateDOMColor = function updateDOMColor() {
+    this._line.style.backgroundColor = this._color;
+    this._label.style.borderColor = this._color;
+  };
+
+  widgetsPeakVelocity.prototype.hideDOM = function hideDOM() {
+    this._line.style.display = 'none';
+    this._label.style.display = 'none';
+    this._handle.hideDOM();
+  };
+
+  widgetsPeakVelocity.prototype.showDOM = function showDOM() {
+    this._line.style.display = '';
+    this._label.style.display = '';
+    this._handle.showDOM();
+  };
+
+  widgetsPeakVelocity.prototype.free = function free() {
+    this.removeEventListeners();
+
+    this.remove(this._handle);
+    this._handle.free();
+    this._handle = null;
+    this.remove(this._moveHandle);
+    this._moveHandle.free();
+    this._moveHandle = null;
+
+    this._container.removeChild(this._line);
+    this._container.removeChild(this._label);
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  widgetsPeakVelocity.prototype.getMeasurements = function getMeasurements() {
+    return {
+      velocity: this._velocity,
+      gradient: this._gradient
+    };
+  };
+
+  _createClass(widgetsPeakVelocity, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handle.targetMesh = targetMesh;
+      this._moveHandle.targetMesh = targetMesh;
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handle.worldPosition.copy(worldPosition);
+      this._moveHandle.worldPosition.copy(worldPosition);
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }, {
+    key: 'active',
+    get: function get() {
+      return this._active;
+    },
+    set: function set(active) {
+      this._active = active;
+      this._controls.enabled = !this._active;
 
       this.update();
-    };
+    }
+  }]);
 
-    _class.prototype.onMove = function onMove(evt) {
-      if (this._active) {
-        var prevPosition = this._moveHandle.worldPosition.clone();
+  return widgetsPeakVelocity;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
 
-        this._moveHandle.onMove(evt, true);
-
-        var shift = this._moveHandle.worldPosition.clone().sub(prevPosition);
-
-        if (!this.isCorrectRegion(shift)) {
-          this._moveHandle.worldPosition.copy(prevPosition);
-
-          return;
-        }
-
-        if (!this._handle.active) {
-          this._handle.worldPosition.add(shift);
-        }
-        this._dragged = true;
-      } else {
-        this.onHover(null);
-      }
-
-      this._handle.onMove(evt);
-      this.update();
-    };
-
-    _class.prototype.onEnd = function onEnd() {
-      this._handle.onEnd();
-
-      if (!this._dragged && this._active && this._initialized) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handle.selected = this._selected;
-      }
-
-      this._initialized = true;
-      this._active = false;
-      this._dragged = false;
-
-      this.update();
-    };
-
-    _class.prototype.isCorrectRegion = function isCorrectRegion(shift) {
-      var region = this.getRegionByXY(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handle.worldPosition.clone().add(shift)));
-
-      return region !== null && region === this._initialRegion && this._regions[region].unitsY === 'cm/sec';
-    };
-
-    _class.prototype.create = function create() {
-      this.createDOM();
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this._line = document.createElement('div');
-      this._line.className = 'widgets-dashline';
-      this._container.appendChild(this._line);
-
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-
-      // Measurements
-      var measurementsContainer = document.createElement('div');
-      // Peak Velocity
-      var pvContainer = document.createElement('div');
-      pvContainer.className = 'peakVelocity';
-      measurementsContainer.appendChild(pvContainer);
-      // Gradient
-      var gradientContainer = document.createElement('div');
-      gradientContainer.className = 'gradient';
-      measurementsContainer.appendChild(gradientContainer);
-
-      this._label.appendChild(measurementsContainer);
-      this._container.appendChild(this._label);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      this._handle.update();
-      this._worldPosition.copy(this._handle.worldPosition);
-
-      this.updateDOM();
-    };
-
-    _class.prototype.updateDOM = function updateDOM() {
-      this.updateDOMColor();
-
-      var point = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._worldPosition);
-      var region = this._regions[this.getRegionByXY(this._regions, point)];
-      var usPosition = this.getPointInRegion(region, point);
-
-      this._velocity = Math.abs(usPosition.y / 100);
-      this._gradient = 4 * Math.pow(this._velocity, 2);
-
-      // content
-      this._label.querySelector('.peakVelocity').innerHTML = this._velocity.toFixed(2) + ' m/s';
-      this._label.querySelector('.gradient').innerHTML = this._gradient.toFixed(2) + ' mmhg';
-
-      // position
-      var transform = this.adjustLabelTransform(this._label, this._handle.screenPosition, true);
-
-      this._line.style.transform = 'translate3D(' + (transform.x - (point.x - region.x0) * this._camera.zoom) + 'px, ' + transform.y + 'px, 0)';
-      this._line.style.width = (region.x1 - region.x0) * this._camera.zoom + 'px';
-      this._label.style.transform = 'translate3D(' + (transform.x + 10) + 'px, ' + (transform.y + 10) + 'px, 0)';
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      this._line.style.backgroundColor = this._color;
-      this._label.style.borderColor = this._color;
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._line.style.display = 'none';
-      this._label.style.display = 'none';
-      this._handle.hideDOM();
-    };
-
-    _class.prototype.showDOM = function showDOM() {
-      this._line.style.display = '';
-      this._label.style.display = '';
-      this._handle.showDOM();
-    };
-
-    _class.prototype.free = function free() {
-      this.removeEventListeners();
-
-      this.remove(this._handle);
-      this._handle.free();
-      this._handle = null;
-      this.remove(this._moveHandle);
-      this._moveHandle.free();
-      this._moveHandle = null;
-
-      this._container.removeChild(this._line);
-      this._container.removeChild(this._label);
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    _class.prototype.getMeasurements = function getMeasurements() {
-      return {
-        velocity: this._velocity,
-        gradient: this._gradient
-      };
-    };
-
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handle.targetMesh = targetMesh;
-        this._moveHandle.targetMesh = targetMesh;
-        this.update();
-      }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handle.worldPosition.copy(worldPosition);
-        this._moveHandle.worldPosition.copy(worldPosition);
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }, {
-      key: 'active',
-      get: function get() {
-        return this._active;
-      },
-      set: function set(active) {
-        this._active = active;
-        this._controls.enabled = !this._active;
-
-        this.update();
-      }
-    }]);
-
-    return _class;
-  }(Constructor);
-};
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsPeakVelocity());
 
 /***/ }),
 
@@ -99769,7 +99608,7 @@ var widgetsPeakVelocity = function widgetsPeakVelocity() {
 /*!****************************************!*\
   !*** ./src/widgets/widgets.polygon.js ***!
   \****************************************/
-/*! exports provided: widgetsPolygon, default */
+/*! exports provided: widgetsPolygon */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99795,623 +99634,622 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/polygon
  */
-var widgetsPolygon = function widgetsPolygon() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsPolygon = function (_widgetsBase) {
+  _inherits(widgetsPolygon, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsPolygon(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsPolygon);
 
-      _this._widgetType = 'Polygon';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (optional: frameIndex, worldPosition)
-      _this._stack = params.stack; // required
-      _this._calibrationFactor = params.calibrationFactor || null;
+    _this._widgetType = 'Polygon';
 
-      // outgoing values
-      _this._area = null;
-      _this._units = !_this._calibrationFactor && !params.stack.frame[params.frameIndex].pixelSpacing ? 'units' : 'cm²';
+    // incoming parameters (optional: frameIndex, worldPosition)
+    _this._stack = params.stack; // required
+    _this._calibrationFactor = params.calibrationFactor || null;
 
-      _this._initialized = false; // set to true onDblClick if number of handles > 2
-      _this._newHandleRequired = true; // should handle be created onMove?
-      _this._moving = false;
-      _this._domHovered = false;
+    // outgoing values
+    _this._area = null;
+    _this._units = !_this._calibrationFactor && !params.stack.frame[params.frameIndex].pixelSpacing ? 'units' : 'cm²';
 
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
+    _this._initialized = false; // set to true onDblClick if number of handles > 2
+    _this._newHandleRequired = true; // should handle be created onMove?
+    _this._moving = false;
+    _this._domHovered = false;
 
-      // dom stuff
-      _this._lines = [];
-      _this._label = null;
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      // add handles
-      _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+    // dom stuff
+    _this._lines = [];
+    _this._label = null;
 
-      var handle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(handle);
-      _this._handles.push(handle);
+    // add handles
+    _this._handles = [];
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
 
-      _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._moveHandle);
-      _this._moveHandle.hide();
+    var handle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(handle);
+    _this._handles.push(handle);
 
-      _this.onDoubleClick = _this.onDoubleClick.bind(_this);
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHover = _this.onHover.bind(_this);
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._moveHandle.hide();
 
-      _this.create();
+    _this.onDoubleClick = _this.onDoubleClick.bind(_this);
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
 
-      _this.addEventListeners();
-      return _this;
+    _this.create();
+
+    _this.addEventListeners();
+    return _this;
+  }
+
+  widgetsPolygon.prototype.addEventListeners = function addEventListeners() {
+    this._container.addEventListener('dblclick', this.onDoubleClick);
+    this._container.addEventListener('wheel', this.onMove);
+
+    this._label.addEventListener('mouseenter', this.onHover);
+    this._label.addEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsPolygon.prototype.removeEventListeners = function removeEventListeners() {
+    this._container.removeEventListener('dblclick', this.onDoubleClick);
+    this._container.removeEventListener('wheel', this.onMove);
+
+    this._label.removeEventListener('mouseenter', this.onHover);
+    this._label.removeEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsPolygon.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._container.addEventListener('dblclick', this.onDoubleClick);
-      this._container.addEventListener('wheel', this.onMove);
+    this.hoverMesh();
 
-      this._label.addEventListener('mouseenter', this.onHover);
-      this._label.addEventListener('mouseleave', this.onHover);
-    };
+    var hovered = false;
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._container.removeEventListener('dblclick', this.onDoubleClick);
-      this._container.removeEventListener('wheel', this.onMove);
+    this._handles.forEach(function (elem) {
+      return hovered = hovered || elem.hovered;
+    });
 
-      this._label.removeEventListener('mouseenter', this.onHover);
-      this._label.removeEventListener('mouseleave', this.onHover);
-    };
+    this._hovered = hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+  widgetsPolygon.prototype.hoverMesh = function hoverMesh() {
+    // check raycast intersection, if we want to hover on mesh instead of just css
+  };
 
-      this.hoverMesh();
+  widgetsPolygon.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
 
-      var hovered = false;
+  widgetsPolygon.prototype.onStart = function onStart(evt) {
+    var active = false;
 
-      this._handles.forEach(function (elem) {
-        return hovered = hovered || elem.hovered;
-      });
+    this._handles.forEach(function (elem) {
+      elem.onStart(evt);
+      active = active || elem.active;
+    });
 
-      this._hovered = hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    if (!this._initialized) {
+      return;
+    }
 
-    _class.prototype.hoverMesh = function hoverMesh() {
-      // check raycast intersection, if we want to hover on mesh instead of just css
-    };
+    this._moveHandle.onMove(evt, true);
+    this._active = active || this._domHovered;
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+    if (this._domHovered && this._initialized) {
+      this._moving = true;
+      this._controls.enabled = false;
+    }
 
-    _class.prototype.onStart = function onStart(evt) {
-      var active = false;
+    this.update();
+  };
 
-      this._handles.forEach(function (elem) {
-        elem.onStart(evt);
-        active = active || elem.active;
-      });
+  widgetsPolygon.prototype.onMove = function onMove(evt) {
+    var _this2 = this;
 
-      if (!this._initialized) {
-        return;
-      }
+    var hovered = false;
 
-      this._moveHandle.onMove(evt, true);
-      this._active = active || this._domHovered;
+    if (this.active) {
+      this._dragged = true;
 
-      if (this._domHovered && this._initialized) {
-        this._moving = true;
-        this._controls.enabled = false;
-      }
+      if (this._newHandleRequired && !this._initialized) {
+        this._handles[this._handles.length - 1].hovered = false;
+        this._handles[this._handles.length - 1].active = false;
+        this._handles[this._handles.length - 1].tracking = false;
 
-      this.update();
-    };
+        var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+        var handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
 
-    _class.prototype.onMove = function onMove(evt) {
-      var _this2 = this;
+        handle.hovered = true;
+        handle.active = true;
+        handle.tracking = true;
+        this.add(handle);
+        this._handles.push(handle);
 
-      var hovered = false;
+        this.createLine();
+        this._newHandleRequired = false;
+      } else {
+        var prevPosition = this._moveHandle.worldPosition.clone();
 
-      if (this.active) {
-        this._dragged = true;
-
-        if (this._newHandleRequired && !this._initialized) {
-          this._handles[this._handles.length - 1].hovered = false;
-          this._handles[this._handles.length - 1].active = false;
-          this._handles[this._handles.length - 1].tracking = false;
-
-          var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-          var handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
-
-          handle.hovered = true;
-          handle.active = true;
-          handle.tracking = true;
-          this.add(handle);
-          this._handles.push(handle);
-
-          this.createLine();
-          this._newHandleRequired = false;
-        } else {
-          var prevPosition = this._moveHandle.worldPosition.clone();
-
-          this._moveHandle.onMove(evt, true);
-          if (this._mesh) {
-            this.remove(this._mesh);
-          }
-          this.updateDOMContent(true);
-          if (this._moving) {
-            this._handles.forEach(function (handle) {
-              handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
-            });
-          }
+        this._moveHandle.onMove(evt, true);
+        if (this._mesh) {
+          this.remove(this._mesh);
+        }
+        this.updateDOMContent(true);
+        if (this._moving) {
+          this._handles.forEach(function (handle) {
+            handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
+          });
         }
       }
+    }
 
-      this._handles.forEach(function (elem) {
-        elem.onMove(evt);
-        hovered = hovered || elem.hovered;
-      });
+    this._handles.forEach(function (elem) {
+      elem.onMove(evt);
+      hovered = hovered || elem.hovered;
+    });
 
-      this._hovered = hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+    this._hovered = hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
 
-      this.update();
-    };
+    this.update();
+  };
 
-    _class.prototype.onEnd = function onEnd() {
-      var _this3 = this;
+  widgetsPolygon.prototype.onEnd = function onEnd() {
+    var _this3 = this;
 
-      var numHandles = this._handles.length;
-      var active = false;
+    var numHandles = this._handles.length;
+    var active = false;
 
-      if (!this._initialized && numHandles > 1 && this._handles[numHandles - 2].screenPosition.distanceTo(this._handles[numHandles - 1].screenPosition) < 10) {
-        return;
-      }
+    if (!this._initialized && numHandles > 1 && this._handles[numHandles - 2].screenPosition.distanceTo(this._handles[numHandles - 1].screenPosition) < 10) {
+      return;
+    }
 
-      this._handles.forEach(function (elem) {
-        elem.onEnd();
-        active = active || elem.active;
-      });
+    this._handles.forEach(function (elem) {
+      elem.onEnd();
+      active = active || elem.active;
+    });
 
-      if (!this._initialized) {
-        this._newHandleRequired = true;
+    if (!this._initialized) {
+      this._newHandleRequired = true;
 
-        return;
-      }
+      return;
+    }
 
-      if (this._dragged) {
-        this.updateMesh();
-        this.updateDOMContent();
-      }
-
-      if (!this._dragged && this._active) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles.forEach(function (elem) {
-          return elem.selected = _this3._selected;
-        });
-      }
-      this._active = active || this._handles[numHandles - 1].active;
-      this._dragged = false;
-      this._moving = false;
-
-      this.update();
-    };
-
-    _class.prototype.onDoubleClick = function onDoubleClick() {
-      var numHandles = this._handles.length;
-
-      if (numHandles < 3 || this._initialized || numHandles > 1 && this._handles[numHandles - 2].screenPosition.distanceTo(this._handles[numHandles - 1].screenPosition) < 10) {
-        return;
-      }
-
-      this._handles[numHandles - 1].tracking = false;
-      this._handles.forEach(function (elem) {
-        return elem.onEnd();
-      });
-
-      this._active = false;
-      this._dragged = false;
-      this._moving = false;
-      this._initialized = true;
-
+    if (this._dragged) {
       this.updateMesh();
       this.updateDOMContent();
-      this.update();
-    };
+    }
 
-    _class.prototype.create = function create() {
-      this.createMaterial();
-      this.createDOM();
-    };
-
-    _class.prototype.createMaterial = function createMaterial() {
-      this._material = new three__WEBPACK_IMPORTED_MODULE_3__["MeshBasicMaterial"]({ side: three__WEBPACK_IMPORTED_MODULE_3__["DoubleSide"] });
-      this._material.transparent = true;
-      this._material.opacity = 0.2;
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this.createLine();
-
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-
-      // measurements
-      var measurementsContainer = document.createElement('div');
-      // Mean / SD
-      var meanSDContainer = document.createElement('div');
-      meanSDContainer.className = 'mean-sd';
-      measurementsContainer.appendChild(meanSDContainer);
-      // Max / Min
-      var maxMinContainer = document.createElement('div');
-      maxMinContainer.className = 'max-min';
-      measurementsContainer.appendChild(maxMinContainer);
-      // Area
-      var areaContainer = document.createElement('div');
-      areaContainer.className = 'area';
-      measurementsContainer.appendChild(areaContainer);
-
-      this._label.appendChild(measurementsContainer);
-
-      this._container.appendChild(this._label);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.createLine = function createLine() {
-      var line = document.createElement('div');
-
-      line.className = 'widgets-line';
-      line.addEventListener('mouseenter', this.onHover);
-      line.addEventListener('mouseleave', this.onHover);
-      this._lines.push(line);
-      this._container.appendChild(line);
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
+    if (!this._dragged && this._active) {
+      this._selected = !this._selected; // change state if there was no dragging
       this._handles.forEach(function (elem) {
-        return elem.hideDOM();
+        return elem.selected = _this3._selected;
       });
+    }
+    this._active = active || this._handles[numHandles - 1].active;
+    this._dragged = false;
+    this._moving = false;
 
-      this._lines.forEach(function (elem) {
-        return elem.style.display = 'none';
-      });
-      this._label.style.display = 'none';
-    };
+    this.update();
+  };
 
-    _class.prototype.showDOM = function showDOM() {
-      this._handles.forEach(function (elem) {
-        return elem.showDOM();
-      });
+  widgetsPolygon.prototype.onDoubleClick = function onDoubleClick() {
+    var numHandles = this._handles.length;
 
-      this._lines.forEach(function (elem) {
-        return elem.style.display = '';
-      });
-      this._label.style.display = '';
-    };
+    if (numHandles < 3 || this._initialized || numHandles > 1 && this._handles[numHandles - 2].screenPosition.distanceTo(this._handles[numHandles - 1].screenPosition) < 10) {
+      return;
+    }
 
-    _class.prototype.update = function update() {
-      this.updateColor();
+    this._handles[numHandles - 1].tracking = false;
+    this._handles.forEach(function (elem) {
+      return elem.onEnd();
+    });
 
-      // update handles
-      this._handles.forEach(function (elem) {
-        return elem.update();
-      });
+    this._active = false;
+    this._dragged = false;
+    this._moving = false;
+    this._initialized = true;
 
-      // mesh stuff
-      this.updateMeshColor();
-      this.updateMeshPosition();
+    this.updateMesh();
+    this.updateDOMContent();
+    this.update();
+  };
 
-      // DOM stuff
-      this.updateDOMColor();
-      this.updateDOMPosition();
-    };
+  widgetsPolygon.prototype.create = function create() {
+    this.createMaterial();
+    this.createDOM();
+  };
 
-    _class.prototype.updateMesh = function updateMesh() {
-      if (this._mesh) {
-        this.remove(this._mesh);
+  widgetsPolygon.prototype.createMaterial = function createMaterial() {
+    this._material = new three__WEBPACK_IMPORTED_MODULE_3__["MeshBasicMaterial"]({ side: three__WEBPACK_IMPORTED_MODULE_3__["DoubleSide"] });
+    this._material.transparent = true;
+    this._material.opacity = 0.2;
+  };
+
+  widgetsPolygon.prototype.createDOM = function createDOM() {
+    this.createLine();
+
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+
+    // measurements
+    var measurementsContainer = document.createElement('div');
+    // Mean / SD
+    var meanSDContainer = document.createElement('div');
+    meanSDContainer.className = 'mean-sd';
+    measurementsContainer.appendChild(meanSDContainer);
+    // Max / Min
+    var maxMinContainer = document.createElement('div');
+    maxMinContainer.className = 'max-min';
+    measurementsContainer.appendChild(maxMinContainer);
+    // Area
+    var areaContainer = document.createElement('div');
+    areaContainer.className = 'area';
+    measurementsContainer.appendChild(areaContainer);
+
+    this._label.appendChild(measurementsContainer);
+
+    this._container.appendChild(this._label);
+
+    this.updateDOMColor();
+  };
+
+  widgetsPolygon.prototype.createLine = function createLine() {
+    var line = document.createElement('div');
+
+    line.className = 'widgets-line';
+    line.addEventListener('mouseenter', this.onHover);
+    line.addEventListener('mouseleave', this.onHover);
+    this._lines.push(line);
+    this._container.appendChild(line);
+  };
+
+  widgetsPolygon.prototype.hideDOM = function hideDOM() {
+    this._handles.forEach(function (elem) {
+      return elem.hideDOM();
+    });
+
+    this._lines.forEach(function (elem) {
+      return elem.style.display = 'none';
+    });
+    this._label.style.display = 'none';
+  };
+
+  widgetsPolygon.prototype.showDOM = function showDOM() {
+    this._handles.forEach(function (elem) {
+      return elem.showDOM();
+    });
+
+    this._lines.forEach(function (elem) {
+      return elem.style.display = '';
+    });
+    this._label.style.display = '';
+  };
+
+  widgetsPolygon.prototype.update = function update() {
+    this.updateColor();
+
+    // update handles
+    this._handles.forEach(function (elem) {
+      return elem.update();
+    });
+
+    // mesh stuff
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    // DOM stuff
+    this.updateDOMColor();
+    this.updateDOMPosition();
+  };
+
+  widgetsPolygon.prototype.updateMesh = function updateMesh() {
+    if (this._mesh) {
+      this.remove(this._mesh);
+    }
+
+    var points = [];
+
+    this._handles.forEach(function (elem) {
+      return points.push(elem.worldPosition);
+    });
+
+    var center = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].centerOfMass(points);
+    // direction from first point to center
+    var referenceDirection = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[0], center).normalize();
+    var direction = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().crossVectors(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[0], center), // side 1
+    new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[1], center) // side 2
+    );
+    var base = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().crossVectors(referenceDirection, direction).normalize();
+    var orderedpoints = [];
+
+    // other lines // if inter, return location + angle
+    for (var j = 0; j < points.length; j++) {
+      var point = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](points[j].x, points[j].y, points[j].z);
+
+      point.direction = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[j], center).normalize();
+
+      var x = referenceDirection.dot(point.direction);
+      var y = base.dot(point.direction);
+
+      point.xy = { x: x, y: y };
+      point.angle = Math.atan2(y, x) * (180 / Math.PI);
+
+      orderedpoints.push(point);
+    }
+
+    // override to catch console.warn "THREE.ShapeUtils: Unable to triangulate polygon! in triangulate()"
+    this._shapeWarn = false;
+    var oldWarn = console.warn;
+    console.warn = function () {
+      for (var _len = arguments.length, rest = Array(_len), _key = 0; _key < _len; _key++) {
+        rest[_key] = arguments[_key];
       }
 
-      var points = [];
-
-      this._handles.forEach(function (elem) {
-        return points.push(elem.worldPosition);
-      });
-
-      var center = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].centerOfMass(points);
-      // direction from first point to center
-      var referenceDirection = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[0], center).normalize();
-      var direction = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().crossVectors(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[0], center), // side 1
-      new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[1], center) // side 2
-      );
-      var base = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().crossVectors(referenceDirection, direction).normalize();
-      var orderedpoints = [];
-
-      // other lines // if inter, return location + angle
-      for (var j = 0; j < points.length; j++) {
-        var point = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"](points[j].x, points[j].y, points[j].z);
-
-        point.direction = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(points[j], center).normalize();
-
-        var x = referenceDirection.dot(point.direction);
-        var y = base.dot(point.direction);
-
-        point.xy = { x: x, y: y };
-        point.angle = Math.atan2(y, x) * (180 / Math.PI);
-
-        orderedpoints.push(point);
+      if (rest[0] === 'THREE.ShapeUtils: Unable to triangulate polygon! in triangulate()') {
+        this._shapeWarn = true;
       }
+      return oldWarn.apply(console, rest);
+    }.bind(this);
 
-      // override to catch console.warn "THREE.ShapeUtils: Unable to triangulate polygon! in triangulate()"
-      this._shapeWarn = false;
-      var oldWarn = console.warn;
-      console.warn = function () {
-        for (var _len = arguments.length, rest = Array(_len), _key = 0; _key < _len; _key++) {
-          rest[_key] = arguments[_key];
-        }
+    // create the shape
+    var shape = new three__WEBPACK_IMPORTED_MODULE_3__["Shape"]();
+    // move to first point!
+    shape.moveTo(orderedpoints[0].xy.x, orderedpoints[0].xy.y);
 
-        if (rest[0] === 'THREE.ShapeUtils: Unable to triangulate polygon! in triangulate()') {
-          this._shapeWarn = true;
-        }
-        return oldWarn.apply(console, rest);
-      }.bind(this);
+    // loop through all points!
+    for (var l = 1; l < orderedpoints.length; l++) {
+      // project each on plane!
+      shape.lineTo(orderedpoints[l].xy.x, orderedpoints[l].xy.y);
+    }
 
-      // create the shape
-      var shape = new three__WEBPACK_IMPORTED_MODULE_3__["Shape"]();
-      // move to first point!
-      shape.moveTo(orderedpoints[0].xy.x, orderedpoints[0].xy.y);
+    // close the shape!
+    shape.lineTo(orderedpoints[0].xy.x, orderedpoints[0].xy.y);
 
-      // loop through all points!
-      for (var l = 1; l < orderedpoints.length; l++) {
-        // project each on plane!
-        shape.lineTo(orderedpoints[l].xy.x, orderedpoints[l].xy.y);
-      }
+    this._geometry = new three__WEBPACK_IMPORTED_MODULE_3__["ShapeGeometry"](shape);
 
-      // close the shape!
-      shape.lineTo(orderedpoints[0].xy.x, orderedpoints[0].xy.y);
+    console.warn = oldWarn;
 
-      this._geometry = new three__WEBPACK_IMPORTED_MODULE_3__["ShapeGeometry"](shape);
+    this._geometry.vertices = orderedpoints;
+    this._geometry.verticesNeedUpdate = true;
+    this._geometry.elementsNeedUpdate = true;
 
-      console.warn = oldWarn;
+    this.updateMeshColor();
 
-      this._geometry.vertices = orderedpoints;
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Mesh"](this._geometry, this._material);
+    this._mesh.visible = true;
+    this.add(this._mesh);
+  };
+
+  widgetsPolygon.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsPolygon.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._geometry) {
       this._geometry.verticesNeedUpdate = true;
-      this._geometry.elementsNeedUpdate = true;
+    }
+  };
 
-      this.updateMeshColor();
+  widgetsPolygon.prototype.updateDOMColor = function updateDOMColor() {
+    var _this4 = this;
 
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Mesh"](this._geometry, this._material);
-      this._mesh.visible = true;
-      this.add(this._mesh);
-    };
+    this._lines.forEach(function (elem) {
+      return elem.style.backgroundColor = _this4._color;
+    });
+    this._label.style.borderColor = this._color;
+  };
 
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
+  widgetsPolygon.prototype.updateDOMContent = function updateDOMContent(clear) {
+    var _this5 = this;
 
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._geometry) {
-        this._geometry.verticesNeedUpdate = true;
-      }
-    };
+    var meanSDContainer = this._label.querySelector('.mean-sd');
+    var maxMinContainer = this._label.querySelector('.max-min');
+    var areaContainer = this._label.querySelector('.area');
 
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      var _this4 = this;
+    if (clear) {
+      meanSDContainer.innerHTML = '';
+      maxMinContainer.innerHTML = '';
+      areaContainer.innerHTML = '';
 
-      this._lines.forEach(function (elem) {
-        return elem.style.backgroundColor = _this4._color;
-      });
-      this._label.style.borderColor = this._color;
-    };
+      return;
+    }
 
-    _class.prototype.updateDOMContent = function updateDOMContent(clear) {
-      var _this5 = this;
+    var regions = this._stack.frame[this._params.frameIndex].ultrasoundRegions || [];
 
-      var meanSDContainer = this._label.querySelector('.mean-sd');
-      var maxMinContainer = this._label.querySelector('.max-min');
-      var areaContainer = this._label.querySelector('.area');
+    this._area = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getGeometryArea(this._geometry); // this.getArea result is changed on dragging
+    if (this._calibrationFactor) {
+      this._area *= Math.pow(this._calibrationFactor, 2);
+    } else if (regions && regions.length > 0 && this._stack.lps2IJK) {
+      var same = true;
+      var cRegion = void 0;
+      var pRegion = void 0;
 
-      if (clear) {
-        meanSDContainer.innerHTML = '';
-        maxMinContainer.innerHTML = '';
-        areaContainer.innerHTML = '';
-
-        return;
-      }
-
-      var regions = this._stack.frame[this._params.frameIndex].ultrasoundRegions || [];
-
-      this._area = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getGeometryArea(this._geometry); // this.getArea result is changed on dragging
-      if (this._calibrationFactor) {
-        this._area *= Math.pow(this._calibrationFactor, 2);
-      } else if (regions && regions.length > 0 && this._stack.lps2IJK) {
-        var same = true;
-        var cRegion = void 0;
-        var pRegion = void 0;
-
-        this._handles.forEach(function (elem) {
-          cRegion = _this5.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(_this5._stack.lps2IJK, elem.worldPosition));
-          if (cRegion === null || regions[cRegion].unitsX !== 'cm' || pRegion !== undefined && pRegion !== cRegion) {
-            same = false;
-          }
-          pRegion = cRegion;
-        });
-
-        if (same) {
-          this._area *= Math.pow(regions[cRegion].deltaX, 2);
-          this._units = 'cm²';
-        } else if (this._stack.frame[this._params.frameIndex].pixelSpacing) {
-          this._area /= 100;
-          this._units = 'cm²';
-        } else {
-          this._units = 'units';
+      this._handles.forEach(function (elem) {
+        cRegion = _this5.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(_this5._stack.lps2IJK, elem.worldPosition));
+        if (cRegion === null || regions[cRegion].unitsX !== 'cm' || pRegion !== undefined && pRegion !== cRegion) {
+          same = false;
         }
-      } else if (this._units === 'cm²') {
-        this._area /= 100;
-      }
-
-      var title = this._units === 'units' ? 'Calibration is required to display the area in cm². ' : '';
-
-      if (this._shapeWarn) {
-        title += 'Values may be incorrect due to triangulation error.';
-      }
-      if (title !== '' && !this._label.hasAttribute('title')) {
-        this._label.setAttribute('title', title);
-        this._label.style.color = this._colors.error;
-      } else if (title === '' && this._label.hasAttribute('title')) {
-        this._label.removeAttribute('title');
-        this._label.style.color = this._colors.text;
-      }
-
-      var roi = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getRoI(this._mesh, this._camera, this._stack);
-
-      if (roi !== null) {
-        meanSDContainer.innerHTML = 'Mean: ' + roi.mean.toFixed(1) + ' / SD: ' + roi.sd.toFixed(1);
-        maxMinContainer.innerHTML = 'Max: ' + roi.max.toFixed() + ' / Min: ' + roi.min.toFixed();
-      } else {
-        meanSDContainer.innerHTML = '';
-        maxMinContainer.innerHTML = '';
-      }
-      areaContainer.innerHTML = 'Area: ' + this._area.toFixed(2) + ' ' + this._units;
-    };
-
-    _class.prototype.updateDOMPosition = function updateDOMPosition() {
-      var _this6 = this;
-
-      // update lines and get coordinates of lowest handle
-      var labelPosition = null;
-
-      this._lines.forEach(function (elem, ind) {
-        var lineData = _this6.getLineData(_this6._handles[ind].screenPosition, _this6._handles[ind + 1 === _this6._handles.length ? 0 : ind + 1].screenPosition);
-
-        elem.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n                    rotate(' + lineData.transformAngle + 'rad)';
-        elem.style.width = lineData.length + 'px';
-
-        if (labelPosition === null || labelPosition.y < _this6._handles[ind].screenPosition.y) {
-          labelPosition = _this6._handles[ind].screenPosition.clone();
-        }
+        pRegion = cRegion;
       });
 
-      if (!this._initialized) {
-        return;
-      }
-
-      // update label
-      labelPosition.y += 15 + this._label.offsetHeight / 2;
-      labelPosition = this.adjustLabelTransform(this._label, labelPosition);
-
-      this._label.style.transform = 'translate3D(' + labelPosition.x + 'px, ' + labelPosition.y + 'px, 0)';
-    };
-
-    _class.prototype.free = function free() {
-      var _this7 = this;
-
-      this.removeEventListeners();
-
-      this._handles.forEach(function (h) {
-        _this7.remove(h);
-        h.free();
-      });
-      this._handles = [];
-
-      this.remove(this._moveHandle);
-      this._moveHandle.free();
-      this._moveHandle = null;
-
-      this._lines.forEach(function (elem) {
-        elem.removeEventListener('mouseenter', _this7.onHover);
-        elem.removeEventListener('mouseleave', _this7.onHover);
-        _this7._container.removeChild(elem);
-      });
-      this._lines = [];
-      this._container.removeChild(this._label);
-
-      // mesh, geometry, material
-      if (this._mesh) {
-        this.remove(this._mesh);
-        this._mesh.geometry.dispose();
-        this._mesh.geometry = null;
-        this._mesh.material.dispose();
-        this._mesh.material = null;
-        this._mesh = null;
-      }
-      if (this._geometry) {
-        this._geometry.dispose();
-        this._geometry = null;
-      }
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      this._stack = null;
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    _class.prototype.getMeasurements = function getMeasurements() {
-      return {
-        area: this._area,
-        units: this._units
-      };
-    };
-
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
-        });
-        this._moveHandle.targetMesh = targetMesh;
-        this.update();
-      }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles.forEach(function (elem) {
-          return elem.worldPosition.copy(worldPosition);
-        });
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }, {
-      key: 'calibrationFactor',
-      get: function get() {
-        return this._calibrationFactor;
-      },
-      set: function set(calibrationFactor) {
-        this._calibrationFactor = calibrationFactor;
+      if (same) {
+        this._area *= Math.pow(regions[cRegion].deltaX, 2);
         this._units = 'cm²';
-        this.update();
+      } else if (this._stack.frame[this._params.frameIndex].pixelSpacing) {
+        this._area /= 100;
+        this._units = 'cm²';
+      } else {
+        this._units = 'units';
       }
-    }]);
+    } else if (this._units === 'cm²') {
+      this._area /= 100;
+    }
 
-    return _class;
-  }(Constructor);
-};
+    var title = this._units === 'units' ? 'Calibration is required to display the area in cm². ' : '';
+
+    if (this._shapeWarn) {
+      title += 'Values may be incorrect due to triangulation error.';
+    }
+    if (title !== '' && !this._label.hasAttribute('title')) {
+      this._label.setAttribute('title', title);
+      this._label.style.color = this._colors.error;
+    } else if (title === '' && this._label.hasAttribute('title')) {
+      this._label.removeAttribute('title');
+      this._label.style.color = this._colors.text;
+    }
+
+    var roi = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getRoI(this._mesh, this._camera, this._stack);
+
+    if (roi !== null) {
+      meanSDContainer.innerHTML = 'Mean: ' + roi.mean.toFixed(1) + ' / SD: ' + roi.sd.toFixed(1);
+      maxMinContainer.innerHTML = 'Max: ' + roi.max.toFixed() + ' / Min: ' + roi.min.toFixed();
+    } else {
+      meanSDContainer.innerHTML = '';
+      maxMinContainer.innerHTML = '';
+    }
+    areaContainer.innerHTML = 'Area: ' + this._area.toFixed(2) + ' ' + this._units;
+  };
+
+  widgetsPolygon.prototype.updateDOMPosition = function updateDOMPosition() {
+    var _this6 = this;
+
+    // update lines and get coordinates of lowest handle
+    var labelPosition = null;
+
+    this._lines.forEach(function (elem, ind) {
+      var lineData = _this6.getLineData(_this6._handles[ind].screenPosition, _this6._handles[ind + 1 === _this6._handles.length ? 0 : ind + 1].screenPosition);
+
+      elem.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n                    rotate(' + lineData.transformAngle + 'rad)';
+      elem.style.width = lineData.length + 'px';
+
+      if (labelPosition === null || labelPosition.y < _this6._handles[ind].screenPosition.y) {
+        labelPosition = _this6._handles[ind].screenPosition.clone();
+      }
+    });
+
+    if (!this._initialized) {
+      return;
+    }
+
+    // update label
+    labelPosition.y += 15 + this._label.offsetHeight / 2;
+    labelPosition = this.adjustLabelTransform(this._label, labelPosition);
+
+    this._label.style.transform = 'translate3D(' + labelPosition.x + 'px, ' + labelPosition.y + 'px, 0)';
+  };
+
+  widgetsPolygon.prototype.free = function free() {
+    var _this7 = this;
+
+    this.removeEventListeners();
+
+    this._handles.forEach(function (h) {
+      _this7.remove(h);
+      h.free();
+    });
+    this._handles = [];
+
+    this.remove(this._moveHandle);
+    this._moveHandle.free();
+    this._moveHandle = null;
+
+    this._lines.forEach(function (elem) {
+      elem.removeEventListener('mouseenter', _this7.onHover);
+      elem.removeEventListener('mouseleave', _this7.onHover);
+      _this7._container.removeChild(elem);
+    });
+    this._lines = [];
+    this._container.removeChild(this._label);
+
+    // mesh, geometry, material
+    if (this._mesh) {
+      this.remove(this._mesh);
+      this._mesh.geometry.dispose();
+      this._mesh.geometry = null;
+      this._mesh.material.dispose();
+      this._mesh.material = null;
+      this._mesh = null;
+    }
+    if (this._geometry) {
+      this._geometry.dispose();
+      this._geometry = null;
+    }
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    this._stack = null;
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  widgetsPolygon.prototype.getMeasurements = function getMeasurements() {
+    return {
+      area: this._area,
+      units: this._units
+    };
+  };
+
+  _createClass(widgetsPolygon, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handles.forEach(function (elem) {
+        return elem.targetMesh = targetMesh;
+      });
+      this._moveHandle.targetMesh = targetMesh;
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handles.forEach(function (elem) {
+        return elem.worldPosition.copy(worldPosition);
+      });
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }, {
+    key: 'calibrationFactor',
+    get: function get() {
+      return this._calibrationFactor;
+    },
+    set: function set(calibrationFactor) {
+      this._calibrationFactor = calibrationFactor;
+      this._units = 'cm²';
+      this.update();
+    }
+  }]);
+
+  return widgetsPolygon;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
+
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsPolygon());
 
 /***/ }),
 
@@ -100419,7 +100257,7 @@ var widgetsPolygon = function widgetsPolygon() {
 /*!*************************************************!*\
   !*** ./src/widgets/widgets.pressureHalfTime.js ***!
   \*************************************************/
-/*! exports provided: widgetsPressureHalfTime, default */
+/*! exports provided: widgetsPressureHalfTime */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100446,434 +100284,432 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/pressureHalfTime
  */
-var widgetsPressureHalfTime = function widgetsPressureHalfTime() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
 
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
+var widgetsPressureHalfTime = function (_widgetsBase) {
+  _inherits(widgetsPressureHalfTime, _widgetsBase);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  function widgetsPressureHalfTime(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      _classCallCheck(this, _class);
+    _classCallCheck(this, widgetsPressureHalfTime);
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      _this._widgetType = 'PressureHalfTime';
+    _this._widgetType = 'PressureHalfTime';
 
-      // incoming parameters (required: lps2IJK, worldPosition)
-      _this._regions = params.ultrasoundRegions || []; // required
-      if (_this._regions.length < 1) {
-        throw new Error('Ultrasound regions should not be empty!');
-      }
-
-      // outgoing values
-      _this._vMax = null; // Maximum Velocity (Vmax)
-      _this._gMax = null; // Maximum Gradient (Gmax)
-      _this._pht = null; // Pressure Half Time (PHT)
-      _this._mva = null; // Mitral Valve Area (MVA)
-      _this._dt = null; // Deceleration Time (DT)
-      _this._ds = null; // Deceleration Slope (DS)
-
-      _this._domHovered = false;
-      _this._initialRegion = _this.getRegionByXY(_this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(params.lps2IJK, params.worldPosition));
-      if (_this._initialRegion === null) {
-        throw new Error('Invalid initial UltraSound region!');
-      }
-
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
-
-      // dom stuff
-      _this._line = null;
-      _this._label = null;
-
-      // add handles
-      _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-
-      var handle = void 0;
-      for (var i = 0; i < 2; i++) {
-        handle = new WidgetsHandle(targetMesh, controls, params);
-        _this.add(handle);
-        _this._handles.push(handle);
-      }
-      _this._handles[1].active = true;
-      _this._handles[1].tracking = true;
-
-      _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._moveHandle);
-      _this._handles.push(_this._moveHandle);
-      _this._moveHandle.hide();
-
-      _this.create();
-
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHover = _this.onHover.bind(_this);
-      _this.addEventListeners();
-      return _this;
+    // incoming parameters (required: lps2IJK, worldPosition)
+    _this._regions = params.ultrasoundRegions || []; // required
+    if (_this._regions.length < 1) {
+      throw new Error('Ultrasound regions should not be empty!');
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._container.addEventListener('wheel', this.onMove);
+    // outgoing values
+    _this._vMax = null; // Maximum Velocity (Vmax)
+    _this._gMax = null; // Maximum Gradient (Gmax)
+    _this._pht = null; // Pressure Half Time (PHT)
+    _this._mva = null; // Mitral Valve Area (MVA)
+    _this._dt = null; // Deceleration Time (DT)
+    _this._ds = null; // Deceleration Slope (DS)
 
-      this._line.addEventListener('mouseenter', this.onHover);
-      this._line.addEventListener('mouseleave', this.onHover);
-      this._label.addEventListener('mouseenter', this.onHover);
-      this._label.addEventListener('mouseleave', this.onHover);
-    };
+    _this._domHovered = false;
+    _this._initialRegion = _this.getRegionByXY(_this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(params.lps2IJK, params.worldPosition));
+    if (_this._initialRegion === null) {
+      throw new Error('Invalid initial UltraSound region!');
+    }
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._container.removeEventListener('wheel', this.onMove);
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      this._line.removeEventListener('mouseenter', this.onHover);
-      this._line.removeEventListener('mouseleave', this.onHover);
-      this._label.removeEventListener('mouseenter', this.onHover);
-      this._label.removeEventListener('mouseleave', this.onHover);
-    };
+    // dom stuff
+    _this._line = null;
+    _this._label = null;
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+    // add handles
+    _this._handles = [];
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
 
-      this.hoverMesh();
+    var handle = void 0;
+    for (var i = 0; i < 2; i++) {
+      handle = new WidgetsHandle(targetMesh, controls, params);
+      _this.add(handle);
+      _this._handles.push(handle);
+    }
+    _this._handles[1].active = true;
+    _this._handles[1].tracking = true;
 
-      this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._handles.push(_this._moveHandle);
+    _this._moveHandle.hide();
 
-    _class.prototype.hoverMesh = function hoverMesh() {
-      // check raycast intersection, do we want to hover on mesh or just css?
-    };
+    _this.create();
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
+    _this.addEventListeners();
+    return _this;
+  }
 
-    _class.prototype.onStart = function onStart(evt) {
+  widgetsPressureHalfTime.prototype.addEventListeners = function addEventListeners() {
+    this._container.addEventListener('wheel', this.onMove);
+
+    this._line.addEventListener('mouseenter', this.onHover);
+    this._line.addEventListener('mouseleave', this.onHover);
+    this._label.addEventListener('mouseenter', this.onHover);
+    this._label.addEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsPressureHalfTime.prototype.removeEventListeners = function removeEventListeners() {
+    this._container.removeEventListener('wheel', this.onMove);
+
+    this._line.removeEventListener('mouseenter', this.onHover);
+    this._line.removeEventListener('mouseleave', this.onHover);
+    this._label.removeEventListener('mouseenter', this.onHover);
+    this._label.removeEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsPressureHalfTime.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
+    }
+
+    this.hoverMesh();
+
+    this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
+
+  widgetsPressureHalfTime.prototype.hoverMesh = function hoverMesh() {
+    // check raycast intersection, do we want to hover on mesh or just css?
+  };
+
+  widgetsPressureHalfTime.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
+
+  widgetsPressureHalfTime.prototype.onStart = function onStart(evt) {
+    this._moveHandle.onMove(evt, true);
+
+    this._handles[0].onStart(evt);
+    this._handles[1].onStart(evt);
+
+    this._active = this._handles[0].active || this._handles[1].active || this._domHovered;
+
+    if (this._domHovered) {
+      this._controls.enabled = false;
+    }
+
+    this.update();
+  };
+
+  widgetsPressureHalfTime.prototype.onMove = function onMove(evt) {
+    if (this._active) {
+      var prevPosition = this._moveHandle.worldPosition.clone();
+
       this._moveHandle.onMove(evt, true);
 
-      this._handles[0].onStart(evt);
-      this._handles[1].onStart(evt);
+      var shift = this._moveHandle.worldPosition.clone().sub(prevPosition);
 
-      this._active = this._handles[0].active || this._handles[1].active || this._domHovered;
+      if (!this.isCorrectRegion(shift)) {
+        this._moveHandle.worldPosition.copy(prevPosition);
 
-      if (this._domHovered) {
-        this._controls.enabled = false;
-      }
-
-      this.update();
-    };
-
-    _class.prototype.onMove = function onMove(evt) {
-      if (this._active) {
-        var prevPosition = this._moveHandle.worldPosition.clone();
-
-        this._moveHandle.onMove(evt, true);
-
-        var shift = this._moveHandle.worldPosition.clone().sub(prevPosition);
-
-        if (!this.isCorrectRegion(shift)) {
-          this._moveHandle.worldPosition.copy(prevPosition);
-
-          return;
-        }
-
-        if (!this._handles[0].active && !this._handles[1].active) {
-          this._handles.slice(0, -1).forEach(function (handle) {
-            handle.worldPosition.add(shift);
-          });
-        }
-        this._dragged = true;
-      } else {
-        this.onHover(null);
-      }
-
-      this._handles[0].onMove(evt);
-      this._handles[1].onMove(evt);
-      this.update();
-    };
-
-    _class.prototype.onEnd = function onEnd() {
-      this._handles[0].onEnd(); // First Handle
-
-      if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
         return;
       }
 
-      if (!this._dragged && this._active && !this._handles[1].tracking) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles[0].selected = this._selected;
-      }
-
-      // Second Handle
-      if (this._dragged || !this._handles[1].tracking) {
-        this._handles[1].tracking = false;
-        this._handles[1].onEnd();
-      } else {
-        this._handles[1].tracking = false;
-      }
-      this._handles[1].selected = this._selected;
-
-      this._active = this._handles[0].active || this._handles[1].active;
-      this._dragged = false;
-
-      this.update();
-    };
-
-    _class.prototype.isCorrectRegion = function isCorrectRegion(shift) {
-      var inActive = !(this._handles[0].active || this._handles[1].active);
-      var isCorrect = true;
-
-      if (this._handles[0].active || inActive) {
-        isCorrect = isCorrect && this.checkHandle(0, shift);
-      }
-      if (this._handles[1].active || inActive) {
-        isCorrect = isCorrect && this.checkHandle(1, shift);
-      }
-
-      return isCorrect;
-    };
-
-    _class.prototype.checkHandle = function checkHandle(index, shift) {
-      var region = this.getRegionByXY(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[index].worldPosition.clone().add(shift)));
-
-      return region !== null && region === this._initialRegion && this._regions[region].unitsY === 'cm/sec';
-    };
-
-    _class.prototype.create = function create() {
-      this.createMesh();
-      this.createDOM();
-    };
-
-    _class.prototype.createMesh = function createMesh() {
-      // geometry
-      // this._geometry = new three.Geometry();
-      // this._geometry.vertices = [this._handles[0].worldPosition, this._handles[1].worldPosition];
-      this._geometry = new BufferGeometry();
-      var positions = new Float32Array(2 * 3);
-      this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
-      var index = 0;
-      positions[index++] = this._handles[0].worldPosition.x;
-      positions[index++] = this._handles[0].worldPosition.y;
-      positions[index++] = this._handles[0].worldPosition.z;
-
-      positions[index++] = this._handles[1].worldPosition.x;
-      positions[index++] = this._handles[1].worldPosition.y;
-      positions[index++] = this._handles[1].worldPosition.z;
-
-      // material
-      this._material = new three__WEBPACK_IMPORTED_MODULE_3__["LineBasicMaterial"]();
-
-      this.updateMeshColor();
-
-      // mesh
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Line"](this._geometry, this._material);
-      this._mesh.visible = true;
-
-      this.add(this._mesh);
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this._line = document.createElement('div');
-      this._line.className = 'widgets-line';
-      this._container.appendChild(this._line);
-
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-
-      var measurementsContainer = document.createElement('div');
-
-      ['vmax', 'gmax', 'pht', 'mva', 'dt', 'ds'].forEach(function (name) {
-        var div = document.createElement('div');
-
-        div.className = name;
-        measurementsContainer.appendChild(div);
-      });
-      this._label.appendChild(measurementsContainer);
-
-      this._container.appendChild(this._label);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._line.style.display = 'none';
-      this._label.style.display = 'none';
-      this._handles.forEach(function (elem) {
-        return elem.hideDOM();
-      });
-    };
-
-    _class.prototype.showDOM = function showDOM() {
-      this._line.style.display = '';
-      this._label.style.display = '';
-      this._handles[0].showDOM();
-      this._handles[1].showDOM();
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      this._handles[0].update();
-      this._handles[1].update();
-
-      this.updateValues();
-
-      this.updateMeshColor();
-      this.updateMeshPosition();
-
-      this.updateDOM();
-    };
-
-    _class.prototype.updateValues = function updateValues() {
-      var usPosition0 = this.getUsPoint(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[0].worldPosition));
-      var usPosition1 = this.getUsPoint(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[1].worldPosition));
-      var velocity0 = Math.abs(usPosition0.y / 100);
-      var velocity1 = Math.abs(usPosition1.y / 100);
-      var time0 = Math.abs(usPosition0.x);
-      var time1 = Math.abs(usPosition1.x);
-      var vMaxTime = this._vMax === velocity0 ? time0 : time1;
-
-      this._vMax = Math.max(velocity0, velocity1);
-      this._gMax = 4 * Math.pow(this._vMax, 2);
-
-      var phtVelocity = this._vMax / Math.sqrt(2);
-      var phtKoeff = (velocity0 - phtVelocity) / (velocity1 - phtVelocity);
-      var dtKoeff = velocity0 / velocity1;
-
-      this._pht = phtKoeff === 1 ? Number.POSITIVE_INFINITY : Math.abs(vMaxTime - (time0 - phtKoeff * time1) / (1 - phtKoeff)) * 1000;
-      this._mva = 220 / this._pht;
-      this._dt = dtKoeff === 1 ? Number.POSITIVE_INFINITY : Math.abs(vMaxTime - (time0 - dtKoeff * time1) / (1 - dtKoeff)) * 1000;
-      this._ds = this._dt === 0 ? Number.POSITIVE_INFINITY : this._vMax / this._dt * 1000;
-    };
-
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
-
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._geometry) {
-        this._geometry.verticesNeedUpdate = true;
-      }
-    };
-
-    _class.prototype.updateDOM = function updateDOM() {
-      this.updateDOMColor();
-
-      // update line
-      var lineData = this.getLineData(this._handles[0].screenPosition, this._handles[1].screenPosition);
-
-      this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n                rotate(' + lineData.transformAngle + 'rad)';
-      this._line.style.width = lineData.length + 'px';
-
-      // update label
-      this._label.querySelector('.vmax').innerHTML = 'Vmax: ' + this._vMax.toFixed(2) + ' m/s';
-      this._label.querySelector('.gmax').innerHTML = 'Gmax: ' + this._gMax.toFixed(2) + ' mmhg';
-      this._label.querySelector('.pht').innerHTML = 'PHT: ' + this._pht.toFixed(1) + ' ms';
-      this._label.querySelector('.mva').innerHTML = 'MVA: ' + this._mva.toFixed(2) + ' cm\xB2';
-      this._label.querySelector('.dt').innerHTML = 'DT: ' + this._dt.toFixed(1) + ' ms';
-      this._label.querySelector('.ds').innerHTML = 'DS: ' + this._ds.toFixed(2) + ' m/s\xB2';
-
-      var angle = Math.abs(lineData.transformAngle);
-
-      if (angle > Math.PI / 2) {
-        angle = Math.PI - angle;
-      }
-
-      var labelPadding = Math.tan(angle) < this._label.offsetHeight / this._label.offsetWidth ? this._label.offsetWidth / 2 / Math.cos(angle) + 15 // 5px for each handle + padding
-      : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle) + 15;
-      var paddingVector = lineData.line.normalize().multiplyScalar(labelPadding);
-      var paddingPoint = lineData.length > labelPadding * 2 ? this._handles[1].screenPosition.clone().sub(paddingVector) : this._handles[1].screenPosition.clone().add(paddingVector);
-      var transform = this.adjustLabelTransform(this._label, paddingPoint);
-
-      this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      this._line.style.backgroundColor = this._color;
-      this._label.style.borderColor = this._color;
-    };
-
-    _class.prototype.free = function free() {
-      var _this2 = this;
-
-      this.removeEventListeners();
-
-      this._handles.forEach(function (h) {
-        _this2.remove(h);
-        h.free();
-      });
-      this._handles = [];
-
-      this._container.removeChild(this._line);
-      this._container.removeChild(this._label);
-
-      // mesh, geometry, material
-      this.remove(this._mesh);
-      this._mesh.geometry.dispose();
-      this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
-      this._mesh = null;
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    _class.prototype.getMeasurements = function getMeasurements() {
-      return {
-        vMax: this._vMax,
-        gMax: this._gMax,
-        pht: this._pht,
-        mva: this._mva,
-        dt: this._dt,
-        ds: this._ds
-      };
-    };
-
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
+      if (!this._handles[0].active && !this._handles[1].active) {
+        this._handles.slice(0, -1).forEach(function (handle) {
+          handle.worldPosition.add(shift);
         });
-        this.update();
       }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles[0].worldPosition.copy(worldPosition);
-        this._handles[1].worldPosition.copy(worldPosition);
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }]);
+      this._dragged = true;
+    } else {
+      this.onHover(null);
+    }
 
-    return _class;
-  }(Constructor);
-};
+    this._handles[0].onMove(evt);
+    this._handles[1].onMove(evt);
+    this.update();
+  };
+
+  widgetsPressureHalfTime.prototype.onEnd = function onEnd() {
+    this._handles[0].onEnd(); // First Handle
+
+    if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
+      return;
+    }
+
+    if (!this._dragged && this._active && !this._handles[1].tracking) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handles[0].selected = this._selected;
+    }
+
+    // Second Handle
+    if (this._dragged || !this._handles[1].tracking) {
+      this._handles[1].tracking = false;
+      this._handles[1].onEnd();
+    } else {
+      this._handles[1].tracking = false;
+    }
+    this._handles[1].selected = this._selected;
+
+    this._active = this._handles[0].active || this._handles[1].active;
+    this._dragged = false;
+
+    this.update();
+  };
+
+  widgetsPressureHalfTime.prototype.isCorrectRegion = function isCorrectRegion(shift) {
+    var inActive = !(this._handles[0].active || this._handles[1].active);
+    var isCorrect = true;
+
+    if (this._handles[0].active || inActive) {
+      isCorrect = isCorrect && this.checkHandle(0, shift);
+    }
+    if (this._handles[1].active || inActive) {
+      isCorrect = isCorrect && this.checkHandle(1, shift);
+    }
+
+    return isCorrect;
+  };
+
+  widgetsPressureHalfTime.prototype.checkHandle = function checkHandle(index, shift) {
+    var region = this.getRegionByXY(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[index].worldPosition.clone().add(shift)));
+
+    return region !== null && region === this._initialRegion && this._regions[region].unitsY === 'cm/sec';
+  };
+
+  widgetsPressureHalfTime.prototype.create = function create() {
+    this.createMesh();
+    this.createDOM();
+  };
+
+  widgetsPressureHalfTime.prototype.createMesh = function createMesh() {
+    // geometry
+    // this._geometry = new three.Geometry();
+    // this._geometry.vertices = [this._handles[0].worldPosition, this._handles[1].worldPosition];
+    this._geometry = new BufferGeometry();
+    var positions = new Float32Array(2 * 3);
+    this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+    var index = 0;
+    positions[index++] = this._handles[0].worldPosition.x;
+    positions[index++] = this._handles[0].worldPosition.y;
+    positions[index++] = this._handles[0].worldPosition.z;
+
+    positions[index++] = this._handles[1].worldPosition.x;
+    positions[index++] = this._handles[1].worldPosition.y;
+    positions[index++] = this._handles[1].worldPosition.z;
+
+    // material
+    this._material = new three__WEBPACK_IMPORTED_MODULE_3__["LineBasicMaterial"]();
+
+    this.updateMeshColor();
+
+    // mesh
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Line"](this._geometry, this._material);
+    this._mesh.visible = true;
+
+    this.add(this._mesh);
+  };
+
+  widgetsPressureHalfTime.prototype.createDOM = function createDOM() {
+    this._line = document.createElement('div');
+    this._line.className = 'widgets-line';
+    this._container.appendChild(this._line);
+
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+
+    var measurementsContainer = document.createElement('div');
+
+    ['vmax', 'gmax', 'pht', 'mva', 'dt', 'ds'].forEach(function (name) {
+      var div = document.createElement('div');
+
+      div.className = name;
+      measurementsContainer.appendChild(div);
+    });
+    this._label.appendChild(measurementsContainer);
+
+    this._container.appendChild(this._label);
+
+    this.updateDOMColor();
+  };
+
+  widgetsPressureHalfTime.prototype.hideDOM = function hideDOM() {
+    this._line.style.display = 'none';
+    this._label.style.display = 'none';
+    this._handles.forEach(function (elem) {
+      return elem.hideDOM();
+    });
+  };
+
+  widgetsPressureHalfTime.prototype.showDOM = function showDOM() {
+    this._line.style.display = '';
+    this._label.style.display = '';
+    this._handles[0].showDOM();
+    this._handles[1].showDOM();
+  };
+
+  widgetsPressureHalfTime.prototype.update = function update() {
+    this.updateColor();
+
+    this._handles[0].update();
+    this._handles[1].update();
+
+    this.updateValues();
+
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    this.updateDOM();
+  };
+
+  widgetsPressureHalfTime.prototype.updateValues = function updateValues() {
+    var usPosition0 = this.getUsPoint(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[0].worldPosition));
+    var usPosition1 = this.getUsPoint(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[1].worldPosition));
+    var velocity0 = Math.abs(usPosition0.y / 100);
+    var velocity1 = Math.abs(usPosition1.y / 100);
+    var time0 = Math.abs(usPosition0.x);
+    var time1 = Math.abs(usPosition1.x);
+    var vMaxTime = this._vMax === velocity0 ? time0 : time1;
+
+    this._vMax = Math.max(velocity0, velocity1);
+    this._gMax = 4 * Math.pow(this._vMax, 2);
+
+    var phtVelocity = this._vMax / Math.sqrt(2);
+    var phtKoeff = (velocity0 - phtVelocity) / (velocity1 - phtVelocity);
+    var dtKoeff = velocity0 / velocity1;
+
+    this._pht = phtKoeff === 1 ? Number.POSITIVE_INFINITY : Math.abs(vMaxTime - (time0 - phtKoeff * time1) / (1 - phtKoeff)) * 1000;
+    this._mva = 220 / this._pht;
+    this._dt = dtKoeff === 1 ? Number.POSITIVE_INFINITY : Math.abs(vMaxTime - (time0 - dtKoeff * time1) / (1 - dtKoeff)) * 1000;
+    this._ds = this._dt === 0 ? Number.POSITIVE_INFINITY : this._vMax / this._dt * 1000;
+  };
+
+  widgetsPressureHalfTime.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsPressureHalfTime.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._geometry) {
+      this._geometry.verticesNeedUpdate = true;
+    }
+  };
+
+  widgetsPressureHalfTime.prototype.updateDOM = function updateDOM() {
+    this.updateDOMColor();
+
+    // update line
+    var lineData = this.getLineData(this._handles[0].screenPosition, this._handles[1].screenPosition);
+
+    this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n                rotate(' + lineData.transformAngle + 'rad)';
+    this._line.style.width = lineData.length + 'px';
+
+    // update label
+    this._label.querySelector('.vmax').innerHTML = 'Vmax: ' + this._vMax.toFixed(2) + ' m/s';
+    this._label.querySelector('.gmax').innerHTML = 'Gmax: ' + this._gMax.toFixed(2) + ' mmhg';
+    this._label.querySelector('.pht').innerHTML = 'PHT: ' + this._pht.toFixed(1) + ' ms';
+    this._label.querySelector('.mva').innerHTML = 'MVA: ' + this._mva.toFixed(2) + ' cm\xB2';
+    this._label.querySelector('.dt').innerHTML = 'DT: ' + this._dt.toFixed(1) + ' ms';
+    this._label.querySelector('.ds').innerHTML = 'DS: ' + this._ds.toFixed(2) + ' m/s\xB2';
+
+    var angle = Math.abs(lineData.transformAngle);
+
+    if (angle > Math.PI / 2) {
+      angle = Math.PI - angle;
+    }
+
+    var labelPadding = Math.tan(angle) < this._label.offsetHeight / this._label.offsetWidth ? this._label.offsetWidth / 2 / Math.cos(angle) + 15 // 5px for each handle + padding
+    : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle) + 15;
+    var paddingVector = lineData.line.normalize().multiplyScalar(labelPadding);
+    var paddingPoint = lineData.length > labelPadding * 2 ? this._handles[1].screenPosition.clone().sub(paddingVector) : this._handles[1].screenPosition.clone().add(paddingVector);
+    var transform = this.adjustLabelTransform(this._label, paddingPoint);
+
+    this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
+  };
+
+  widgetsPressureHalfTime.prototype.updateDOMColor = function updateDOMColor() {
+    this._line.style.backgroundColor = this._color;
+    this._label.style.borderColor = this._color;
+  };
+
+  widgetsPressureHalfTime.prototype.free = function free() {
+    var _this2 = this;
+
+    this.removeEventListeners();
+
+    this._handles.forEach(function (h) {
+      _this2.remove(h);
+      h.free();
+    });
+    this._handles = [];
+
+    this._container.removeChild(this._line);
+    this._container.removeChild(this._label);
+
+    // mesh, geometry, material
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  widgetsPressureHalfTime.prototype.getMeasurements = function getMeasurements() {
+    return {
+      vMax: this._vMax,
+      gMax: this._gMax,
+      pht: this._pht,
+      mva: this._mva,
+      dt: this._dt,
+      ds: this._ds
+    };
+  };
+
+  _createClass(widgetsPressureHalfTime, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handles.forEach(function (elem) {
+        return elem.targetMesh = targetMesh;
+      });
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handles[0].worldPosition.copy(worldPosition);
+      this._handles[1].worldPosition.copy(worldPosition);
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }]);
+
+  return widgetsPressureHalfTime;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
+
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsPressureHalfTime());
 
 /***/ }),
 
@@ -100881,7 +100717,7 @@ var widgetsPressureHalfTime = function widgetsPressureHalfTime() {
 /*!******************************************!*\
   !*** ./src/widgets/widgets.rectangle.js ***!
   \******************************************/
-/*! exports provided: widgetsRectangle, default */
+/*! exports provided: widgetsRectangle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100907,428 +100743,427 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/rectangle
  */
-var widgetsRectangle = function widgetsRectangle() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsRectangle = function (_widgetsBase) {
+  _inherits(widgetsRectangle, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsRectangle(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsRectangle);
 
-      _this._widgetType = 'Rectangle';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (optional: frameIndex, worldPosition)
-      _this._stack = params.stack; // required
-      _this._calibrationFactor = params.calibrationFactor || null;
+    _this._widgetType = 'Rectangle';
 
-      // outgoing values
-      _this._area = null;
-      _this._units = !_this._calibrationFactor && !params.stack.frame[params.frameIndex].pixelSpacing ? 'units' : 'cm²';
+    // incoming parameters (optional: frameIndex, worldPosition)
+    _this._stack = params.stack; // required
+    _this._calibrationFactor = params.calibrationFactor || null;
 
-      _this._moving = false;
-      _this._domHovered = false;
+    // outgoing values
+    _this._area = null;
+    _this._units = !_this._calibrationFactor && !params.stack.frame[params.frameIndex].pixelSpacing ? 'units' : 'cm²';
 
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
+    _this._moving = false;
+    _this._domHovered = false;
 
-      // dom stuff
-      _this._rectangle = null;
-      _this._label = null;
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      // add handles
-      _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+    // dom stuff
+    _this._rectangle = null;
+    _this._label = null;
 
-      var handle = void 0;
-      for (var i = 0; i < 2; i++) {
-        handle = new WidgetsHandle(targetMesh, controls, params);
-        _this.add(handle);
-        _this._handles.push(handle);
-      }
-      _this._handles[1].active = true;
-      _this._handles[1].tracking = true;
+    // add handles
+    _this._handles = [];
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
 
-      _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._moveHandle);
-      _this._handles.push(_this._moveHandle);
-      _this._moveHandle.hide();
+    var handle = void 0;
+    for (var i = 0; i < 2; i++) {
+      handle = new WidgetsHandle(targetMesh, controls, params);
+      _this.add(handle);
+      _this._handles.push(handle);
+    }
+    _this._handles[1].active = true;
+    _this._handles[1].tracking = true;
 
-      _this.create();
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._handles.push(_this._moveHandle);
+    _this._moveHandle.hide();
 
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHover = _this.onHover.bind(_this);
-      _this.addEventListeners();
-      return _this;
+    _this.create();
+
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
+    _this.addEventListeners();
+    return _this;
+  }
+
+  widgetsRectangle.prototype.addEventListeners = function addEventListeners() {
+    this._container.addEventListener('wheel', this.onMove);
+
+    this._rectangle.addEventListener('mouseenter', this.onHover);
+    this._rectangle.addEventListener('mouseleave', this.onHover);
+    this._label.addEventListener('mouseenter', this.onHover);
+    this._label.addEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsRectangle.prototype.removeEventListeners = function removeEventListeners() {
+    this._container.removeEventListener('wheel', this.onMove);
+
+    this._rectangle.removeEventListener('mouseenter', this.onHover);
+    this._rectangle.removeEventListener('mouseleave', this.onHover);
+    this._label.removeEventListener('mouseenter', this.onHover);
+    this._label.removeEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsRectangle.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._container.addEventListener('wheel', this.onMove);
+    this.hoverMesh();
 
-      this._rectangle.addEventListener('mouseenter', this.onHover);
-      this._rectangle.addEventListener('mouseleave', this.onHover);
-      this._label.addEventListener('mouseenter', this.onHover);
-      this._label.addEventListener('mouseleave', this.onHover);
-    };
+    this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._container.removeEventListener('wheel', this.onMove);
+  widgetsRectangle.prototype.hoverMesh = function hoverMesh() {
+    // check raycast intersection, if we want to hover on mesh instead of just css
+  };
 
-      this._rectangle.removeEventListener('mouseenter', this.onHover);
-      this._rectangle.removeEventListener('mouseleave', this.onHover);
-      this._label.removeEventListener('mouseenter', this.onHover);
-      this._label.removeEventListener('mouseleave', this.onHover);
-    };
+  widgetsRectangle.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+  widgetsRectangle.prototype.onStart = function onStart(evt) {
+    this._moveHandle.onMove(evt, true);
 
-      this.hoverMesh();
+    this._handles[0].onStart(evt);
+    this._handles[1].onStart(evt);
 
-      this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    this._active = this._handles[0].active || this._handles[1].active || this._domHovered;
 
-    _class.prototype.hoverMesh = function hoverMesh() {
-      // check raycast intersection, if we want to hover on mesh instead of just css
-    };
+    if (this._domHovered && !this._handles[1].tracking) {
+      this._moving = true;
+      this._controls.enabled = false;
+    }
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+    this.update();
+  };
 
-    _class.prototype.onStart = function onStart(evt) {
+  widgetsRectangle.prototype.onMove = function onMove(evt) {
+    var _this2 = this;
+
+    if (this._active) {
+      var prevPosition = this._moveHandle.worldPosition.clone();
+
+      this._dragged = true;
       this._moveHandle.onMove(evt, true);
 
-      this._handles[0].onStart(evt);
-      this._handles[1].onStart(evt);
-
-      this._active = this._handles[0].active || this._handles[1].active || this._domHovered;
-
-      if (this._domHovered && !this._handles[1].tracking) {
-        this._moving = true;
-        this._controls.enabled = false;
-      }
-
-      this.update();
-    };
-
-    _class.prototype.onMove = function onMove(evt) {
-      var _this2 = this;
-
-      if (this._active) {
-        var prevPosition = this._moveHandle.worldPosition.clone();
-
-        this._dragged = true;
-        this._moveHandle.onMove(evt, true);
-
-        if (this._moving) {
-          this._handles.slice(0, -1).forEach(function (handle) {
-            handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
-          });
-        }
-
-        this.updateRoI(true);
-      } else {
-        this.onHover(null);
-      }
-
-      this._handles[0].onMove(evt);
-      this._handles[1].onMove(evt);
-
-      this.update();
-    };
-
-    _class.prototype.onEnd = function onEnd() {
-      this._handles[0].onEnd(); // First Handle
-
-      if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
-        return;
-      }
-
-      if (!this._dragged && this._active && !this._handles[1].tracking) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles[0].selected = this._selected;
-      }
-
-      // Second Handle
-      if (this._dragged || !this._handles[1].tracking) {
-        this._handles[1].tracking = false;
-        this._handles[1].onEnd();
-      } else {
-        this._handles[1].tracking = false;
-      }
-      this._handles[1].selected = this._selected;
-
-      this._active = this._handles[0].active || this._handles[1].active;
-      this._dragged = false;
-      this._moving = false;
-
-      this.updateRoI(); // TODO: if (this._dragged || !this._initialized)
-      this.update();
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._handles.forEach(function (elem) {
-        return elem.hideDOM();
-      });
-
-      this._rectangle.style.display = 'none';
-      this._label.style.display = 'none';
-    };
-
-    _class.prototype.showDOM = function showDOM() {
-      this._handles[0].showDOM();
-      this._handles[1].showDOM();
-
-      this._rectangle.style.display = '';
-      this._label.style.display = '';
-    };
-
-    _class.prototype.create = function create() {
-      this.createMesh();
-      this.createDOM();
-    };
-
-    _class.prototype.createMesh = function createMesh() {
-      this._geometry = new three__WEBPACK_IMPORTED_MODULE_3__["PlaneGeometry"](1, 1);
-
-      this._material = new three__WEBPACK_IMPORTED_MODULE_3__["MeshBasicMaterial"]({ side: three__WEBPACK_IMPORTED_MODULE_3__["DoubleSide"] });
-      this._material.transparent = true;
-      this._material.opacity = 0.2;
-
-      this.updateMeshColor();
-
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Mesh"](this._geometry, this._material);
-      this._mesh.visible = true;
-
-      this.add(this._mesh);
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this._rectangle = document.createElement('div');
-      this._rectangle.className = 'widgets-rectangle';
-      this._container.appendChild(this._rectangle);
-
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-
-      // measurements
-      var measurementsContainer = document.createElement('div');
-      // Mean / SD
-      var meanSDContainer = document.createElement('div');
-      meanSDContainer.className = 'mean-sd';
-      measurementsContainer.appendChild(meanSDContainer);
-      // Max / Min
-      var maxMinContainer = document.createElement('div');
-      maxMinContainer.className = 'max-min';
-      measurementsContainer.appendChild(maxMinContainer);
-      // Area
-      var areaContainer = document.createElement('div');
-      areaContainer.className = 'area';
-      measurementsContainer.appendChild(areaContainer);
-
-      this._label.appendChild(measurementsContainer);
-
-      this._container.appendChild(this._label);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      this._handles[0].update();
-      this._handles[1].update();
-
-      this.updateMeshColor();
-      this.updateMeshPosition();
-
-      this.updateDOM();
-    };
-
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
-
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._geometry) {
-        var progection = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(this._handles[1].worldPosition, this._handles[0].worldPosition).projectOnVector(this._camera.up);
-
-        this._geometry.vertices[0].copy(this._handles[0].worldPosition);
-        this._geometry.vertices[1].copy(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().addVectors(this._handles[0].worldPosition, progection));
-        this._geometry.vertices[2].copy(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(this._handles[1].worldPosition, progection));
-        this._geometry.vertices[3].copy(this._handles[1].worldPosition);
-
-        this._geometry.verticesNeedUpdate = true;
-        this._geometry.computeBoundingSphere();
-      }
-    };
-
-    _class.prototype.updateRoI = function updateRoI(clear) {
-      var meanSDContainer = this._label.querySelector('.mean-sd');
-      var maxMinContainer = this._label.querySelector('.max-min');
-
-      if (clear) {
-        meanSDContainer.innerHTML = '';
-        maxMinContainer.innerHTML = '';
-
-        return;
-      }
-
-      var roi = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getRoI(this._mesh, this._camera, this._stack);
-
-      if (roi !== null) {
-        meanSDContainer.innerHTML = 'Mean: ' + roi.mean.toFixed(1) + ' / SD: ' + roi.sd.toFixed(1);
-        maxMinContainer.innerHTML = 'Max: ' + roi.max.toFixed() + ' / Min: ' + roi.min.toFixed();
-      } else {
-        meanSDContainer.innerHTML = '';
-        maxMinContainer.innerHTML = '';
-      }
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      this._rectangle.style.borderColor = this._color;
-      this._label.style.borderColor = this._color;
-    };
-
-    _class.prototype.updateDOM = function updateDOM() {
-      this.updateDOMColor();
-
-      var regions = this._stack.frame[this._params.frameIndex].ultrasoundRegions || [];
-
-      this._area = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getGeometryArea(this._geometry);
-      if (this._calibrationFactor) {
-        this._area *= Math.pow(this._calibrationFactor, 2);
-      } else if (regions && regions.length > 0 && this._stack.lps2IJK) {
-        var region0 = this.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._stack.lps2IJK, this._handles[0].worldPosition));
-        var region1 = this.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._stack.lps2IJK, this._handles[1].worldPosition));
-
-        if (region0 !== null && region1 !== null && region0 === region1 && regions[region0].unitsX === 'cm' && regions[region0].unitsY === 'cm') {
-          this._area *= Math.pow(regions[region0].deltaX, 2);
-          this._units = 'cm²';
-        } else if (this._stack.frame[this._params.frameIndex].pixelSpacing) {
-          this._area /= 100;
-          this._units = 'cm²';
-        } else {
-          this._units = 'units';
-        }
-      } else if (this._units === 'cm²') {
-        this._area /= 100;
-      }
-
-      if (this._units === 'units' && !this._label.hasAttribute('title')) {
-        this._label.setAttribute('title', 'Calibration is required to display the area in cm²');
-        this._label.style.color = this._colors.error;
-      } else if (this._units !== 'units' && this._label.hasAttribute('title')) {
-        this._label.removeAttribute('title');
-        this._label.style.color = this._colors.text;
-      }
-      this._label.querySelector('.area').innerHTML = 'Area: ' + this._area.toFixed(2) + ' ' + this._units;
-
-      var rectData = this.getRectData(this._handles[0].screenPosition, this._handles[1].screenPosition);
-      var labelTransform = this.adjustLabelTransform(this._label, this._handles[1].screenPosition.clone().add(rectData.paddingVector.multiplyScalar(15 + this._label.offsetHeight / 2)));
-
-      // update rectangle
-      this._rectangle.style.transform = 'translate3D(' + rectData.transformX + 'px, ' + rectData.transformY + 'px, 0)';
-      this._rectangle.style.width = rectData.width + 'px';
-      this._rectangle.style.height = rectData.height + 'px';
-
-      // update label
-      this._label.style.transform = 'translate3D(' + labelTransform.x + 'px,' + labelTransform.y + 'px, 0)';
-    };
-
-    _class.prototype.free = function free() {
-      var _this3 = this;
-
-      this.removeEventListeners();
-
-      this._handles.forEach(function (h) {
-        _this3.remove(h);
-        h.free();
-      });
-      this._handles = [];
-
-      this._container.removeChild(this._rectangle);
-      this._container.removeChild(this._label);
-
-      // mesh, geometry, material
-      this.remove(this._mesh);
-      this._mesh.geometry.dispose();
-      this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
-      this._mesh = null;
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      this._stack = null;
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    _class.prototype.getMeasurements = function getMeasurements() {
-      return {
-        area: this._area,
-        units: this._units
-      };
-    };
-
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
+      if (this._moving) {
+        this._handles.slice(0, -1).forEach(function (handle) {
+          handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
         });
-        this.update();
       }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles[0].worldPosition.copy(worldPosition);
-        this._handles[1].worldPosition.copy(worldPosition);
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }, {
-      key: 'calibrationFactor',
-      get: function get() {
-        return this._calibrationFactor;
-      },
-      set: function set(calibrationFactor) {
-        this._calibrationFactor = calibrationFactor;
+
+      this.updateRoI(true);
+    } else {
+      this.onHover(null);
+    }
+
+    this._handles[0].onMove(evt);
+    this._handles[1].onMove(evt);
+
+    this.update();
+  };
+
+  widgetsRectangle.prototype.onEnd = function onEnd() {
+    this._handles[0].onEnd(); // First Handle
+
+    if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
+      return;
+    }
+
+    if (!this._dragged && this._active && !this._handles[1].tracking) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handles[0].selected = this._selected;
+    }
+
+    // Second Handle
+    if (this._dragged || !this._handles[1].tracking) {
+      this._handles[1].tracking = false;
+      this._handles[1].onEnd();
+    } else {
+      this._handles[1].tracking = false;
+    }
+    this._handles[1].selected = this._selected;
+
+    this._active = this._handles[0].active || this._handles[1].active;
+    this._dragged = false;
+    this._moving = false;
+
+    this.updateRoI(); // TODO: if (this._dragged || !this._initialized)
+    this.update();
+  };
+
+  widgetsRectangle.prototype.hideDOM = function hideDOM() {
+    this._handles.forEach(function (elem) {
+      return elem.hideDOM();
+    });
+
+    this._rectangle.style.display = 'none';
+    this._label.style.display = 'none';
+  };
+
+  widgetsRectangle.prototype.showDOM = function showDOM() {
+    this._handles[0].showDOM();
+    this._handles[1].showDOM();
+
+    this._rectangle.style.display = '';
+    this._label.style.display = '';
+  };
+
+  widgetsRectangle.prototype.create = function create() {
+    this.createMesh();
+    this.createDOM();
+  };
+
+  widgetsRectangle.prototype.createMesh = function createMesh() {
+    this._geometry = new three__WEBPACK_IMPORTED_MODULE_3__["PlaneGeometry"](1, 1);
+
+    this._material = new three__WEBPACK_IMPORTED_MODULE_3__["MeshBasicMaterial"]({ side: three__WEBPACK_IMPORTED_MODULE_3__["DoubleSide"] });
+    this._material.transparent = true;
+    this._material.opacity = 0.2;
+
+    this.updateMeshColor();
+
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Mesh"](this._geometry, this._material);
+    this._mesh.visible = true;
+
+    this.add(this._mesh);
+  };
+
+  widgetsRectangle.prototype.createDOM = function createDOM() {
+    this._rectangle = document.createElement('div');
+    this._rectangle.className = 'widgets-rectangle';
+    this._container.appendChild(this._rectangle);
+
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+
+    // measurements
+    var measurementsContainer = document.createElement('div');
+    // Mean / SD
+    var meanSDContainer = document.createElement('div');
+    meanSDContainer.className = 'mean-sd';
+    measurementsContainer.appendChild(meanSDContainer);
+    // Max / Min
+    var maxMinContainer = document.createElement('div');
+    maxMinContainer.className = 'max-min';
+    measurementsContainer.appendChild(maxMinContainer);
+    // Area
+    var areaContainer = document.createElement('div');
+    areaContainer.className = 'area';
+    measurementsContainer.appendChild(areaContainer);
+
+    this._label.appendChild(measurementsContainer);
+
+    this._container.appendChild(this._label);
+
+    this.updateDOMColor();
+  };
+
+  widgetsRectangle.prototype.update = function update() {
+    this.updateColor();
+
+    this._handles[0].update();
+    this._handles[1].update();
+
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    this.updateDOM();
+  };
+
+  widgetsRectangle.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsRectangle.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._geometry) {
+      var progection = new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(this._handles[1].worldPosition, this._handles[0].worldPosition).projectOnVector(this._camera.up);
+
+      this._geometry.vertices[0].copy(this._handles[0].worldPosition);
+      this._geometry.vertices[1].copy(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().addVectors(this._handles[0].worldPosition, progection));
+      this._geometry.vertices[2].copy(new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().subVectors(this._handles[1].worldPosition, progection));
+      this._geometry.vertices[3].copy(this._handles[1].worldPosition);
+
+      this._geometry.verticesNeedUpdate = true;
+      this._geometry.computeBoundingSphere();
+    }
+  };
+
+  widgetsRectangle.prototype.updateRoI = function updateRoI(clear) {
+    var meanSDContainer = this._label.querySelector('.mean-sd');
+    var maxMinContainer = this._label.querySelector('.max-min');
+
+    if (clear) {
+      meanSDContainer.innerHTML = '';
+      maxMinContainer.innerHTML = '';
+
+      return;
+    }
+
+    var roi = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getRoI(this._mesh, this._camera, this._stack);
+
+    if (roi !== null) {
+      meanSDContainer.innerHTML = 'Mean: ' + roi.mean.toFixed(1) + ' / SD: ' + roi.sd.toFixed(1);
+      maxMinContainer.innerHTML = 'Max: ' + roi.max.toFixed() + ' / Min: ' + roi.min.toFixed();
+    } else {
+      meanSDContainer.innerHTML = '';
+      maxMinContainer.innerHTML = '';
+    }
+  };
+
+  widgetsRectangle.prototype.updateDOMColor = function updateDOMColor() {
+    this._rectangle.style.borderColor = this._color;
+    this._label.style.borderColor = this._color;
+  };
+
+  widgetsRectangle.prototype.updateDOM = function updateDOM() {
+    this.updateDOMColor();
+
+    var regions = this._stack.frame[this._params.frameIndex].ultrasoundRegions || [];
+
+    this._area = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].getGeometryArea(this._geometry);
+    if (this._calibrationFactor) {
+      this._area *= Math.pow(this._calibrationFactor, 2);
+    } else if (regions && regions.length > 0 && this._stack.lps2IJK) {
+      var region0 = this.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._stack.lps2IJK, this._handles[0].worldPosition));
+      var region1 = this.getRegionByXY(regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._stack.lps2IJK, this._handles[1].worldPosition));
+
+      if (region0 !== null && region1 !== null && region0 === region1 && regions[region0].unitsX === 'cm' && regions[region0].unitsY === 'cm') {
+        this._area *= Math.pow(regions[region0].deltaX, 2);
         this._units = 'cm²';
-        this.update();
+      } else if (this._stack.frame[this._params.frameIndex].pixelSpacing) {
+        this._area /= 100;
+        this._units = 'cm²';
+      } else {
+        this._units = 'units';
       }
-    }]);
+    } else if (this._units === 'cm²') {
+      this._area /= 100;
+    }
 
-    return _class;
-  }(Constructor);
-};
+    if (this._units === 'units' && !this._label.hasAttribute('title')) {
+      this._label.setAttribute('title', 'Calibration is required to display the area in cm²');
+      this._label.style.color = this._colors.error;
+    } else if (this._units !== 'units' && this._label.hasAttribute('title')) {
+      this._label.removeAttribute('title');
+      this._label.style.color = this._colors.text;
+    }
+    this._label.querySelector('.area').innerHTML = 'Area: ' + this._area.toFixed(2) + ' ' + this._units;
+
+    var rectData = this.getRectData(this._handles[0].screenPosition, this._handles[1].screenPosition);
+    var labelTransform = this.adjustLabelTransform(this._label, this._handles[1].screenPosition.clone().add(rectData.paddingVector.multiplyScalar(15 + this._label.offsetHeight / 2)));
+
+    // update rectangle
+    this._rectangle.style.transform = 'translate3D(' + rectData.transformX + 'px, ' + rectData.transformY + 'px, 0)';
+    this._rectangle.style.width = rectData.width + 'px';
+    this._rectangle.style.height = rectData.height + 'px';
+
+    // update label
+    this._label.style.transform = 'translate3D(' + labelTransform.x + 'px,' + labelTransform.y + 'px, 0)';
+  };
+
+  widgetsRectangle.prototype.free = function free() {
+    var _this3 = this;
+
+    this.removeEventListeners();
+
+    this._handles.forEach(function (h) {
+      _this3.remove(h);
+      h.free();
+    });
+    this._handles = [];
+
+    this._container.removeChild(this._rectangle);
+    this._container.removeChild(this._label);
+
+    // mesh, geometry, material
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    this._stack = null;
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  widgetsRectangle.prototype.getMeasurements = function getMeasurements() {
+    return {
+      area: this._area,
+      units: this._units
+    };
+  };
+
+  _createClass(widgetsRectangle, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handles.forEach(function (elem) {
+        return elem.targetMesh = targetMesh;
+      });
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handles[0].worldPosition.copy(worldPosition);
+      this._handles[1].worldPosition.copy(worldPosition);
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }, {
+    key: 'calibrationFactor',
+    get: function get() {
+      return this._calibrationFactor;
+    },
+    set: function set(calibrationFactor) {
+      this._calibrationFactor = calibrationFactor;
+      this._units = 'cm²';
+      this.update();
+    }
+  }]);
+
+  return widgetsRectangle;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
+
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsRectangle());
 
 /***/ }),
 
@@ -101336,7 +101171,7 @@ var widgetsRectangle = function widgetsRectangle() {
 /*!**************************************!*\
   !*** ./src/widgets/widgets.ruler.js ***!
   \**************************************/
-/*! exports provided: widgetsRuler, default */
+/*! exports provided: widgetsRuler */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -101360,381 +101195,380 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/ruler
  */
-var widgetsRuler = function widgetsRuler() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_1__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsRuler = function (_widgetsBase) {
+  _inherits(widgetsRuler, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsRuler(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsRuler);
 
-      _this._widgetType = 'Ruler';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (optional: lps2IJK, pixelSpacing, ultrasoundRegions, worldPosition)
-      _this._calibrationFactor = params.calibrationFactor || null;
+    _this._widgetType = 'Ruler';
 
-      // outgoing values
-      _this._distance = null;
-      _this._units = !_this._calibrationFactor && !params.pixelSpacing ? 'units' : 'mm';
+    // incoming parameters (optional: lps2IJK, pixelSpacing, ultrasoundRegions, worldPosition)
+    _this._calibrationFactor = params.calibrationFactor || null;
 
-      _this._moving = false;
-      _this._domHovered = false;
+    // outgoing values
+    _this._distance = null;
+    _this._units = !_this._calibrationFactor && !params.pixelSpacing ? 'units' : 'mm';
 
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
+    _this._moving = false;
+    _this._domHovered = false;
 
-      // dom stuff
-      _this._line = null;
-      _this._label = null;
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      // add handles
-      _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])();
+    // dom stuff
+    _this._line = null;
+    _this._label = null;
 
-      var handle = void 0;
-      for (var i = 0; i < 2; i++) {
-        handle = new WidgetsHandle(targetMesh, controls, params);
-        _this.add(handle);
-        _this._handles.push(handle);
-      }
-      _this._handles[1].active = true;
-      _this._handles[1].tracking = true;
+    // add handles
+    _this._handles = [];
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])();
 
-      _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._moveHandle);
-      _this._handles.push(_this._moveHandle);
-      _this._moveHandle.hide();
+    var handle = void 0;
+    for (var i = 0; i < 2; i++) {
+      handle = new WidgetsHandle(targetMesh, controls, params);
+      _this.add(handle);
+      _this._handles.push(handle);
+    }
+    _this._handles[1].active = true;
+    _this._handles[1].tracking = true;
 
-      _this.create();
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._handles.push(_this._moveHandle);
+    _this._moveHandle.hide();
 
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHover = _this.onHover.bind(_this);
-      _this.addEventListeners();
-      return _this;
+    _this.create();
+
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
+    _this.addEventListeners();
+    return _this;
+  }
+
+  widgetsRuler.prototype.addEventListeners = function addEventListeners() {
+    this._container.addEventListener('wheel', this.onMove);
+
+    this._line.addEventListener('mouseenter', this.onHover);
+    this._line.addEventListener('mouseleave', this.onHover);
+    this._label.addEventListener('mouseenter', this.onHover);
+    this._label.addEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsRuler.prototype.removeEventListeners = function removeEventListeners() {
+    this._container.removeEventListener('wheel', this.onMove);
+
+    this._line.removeEventListener('mouseenter', this.onHover);
+    this._line.removeEventListener('mouseleave', this.onHover);
+    this._label.removeEventListener('mouseenter', this.onHover);
+    this._label.removeEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsRuler.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._container.addEventListener('wheel', this.onMove);
+    this.hoverMesh();
 
-      this._line.addEventListener('mouseenter', this.onHover);
-      this._line.addEventListener('mouseleave', this.onHover);
-      this._label.addEventListener('mouseenter', this.onHover);
-      this._label.addEventListener('mouseleave', this.onHover);
-    };
+    this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._container.removeEventListener('wheel', this.onMove);
+  widgetsRuler.prototype.hoverMesh = function hoverMesh() {
+    // check raycast intersection, do we want to hover on mesh or just css?
+  };
 
-      this._line.removeEventListener('mouseenter', this.onHover);
-      this._line.removeEventListener('mouseleave', this.onHover);
-      this._label.removeEventListener('mouseenter', this.onHover);
-      this._label.removeEventListener('mouseleave', this.onHover);
-    };
+  widgetsRuler.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+  widgetsRuler.prototype.onStart = function onStart(evt) {
+    this._moveHandle.onMove(evt, true);
 
-      this.hoverMesh();
+    this._handles[0].onStart(evt);
+    this._handles[1].onStart(evt);
 
-      this._hovered = this._handles[0].hovered || this._handles[1].hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    this._active = this._handles[0].active || this._handles[1].active || this._domHovered;
 
-    _class.prototype.hoverMesh = function hoverMesh() {
-      // check raycast intersection, do we want to hover on mesh or just css?
-    };
+    if (this._domHovered && !this._handles[1].tracking) {
+      this._moving = true;
+      this._controls.enabled = false;
+    }
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+    this.update();
+  };
 
-    _class.prototype.onStart = function onStart(evt) {
+  widgetsRuler.prototype.onMove = function onMove(evt) {
+    var _this2 = this;
+
+    if (this._active) {
+      var prevPosition = this._moveHandle.worldPosition.clone();
+
+      this._dragged = true;
       this._moveHandle.onMove(evt, true);
 
-      this._handles[0].onStart(evt);
-      this._handles[1].onStart(evt);
-
-      this._active = this._handles[0].active || this._handles[1].active || this._domHovered;
-
-      if (this._domHovered && !this._handles[1].tracking) {
-        this._moving = true;
-        this._controls.enabled = false;
-      }
-
-      this.update();
-    };
-
-    _class.prototype.onMove = function onMove(evt) {
-      var _this2 = this;
-
-      if (this._active) {
-        var prevPosition = this._moveHandle.worldPosition.clone();
-
-        this._dragged = true;
-        this._moveHandle.onMove(evt, true);
-
-        if (this._moving) {
-          this._handles.slice(0, -1).forEach(function (handle) {
-            handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
-          });
-        }
-      } else {
-        this.onHover(null);
-      }
-
-      this._handles[0].onMove(evt);
-      this._handles[1].onMove(evt);
-
-      this.update();
-    };
-
-    _class.prototype.onEnd = function onEnd() {
-      this._handles[0].onEnd(); // First Handle
-
-      if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
-        return;
-      }
-
-      if (!this._dragged && this._active && !this._handles[1].tracking) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles[0].selected = this._selected;
-      }
-
-      // Second Handle
-      if (this._dragged || !this._handles[1].tracking) {
-        this._handles[1].tracking = false;
-        this._handles[1].onEnd();
-      } else {
-        this._handles[1].tracking = false;
-      }
-      this._handles[1].selected = this._selected;
-
-      this._active = this._handles[0].active || this._handles[1].active;
-      this._dragged = false;
-      this._moving = false;
-
-      this.update();
-    };
-
-    _class.prototype.create = function create() {
-      this.createMesh();
-      this.createDOM();
-    };
-
-    _class.prototype.createMesh = function createMesh() {
-      // geometry
-      // this._geometry = new three.Geometry();
-      // this._geometry.vertices.push(this._handles[0].worldPosition);
-      // this._geometry.vertices.push(this._handles[1].worldPosition);
-      this._geometry = new BufferGeometry();
-      var positions = new Float32Array(2 * 3);
-      this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
-      var index = 0;
-      positions[index++] = this._handles[0].worldPosition.x;
-      positions[index++] = this._handles[0].worldPosition.y;
-      positions[index++] = this._handles[0].worldPosition.z;
-
-      positions[index++] = this._handles[1].worldPosition.x;
-      positions[index++] = this._handles[1].worldPosition.y;
-      positions[index++] = this._handles[1].worldPosition.z;
-
-      // material
-      this._material = new three__WEBPACK_IMPORTED_MODULE_0__["LineBasicMaterial"]();
-
-      this.updateMeshColor();
-
-      // mesh
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_0__["Line"](this._geometry, this._material);
-      this._mesh.visible = true;
-
-      this.add(this._mesh);
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this._line = document.createElement('div');
-      this._line.className = 'widgets-line';
-      this._container.appendChild(this._line);
-
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-      this._container.appendChild(this._label);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.hideDOM = function hideDOM() {
-      this._line.style.display = 'none';
-      this._label.style.display = 'none';
-      this._handles.forEach(function (elem) {
-        return elem.hideDOM();
-      });
-    };
-
-    _class.prototype.showDOM = function showDOM() {
-      this._line.style.display = '';
-      this._label.style.display = '';
-      this._handles[0].showDOM();
-      this._handles[1].showDOM();
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      this._handles[0].update();
-      this._handles[1].update();
-
-      // calculate values
-      var distanceData = this.getDistanceData(this._handles[0].worldPosition, this._handles[1].worldPosition, this._calibrationFactor);
-
-      this._distance = distanceData.distance;
-      if (distanceData.units) {
-        this._units = distanceData.units;
-      }
-
-      this.updateMeshColor();
-      this.updateMeshPosition();
-
-      this.updateDOM();
-    };
-
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
-
-    _class.prototype.updateMeshPosition = function updateMeshPosition() {
-      if (this._geometry) {
-        this._geometry.verticesNeedUpdate = true;
-      }
-    };
-
-    _class.prototype.updateDOM = function updateDOM() {
-      this.updateDOMColor();
-
-      // update line
-      var lineData = this.getLineData(this._handles[0].screenPosition, this._handles[1].screenPosition);
-
-      this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n      rotate(' + lineData.transformAngle + 'rad)';
-      this._line.style.width = lineData.length + 'px';
-
-      // update label
-      if (this._units === 'units' && !this._label.hasAttribute('title')) {
-        this._label.setAttribute('title', 'Calibration is required to display the distance in mm');
-        this._label.style.color = this._colors.error;
-      } else if (this._units !== 'units' && this._label.hasAttribute('title')) {
-        this._label.removeAttribute('title');
-        this._label.style.color = this._colors.text;
-      }
-      this._label.innerHTML = this._distance.toFixed(2) + ' ' + this._units;
-
-      var angle = Math.abs(lineData.transformAngle);
-      if (angle > Math.PI / 2) {
-        angle = Math.PI - angle;
-      }
-
-      var labelPadding = Math.tan(angle) < this._label.offsetHeight / this._label.offsetWidth ? this._label.offsetWidth / 2 / Math.cos(angle) + 15 // 5px for each handle + padding
-      : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle) + 15;
-      var paddingVector = lineData.line.normalize().multiplyScalar(labelPadding);
-      var paddingPoint = lineData.length > labelPadding * 2 ? this._handles[1].screenPosition.clone().sub(paddingVector) : this._handles[1].screenPosition.clone().add(paddingVector);
-      var transform = this.adjustLabelTransform(this._label, paddingPoint);
-
-      this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      this._line.style.backgroundColor = this._color;
-      this._label.style.borderColor = this._color;
-    };
-
-    _class.prototype.free = function free() {
-      var _this3 = this;
-
-      this.removeEventListeners();
-
-      this._handles.forEach(function (h) {
-        _this3.remove(h);
-        h.free();
-      });
-      this._handles = [];
-
-      this._container.removeChild(this._line);
-      this._container.removeChild(this._label);
-
-      // mesh, geometry, material
-      this.remove(this._mesh);
-      this._mesh.geometry.dispose();
-      this._mesh.geometry = null;
-      this._mesh.material.dispose();
-      this._mesh.material = null;
-      this._mesh = null;
-      this._geometry.dispose();
-      this._geometry = null;
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
-
-      _Constructor.prototype.free.call(this);
-    };
-
-    _class.prototype.getMeasurements = function getMeasurements() {
-      return {
-        distance: this._distance,
-        units: this._units
-      };
-    };
-
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
+      if (this._moving) {
+        this._handles.slice(0, -1).forEach(function (handle) {
+          handle.worldPosition.add(_this2._moveHandle.worldPosition.clone().sub(prevPosition));
         });
-        this.update();
       }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles[0].worldPosition.copy(worldPosition);
-        this._handles[1].worldPosition.copy(worldPosition);
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }, {
-      key: 'calibrationFactor',
-      get: function get() {
-        return this._calibrationFactor;
-      },
-      set: function set(calibrationFactor) {
-        this._calibrationFactor = calibrationFactor;
-        this._units = 'mm';
-        this.update();
-      }
-    }]);
+    } else {
+      this.onHover(null);
+    }
 
-    return _class;
-  }(Constructor);
-};
+    this._handles[0].onMove(evt);
+    this._handles[1].onMove(evt);
+
+    this.update();
+  };
+
+  widgetsRuler.prototype.onEnd = function onEnd() {
+    this._handles[0].onEnd(); // First Handle
+
+    if (this._handles[1].tracking && this._handles[0].screenPosition.distanceTo(this._handles[1].screenPosition) < 10) {
+      return;
+    }
+
+    if (!this._dragged && this._active && !this._handles[1].tracking) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handles[0].selected = this._selected;
+    }
+
+    // Second Handle
+    if (this._dragged || !this._handles[1].tracking) {
+      this._handles[1].tracking = false;
+      this._handles[1].onEnd();
+    } else {
+      this._handles[1].tracking = false;
+    }
+    this._handles[1].selected = this._selected;
+
+    this._active = this._handles[0].active || this._handles[1].active;
+    this._dragged = false;
+    this._moving = false;
+
+    this.update();
+  };
+
+  widgetsRuler.prototype.create = function create() {
+    this.createMesh();
+    this.createDOM();
+  };
+
+  widgetsRuler.prototype.createMesh = function createMesh() {
+    // geometry
+    // this._geometry = new three.Geometry();
+    // this._geometry.vertices.push(this._handles[0].worldPosition);
+    // this._geometry.vertices.push(this._handles[1].worldPosition);
+    this._geometry = new BufferGeometry();
+    var positions = new Float32Array(2 * 3);
+    this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+    var index = 0;
+    positions[index++] = this._handles[0].worldPosition.x;
+    positions[index++] = this._handles[0].worldPosition.y;
+    positions[index++] = this._handles[0].worldPosition.z;
+
+    positions[index++] = this._handles[1].worldPosition.x;
+    positions[index++] = this._handles[1].worldPosition.y;
+    positions[index++] = this._handles[1].worldPosition.z;
+
+    // material
+    this._material = new three__WEBPACK_IMPORTED_MODULE_0__["LineBasicMaterial"]();
+
+    this.updateMeshColor();
+
+    // mesh
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_0__["Line"](this._geometry, this._material);
+    this._mesh.visible = true;
+
+    this.add(this._mesh);
+  };
+
+  widgetsRuler.prototype.createDOM = function createDOM() {
+    this._line = document.createElement('div');
+    this._line.className = 'widgets-line';
+    this._container.appendChild(this._line);
+
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+    this._container.appendChild(this._label);
+
+    this.updateDOMColor();
+  };
+
+  widgetsRuler.prototype.hideDOM = function hideDOM() {
+    this._line.style.display = 'none';
+    this._label.style.display = 'none';
+    this._handles.forEach(function (elem) {
+      return elem.hideDOM();
+    });
+  };
+
+  widgetsRuler.prototype.showDOM = function showDOM() {
+    this._line.style.display = '';
+    this._label.style.display = '';
+    this._handles[0].showDOM();
+    this._handles[1].showDOM();
+  };
+
+  widgetsRuler.prototype.update = function update() {
+    this.updateColor();
+
+    this._handles[0].update();
+    this._handles[1].update();
+
+    // calculate values
+    var distanceData = this.getDistanceData(this._handles[0].worldPosition, this._handles[1].worldPosition, this._calibrationFactor);
+
+    this._distance = distanceData.distance;
+    if (distanceData.units) {
+      this._units = distanceData.units;
+    }
+
+    this.updateMeshColor();
+    this.updateMeshPosition();
+
+    this.updateDOM();
+  };
+
+  widgetsRuler.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsRuler.prototype.updateMeshPosition = function updateMeshPosition() {
+    if (this._geometry) {
+      this._geometry.verticesNeedUpdate = true;
+    }
+  };
+
+  widgetsRuler.prototype.updateDOM = function updateDOM() {
+    this.updateDOMColor();
+
+    // update line
+    var lineData = this.getLineData(this._handles[0].screenPosition, this._handles[1].screenPosition);
+
+    this._line.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n      rotate(' + lineData.transformAngle + 'rad)';
+    this._line.style.width = lineData.length + 'px';
+
+    // update label
+    if (this._units === 'units' && !this._label.hasAttribute('title')) {
+      this._label.setAttribute('title', 'Calibration is required to display the distance in mm');
+      this._label.style.color = this._colors.error;
+    } else if (this._units !== 'units' && this._label.hasAttribute('title')) {
+      this._label.removeAttribute('title');
+      this._label.style.color = this._colors.text;
+    }
+    this._label.innerHTML = this._distance.toFixed(2) + ' ' + this._units;
+
+    var angle = Math.abs(lineData.transformAngle);
+    if (angle > Math.PI / 2) {
+      angle = Math.PI - angle;
+    }
+
+    var labelPadding = Math.tan(angle) < this._label.offsetHeight / this._label.offsetWidth ? this._label.offsetWidth / 2 / Math.cos(angle) + 15 // 5px for each handle + padding
+    : this._label.offsetHeight / 2 / Math.cos(Math.PI / 2 - angle) + 15;
+    var paddingVector = lineData.line.normalize().multiplyScalar(labelPadding);
+    var paddingPoint = lineData.length > labelPadding * 2 ? this._handles[1].screenPosition.clone().sub(paddingVector) : this._handles[1].screenPosition.clone().add(paddingVector);
+    var transform = this.adjustLabelTransform(this._label, paddingPoint);
+
+    this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
+  };
+
+  widgetsRuler.prototype.updateDOMColor = function updateDOMColor() {
+    this._line.style.backgroundColor = this._color;
+    this._label.style.borderColor = this._color;
+  };
+
+  widgetsRuler.prototype.free = function free() {
+    var _this3 = this;
+
+    this.removeEventListeners();
+
+    this._handles.forEach(function (h) {
+      _this3.remove(h);
+      h.free();
+    });
+    this._handles = [];
+
+    this._container.removeChild(this._line);
+    this._container.removeChild(this._label);
+
+    // mesh, geometry, material
+    this.remove(this._mesh);
+    this._mesh.geometry.dispose();
+    this._mesh.geometry = null;
+    this._mesh.material.dispose();
+    this._mesh.material = null;
+    this._mesh = null;
+    this._geometry.dispose();
+    this._geometry = null;
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  widgetsRuler.prototype.getMeasurements = function getMeasurements() {
+    return {
+      distance: this._distance,
+      units: this._units
+    };
+  };
+
+  _createClass(widgetsRuler, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handles.forEach(function (elem) {
+        return elem.targetMesh = targetMesh;
+      });
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handles[0].worldPosition.copy(worldPosition);
+      this._handles[1].worldPosition.copy(worldPosition);
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }, {
+    key: 'calibrationFactor',
+    get: function get() {
+      return this._calibrationFactor;
+    },
+    set: function set(calibrationFactor) {
+      this._calibrationFactor = calibrationFactor;
+      this._units = 'mm';
+      this.update();
+    }
+  }]);
+
+  return widgetsRuler;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_1__["widgetsBase"]);
+
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsRuler());
 
 /***/ }),
 
@@ -101742,7 +101576,7 @@ var widgetsRuler = function widgetsRuler() {
 /*!*****************************************************!*\
   !*** ./src/widgets/widgets.velocityTimeIntegral.js ***!
   \*****************************************************/
-/*! exports provided: widgetsVelocityTimeIntegral, default */
+/*! exports provided: widgetsVelocityTimeIntegral */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -101769,656 +101603,655 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/velocityTimeIntegral
  */
-var widgetsVelocityTimeIntegral = function widgetsVelocityTimeIntegral() {
-  var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
-  return function (_Constructor) {
-    _inherits(_class, _Constructor);
 
-    function _class(targetMesh, controls) {
-      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsVelocityTimeIntegral = function (_widgetsBase) {
+  _inherits(widgetsVelocityTimeIntegral, _widgetsBase);
 
-      _classCallCheck(this, _class);
+  function widgetsVelocityTimeIntegral(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-      var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsVelocityTimeIntegral);
 
-      _this._widgetType = 'VelocityTimeIntegral';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-      // incoming parameters (+ ijk2LPS, lps2IJK, worldPosition)
-      _this._regions = params.ultrasoundRegions || []; // required
-      if (_this._regions.length < 1) {
-        throw new Error('Ultrasound regions should not be empty!');
-      }
+    _this._widgetType = 'VelocityTimeIntegral';
 
-      // outgoing values
-      _this._vMax = null; // Maximum Velocity (Vmax)
-      _this._vMean = null; // Mean Velocity (Vmean)
-      _this._gMax = null; // Maximum Gradient (Gmax)
-      _this._gMean = null; // Mean Gradient (Gmean)
-      _this._envTi = null; // Envelope Duration (Env.Ti)
-      _this._vti = null; // Velocity Time Integral (VTI)
-      _this._extraInfo = null; // extra information which is added to label
-
-      _this._initialized = false; // set to true onEnd if number of handles > 2
-      _this._isHandleActive = true;
-      _this._domHovered = false;
-      _this._initialRegion = _this.getRegionByXY(_this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(params.lps2IJK, params.worldPosition));
-      if (_this._initialRegion === null) {
-        throw new Error('Invalid initial UltraSound region!');
-      }
-      _this._usPoints = [];
-
-      // mesh stuff
-      _this._material = null;
-      _this._geometry = null;
-      _this._mesh = null;
-
-      // dom stuff
-      _this._lines = [];
-      _this._label = null;
-
-      // add handles
-      _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-
-      var handle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(handle);
-      _this._handles.push(handle);
-
-      _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-      _this.add(_this._moveHandle);
-      _this._moveHandle.hide();
-
-      _this.onMove = _this.onMove.bind(_this);
-      _this.onHover = _this.onHover.bind(_this);
-
-      _this.create();
-
-      _this.addEventListeners();
-      return _this;
+    // incoming parameters (+ ijk2LPS, lps2IJK, worldPosition)
+    _this._regions = params.ultrasoundRegions || []; // required
+    if (_this._regions.length < 1) {
+      throw new Error('Ultrasound regions should not be empty!');
     }
 
-    _class.prototype.addEventListeners = function addEventListeners() {
-      this._container.addEventListener('wheel', this.onMove);
+    // outgoing values
+    _this._vMax = null; // Maximum Velocity (Vmax)
+    _this._vMean = null; // Mean Velocity (Vmean)
+    _this._gMax = null; // Maximum Gradient (Gmax)
+    _this._gMean = null; // Mean Gradient (Gmean)
+    _this._envTi = null; // Envelope Duration (Env.Ti)
+    _this._vti = null; // Velocity Time Integral (VTI)
+    _this._extraInfo = null; // extra information which is added to label
 
-      this._label.addEventListener('mouseenter', this.onHover);
-      this._label.addEventListener('mouseleave', this.onHover);
-    };
+    _this._initialized = false; // set to true onEnd if number of handles > 2
+    _this._isHandleActive = true;
+    _this._domHovered = false;
+    _this._initialRegion = _this.getRegionByXY(_this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(params.lps2IJK, params.worldPosition));
+    if (_this._initialRegion === null) {
+      throw new Error('Invalid initial UltraSound region!');
+    }
+    _this._usPoints = [];
 
-    _class.prototype.removeEventListeners = function removeEventListeners() {
-      this._container.removeEventListener('wheel', this.onMove);
+    // mesh stuff
+    _this._material = null;
+    _this._geometry = null;
+    _this._mesh = null;
 
-      this._label.removeEventListener('mouseenter', this.onHover);
-      this._label.removeEventListener('mouseleave', this.onHover);
-    };
+    // dom stuff
+    _this._lines = [];
+    _this._label = null;
 
-    _class.prototype.onHover = function onHover(evt) {
-      if (evt) {
-        this.hoverDom(evt);
-      }
+    // add handles
+    _this._handles = [];
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
 
-      this.hoverMesh();
+    var handle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(handle);
+    _this._handles.push(handle);
 
-      var hovered = false;
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._moveHandle.hide();
 
-      this._handles.forEach(function (elem) {
-        return hovered = hovered || elem.hovered;
-      });
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
 
-      this._hovered = hovered || this._domHovered;
-      this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-    };
+    _this.create();
 
-    _class.prototype.hoverMesh = function hoverMesh() {
-      // check raycast intersection, if we want to hover on mesh instead of just css
-    };
+    _this.addEventListeners();
+    return _this;
+  }
 
-    _class.prototype.hoverDom = function hoverDom(evt) {
-      this._domHovered = evt.type === 'mouseenter';
-    };
+  widgetsVelocityTimeIntegral.prototype.addEventListeners = function addEventListeners() {
+    this._container.addEventListener('wheel', this.onMove);
 
-    _class.prototype.onStart = function onStart(evt) {
-      var active = false;
+    this._label.addEventListener('mouseenter', this.onHover);
+    this._label.addEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsVelocityTimeIntegral.prototype.removeEventListeners = function removeEventListeners() {
+    this._container.removeEventListener('wheel', this.onMove);
+
+    this._label.removeEventListener('mouseenter', this.onHover);
+    this._label.removeEventListener('mouseleave', this.onHover);
+  };
+
+  widgetsVelocityTimeIntegral.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
+    }
+
+    this.hoverMesh();
+
+    var hovered = false;
+
+    this._handles.forEach(function (elem) {
+      return hovered = hovered || elem.hovered;
+    });
+
+    this._hovered = hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
+
+  widgetsVelocityTimeIntegral.prototype.hoverMesh = function hoverMesh() {
+    // check raycast intersection, if we want to hover on mesh instead of just css
+  };
+
+  widgetsVelocityTimeIntegral.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
+
+  widgetsVelocityTimeIntegral.prototype.onStart = function onStart(evt) {
+    var active = false;
+
+    this._moveHandle.onMove(evt, true);
+    this._handles.forEach(function (elem) {
+      elem.onStart(evt);
+      active = active || elem.active;
+    });
+
+    this._active = active || this._domHovered;
+    this._isHandleActive = active;
+
+    if (this._domHovered) {
+      this._controls.enabled = false;
+    }
+
+    this.update();
+  };
+
+  widgetsVelocityTimeIntegral.prototype.onMove = function onMove(evt) {
+    if (this.active) {
+      var prevPosition = this._moveHandle.worldPosition.clone();
 
       this._moveHandle.onMove(evt, true);
-      this._handles.forEach(function (elem) {
-        elem.onStart(evt);
-        active = active || elem.active;
-      });
 
-      this._active = active || this._domHovered;
-      this._isHandleActive = active;
+      var shift = this._moveHandle.worldPosition.clone().sub(prevPosition);
 
-      if (this._domHovered) {
-        this._controls.enabled = false;
-      }
-
-      this.update();
-    };
-
-    _class.prototype.onMove = function onMove(evt) {
-      if (this.active) {
-        var prevPosition = this._moveHandle.worldPosition.clone();
-
-        this._moveHandle.onMove(evt, true);
-
-        var shift = this._moveHandle.worldPosition.clone().sub(prevPosition);
-
-        if (!this.isCorrectRegion(shift)) {
-          this._moveHandle.worldPosition.copy(prevPosition);
-
-          return;
-        }
-
-        if (!this._initialized) {
-          this._handles[this._handles.length - 1].hovered = false;
-          this._handles[this._handles.length - 1].active = false;
-          this._handles[this._handles.length - 1].tracking = false;
-
-          var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-          var handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
-
-          handle.hovered = true;
-          handle.active = true;
-          handle.tracking = true;
-          this.add(handle);
-          this._handles.push(handle);
-
-          this.createLine();
-        } else {
-          this.updateDOMContent(true);
-
-          if (!this._isHandleActive || this._handles[this._handles.length - 2].active || this._handles[this._handles.length - 1].active) {
-            this._handles.forEach(function (handle) {
-              handle.worldPosition.add(shift);
-            });
-            this._isHandleActive = false;
-            this._handles[this._handles.length - 2].active = false;
-            this._handles[this._handles.length - 1].active = false;
-            this._controls.enabled = false;
-          }
-        }
-        this._dragged = true;
-      } else {
-        this.onHover(null);
-      }
-
-      this._handles.forEach(function (elem) {
-        elem.onMove(evt);
-      });
-      if (this.active && this._handles.length > 2) {
-        this.pushPopHandle();
-      }
-      this.update();
-    };
-
-    _class.prototype.onEnd = function onEnd() {
-      var _this2 = this;
-
-      if (this._handles.length < 3) {
-        return;
-      }
-
-      var active = false;
-
-      this._handles.slice(0, -1).forEach(function (elem) {
-        elem.onEnd();
-        active = active || elem.active;
-      });
-
-      // Last Handle
-      if (this._dragged || !this._handles[this._handles.length - 1].tracking) {
-        this._handles[this._handles.length - 1].tracking = false;
-        this._handles[this._handles.length - 1].onEnd();
-      } else {
-        this._handles[this._handles.length - 1].tracking = false;
-      }
-
-      if (this._dragged || !this._initialized) {
-        this.finalize();
-        this.updateDOMContent();
-      }
-
-      if (!this._dragged && this._active) {
-        this._selected = !this._selected; // change state if there was no dragging
-        this._handles.forEach(function (elem) {
-          return elem.selected = _this2._selected;
-        });
-      }
-      this._active = active || this._handles[this._handles.length - 1].active;
-      this._isHandleActive = active;
-      this._dragged = false;
-      this._initialized = true;
-
-      this.update();
-    };
-
-    _class.prototype.isCorrectRegion = function isCorrectRegion(shift) {
-      var _this3 = this;
-
-      var isCorrect = true;
-
-      this._handles.forEach(function (handle, index) {
-        if (handle.active || !_this3._isHandleActive) {
-          isCorrect = isCorrect && _this3.checkHandle(index, shift);
-        }
-      });
-
-      return isCorrect;
-    };
-
-    _class.prototype.checkHandle = function checkHandle(index, shift) {
-      var region = this.getRegionByXY(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[index].worldPosition.clone().add(shift)));
-
-      return region !== null && region === this._initialRegion && this._regions[region].unitsY === 'cm/sec';
-    };
-
-    _class.prototype.create = function create() {
-      this.createMaterial();
-      this.createDOM();
-    };
-
-    _class.prototype.createMaterial = function createMaterial() {
-      this._material = new three__WEBPACK_IMPORTED_MODULE_3__["LineBasicMaterial"]();
-    };
-
-    _class.prototype.createDOM = function createDOM() {
-      this._label = document.createElement('div');
-      this._label.className = 'widgets-label';
-
-      var measurementsContainer = document.createElement('div');
-
-      ['vmax', 'vmean', 'gmax', 'gmean', 'envti', 'vti', 'info'].forEach(function (name) {
-        var div = document.createElement('div');
-
-        div.className = name;
-        measurementsContainer.appendChild(div);
-      });
-      this._label.appendChild(measurementsContainer);
-
-      this._container.appendChild(this._label);
-
-      this.updateDOMColor();
-    };
-
-    _class.prototype.createLine = function createLine() {
-      var line = document.createElement('div');
-
-      line.className = 'widgets-line';
-      line.addEventListener('mouseenter', this.onHover);
-      line.addEventListener('mouseleave', this.onHover);
-      this._lines.push(line);
-      this._container.appendChild(line);
-    };
-
-    _class.prototype.pushPopHandle = function pushPopHandle() {
-      var handle0 = this._handles[this._handles.length - 3];
-      var handle1 = this._handles[this._handles.length - 2];
-      var newhandle = this._handles[this._handles.length - 1];
-      var isOnLine = this.isPointOnLine(handle0.worldPosition, handle1.worldPosition, newhandle.worldPosition);
-
-      if (isOnLine || handle0.screenPosition.distanceTo(newhandle.screenPosition) < 25) {
-        this.remove(handle1);
-        handle1.free();
-
-        this._handles[this._handles.length - 2] = newhandle;
-        this._handles.pop();
-
-        this._container.removeChild(this._lines.pop());
-      }
-
-      return isOnLine;
-    };
-
-    _class.prototype.isPointOnLine = function isPointOnLine(pointA, pointB, pointToCheck) {
-      return !new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().crossVectors(pointA.clone().sub(pointToCheck), pointB.clone().sub(pointToCheck)).length();
-    };
-
-    _class.prototype.finalize = function finalize() {
-      var _this4 = this;
-
-      if (this._initialized) {
-        // remove old axis handles
-        this._handles.splice(-2).forEach(function (elem) {
-          _this4.remove(elem);
-          elem.free();
-        });
-      }
-
-      var pointF = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[0]._worldPosition);
-      var pointL = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[this._handles.length - 1]._worldPosition);
-      var region = this._regions[this.getRegionByXY(this._regions, pointF)];
-      var axisY = region.y0 + (region.axisY || 0); // data coordinate equal to US region's zero Y coordinate
-
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-      var params = { hideHandleMesh: this._params.hideHandleMesh || false };
-
-      pointF.y = axisY;
-      pointL.y = axisY;
-      this._usPoints = [this.getPointInRegion(region, pointL), this.getPointInRegion(region, pointF)];
-
-      params.worldPosition = pointL.applyMatrix4(this._params.ijk2LPS); // projection of last point on Y axis
-      this._handles.push(new WidgetsHandle(this._targetMesh, this._controls, params));
-      this.add(this._handles[this._handles.length - 1]);
-
-      params.worldPosition = pointF.applyMatrix4(this._params.ijk2LPS); // projection of first point on Y axis
-      this._handles.push(new WidgetsHandle(this._targetMesh, this._controls, params));
-      this.add(this._handles[this._handles.length - 1]);
-
-      while (this._lines.length < this._handles.length) {
-        this.createLine();
-      }
-    };
-
-    _class.prototype.update = function update() {
-      this.updateColor();
-
-      // update handles
-      this._handles.forEach(function (elem) {
-        return elem.update();
-      });
-
-      // mesh stuff
-      this.updateMesh();
-
-      // DOM stuff
-      this.updateDOMColor();
-      this.updateDOMPosition();
-    };
-
-    _class.prototype.updateValues = function updateValues() {
-      var _this5 = this;
-
-      var region = this._regions[this.getRegionByXY(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[0]._worldPosition))];
-      var boundaries = {
-        xMin: Number.POSITIVE_INFINITY,
-        xMax: Number.NEGATIVE_INFINITY,
-        yMin: Number.POSITIVE_INFINITY,
-        yMax: Number.NEGATIVE_INFINITY
-      };
-      var pVelocity = void 0;
-      var pGradient = void 0;
-      var pTime = void 0;
-      var totalTime = 0;
-
-      this._vMax = 0;
-      this._vMean = 0;
-      this._gMean = 0;
-      this._usPoints.splice(2);
-      this._handles.slice(0, -2).forEach(function (elem) {
-        var usPosition = _this5.getPointInRegion(region, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(_this5._params.lps2IJK, elem._worldPosition));
-        var velocity = Math.abs(usPosition.y / 100);
-        var gradient = 4 * Math.pow(velocity, 2);
-
-        if (_this5._vMax === null || velocity > _this5._vMax) {
-          _this5._vMax = velocity;
-        }
-        boundaries.xMin = Math.min(usPosition.x, boundaries.xMin);
-        boundaries.xMax = Math.max(usPosition.x, boundaries.xMax);
-        boundaries.yMin = Math.min(usPosition.y, boundaries.yMin);
-        boundaries.yMax = Math.max(usPosition.y, boundaries.yMax);
-
-        if (pTime) {
-          var length = Math.abs(usPosition.x - pTime);
-
-          totalTime += length;
-          _this5._vMean += length * (pVelocity + velocity) / 2;
-          _this5._gMean += length * (pGradient + gradient) / 2;
-        }
-
-        pVelocity = velocity;
-        pGradient = gradient;
-        pTime = usPosition.x;
-        _this5._usPoints.push(usPosition);
-      });
-
-      this._gMax = 4 * Math.pow(this._vMax, 2);
-      this._vMean /= totalTime;
-      this._gMean /= totalTime;
-      this._envTi = totalTime * 1000;
-      this._vti = this.getArea(this._usPoints);
-
-      this._shapeWarn = boundaries.xMax - boundaries.xMin !== totalTime || boundaries.yMin < 0 !== boundaries.yMax < 0;
-    };
-
-    _class.prototype.updateMesh = function updateMesh() {
-      if (this._mesh) {
-        this.remove(this._mesh);
-      }
-
-      // this._geometry = new three.Geometry();
-      // this._handles.forEach(elem => this._geometry.vertices.push(elem.worldPosition));
-      // this._geometry.vertices.push(this._handles[0].worldPosition);
-      // this._geometry.verticesNeedUpdate = true;
-      this._geometry = new three__WEBPACK_IMPORTED_MODULE_3__["BufferGeometry"]();
-      var positions = new Float32Array(this._handles.length * 3);
-      this._geometry.setAttribute('position', new three__WEBPACK_IMPORTED_MODULE_3__["BufferAttribute"](positions, 3));
-      var index = 0;
-      this._handles.forEach(function (handle) {
-        positions[index++] = handle.worldPosition.x;
-        positions[index++] = handle.worldPosition.y;
-        positions[index++] = handle.worldPosition.z;
-      });
-      positions[index++] = this._handles[0].worldPosition.x;
-      positions[index++] = this._handles[0].worldPosition.y;
-      positions[index++] = this._handles[0].worldPosition.z;
-      this._geometry.computeVertexNormals();
-
-      this.updateMeshColor();
-
-      this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Line"](this._geometry, this._material);
-      this._mesh.visible = true;
-      this.add(this._mesh);
-    };
-
-    _class.prototype.updateMeshColor = function updateMeshColor() {
-      if (this._material) {
-        this._material.color.set(this._color);
-      }
-    };
-
-    _class.prototype.updateDOMColor = function updateDOMColor() {
-      var _this6 = this;
-
-      if (this._handles.length >= 2) {
-        this._lines.forEach(function (elem) {
-          return elem.style.backgroundColor = _this6._color;
-        });
-      }
-      this._label.style.borderColor = this._color;
-    };
-
-    _class.prototype.updateDOMContent = function updateDOMContent(clear) {
-      var vMaxContainer = this._label.querySelector('.vmax');
-      var vMeanContainer = this._label.querySelector('.vmean');
-      var gMaxContainer = this._label.querySelector('.gmax');
-      var gMeanContainer = this._label.querySelector('.gmean');
-      var envTiContainer = this._label.querySelector('.envti');
-      var vtiContainer = this._label.querySelector('.vti');
-      var infoContainer = this._label.querySelector('.info');
-
-      if (clear) {
-        vMaxContainer.innerHTML = '';
-        vMeanContainer.innerHTML = '';
-        gMaxContainer.innerHTML = '';
-        gMeanContainer.innerHTML = '';
-        envTiContainer.innerHTML = '';
-        vtiContainer.innerHTML = '';
-        infoContainer.innerHTML = '';
+      if (!this.isCorrectRegion(shift)) {
+        this._moveHandle.worldPosition.copy(prevPosition);
 
         return;
       }
-
-      this.updateValues();
-
-      if (this._shapeWarn && !this._label.hasAttribute('title')) {
-        this._label.setAttribute('title', 'Values may be incorrect due to invalid curve.');
-        this._label.style.color = this._colors.error;
-      } else if (!this._shapeWarn && this._label.hasAttribute('title')) {
-        this._label.removeAttribute('title');
-        this._label.style.color = this._colors.text;
-      }
-
-      vMaxContainer.innerHTML = 'Vmax: ' + this._vMax.toFixed(2) + ' m/s';
-      vMeanContainer.innerHTML = 'Vmean: ' + this._vMean.toFixed(2) + ' m/s';
-      gMaxContainer.innerHTML = 'Gmax: ' + this._gMax.toFixed(2) + ' mmhg';
-      gMeanContainer.innerHTML = 'Gmean: ' + this._gMean.toFixed(2) + ' mmhg';
-      envTiContainer.innerHTML = 'Env.Ti: ' + this._envTi.toFixed(1) + ' ms';
-      vtiContainer.innerHTML = 'VTI: ' + this._vti.toFixed(2) + ' cm';
-      infoContainer.innerHTML = this._extraInfo;
-    };
-
-    _class.prototype.updateDOMPosition = function updateDOMPosition() {
-      var _this7 = this;
-
-      if (this._handles.length < 2) {
-        return;
-      }
-      // update lines and get coordinates of lowest handle
-      var labelPosition = null;
-
-      this._lines.forEach(function (elem, ind) {
-        var lineData = _this7.getLineData(_this7._handles[ind].screenPosition, _this7._handles[ind + 1 === _this7._handles.length ? 0 : ind + 1].screenPosition);
-
-        elem.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n                    rotate(' + lineData.transformAngle + 'rad)';
-        elem.style.width = lineData.length + 'px';
-
-        if (labelPosition === null || labelPosition.y < _this7._handles[ind].screenPosition.y) {
-          labelPosition = _this7._handles[ind].screenPosition.clone();
-        }
-      });
 
       if (!this._initialized) {
-        return;
+        this._handles[this._handles.length - 1].hovered = false;
+        this._handles[this._handles.length - 1].active = false;
+        this._handles[this._handles.length - 1].tracking = false;
+
+        var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+        var handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
+
+        handle.hovered = true;
+        handle.active = true;
+        handle.tracking = true;
+        this.add(handle);
+        this._handles.push(handle);
+
+        this.createLine();
+      } else {
+        this.updateDOMContent(true);
+
+        if (!this._isHandleActive || this._handles[this._handles.length - 2].active || this._handles[this._handles.length - 1].active) {
+          this._handles.forEach(function (handle) {
+            handle.worldPosition.add(shift);
+          });
+          this._isHandleActive = false;
+          this._handles[this._handles.length - 2].active = false;
+          this._handles[this._handles.length - 1].active = false;
+          this._controls.enabled = false;
+        }
       }
+      this._dragged = true;
+    } else {
+      this.onHover(null);
+    }
 
-      // update label
-      labelPosition.y += 15 + this._label.offsetHeight / 2;
-      labelPosition = this.adjustLabelTransform(this._label, labelPosition);
+    this._handles.forEach(function (elem) {
+      elem.onMove(evt);
+    });
+    if (this.active && this._handles.length > 2) {
+      this.pushPopHandle();
+    }
+    this.update();
+  };
 
-      this._label.style.transform = 'translate3D(' + labelPosition.x + 'px, ' + labelPosition.y + 'px, 0)';
-    };
+  widgetsVelocityTimeIntegral.prototype.onEnd = function onEnd() {
+    var _this2 = this;
 
-    _class.prototype.hideDOM = function hideDOM() {
+    if (this._handles.length < 3) {
+      return;
+    }
+
+    var active = false;
+
+    this._handles.slice(0, -1).forEach(function (elem) {
+      elem.onEnd();
+      active = active || elem.active;
+    });
+
+    // Last Handle
+    if (this._dragged || !this._handles[this._handles.length - 1].tracking) {
+      this._handles[this._handles.length - 1].tracking = false;
+      this._handles[this._handles.length - 1].onEnd();
+    } else {
+      this._handles[this._handles.length - 1].tracking = false;
+    }
+
+    if (this._dragged || !this._initialized) {
+      this.finalize();
+      this.updateDOMContent();
+    }
+
+    if (!this._dragged && this._active) {
+      this._selected = !this._selected; // change state if there was no dragging
       this._handles.forEach(function (elem) {
-        return elem.hideDOM();
+        return elem.selected = _this2._selected;
       });
+    }
+    this._active = active || this._handles[this._handles.length - 1].active;
+    this._isHandleActive = active;
+    this._dragged = false;
+    this._initialized = true;
 
-      this._lines.forEach(function (elem) {
-        return elem.style.display = 'none';
-      });
-      this._label.style.display = 'none';
-    };
+    this.update();
+  };
 
-    _class.prototype.showDOM = function showDOM() {
-      this._handles.forEach(function (elem) {
-        return elem.showDOM();
-      });
+  widgetsVelocityTimeIntegral.prototype.isCorrectRegion = function isCorrectRegion(shift) {
+    var _this3 = this;
 
-      this._lines.forEach(function (elem) {
-        return elem.style.display = '';
-      });
-      this._label.style.display = '';
-    };
+    var isCorrect = true;
 
-    _class.prototype.free = function free() {
-      var _this8 = this;
+    this._handles.forEach(function (handle, index) {
+      if (handle.active || !_this3._isHandleActive) {
+        isCorrect = isCorrect && _this3.checkHandle(index, shift);
+      }
+    });
 
-      this.removeEventListeners();
+    return isCorrect;
+  };
 
-      this._handles.forEach(function (elem) {
-        _this8.remove(elem);
+  widgetsVelocityTimeIntegral.prototype.checkHandle = function checkHandle(index, shift) {
+    var region = this.getRegionByXY(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[index].worldPosition.clone().add(shift)));
+
+    return region !== null && region === this._initialRegion && this._regions[region].unitsY === 'cm/sec';
+  };
+
+  widgetsVelocityTimeIntegral.prototype.create = function create() {
+    this.createMaterial();
+    this.createDOM();
+  };
+
+  widgetsVelocityTimeIntegral.prototype.createMaterial = function createMaterial() {
+    this._material = new three__WEBPACK_IMPORTED_MODULE_3__["LineBasicMaterial"]();
+  };
+
+  widgetsVelocityTimeIntegral.prototype.createDOM = function createDOM() {
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
+
+    var measurementsContainer = document.createElement('div');
+
+    ['vmax', 'vmean', 'gmax', 'gmean', 'envti', 'vti', 'info'].forEach(function (name) {
+      var div = document.createElement('div');
+
+      div.className = name;
+      measurementsContainer.appendChild(div);
+    });
+    this._label.appendChild(measurementsContainer);
+
+    this._container.appendChild(this._label);
+
+    this.updateDOMColor();
+  };
+
+  widgetsVelocityTimeIntegral.prototype.createLine = function createLine() {
+    var line = document.createElement('div');
+
+    line.className = 'widgets-line';
+    line.addEventListener('mouseenter', this.onHover);
+    line.addEventListener('mouseleave', this.onHover);
+    this._lines.push(line);
+    this._container.appendChild(line);
+  };
+
+  widgetsVelocityTimeIntegral.prototype.pushPopHandle = function pushPopHandle() {
+    var handle0 = this._handles[this._handles.length - 3];
+    var handle1 = this._handles[this._handles.length - 2];
+    var newhandle = this._handles[this._handles.length - 1];
+    var isOnLine = this.isPointOnLine(handle0.worldPosition, handle1.worldPosition, newhandle.worldPosition);
+
+    if (isOnLine || handle0.screenPosition.distanceTo(newhandle.screenPosition) < 25) {
+      this.remove(handle1);
+      handle1.free();
+
+      this._handles[this._handles.length - 2] = newhandle;
+      this._handles.pop();
+
+      this._container.removeChild(this._lines.pop());
+    }
+
+    return isOnLine;
+  };
+
+  widgetsVelocityTimeIntegral.prototype.isPointOnLine = function isPointOnLine(pointA, pointB, pointToCheck) {
+    return !new three__WEBPACK_IMPORTED_MODULE_3__["Vector3"]().crossVectors(pointA.clone().sub(pointToCheck), pointB.clone().sub(pointToCheck)).length();
+  };
+
+  widgetsVelocityTimeIntegral.prototype.finalize = function finalize() {
+    var _this4 = this;
+
+    if (this._initialized) {
+      // remove old axis handles
+      this._handles.splice(-2).forEach(function (elem) {
+        _this4.remove(elem);
         elem.free();
       });
-      this._handles = [];
-      this._usPoints = [];
+    }
 
-      this.remove(this._moveHandle);
-      this._moveHandle.free();
-      this._moveHandle = null;
+    var pointF = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[0]._worldPosition);
+    var pointL = _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[this._handles.length - 1]._worldPosition);
+    var region = this._regions[this.getRegionByXY(this._regions, pointF)];
+    var axisY = region.y0 + (region.axisY || 0); // data coordinate equal to US region's zero Y coordinate
 
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+    var params = { hideHandleMesh: this._params.hideHandleMesh || false };
+
+    pointF.y = axisY;
+    pointL.y = axisY;
+    this._usPoints = [this.getPointInRegion(region, pointL), this.getPointInRegion(region, pointF)];
+
+    params.worldPosition = pointL.applyMatrix4(this._params.ijk2LPS); // projection of last point on Y axis
+    this._handles.push(new WidgetsHandle(this._targetMesh, this._controls, params));
+    this.add(this._handles[this._handles.length - 1]);
+
+    params.worldPosition = pointF.applyMatrix4(this._params.ijk2LPS); // projection of first point on Y axis
+    this._handles.push(new WidgetsHandle(this._targetMesh, this._controls, params));
+    this.add(this._handles[this._handles.length - 1]);
+
+    while (this._lines.length < this._handles.length) {
+      this.createLine();
+    }
+  };
+
+  widgetsVelocityTimeIntegral.prototype.update = function update() {
+    this.updateColor();
+
+    // update handles
+    this._handles.forEach(function (elem) {
+      return elem.update();
+    });
+
+    // mesh stuff
+    this.updateMesh();
+
+    // DOM stuff
+    this.updateDOMColor();
+    this.updateDOMPosition();
+  };
+
+  widgetsVelocityTimeIntegral.prototype.updateValues = function updateValues() {
+    var _this5 = this;
+
+    var region = this._regions[this.getRegionByXY(this._regions, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(this._params.lps2IJK, this._handles[0]._worldPosition))];
+    var boundaries = {
+      xMin: Number.POSITIVE_INFINITY,
+      xMax: Number.NEGATIVE_INFINITY,
+      yMin: Number.POSITIVE_INFINITY,
+      yMax: Number.NEGATIVE_INFINITY
+    };
+    var pVelocity = void 0;
+    var pGradient = void 0;
+    var pTime = void 0;
+    var totalTime = 0;
+
+    this._vMax = 0;
+    this._vMean = 0;
+    this._gMean = 0;
+    this._usPoints.splice(2);
+    this._handles.slice(0, -2).forEach(function (elem) {
+      var usPosition = _this5.getPointInRegion(region, _core_core_utils__WEBPACK_IMPORTED_MODULE_2__["default"].worldToData(_this5._params.lps2IJK, elem._worldPosition));
+      var velocity = Math.abs(usPosition.y / 100);
+      var gradient = 4 * Math.pow(velocity, 2);
+
+      if (_this5._vMax === null || velocity > _this5._vMax) {
+        _this5._vMax = velocity;
+      }
+      boundaries.xMin = Math.min(usPosition.x, boundaries.xMin);
+      boundaries.xMax = Math.max(usPosition.x, boundaries.xMax);
+      boundaries.yMin = Math.min(usPosition.y, boundaries.yMin);
+      boundaries.yMax = Math.max(usPosition.y, boundaries.yMax);
+
+      if (pTime) {
+        var length = Math.abs(usPosition.x - pTime);
+
+        totalTime += length;
+        _this5._vMean += length * (pVelocity + velocity) / 2;
+        _this5._gMean += length * (pGradient + gradient) / 2;
+      }
+
+      pVelocity = velocity;
+      pGradient = gradient;
+      pTime = usPosition.x;
+      _this5._usPoints.push(usPosition);
+    });
+
+    this._gMax = 4 * Math.pow(this._vMax, 2);
+    this._vMean /= totalTime;
+    this._gMean /= totalTime;
+    this._envTi = totalTime * 1000;
+    this._vti = this.getArea(this._usPoints);
+
+    this._shapeWarn = boundaries.xMax - boundaries.xMin !== totalTime || boundaries.yMin < 0 !== boundaries.yMax < 0;
+  };
+
+  widgetsVelocityTimeIntegral.prototype.updateMesh = function updateMesh() {
+    if (this._mesh) {
+      this.remove(this._mesh);
+    }
+
+    // this._geometry = new three.Geometry();
+    // this._handles.forEach(elem => this._geometry.vertices.push(elem.worldPosition));
+    // this._geometry.vertices.push(this._handles[0].worldPosition);
+    // this._geometry.verticesNeedUpdate = true;
+    this._geometry = new three__WEBPACK_IMPORTED_MODULE_3__["BufferGeometry"]();
+    var positions = new Float32Array(this._handles.length * 3);
+    this._geometry.setAttribute('position', new three__WEBPACK_IMPORTED_MODULE_3__["BufferAttribute"](positions, 3));
+    var index = 0;
+    this._handles.forEach(function (handle) {
+      positions[index++] = handle.worldPosition.x;
+      positions[index++] = handle.worldPosition.y;
+      positions[index++] = handle.worldPosition.z;
+    });
+    positions[index++] = this._handles[0].worldPosition.x;
+    positions[index++] = this._handles[0].worldPosition.y;
+    positions[index++] = this._handles[0].worldPosition.z;
+    this._geometry.computeVertexNormals();
+
+    this.updateMeshColor();
+
+    this._mesh = new three__WEBPACK_IMPORTED_MODULE_3__["Line"](this._geometry, this._material);
+    this._mesh.visible = true;
+    this.add(this._mesh);
+  };
+
+  widgetsVelocityTimeIntegral.prototype.updateMeshColor = function updateMeshColor() {
+    if (this._material) {
+      this._material.color.set(this._color);
+    }
+  };
+
+  widgetsVelocityTimeIntegral.prototype.updateDOMColor = function updateDOMColor() {
+    var _this6 = this;
+
+    if (this._handles.length >= 2) {
       this._lines.forEach(function (elem) {
-        elem.removeEventListener('mouseenter', _this8.onHover);
-        elem.removeEventListener('mouseleave', _this8.onHover);
-        _this8._container.removeChild(elem);
+        return elem.style.backgroundColor = _this6._color;
       });
-      this._lines = [];
-      this._container.removeChild(this._label);
+    }
+    this._label.style.borderColor = this._color;
+  };
 
-      // mesh, geometry, material
-      if (this._mesh) {
-        this.remove(this._mesh);
-        this._mesh.geometry.dispose();
-        this._mesh.geometry = null;
-        this._mesh.material.dispose();
-        this._mesh.material = null;
-        this._mesh = null;
-      }
-      if (this._geometry) {
-        this._geometry.dispose();
-        this._geometry = null;
-      }
-      this._material.vertexShader = null;
-      this._material.fragmentShader = null;
-      this._material.uniforms = null;
-      this._material.dispose();
-      this._material = null;
+  widgetsVelocityTimeIntegral.prototype.updateDOMContent = function updateDOMContent(clear) {
+    var vMaxContainer = this._label.querySelector('.vmax');
+    var vMeanContainer = this._label.querySelector('.vmean');
+    var gMaxContainer = this._label.querySelector('.gmax');
+    var gMeanContainer = this._label.querySelector('.gmean');
+    var envTiContainer = this._label.querySelector('.envti');
+    var vtiContainer = this._label.querySelector('.vti');
+    var infoContainer = this._label.querySelector('.info');
 
-      _Constructor.prototype.free.call(this);
+    if (clear) {
+      vMaxContainer.innerHTML = '';
+      vMeanContainer.innerHTML = '';
+      gMaxContainer.innerHTML = '';
+      gMeanContainer.innerHTML = '';
+      envTiContainer.innerHTML = '';
+      vtiContainer.innerHTML = '';
+      infoContainer.innerHTML = '';
+
+      return;
+    }
+
+    this.updateValues();
+
+    if (this._shapeWarn && !this._label.hasAttribute('title')) {
+      this._label.setAttribute('title', 'Values may be incorrect due to invalid curve.');
+      this._label.style.color = this._colors.error;
+    } else if (!this._shapeWarn && this._label.hasAttribute('title')) {
+      this._label.removeAttribute('title');
+      this._label.style.color = this._colors.text;
+    }
+
+    vMaxContainer.innerHTML = 'Vmax: ' + this._vMax.toFixed(2) + ' m/s';
+    vMeanContainer.innerHTML = 'Vmean: ' + this._vMean.toFixed(2) + ' m/s';
+    gMaxContainer.innerHTML = 'Gmax: ' + this._gMax.toFixed(2) + ' mmhg';
+    gMeanContainer.innerHTML = 'Gmean: ' + this._gMean.toFixed(2) + ' mmhg';
+    envTiContainer.innerHTML = 'Env.Ti: ' + this._envTi.toFixed(1) + ' ms';
+    vtiContainer.innerHTML = 'VTI: ' + this._vti.toFixed(2) + ' cm';
+    infoContainer.innerHTML = this._extraInfo;
+  };
+
+  widgetsVelocityTimeIntegral.prototype.updateDOMPosition = function updateDOMPosition() {
+    var _this7 = this;
+
+    if (this._handles.length < 2) {
+      return;
+    }
+    // update lines and get coordinates of lowest handle
+    var labelPosition = null;
+
+    this._lines.forEach(function (elem, ind) {
+      var lineData = _this7.getLineData(_this7._handles[ind].screenPosition, _this7._handles[ind + 1 === _this7._handles.length ? 0 : ind + 1].screenPosition);
+
+      elem.style.transform = 'translate3D(' + lineData.transformX + 'px, ' + lineData.transformY + 'px, 0)\n                    rotate(' + lineData.transformAngle + 'rad)';
+      elem.style.width = lineData.length + 'px';
+
+      if (labelPosition === null || labelPosition.y < _this7._handles[ind].screenPosition.y) {
+        labelPosition = _this7._handles[ind].screenPosition.clone();
+      }
+    });
+
+    if (!this._initialized) {
+      return;
+    }
+
+    // update label
+    labelPosition.y += 15 + this._label.offsetHeight / 2;
+    labelPosition = this.adjustLabelTransform(this._label, labelPosition);
+
+    this._label.style.transform = 'translate3D(' + labelPosition.x + 'px, ' + labelPosition.y + 'px, 0)';
+  };
+
+  widgetsVelocityTimeIntegral.prototype.hideDOM = function hideDOM() {
+    this._handles.forEach(function (elem) {
+      return elem.hideDOM();
+    });
+
+    this._lines.forEach(function (elem) {
+      return elem.style.display = 'none';
+    });
+    this._label.style.display = 'none';
+  };
+
+  widgetsVelocityTimeIntegral.prototype.showDOM = function showDOM() {
+    this._handles.forEach(function (elem) {
+      return elem.showDOM();
+    });
+
+    this._lines.forEach(function (elem) {
+      return elem.style.display = '';
+    });
+    this._label.style.display = '';
+  };
+
+  widgetsVelocityTimeIntegral.prototype.free = function free() {
+    var _this8 = this;
+
+    this.removeEventListeners();
+
+    this._handles.forEach(function (elem) {
+      _this8.remove(elem);
+      elem.free();
+    });
+    this._handles = [];
+    this._usPoints = [];
+
+    this.remove(this._moveHandle);
+    this._moveHandle.free();
+    this._moveHandle = null;
+
+    this._lines.forEach(function (elem) {
+      elem.removeEventListener('mouseenter', _this8.onHover);
+      elem.removeEventListener('mouseleave', _this8.onHover);
+      _this8._container.removeChild(elem);
+    });
+    this._lines = [];
+    this._container.removeChild(this._label);
+
+    // mesh, geometry, material
+    if (this._mesh) {
+      this.remove(this._mesh);
+      this._mesh.geometry.dispose();
+      this._mesh.geometry = null;
+      this._mesh.material.dispose();
+      this._mesh.material = null;
+      this._mesh = null;
+    }
+    if (this._geometry) {
+      this._geometry.dispose();
+      this._geometry = null;
+    }
+    this._material.vertexShader = null;
+    this._material.fragmentShader = null;
+    this._material.uniforms = null;
+    this._material.dispose();
+    this._material = null;
+
+    _widgetsBase.prototype.free.call(this);
+  };
+
+  widgetsVelocityTimeIntegral.prototype.getMeasurements = function getMeasurements() {
+    return {
+      vMax: this._vMax,
+      vMean: this._vMean,
+      gMax: this._gMax,
+      gMean: this._gMean,
+      envTi: this._envTi,
+      vti: this._vti
     };
+  };
 
-    _class.prototype.getMeasurements = function getMeasurements() {
-      return {
-        vMax: this._vMax,
-        vMean: this._vMean,
-        gMax: this._gMax,
-        gMean: this._gMean,
-        envTi: this._envTi,
-        vti: this._vti
-      };
-    };
+  _createClass(widgetsVelocityTimeIntegral, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handles.forEach(function (elem) {
+        return elem.targetMesh = targetMesh;
+      });
+      this._moveHandle.targetMesh = targetMesh;
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handles.forEach(function (elem) {
+        return elem._worldPosition.copy(worldPosition);
+      });
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }, {
+    key: 'extraInfo',
+    get: function get() {
+      return this._extraInfo;
+    },
+    set: function set(info) {
+      this._extraInfo = info;
+      this._label.querySelector('.info').innerHTML = info;
+    }
+  }]);
 
-    _createClass(_class, [{
-      key: 'targetMesh',
-      get: function get() {
-        return this._targetMesh;
-      },
-      set: function set(targetMesh) {
-        this._targetMesh = targetMesh;
-        this._handles.forEach(function (elem) {
-          return elem.targetMesh = targetMesh;
-        });
-        this._moveHandle.targetMesh = targetMesh;
-        this.update();
-      }
-    }, {
-      key: 'worldPosition',
-      get: function get() {
-        return this._worldPosition;
-      },
-      set: function set(worldPosition) {
-        this._handles.forEach(function (elem) {
-          return elem._worldPosition.copy(worldPosition);
-        });
-        this._worldPosition.copy(worldPosition);
-        this.update();
-      }
-    }, {
-      key: 'extraInfo',
-      get: function get() {
-        return this._extraInfo;
-      },
-      set: function set(info) {
-        this._extraInfo = info;
-        this._label.querySelector('.info').innerHTML = info;
-      }
-    }]);
+  return widgetsVelocityTimeIntegral;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
 
-    return _class;
-  }(Constructor);
-};
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsVelocityTimeIntegral());
 
 /***/ }),
 
@@ -102426,7 +102259,7 @@ var widgetsVelocityTimeIntegral = function widgetsVelocityTimeIntegral() {
 /*!*******************************************!*\
   !*** ./src/widgets/widgets.voxelProbe.js ***!
   \*******************************************/
-/*! exports provided: widgetsVoxelprobe, default */
+/*! exports provided: widgetsVoxelprobe */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -102452,274 +102285,273 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * @module widgets/voxelProbe
  */
-var widgetsVoxelprobe = function widgetsVoxelprobe() {
-      var Constructor = Object(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"])();
-      return function (_Constructor) {
-            _inherits(_class, _Constructor);
 
-            function _class(targetMesh, controls) {
-                  var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+var widgetsVoxelprobe = function (_widgetsBase) {
+  _inherits(widgetsVoxelprobe, _widgetsBase);
 
-                  _classCallCheck(this, _class);
+  function widgetsVoxelprobe(targetMesh, controls) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-                  var _this = _possibleConstructorReturn(this, _Constructor.call(this, targetMesh, controls, params));
+    _classCallCheck(this, widgetsVoxelprobe);
 
-                  _this._widgetType = 'VoxelProbe';
+    var _this = _possibleConstructorReturn(this, _widgetsBase.call(this, targetMesh, controls, params));
 
-                  // incoming parameters (optional: worldPosition)
-                  _this._stack = params.stack; // required
+    _this._widgetType = 'VoxelProbe';
 
-                  _this._container.style.cursor = 'pointer';
-                  _this._controls.enabled = false; // controls should be disabled for widgets with a single handle
-                  _this._initialized = false; // set to true onEnd
-                  _this._active = true;
-                  _this._moving = true;
-                  _this._domHovered = false;
+    // incoming parameters (optional: worldPosition)
+    _this._stack = params.stack; // required
 
-                  // dom stuff
-                  _this._label = null;
+    _this._container.style.cursor = 'pointer';
+    _this._controls.enabled = false; // controls should be disabled for widgets with a single handle
+    _this._initialized = false; // set to true onEnd
+    _this._active = true;
+    _this._moving = true;
+    _this._domHovered = false;
 
-                  // handle (represent voxel)
-                  var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
-                  _this._handle = new WidgetsHandle(targetMesh, controls, params);
-                  _this.add(_this._handle);
+    // dom stuff
+    _this._label = null;
 
-                  _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
-                  _this.add(_this._moveHandle);
-                  _this._moveHandle.hide();
+    // handle (represent voxel)
+    var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
+    _this._handle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._handle);
 
-                  _this.create();
+    _this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    _this.add(_this._moveHandle);
+    _this._moveHandle.hide();
 
-                  // event listeners
-                  _this.onMove = _this.onMove.bind(_this);
-                  _this.onHover = _this.onHover.bind(_this);
-                  _this.addEventListeners();
-                  return _this;
-            }
+    _this.create();
 
-            _class.prototype.addEventListeners = function addEventListeners() {
-                  this._label.addEventListener('mouseenter', this.onHover);
-                  this._label.addEventListener('mouseleave', this.onHover);
+    // event listeners
+    _this.onMove = _this.onMove.bind(_this);
+    _this.onHover = _this.onHover.bind(_this);
+    _this.addEventListeners();
+    return _this;
+  }
 
-                  this._container.addEventListener('wheel', this.onMove);
-            };
+  widgetsVoxelprobe.prototype.addEventListeners = function addEventListeners() {
+    this._label.addEventListener('mouseenter', this.onHover);
+    this._label.addEventListener('mouseleave', this.onHover);
 
-            _class.prototype.removeEventListeners = function removeEventListeners() {
-                  this._label.removeEventListener('mouseenter', this.onHover);
-                  this._label.removeEventListener('mouseleave', this.onHover);
+    this._container.addEventListener('wheel', this.onMove);
+  };
 
-                  this._container.removeEventListener('wheel', this.onMove);
-            };
+  widgetsVoxelprobe.prototype.removeEventListeners = function removeEventListeners() {
+    this._label.removeEventListener('mouseenter', this.onHover);
+    this._label.removeEventListener('mouseleave', this.onHover);
 
-            _class.prototype.onStart = function onStart(evt) {
-                  this._moveHandle.onMove(evt, true);
-                  this._handle.onStart(evt);
+    this._container.removeEventListener('wheel', this.onMove);
+  };
 
-                  this._active = this._handle.active || this._domHovered;
+  widgetsVoxelprobe.prototype.onStart = function onStart(evt) {
+    this._moveHandle.onMove(evt, true);
+    this._handle.onStart(evt);
 
-                  if (this._domHovered) {
-                        this._moving = true;
-                        this._controls.enabled = false;
-                  }
+    this._active = this._handle.active || this._domHovered;
 
-                  this.update();
-            };
+    if (this._domHovered) {
+      this._moving = true;
+      this._controls.enabled = false;
+    }
 
-            _class.prototype.onMove = function onMove(evt) {
-                  if (this._active) {
-                        var prevPosition = this._moveHandle.worldPosition.clone();
+    this.update();
+  };
 
-                        this._dragged = true;
-                        this._moveHandle.onMove(evt, true);
+  widgetsVoxelprobe.prototype.onMove = function onMove(evt) {
+    if (this._active) {
+      var prevPosition = this._moveHandle.worldPosition.clone();
 
-                        if (this._moving) {
-                              this._handle.worldPosition.add(this._moveHandle.worldPosition.clone().sub(prevPosition));
-                        }
-                  } else {
-                        this.onHover(null);
-                  }
+      this._dragged = true;
+      this._moveHandle.onMove(evt, true);
 
-                  this._handle.onMove(evt);
+      if (this._moving) {
+        this._handle.worldPosition.add(this._moveHandle.worldPosition.clone().sub(prevPosition));
+      }
+    } else {
+      this.onHover(null);
+    }
 
-                  this.update();
-            };
+    this._handle.onMove(evt);
 
-            _class.prototype.onEnd = function onEnd() {
-                  this._handle.onEnd();
+    this.update();
+  };
 
-                  if (!this._dragged && this._active && this._initialized) {
-                        this._selected = !this._selected; // change state if there was no dragging
-                        this._handle.selected = this._selected;
-                  }
+  widgetsVoxelprobe.prototype.onEnd = function onEnd() {
+    this._handle.onEnd();
 
-                  this._initialized = true;
-                  this._active = this._handle.active;
-                  this._dragged = false;
-                  this._moving = false;
+    if (!this._dragged && this._active && this._initialized) {
+      this._selected = !this._selected; // change state if there was no dragging
+      this._handle.selected = this._selected;
+    }
 
-                  this.update();
-            };
+    this._initialized = true;
+    this._active = this._handle.active;
+    this._dragged = false;
+    this._moving = false;
 
-            _class.prototype.onHover = function onHover(evt) {
-                  if (evt) {
-                        this.hoverDom(evt);
-                  }
+    this.update();
+  };
 
-                  this._hovered = this._handle.hovered || this._domHovered;
-                  this._container.style.cursor = this._hovered ? 'pointer' : 'default';
-            };
+  widgetsVoxelprobe.prototype.onHover = function onHover(evt) {
+    if (evt) {
+      this.hoverDom(evt);
+    }
 
-            _class.prototype.hoverDom = function hoverDom(evt) {
-                  this._domHovered = evt.type === 'mouseenter';
-            };
+    this._hovered = this._handle.hovered || this._domHovered;
+    this._container.style.cursor = this._hovered ? 'pointer' : 'default';
+  };
 
-            _class.prototype.create = function create() {
-                  this.createVoxel();
-                  this.createDOM();
-            };
+  widgetsVoxelprobe.prototype.hoverDom = function hoverDom(evt) {
+    this._domHovered = evt.type === 'mouseenter';
+  };
 
-            _class.prototype.createVoxel = function createVoxel() {
-                  this._voxel = new _models_models_voxel__WEBPACK_IMPORTED_MODULE_2__["default"]();
-                  this._voxel.id = this.id;
-            };
+  widgetsVoxelprobe.prototype.create = function create() {
+    this.createVoxel();
+    this.createDOM();
+  };
 
-            _class.prototype.createDOM = function createDOM() {
-                  this._label = document.createElement('div');
-                  this._label.className = 'widgets-label';
+  widgetsVoxelprobe.prototype.createVoxel = function createVoxel() {
+    this._voxel = new _models_models_voxel__WEBPACK_IMPORTED_MODULE_2__["default"]();
+    this._voxel.id = this.id;
+  };
 
-                  // measurements
-                  var measurementsContainer = document.createElement('div');
-                  // LPS
-                  var lpsContainer = document.createElement('div');
-                  lpsContainer.className = 'lpsPosition';
-                  measurementsContainer.appendChild(lpsContainer);
-                  // IJK
-                  var ijkContainer = document.createElement('div');
-                  ijkContainer.className = 'ijkPosition';
-                  measurementsContainer.appendChild(ijkContainer);
-                  // Value
-                  var valueContainer = document.createElement('div');
-                  valueContainer.className = 'value';
-                  measurementsContainer.appendChild(valueContainer);
+  widgetsVoxelprobe.prototype.createDOM = function createDOM() {
+    this._label = document.createElement('div');
+    this._label.className = 'widgets-label';
 
-                  this._label.appendChild(measurementsContainer);
+    // measurements
+    var measurementsContainer = document.createElement('div');
+    // LPS
+    var lpsContainer = document.createElement('div');
+    lpsContainer.className = 'lpsPosition';
+    measurementsContainer.appendChild(lpsContainer);
+    // IJK
+    var ijkContainer = document.createElement('div');
+    ijkContainer.className = 'ijkPosition';
+    measurementsContainer.appendChild(ijkContainer);
+    // Value
+    var valueContainer = document.createElement('div');
+    valueContainer.className = 'value';
+    measurementsContainer.appendChild(valueContainer);
 
-                  this._container.appendChild(this._label);
+    this._label.appendChild(measurementsContainer);
 
-                  this.updateDOMColor();
-            };
+    this._container.appendChild(this._label);
 
-            _class.prototype.update = function update() {
-                  this.updateColor();
+    this.updateDOMColor();
+  };
 
-                  this._handle.update();
-                  this._worldPosition.copy(this._handle.worldPosition);
+  widgetsVoxelprobe.prototype.update = function update() {
+    this.updateColor();
 
-                  this.updateVoxel(); // set data coordinates && value
+    this._handle.update();
+    this._worldPosition.copy(this._handle.worldPosition);
 
-                  this.updateDOM();
-            };
+    this.updateVoxel(); // set data coordinates && value
 
-            _class.prototype.updateVoxel = function updateVoxel() {
-                  this._voxel.worldCoordinates = this._worldPosition;
-                  this._voxel.dataCoordinates = _core_core_utils__WEBPACK_IMPORTED_MODULE_3__["default"].worldToData(this._stack.lps2IJK, this._worldPosition);
+    this.updateDOM();
+  };
 
-                  // update value
-                  var value = _core_core_utils__WEBPACK_IMPORTED_MODULE_3__["default"].getPixelData(this._stack, this._voxel.dataCoordinates);
+  widgetsVoxelprobe.prototype.updateVoxel = function updateVoxel() {
+    this._voxel.worldCoordinates = this._worldPosition;
+    this._voxel.dataCoordinates = _core_core_utils__WEBPACK_IMPORTED_MODULE_3__["default"].worldToData(this._stack.lps2IJK, this._worldPosition);
 
-                  this._voxel.value = value === null || this._stack.numberOfChannels > 1 ? 'NA' // coordinates outside the image or RGB
-                  : _core_core_utils__WEBPACK_IMPORTED_MODULE_3__["default"].rescaleSlopeIntercept(value, this._stack.rescaleSlope, this._stack.rescaleIntercept).toFixed();
-            };
+    // update value
+    var value = _core_core_utils__WEBPACK_IMPORTED_MODULE_3__["default"].getPixelData(this._stack, this._voxel.dataCoordinates);
 
-            _class.prototype.updateDOM = function updateDOM() {
-                  var rasContainer = this._label.querySelector('.lpsPosition');
-                  var ijkContainer = this._label.querySelector('.ijkPosition');
-                  var valueContainer = this._label.querySelector('.value');
+    this._voxel.value = value === null || this._stack.numberOfChannels > 1 ? 'NA' // coordinates outside the image or RGB
+    : _core_core_utils__WEBPACK_IMPORTED_MODULE_3__["default"].rescaleSlopeIntercept(value, this._stack.rescaleSlope, this._stack.rescaleIntercept).toFixed();
+  };
 
-                  rasContainer.innerHTML = 'LPS: \n      ' + this._voxel.worldCoordinates.x.toFixed(2) + ' :\n      ' + this._voxel.worldCoordinates.y.toFixed(2) + ' :\n      ' + this._voxel.worldCoordinates.z.toFixed(2);
-                  ijkContainer.innerHTML = 'IJK: \n      ' + this._voxel.dataCoordinates.x + ' :\n      ' + this._voxel.dataCoordinates.y + ' :\n      ' + this._voxel.dataCoordinates.z;
-                  valueContainer.innerHTML = 'Value: ' + this._voxel.value;
+  widgetsVoxelprobe.prototype.updateDOM = function updateDOM() {
+    var rasContainer = this._label.querySelector('.lpsPosition');
+    var ijkContainer = this._label.querySelector('.ijkPosition');
+    var valueContainer = this._label.querySelector('.value');
 
-                  this.updateDOMColor();
+    rasContainer.innerHTML = 'LPS: \n      ' + this._voxel.worldCoordinates.x.toFixed(2) + ' :\n      ' + this._voxel.worldCoordinates.y.toFixed(2) + ' :\n      ' + this._voxel.worldCoordinates.z.toFixed(2);
+    ijkContainer.innerHTML = 'IJK: \n      ' + this._voxel.dataCoordinates.x + ' :\n      ' + this._voxel.dataCoordinates.y + ' :\n      ' + this._voxel.dataCoordinates.z;
+    valueContainer.innerHTML = 'Value: ' + this._voxel.value;
 
-                  var transform = this.adjustLabelTransform(this._label, this._handle.screenPosition, true);
+    this.updateDOMColor();
 
-                  this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
-            };
+    var transform = this.adjustLabelTransform(this._label, this._handle.screenPosition, true);
 
-            _class.prototype.updateDOMColor = function updateDOMColor() {
-                  this._label.style.borderColor = this._color;
-            };
+    this._label.style.transform = 'translate3D(' + transform.x + 'px, ' + transform.y + 'px, 0)';
+  };
 
-            _class.prototype.free = function free() {
-                  this.removeEventListeners();
+  widgetsVoxelprobe.prototype.updateDOMColor = function updateDOMColor() {
+    this._label.style.borderColor = this._color;
+  };
 
-                  this.remove(this._handle);
-                  this._handle.free();
-                  this._handle = null;
-                  this.remove(this._moveHandle);
-                  this._moveHandle.free();
-                  this._moveHandle = null;
+  widgetsVoxelprobe.prototype.free = function free() {
+    this.removeEventListeners();
 
-                  this._container.removeChild(this._label);
+    this.remove(this._handle);
+    this._handle.free();
+    this._handle = null;
+    this.remove(this._moveHandle);
+    this._moveHandle.free();
+    this._moveHandle = null;
 
-                  this._stack = null;
-                  this._voxel = null;
+    this._container.removeChild(this._label);
 
-                  _Constructor.prototype.free.call(this);
-            };
+    this._stack = null;
+    this._voxel = null;
 
-            _class.prototype.hideDOM = function hideDOM() {
-                  this._label.style.display = 'none';
-                  this._handle.hideDOM();
-            };
+    _widgetsBase.prototype.free.call(this);
+  };
 
-            _class.prototype.showDOM = function showDOM() {
-                  this._label.style.display = '';
-                  this._handle.showDOM();
-            };
+  widgetsVoxelprobe.prototype.hideDOM = function hideDOM() {
+    this._label.style.display = 'none';
+    this._handle.hideDOM();
+  };
 
-            _createClass(_class, [{
-                  key: 'targetMesh',
-                  get: function get() {
-                        return this._targetMesh;
-                  },
-                  set: function set(targetMesh) {
-                        this._targetMesh = targetMesh;
-                        this._handle.targetMesh = targetMesh;
-                        this._moveHandle.targetMesh = targetMesh;
-                        this.update();
-                  }
-            }, {
-                  key: 'worldPosition',
-                  get: function get() {
-                        return this._worldPosition;
-                  },
-                  set: function set(worldPosition) {
-                        this._handle.worldPosition.copy(worldPosition);
-                        this._moveHandle.worldPosition.copy(worldPosition);
-                        this._worldPosition.copy(worldPosition);
-                        this.update();
-                  }
-            }, {
-                  key: 'active',
-                  get: function get() {
-                        return this._active;
-                  },
-                  set: function set(active) {
-                        this._active = active;
-                        this._controls.enabled = !this._active;
+  widgetsVoxelprobe.prototype.showDOM = function showDOM() {
+    this._label.style.display = '';
+    this._handle.showDOM();
+  };
 
-                        this.update();
-                  }
-            }]);
+  _createClass(widgetsVoxelprobe, [{
+    key: 'targetMesh',
+    get: function get() {
+      return this._targetMesh;
+    },
+    set: function set(targetMesh) {
+      this._targetMesh = targetMesh;
+      this._handle.targetMesh = targetMesh;
+      this._moveHandle.targetMesh = targetMesh;
+      this.update();
+    }
+  }, {
+    key: 'worldPosition',
+    get: function get() {
+      return this._worldPosition;
+    },
+    set: function set(worldPosition) {
+      this._handle.worldPosition.copy(worldPosition);
+      this._moveHandle.worldPosition.copy(worldPosition);
+      this._worldPosition.copy(worldPosition);
+      this.update();
+    }
+  }, {
+    key: 'active',
+    get: function get() {
+      return this._active;
+    },
+    set: function set(active) {
+      this._active = active;
+      this._controls.enabled = !this._active;
 
-            return _class;
-      }(Constructor);
-};
+      this.update();
+    }
+  }]);
+
+  return widgetsVoxelprobe;
+}(_widgets_base__WEBPACK_IMPORTED_MODULE_0__["widgetsBase"]);
+
+;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (widgetsVoxelprobe());
 
 /***/ }),
 

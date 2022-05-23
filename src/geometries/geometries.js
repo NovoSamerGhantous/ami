@@ -1,9 +1,7 @@
-import Slice, { geometriesSlice } from './geometries.slice';
-import Voxel, { geometriesVoxel } from './geometries.voxel';
+import { geometriesSlice } from './geometries.slice';
+import { geometriesVoxel } from './geometries.voxel';
 
 export {
-  Slice as SliceGeometry,
-  geometriesSlice as sliceGeometryFactory,
-  Voxel as VoxelGeometry,
-  geometriesVoxel as voxelGeometryFactory,
+  geometriesSlice as SliceGeometry,
+  geometriesVoxel as VoxelGeometry,
 };

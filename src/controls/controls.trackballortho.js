@@ -451,7 +451,4 @@ class trackballOrtho extends Constructor {
   }
 };
 
-// export factory
 export { trackballOrtho };
-// default export to
-export default trackballOrtho();

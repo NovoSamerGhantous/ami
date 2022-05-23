@@ -681,7 +681,4 @@ class trackball extends EventDispatcher {
   }
 };
 
-// export factory
 export { trackball };
-// default export to
-export default trackball;

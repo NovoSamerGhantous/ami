@@ -166,7 +166,4 @@ class helpersContour extends Constructor {
   }
 };
 
-// export factory
 export { helpersContour };
-// default export to
-export default helpersContour();
