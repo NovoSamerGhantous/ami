@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  ami:
+    image: node:latest
+    volumes: 
+      - ./:/workspace
+    tty: true

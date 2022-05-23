@@ -228,7 +228,7 @@ $> yarn add ami.js
 
 // app.js
 import * as AMI form 'ami.js';
-window.console.log('Ready to rock!!');
+console.log('Ready to rock!!');
 
 ```
 
@@ -256,7 +256,7 @@ Add AMI in your index.html **after** THREEJS.
 
 #app.js
 const AMI = AMI;
-window.console.log('Ready to rock!!');
+console.log('Ready to rock!!');
 
 ```
 

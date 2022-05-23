@@ -56,7 +56,7 @@ void getIntensity(in vec3 dataCoordinates, out float intensity, out vec3 gradien
   intensity = ( intensity - windowMin ) / uWindowCenterWidth[1];
 }
 
-mat4 inverse(mat4 m) {
+mat4 inverse_(mat4 m) {
   float
     a00 = m[0][0], a01 = m[0][1], a02 = m[0][2], a03 = m[0][3],
     a10 = m[1][0], a11 = m[1][1], a12 = m[1][2], a13 = m[1][3],
@@ -212,7 +212,7 @@ void main(void) {
   // MIP volume rendering
   float maxIntensity = 0.0;
 
-  mat4 dataToWorld = inverse(uWorldToData);
+  mat4 dataToWorld = inverse_(uWorldToData);
 
   // rayOrigin -= rayDirection * 0.1; // gold_noise(vPos.xz, vPos.y) / 100.;  
 

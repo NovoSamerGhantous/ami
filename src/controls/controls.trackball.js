@@ -1,5 +1,3 @@
-import * as AMIThree from 'three';
-
 /**
  * Original authors from THREEJS repo
  * @author Eberhard Graether / http://egraether.com/
@@ -8,12 +6,10 @@ import * as AMIThree from 'three';
  * @author Luca Antiga  / http://lantiga.github.io
  */
 
-const trackball = (three = AMIThree) => {
-  if (three === undefined || three.EventDispatcher === undefined) {
-    return null;
-  }
+ import {EventDispatcher, Vector2, Vector3, Quaternion} from 'three'
+const trackball = () => {
 
-  const Constructor = three.EventDispatcher;
+  const Constructor = EventDispatcher;
   return class extends Constructor {
     constructor(object, domElement) {
       super();
@@ -60,27 +56,27 @@ const trackball = (three = AMIThree) => {
 
       // internals
 
-      this.target = new three.Vector3();
+      this.target = new Vector3();
 
       let EPS = 0.000001;
 
-      let lastPosition = new three.Vector3();
+      let lastPosition = new Vector3();
 
       let _state = STATE.NONE,
         _prevState = STATE.NONE,
-        _eye = new three.Vector3(),
-        _movePrev = new three.Vector2(),
-        _moveCurr = new three.Vector2(),
-        _lastAxis = new three.Vector3(),
+        _eye = new Vector3(),
+        _movePrev = new Vector2(),
+        _moveCurr = new Vector2(),
+        _lastAxis = new Vector3(),
         _lastAngle = 0,
-        _zoomStart = new three.Vector2(),
-        _zoomEnd = new three.Vector2(),
+        _zoomStart = new Vector2(),
+        _zoomEnd = new Vector2(),
         _touchZoomDistanceStart = 0,
         _touchZoomDistanceEnd = 0,
-        _panStart = new three.Vector2(),
-        _panEnd = new three.Vector2(),
-        _customStart = new three.Vector2(),
-        _customEnd = new three.Vector2();
+        _panStart = new Vector2(),
+        _panEnd = new Vector2(),
+        _customStart = new Vector2(),
+        _customEnd = new Vector2();
 
       // for reset
 
@@ -96,7 +92,7 @@ const trackball = (three = AMIThree) => {
 
       // methods
 
-      this.handleResize = function () {
+      this.handleResize = function() {
         if (this.domElement === document) {
           this.screen.left = 0;
           this.screen.top = 0;
@@ -106,23 +102,23 @@ const trackball = (three = AMIThree) => {
           let box = this.domElement.getBoundingClientRect();
           // adjustments come from similar code in the jquery offset() function
           let d = this.domElement.ownerDocument.documentElement;
-          this.screen.left = box.left + scrollX - d.clientLeft;
-          this.screen.top = box.top + scrollY - d.clientTop;
+          this.screen.left = box.left + pageXOffset - d.clientLeft;
+          this.screen.top = box.top + pageYOffset - d.clientTop;
           this.screen.width = box.width;
           this.screen.height = box.height;
         }
       };
 
-      this.handleEvent = function (event) {
+      this.handleEvent = function(event) {
         if (typeof this[event.type] == 'function') {
           this[event.type](event);
         }
       };
 
-      let getMouseOnScreen = (function () {
-        let vector = new three.Vector2();
+      let getMouseOnScreen = (function() {
+        let vector = new Vector2();
 
-        return function (pageX, pageY) {
+        return function(pageX, pageY) {
           vector.set(
             (pageX - _this.screen.left) / _this.screen.width,
             (pageY - _this.screen.top) / _this.screen.height
@@ -132,10 +128,10 @@ const trackball = (three = AMIThree) => {
         };
       })();
 
-      let getMouseOnCircle = (function () {
-        let vector = new three.Vector2();
+      let getMouseOnCircle = (function() {
+        let vector = new Vector2();
 
-        return function (pageX, pageY) {
+        return function(pageX, pageY) {
           vector.set(
             (pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5),
             (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width // screen.width intentional
@@ -145,16 +141,16 @@ const trackball = (three = AMIThree) => {
         };
       })();
 
-      this.rotateCamera = (function () {
-        let axis = new three.Vector3(),
-          quaternion = new three.Quaternion(),
-          eyeDirection = new three.Vector3(),
-          objectUpDirection = new three.Vector3(),
-          objectSidewaysDirection = new three.Vector3(),
-          moveDirection = new three.Vector3(),
+      this.rotateCamera = (function() {
+        let axis = new Vector3(),
+          quaternion = new Quaternion(),
+          eyeDirection = new Vector3(),
+          objectUpDirection = new Vector3(),
+          objectSidewaysDirection = new Vector3(),
+          moveDirection = new Vector3(),
           angle;
 
-        return function () {
+        return function() {
           moveDirection.set(_moveCurr.x - _movePrev.x, _moveCurr.y - _movePrev.y, 0);
           angle = moveDirection.length();
 
@@ -192,7 +188,7 @@ const trackball = (three = AMIThree) => {
         };
       })();
 
-      this.zoomCamera = function () {
+      this.zoomCamera = function() {
         let factor;
 
         if (_state === STATE.TOUCH_ZOOM) {
@@ -214,12 +210,12 @@ const trackball = (three = AMIThree) => {
         }
       };
 
-      this.panCamera = (function () {
-        let mouseChange = new three.Vector2(),
-          objectUp = new three.Vector3(),
-          pan = new three.Vector3();
+      this.panCamera = (function() {
+        let mouseChange = new Vector2(),
+          objectUp = new Vector3(),
+          pan = new Vector3();
 
-        return function () {
+        return function() {
           mouseChange.copy(_panEnd).sub(_panStart);
 
           if (mouseChange.lengthSq()) {
@@ -247,7 +243,7 @@ const trackball = (three = AMIThree) => {
         };
       })();
 
-      this.checkDistances = function () {
+      this.checkDistances = function() {
         if (!_this.noZoom || !_this.noPan) {
           if (_eye.lengthSq() > _this.maxDistance * _this.maxDistance) {
             _this.object.position.addVectors(_this.target, _eye.setLength(_this.maxDistance));
@@ -259,7 +255,7 @@ const trackball = (three = AMIThree) => {
         }
       };
 
-      this.update = function () {
+      this.update = function() {
         _eye.subVectors(_this.object.position, _this.target);
 
         if (!_this.noRotate) {
@@ -291,7 +287,7 @@ const trackball = (three = AMIThree) => {
         }
       };
 
-      this.reset = function () {
+      this.reset = function() {
         _state = STATE.NONE;
         _prevState = STATE.NONE;
 
@@ -308,13 +304,13 @@ const trackball = (three = AMIThree) => {
         lastPosition.copy(_this.object.position);
       };
 
-      this.setState = function (targetState) {
+      this.setState = function(targetState) {
         _this.forceState = targetState;
         _prevState = targetState;
         _state = targetState;
       };
 
-      this.custom = function (customStart, customEnd) { };
+      this.custom = function(customStart, customEnd) {};
 
       // listeners
 
@@ -656,7 +652,7 @@ const trackball = (three = AMIThree) => {
         event.preventDefault();
       }
 
-      this.dispose = function () {
+      this.dispose = function() {
         this.domElement.removeEventListener('contextmenu', contextmenu, false);
         this.domElement.removeEventListener('mousedown', mousedown, false);
         this.domElement.removeEventListener('wheel', mousewheel, false);

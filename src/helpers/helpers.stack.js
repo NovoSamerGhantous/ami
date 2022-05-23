@@ -2,8 +2,7 @@
 import { helpersBorder } from '../helpers/helpers.border';
 import { helpersBoundingBox } from '../helpers/helpers.boundingbox';
 import { helpersSlice } from '../helpers/helpers.slice';
-import * as AMIThree from 'three';
-
+import {Object3D, Vector3} from 'three'
 /**
  * Helper to easily display and interact with a stack.<br>
  *<br>
@@ -26,7 +25,7 @@ import * as AMIThree from 'three';
  * stackHelper.bbox.color = 0xF9F9F9;
  * stackHelper.border.color = 0xF9F9F9;
  *
- * let scene = new THREE.Scene();
+ * let scene = new Scene();
  * scene.add(stackHelper);
  *
  * @see module:helpers/border
@@ -35,12 +34,9 @@ import * as AMIThree from 'three';
  *
  * @module helpers/stack
  */
-const helpersStack = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
+const helpersStack = () => {
 
-  const Constructor = three.Object3D;
+  const Constructor = Object3D;
   return class extends Constructor {
     constructor(stack) {
       //
@@ -341,7 +337,7 @@ const helpersStack = (three = AMIThree) => {
      * @private
      */
     _prepareBBox() {
-      const HelpersBoundingBoxConstructor = helpersBoundingBox(three);
+      const HelpersBoundingBoxConstructor = helpersBoundingBox();
       this._bBox = new HelpersBoundingBoxConstructor(this._stack);
       this.add(this._bBox);
     }
@@ -353,7 +349,7 @@ const helpersStack = (three = AMIThree) => {
      * @private
      */
     _prepareBorder() {
-      const HelpersBorderContructor = helpersBorder(three);
+      const HelpersBorderContructor = helpersBorder();
       this._border = new HelpersBorderContructor(this._slice);
       this.add(this._border);
     }
@@ -373,7 +369,7 @@ const helpersStack = (three = AMIThree) => {
       // compute initial direction orientation
       let direction = this._prepareDirection(this._orientation);
 
-      const SliceHelperConstructor = helpersSlice(three);
+      const SliceHelperConstructor = helpersSlice();
       this._slice = new SliceHelperConstructor(this._stack, this._index, position, direction);
       this.add(this._slice);
     }
@@ -418,16 +414,16 @@ const helpersStack = (three = AMIThree) => {
      * @private
      */
     _prepareSlicePosition(rPosition, index) {
-      let position = new three.Vector3(0, 0, 0);
+      let position = new Vector3(0, 0, 0);
       switch (this._orientation) {
         case 0:
-          position = new three.Vector3(Math.floor(rPosition.x), Math.floor(rPosition.y), index);
+          position = new Vector3(Math.floor(rPosition.x), Math.floor(rPosition.y), index);
           break;
         case 1:
-          position = new three.Vector3(index, Math.floor(rPosition.y), Math.floor(rPosition.z));
+          position = new Vector3(index, Math.floor(rPosition.y), Math.floor(rPosition.z));
           break;
         case 2:
-          position = new three.Vector3(Math.floor(rPosition.x), index, Math.floor(rPosition.z));
+          position = new Vector3(Math.floor(rPosition.x), index, Math.floor(rPosition.z));
           break;
         default:
           // do nothing!
@@ -446,16 +442,16 @@ const helpersStack = (three = AMIThree) => {
      * @private
      */
     _prepareDirection(orientation) {
-      let direction = new three.Vector3(0, 0, 1);
+      let direction = new Vector3(0, 0, 1);
       switch (orientation) {
         case 0:
-          direction = new three.Vector3(0, 0, 1);
+          direction = new Vector3(0, 0, 1);
           break;
         case 1:
-          direction = new three.Vector3(1, 0, 0);
+          direction = new Vector3(1, 0, 0);
           break;
         case 2:
-          direction = new three.Vector3(0, 1, 0);
+          direction = new Vector3(0, 1, 0);
           break;
         default:
           // do nothing!

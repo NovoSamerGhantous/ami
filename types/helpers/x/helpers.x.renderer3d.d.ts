@@ -1,0 +1,66 @@
+export default class _default {
+    constructor(containerId?: string);
+    _container: any;
+    _renderer: any;
+    _camera: PerspectiveCamera;
+    _controls: {
+        object: any;
+        domElement: any;
+        enabled: boolean;
+        screen: {
+            left: number;
+            top: number;
+            width: number;
+            height: number;
+        };
+        rotateSpeed: number;
+        zoomSpeed: number;
+        panSpeed: number;
+        noRotate: boolean;
+        noZoom: boolean;
+        noPan: boolean;
+        noCustom: boolean;
+        forceState: number;
+        staticMoving: boolean;
+        dynamicDampingFactor: number;
+        minDistance: number;
+        maxDistance: number;
+        keys: number[];
+        target: import("three").Vector3;
+        target0: import("three").Vector3;
+        position0: any;
+        up0: any;
+        handleResize: () => void;
+        handleEvent: (event: any) => void;
+        rotateCamera: () => void;
+        zoomCamera: () => void;
+        panCamera: () => void;
+        checkDistances: () => void;
+        update: () => void;
+        reset: () => void;
+        setState: (targetState: any) => void;
+        custom: (customStart: any, customEnd: any) => void;
+        dispose: () => void;
+        addEventListener<T extends string>(type: T, listener: import("three").EventListener<import("three").Event, T, any>): void;
+        hasEventListener<T_1 extends string>(type: T_1, listener: import("three").EventListener<import("three").Event, T_1, any>): boolean;
+        removeEventListener<T_2 extends string>(type: T_2, listener: import("three").EventListener<import("three").Event, T_2, any>): void;
+        dispatchEvent(event: import("three").Event): void;
+    };
+    _scene: Scene;
+    _onWindowResize(): void;
+    set container(arg: any);
+    get container(): any;
+    add(obj: any): void;
+    addEventListeners(): void;
+    removeEventListeners(): void;
+    center(worldPosition: any): void;
+    render(): void;
+    animate(): void;
+    _initRenderer(containerId: any): void;
+    _initCamera(): void;
+    _initScene(): void;
+    _initControls(): void;
+}
+import { PerspectiveCamera } from "three/src/cameras/PerspectiveCamera";
+import { Scene } from "three/src/scenes/Scene";
+//# sourceMappingURL=helpers.x.renderer3d.d.ts.map

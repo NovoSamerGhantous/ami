@@ -2,17 +2,14 @@
 import ShadersUniform from '../shaders/shaders.localizer.uniform';
 import ShadersVertex from '../shaders/shaders.localizer.vertex';
 import ShadersFragment from '../shaders/shaders.localizer.fragment';
-import * as AMIThree from 'three';
 
 /**
  * @module helpers/localizer
  */
-const helpersLocalizer = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
+import {Object3D, Mesh, ShaderMaterial, DoubleSide} from 'three'
+const helpersLocalizer = () => {
 
-  const Constructor = three.Object3D;
+  const Constructor = Object3D;
   return class extends Constructor {
     constructor(stack, geometry, referencePlane) {
       //
@@ -39,7 +36,7 @@ const helpersLocalizer = (three = AMIThree) => {
 
     _create() {
       this._prepareMaterial();
-      this._mesh = new three.Mesh(this._geometry, this._material);
+      this._mesh = new Mesh(this._geometry, this._material);
       this._mesh.applyMatrix(this._stack._ijk2LPS);
       this.add(this._mesh);
     }
@@ -72,8 +69,8 @@ const helpersLocalizer = (three = AMIThree) => {
         // generate material
         let fs = new ShadersFragment(this._uniforms);
         let vs = new ShadersVertex();
-        this._material = new three.ShaderMaterial({
-          side: three.DoubleSide,
+        this._material = new ShaderMaterial({
+          side: DoubleSide,
           uniforms: this._uniforms,
           vertexShader: vs.compute(),
           fragmentShader: fs.compute(),

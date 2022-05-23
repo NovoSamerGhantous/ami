@@ -1,15 +1,11 @@
-import * as AMIThree from 'three';
-
 /**
  * @module helpers/border
  */
 
-const helpersBorder = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
+ import {Object3D, BufferGeometry, LineBasicMaterial, Line, Float32BufferAttribute} from 'three'
+const helpersBorder = () => {
 
-  const Constructor = three.Object3D;
+  const Constructor = Object3D;
   return class extends Constructor {
     constructor(helpersSlice) {
       //
@@ -59,7 +55,7 @@ const helpersBorder = (three = AMIThree) => {
 
     _create() {
       if (!this._material) {
-        this._material = new three.LineBasicMaterial({
+        this._material = new LineBasicMaterial({
           color: this._color,
           linewidth: 1,
         });
@@ -69,16 +65,16 @@ const helpersBorder = (three = AMIThree) => {
         return;
       }
 
-      this._geometry = new three.BufferGeometry();
-
+      this._geometry = new BufferGeometry();
+  
       // set vertices positions
       const nbOfVertices = this._helpersSlice.geometry.vertices.length;
       const positions = new Float32Array((nbOfVertices + 1) * 3);
       positions.set(this._helpersSlice.geometry.attributes.position.array, 0);
       positions.set(this._helpersSlice.geometry.vertices[0].toArray(), nbOfVertices * 3);
-      this._geometry.setAttribute('position', new three.Float32BufferAttribute(positions, 3));
+      this._geometry.setAttribute( 'position', new Float32BufferAttribute( positions, 3 ) );
 
-      this._mesh = new three.Line(this._geometry, this._material);
+      this._mesh = new Line(this._geometry, this._material);
       if (this._helpersSlice.aabbSpace === 'IJK') {
         this._mesh.applyMatrix4(this._helpersSlice.stack.ijk2LPS);
       }
