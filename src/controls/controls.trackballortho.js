@@ -7,7 +7,7 @@ import { EventDispatcher, Vector2, Vector3 } from 'three';
  * @author Max Smolens / https://github.com/msmolens
  */
 
-class trackballOrtho extends Constructor {
+class trackballOrtho extends EventDispatcher {
   constructor(
     object,
     domElement,

@@ -80601,8 +80601,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @author Max Smolens / https://github.com/msmolens
  */
 
-var trackballOrtho = function (_Constructor) {
-  _inherits(trackballOrtho, _Constructor);
+var trackballOrtho = function (_EventDispatcher) {
+  _inherits(trackballOrtho, _EventDispatcher);
 
   function trackballOrtho(object, domElement) {
     var state = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
@@ -80617,7 +80617,7 @@ var trackballOrtho = function (_Constructor) {
 
     _classCallCheck(this, trackballOrtho);
 
-    var _this2 = _possibleConstructorReturn(this, _Constructor.call(this));
+    var _this2 = _possibleConstructorReturn(this, _EventDispatcher.call(this));
 
     var _this = _this2;
     var STATE = state;
@@ -81036,7 +81036,7 @@ var trackballOrtho = function (_Constructor) {
   }
 
   return trackballOrtho;
-}(Constructor);
+}(three__WEBPACK_IMPORTED_MODULE_0__["EventDispatcher"]);
 
 ;
 
@@ -82551,8 +82551,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  *  scene.add(slice);
  */
 
-var geometriesSlice = function (_Constructor) {
-    _inherits(geometriesSlice, _Constructor);
+var geometriesSlice = function (_ShapeBufferGeometry) {
+    _inherits(geometriesSlice, _ShapeBufferGeometry);
 
     function geometriesSlice(halfDimensions, center, position, direction) {
         var toAABB = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : new three__WEBPACK_IMPORTED_MODULE_0__["Matrix4"]();
@@ -82613,7 +82613,7 @@ var geometriesSlice = function (_Constructor) {
         // Generate Slice Buffer Geometry from Shape Buffer Geomtry
         // bewcause it does triangulation for us!
 
-        var _this = _possibleConstructorReturn(this, _Constructor.call(this, shape));
+        var _this = _possibleConstructorReturn(this, _ShapeBufferGeometry.call(this, shape));
 
         _this.type = 'SliceBufferGeometry';
 
@@ -82624,7 +82624,7 @@ var geometriesSlice = function (_Constructor) {
     }
 
     return geometriesSlice;
-}(Constructor);
+}(three__WEBPACK_IMPORTED_MODULE_0__["ShapeBufferGeometry"]);
 
 ;
 
@@ -82658,13 +82658,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @module geometries/voxel
  */
 
-var geometriesVoxel = function (_Constructor) {
-  _inherits(geometriesVoxel, _Constructor);
+var geometriesVoxel = function (_BoxGeometry) {
+  _inherits(geometriesVoxel, _BoxGeometry);
 
   function geometriesVoxel(dataPosition) {
     _classCallCheck(this, geometriesVoxel);
 
-    var _this = _possibleConstructorReturn(this, _Constructor.call(this, 1, 1, 1));
+    var _this = _possibleConstructorReturn(this, _BoxGeometry.call(this, 1, 1, 1));
 
     _this._location = dataPosition;
 
@@ -82710,7 +82710,7 @@ var geometriesVoxel = function (_Constructor) {
   }]);
 
   return geometriesVoxel;
-}(Constructor);
+}(three__WEBPACK_IMPORTED_MODULE_0__["BoxGeometry"]);
 
 ;
 
@@ -82743,13 +82743,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @module helpers/border
  */
 
-var helpersBorder = function (_Constructor) {
-  _inherits(helpersBorder, _Constructor);
+var helpersBorder = function (_Object3D) {
+  _inherits(helpersBorder, _Object3D);
 
   function helpersBorder(helpersSlice) {
     _classCallCheck(this, helpersBorder);
 
-    var _this = _possibleConstructorReturn(this, _Constructor.call(this));
+    var _this = _possibleConstructorReturn(this, _Object3D.call(this));
     //
 
 
@@ -82850,7 +82850,7 @@ var helpersBorder = function (_Constructor) {
   }]);
 
   return helpersBorder;
-}(Constructor);
+}(three__WEBPACK_IMPORTED_MODULE_0__["Object3D"]);
 
 ;
 
@@ -83025,13 +83025,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @module helpers/contour
  */
 
-var helpersContour = function (_Constructor) {
-  _inherits(helpersContour, _Constructor);
+var helpersContour = function (_Object3D) {
+  _inherits(helpersContour, _Object3D);
 
   function helpersContour(stack, geometry, texture) {
     _classCallCheck(this, helpersContour);
 
-    var _this = _possibleConstructorReturn(this, _Constructor.call(this));
+    var _this = _possibleConstructorReturn(this, _Object3D.call(this));
     //
 
 
@@ -83192,7 +83192,7 @@ var helpersContour = function (_Constructor) {
   }]);
 
   return helpersContour;
-}(Constructor);
+}(three__WEBPACK_IMPORTED_MODULE_3__["Object3D"]);
 
 ;
 

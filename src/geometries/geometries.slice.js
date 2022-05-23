@@ -44,7 +44,7 @@ import coreUtils from '../core/core.utils';
  *  scene.add(slice);
  */
 
-class geometriesSlice extends Constructor {
+class geometriesSlice extends ShapeBufferGeometry {
   constructor(halfDimensions, center, position, direction, toAABB = new Matrix4()) {
     //
     // prepare data for the shape!

@@ -4,7 +4,7 @@ import { Object3D, BufferGeometry, LineBasicMaterial, Line, Float32BufferAttribu
  * @module helpers/border
  */
 
-class helpersBorder extends Constructor {
+class helpersBorder extends Object3D {
   constructor(helpersSlice) {
     //
     super();

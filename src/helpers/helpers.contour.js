@@ -7,7 +7,7 @@ import { Object3D, Mesh, ShaderMaterial, DoubleSide } from 'three';
 /**
  * @module helpers/contour
  */
-class helpersContour extends Constructor {
+class helpersContour extends Object3D {
   constructor(stack, geometry, texture) {
     //
     super();

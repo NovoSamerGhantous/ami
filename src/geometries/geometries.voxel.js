@@ -5,7 +5,7 @@ import { BoxGeometry, Matrix4 } from 'three';
  * @module geometries/voxel
  */
 
-class geometriesVoxel extends Constructor {
+class geometriesVoxel extends BoxGeometry {
   constructor(dataPosition) {
     super(1, 1, 1);
 
