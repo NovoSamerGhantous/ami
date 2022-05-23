@@ -53,7 +53,7 @@ const widgetsVelocityTimeIntegral = () => {
 
       // add handles
       this._handles = [];
-      const WidgetsHandle = widgetsHandleFactory(three);
+      const WidgetsHandle = widgetsHandleFactory();
 
       let handle = new WidgetsHandle(targetMesh, controls, params);
       this.add(handle);
@@ -146,7 +146,7 @@ const widgetsVelocityTimeIntegral = () => {
           this._handles[this._handles.length - 1].active = false;
           this._handles[this._handles.length - 1].tracking = false;
 
-          const WidgetsHandle = widgetsHandleFactory(three);
+          const WidgetsHandle = widgetsHandleFactory();
           let handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
 
           handle.hovered = true;
@@ -336,7 +336,7 @@ const widgetsVelocityTimeIntegral = () => {
       const region = this._regions[this.getRegionByXY(this._regions, pointF)];
       const axisY = region.y0 + (region.axisY || 0); // data coordinate equal to US region's zero Y coordinate
 
-      const WidgetsHandle = widgetsHandleFactory(three);
+      const WidgetsHandle = widgetsHandleFactory();
       const params = { hideHandleMesh: this._params.hideHandleMesh || false };
 
       pointF.y = axisY;

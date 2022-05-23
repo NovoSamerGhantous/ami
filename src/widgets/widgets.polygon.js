@@ -41,7 +41,7 @@ const widgetsPolygon = () => {
 
       // add handles
       this._handles = [];
-      const WidgetsHandle = widgetsHandleFactory(three);
+      const WidgetsHandle = widgetsHandleFactory();
 
       let handle = new WidgetsHandle(targetMesh, controls, params);
       this.add(handle);
@@ -133,7 +133,7 @@ const widgetsPolygon = () => {
           this._handles[this._handles.length - 1].active = false;
           this._handles[this._handles.length - 1].tracking = false;
 
-          const WidgetsHandle = widgetsHandleFactory(three);
+          const WidgetsHandle = widgetsHandleFactory();
           let handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
 
           handle.hovered = true;

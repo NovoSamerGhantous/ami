@@ -50,7 +50,7 @@ const widgetsPressureHalfTime = () => {
 
       // add handles
       this._handles = [];
-      const WidgetsHandle = widgetsHandleFactory(three);
+      const WidgetsHandle = widgetsHandleFactory();
 
       let handle;
       for (let i = 0; i < 2; i++) {

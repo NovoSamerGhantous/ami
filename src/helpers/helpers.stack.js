@@ -337,7 +337,7 @@ const helpersStack = () => {
      * @private
      */
     _prepareBBox() {
-      const HelpersBoundingBoxConstructor = helpersBoundingBox(three);
+      const HelpersBoundingBoxConstructor = helpersBoundingBox();
       this._bBox = new HelpersBoundingBoxConstructor(this._stack);
       this.add(this._bBox);
     }
@@ -349,7 +349,7 @@ const helpersStack = () => {
      * @private
      */
     _prepareBorder() {
-      const HelpersBorderContructor = helpersBorder(three);
+      const HelpersBorderContructor = helpersBorder();
       this._border = new HelpersBorderContructor(this._slice);
       this.add(this._border);
     }
@@ -369,7 +369,7 @@ const helpersStack = () => {
       // compute initial direction orientation
       let direction = this._prepareDirection(this._orientation);
 
-      const SliceHelperConstructor = helpersSlice(three);
+      const SliceHelperConstructor = helpersSlice();
       this._slice = new SliceHelperConstructor(this._stack, this._index, position, direction);
       this.add(this._slice);
     }

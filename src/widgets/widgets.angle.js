@@ -36,7 +36,7 @@ const widgetsAngle = () => {
       this._handles = [];
 
       let handle;
-      const WidgetsHandle = widgetsHandleFactory(three);
+      const WidgetsHandle = widgetsHandleFactory();
       for (let i = 0; i < 3; i++) {
         handle = new WidgetsHandle(targetMesh, controls, params);
         this.add(handle);

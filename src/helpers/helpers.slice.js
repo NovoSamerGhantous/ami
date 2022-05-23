@@ -12,7 +12,7 @@ import { Object3D, Vector3, Color, Matrix4, DoubleSide, Mesh, Vector4 } from 'th
  */
 
 const helpersSlice = () => {
-  const Constructor = helpersMaterialMixin(three);
+  const Constructor = helpersMaterialMixin();
   return class extends Constructor {
     constructor(
       stack,
@@ -351,7 +351,7 @@ const helpersSlice = () => {
 
       // Convenience vars
       try {
-        const SliceGeometryContructor = geometriesSlice(three);
+        const SliceGeometryContructor = geometriesSlice();
         this._geometry = new SliceGeometryContructor(
           this._halfDimensions,
           this._center,

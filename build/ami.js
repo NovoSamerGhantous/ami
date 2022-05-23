@@ -84491,7 +84491,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  */
 
 var helpersSlice = function helpersSlice() {
-  var Constructor = Object(_helpers_helpers_material_mixin__WEBPACK_IMPORTED_MODULE_4__["helpersMaterialMixin"])(three);
+  var Constructor = Object(_helpers_helpers_material_mixin__WEBPACK_IMPORTED_MODULE_4__["helpersMaterialMixin"])();
   return function (_Constructor) {
     _inherits(_class, _Constructor);
 
@@ -84595,7 +84595,7 @@ var helpersSlice = function helpersSlice() {
 
       // Convenience vars
       try {
-        var SliceGeometryContructor = Object(_geometries_geometries_slice__WEBPACK_IMPORTED_MODULE_0__["geometriesSlice"])(three);
+        var SliceGeometryContructor = Object(_geometries_geometries_slice__WEBPACK_IMPORTED_MODULE_0__["geometriesSlice"])();
         this._geometry = new SliceGeometryContructor(this._halfDimensions, this._center, this._planePosition, this._planeDirection, this._toAABB);
       } catch (e) {
         console.log(e);
@@ -85249,7 +85249,7 @@ var helpersStack = function helpersStack() {
 
 
     _class.prototype._prepareBBox = function _prepareBBox() {
-      var HelpersBoundingBoxConstructor = Object(_helpers_helpers_boundingbox__WEBPACK_IMPORTED_MODULE_1__["helpersBoundingBox"])(three);
+      var HelpersBoundingBoxConstructor = Object(_helpers_helpers_boundingbox__WEBPACK_IMPORTED_MODULE_1__["helpersBoundingBox"])();
       this._bBox = new HelpersBoundingBoxConstructor(this._stack);
       this.add(this._bBox);
     };
@@ -85263,7 +85263,7 @@ var helpersStack = function helpersStack() {
 
 
     _class.prototype._prepareBorder = function _prepareBorder() {
-      var HelpersBorderContructor = Object(_helpers_helpers_border__WEBPACK_IMPORTED_MODULE_0__["helpersBorder"])(three);
+      var HelpersBorderContructor = Object(_helpers_helpers_border__WEBPACK_IMPORTED_MODULE_0__["helpersBorder"])();
       this._border = new HelpersBorderContructor(this._slice);
       this.add(this._border);
     };
@@ -85285,7 +85285,7 @@ var helpersStack = function helpersStack() {
       // compute initial direction orientation
       var direction = this._prepareDirection(this._orientation);
 
-      var SliceHelperConstructor = Object(_helpers_helpers_slice__WEBPACK_IMPORTED_MODULE_2__["helpersSlice"])(three);
+      var SliceHelperConstructor = Object(_helpers_helpers_slice__WEBPACK_IMPORTED_MODULE_2__["helpersSlice"])();
       this._slice = new SliceHelperConstructor(this._stack, this._index, position, direction);
       this.add(this._slice);
     };
@@ -85636,7 +85636,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  */
 
 var helpersVolumeRendering = function helpersVolumeRendering() {
-  var Constructor = Object(_helpers_helpers_material_mixin__WEBPACK_IMPORTED_MODULE_3__["helpersMaterialMixin"])(three);
+  var Constructor = Object(_helpers_helpers_material_mixin__WEBPACK_IMPORTED_MODULE_3__["helpersMaterialMixin"])();
   return function (_Constructor) {
     _inherits(_class, _Constructor);
 
@@ -95475,7 +95475,7 @@ var widgetsAngle = function widgetsAngle() {
       _this._handles = [];
 
       var handle = void 0;
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
       for (var i = 0; i < 3; i++) {
         handle = new WidgetsHandle(targetMesh, controls, params);
         _this.add(handle);
@@ -95917,7 +95917,7 @@ var widgetsAnnotation = function widgetsAnnotation() {
       _this._handles = [];
 
       var handle = void 0;
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])();
       for (var i = 0; i < 2; i++) {
         handle = new WidgetsHandle(targetMesh, controls, params);
         _this.add(handle);
@@ -96773,7 +96773,7 @@ var widgetsBiruler = function widgetsBiruler() {
       _this._handles = [];
 
       var handle = void 0;
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])();
       for (var i = 0; i < 4; i++) {
         handle = new WidgetsHandle(targetMesh, controls, params);
         _this.add(handle);
@@ -97250,7 +97250,7 @@ var widgetsCrossRuler = function widgetsCrossRuler() {
       _this._handles = [];
 
       var handle = void 0;
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
       for (var i = 0; i < 4; i++) {
         handle = new WidgetsHandle(targetMesh, controls, params);
         _this.add(handle);
@@ -97905,7 +97905,7 @@ var widgetsEllipse = function widgetsEllipse() {
       _this._handles = [];
 
       var handle = void 0;
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
       for (var i = 0; i < 2; i++) {
         handle = new WidgetsHandle(targetMesh, controls, params);
         _this.add(handle);
@@ -98388,7 +98388,7 @@ var widgetsFreehand = function widgetsFreehand() {
 
       // add handles
       _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
 
       var handle = new WidgetsHandle(targetMesh, controls, params);
       _this.add(handle);
@@ -98478,7 +98478,7 @@ var widgetsFreehand = function widgetsFreehand() {
           this._handles[this._handles.length - 1].active = false;
           this._handles[this._handles.length - 1].tracking = false;
 
-          var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+          var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
           var handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
 
           handle.hovered = true;
@@ -99520,7 +99520,7 @@ var widgetsPeakVelocity = function widgetsPeakVelocity() {
       _this._label = null;
 
       // handle (represent line)
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
       _this._handle = new WidgetsHandle(targetMesh, controls, params);
       _this.add(_this._handle);
 
@@ -99840,7 +99840,7 @@ var widgetsPolygon = function widgetsPolygon() {
 
       // add handles
       _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
 
       var handle = new WidgetsHandle(targetMesh, controls, params);
       _this.add(handle);
@@ -99937,7 +99937,7 @@ var widgetsPolygon = function widgetsPolygon() {
           this._handles[this._handles.length - 1].active = false;
           this._handles[this._handles.length - 1].tracking = false;
 
-          var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+          var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
           var handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
 
           handle.hovered = true;
@@ -100499,7 +100499,7 @@ var widgetsPressureHalfTime = function widgetsPressureHalfTime() {
 
       // add handles
       _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
 
       var handle = void 0;
       for (var i = 0; i < 2; i++) {
@@ -100950,7 +100950,7 @@ var widgetsRectangle = function widgetsRectangle() {
 
       // add handles
       _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
 
       var handle = void 0;
       for (var i = 0; i < 2; i++) {
@@ -101402,7 +101402,7 @@ var widgetsRuler = function widgetsRuler() {
 
       // add handles
       _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_2__["widgetsHandle"])();
 
       var handle = void 0;
       for (var i = 0; i < 2; i++) {
@@ -101825,7 +101825,7 @@ var widgetsVelocityTimeIntegral = function widgetsVelocityTimeIntegral() {
 
       // add handles
       _this._handles = [];
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
 
       var handle = new WidgetsHandle(targetMesh, controls, params);
       _this.add(handle);
@@ -101921,7 +101921,7 @@ var widgetsVelocityTimeIntegral = function widgetsVelocityTimeIntegral() {
           this._handles[this._handles.length - 1].active = false;
           this._handles[this._handles.length - 1].tracking = false;
 
-          var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+          var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
           var handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
 
           handle.hovered = true;
@@ -102096,7 +102096,7 @@ var widgetsVelocityTimeIntegral = function widgetsVelocityTimeIntegral() {
       var region = this._regions[this.getRegionByXY(this._regions, pointF)];
       var axisY = region.y0 + (region.axisY || 0); // data coordinate equal to US region's zero Y coordinate
 
-      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+      var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
       var params = { hideHandleMesh: this._params.hideHandleMesh || false };
 
       pointF.y = axisY;
@@ -102487,7 +102487,7 @@ var widgetsVoxelprobe = function widgetsVoxelprobe() {
                   _this._label = null;
 
                   // handle (represent voxel)
-                  var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])(three);
+                  var WidgetsHandle = Object(_widgets_handle__WEBPACK_IMPORTED_MODULE_1__["widgetsHandle"])();
                   _this._handle = new WidgetsHandle(targetMesh, controls, params);
                   _this.add(_this._handle);
 

@@ -11,7 +11,7 @@ import { Matrix4, Mesh, BoxGeometry, BackSide } from 'three'
  */
 
 const helpersVolumeRendering = () => {
-  const Constructor = helpersMaterialMixin(three);
+  const Constructor = helpersMaterialMixin();
   return class extends Constructor {
     constructor(stack) {
       //

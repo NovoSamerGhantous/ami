@@ -28,7 +28,7 @@ const widgetsVoxelprobe = () => {
       this._label = null;
 
       // handle (represent voxel)
-      const WidgetsHandle = widgetsHandleFactory(three);
+      const WidgetsHandle = widgetsHandleFactory();
       this._handle = new WidgetsHandle(targetMesh, controls, params);
       this.add(this._handle);
 
