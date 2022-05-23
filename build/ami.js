@@ -78213,697 +78213,699 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @module cameras/orthographic
  */
 
-var camerasOrthographic = function (_OrthographicCamera) {
-  _inherits(camerasOrthographic, _OrthographicCamera);
+var camerasOrthographic = function camerasOrthographic() {
 
-  function camerasOrthographic(left, right, top, bottom, near, far) {
-    _classCallCheck(this, camerasOrthographic);
+  var Constructor = three__WEBPACK_IMPORTED_MODULE_2__["OrthographicCamera"];
+  return function (_Constructor) {
+    _inherits(_class, _Constructor);
 
-    var _this = _possibleConstructorReturn(this, _OrthographicCamera.call(this, left, right, top, bottom, near, far));
+    function _class(left, right, top, bottom, near, far) {
+      _classCallCheck(this, _class);
 
-    _this._front = null;
-    _this._back = null;
+      var _this = _possibleConstructorReturn(this, _Constructor.call(this, left, right, top, bottom, near, far));
 
-    _this._directions = [new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](1, 0, 0), new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](0, 1, 0), new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](0, 0, 1)];
+      _this._front = null;
+      _this._back = null;
 
-    _this._directionsLabel = ['A', 'P', // TOP/BOTTOM
-    'L', 'R', // LEFT/RIGHT
-    'I', 'S'];
+      _this._directions = [new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](1, 0, 0), new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](0, 1, 0), new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](0, 0, 1)];
 
-    _this._orientation = 'default';
-    _this._convention = 'radio';
-    _this._stackOrientation = 0;
+      _this._directionsLabel = ['A', 'P', // TOP/BOTTOM
+      'L', 'R', // LEFT/RIGHT
+      'I', 'S'];
 
-    _this._right = null;
-    _this._up = null;
-    _this._direction = null;
+      _this._orientation = 'default';
+      _this._convention = 'radio';
+      _this._stackOrientation = 0;
 
-    _this._controls = null;
-    _this._box = null;
-    _this._canvas = {
-      width: null,
-      height: null
-    };
+      _this._right = null;
+      _this._up = null;
+      _this._direction = null;
 
-    _this._fromFront = true;
-    _this._angle = 0;
-    return _this;
-  }
+      _this._controls = null;
+      _this._box = null;
+      _this._canvas = {
+        width: null,
+        height: null
+      };
 
-  /**
-   * Initialize orthographic camera variables
-   */
-
-
-  camerasOrthographic.prototype.init = function init(xCosine, yCosine, zCosine, controls, box, canvas) {
-    // DEPRECATION NOTICE
-    console.warn('cameras.orthographic.init(...) is deprecated.\n        Use .cosines, .controls, .box and .canvas instead.');
-
-    //
-    if (!(_core_core_validators__WEBPACK_IMPORTED_MODULE_1__["default"].vector3(xCosine) && _core_core_validators__WEBPACK_IMPORTED_MODULE_1__["default"].vector3(yCosine) && _core_core_validators__WEBPACK_IMPORTED_MODULE_1__["default"].vector3(zCosine) && _core_core_validators__WEBPACK_IMPORTED_MODULE_1__["default"].box(box) && controls)) {
-      console.log('Invalid input provided.');
-
-      return false;
+      _this._fromFront = true;
+      _this._angle = 0;
+      return _this;
     }
 
-    this._right = xCosine;
-    this._up = this._adjustTopDirection(xCosine, yCosine);
-    this._direction = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]().crossVectors(this._right, this._up);
-    this._controls = controls;
-    this._box = box;
-    this._canvas = canvas;
+    /**
+     * Initialize orthographic camera variables
+     */
 
-    var ray = {
-      position: this._box.center,
-      direction: this._direction
-    };
 
-    var intersections = this._orderIntersections(_core_core_intersections__WEBPACK_IMPORTED_MODULE_0__["default"].rayBox(ray, this._box), this._direction);
-    this._front = intersections[0];
-    this._back = intersections[1];
+    _class.prototype.init = function init(xCosine, yCosine, zCosine, controls, box, canvas) {
+      // DEPRECATION NOTICE
+      console.warn('cameras.orthographic.init(...) is deprecated.\n        Use .cosines, .controls, .box and .canvas instead.');
 
-    // set default values
-    this.up.set(this._up.x, this._up.y, this._up.z);
-    this._updateCanvas();
-    this._updatePositionAndTarget(this._front, this._back);
-    this._updateMatrices();
-    this._updateDirections();
-  };
-
-  camerasOrthographic.prototype.update = function update() {
-    // http://www.grahamwideman.com/gw/brain/orientation/orientterms.htm
-    // do magics depending on orientation and convention
-    // also needs a default mode
-
-    if (this._orientation === 'default') {
-      switch (this._getMaxIndex(this._directions[2])) {
-        case 0:
-          this._orientation = 'sagittal';
-          break;
-
-        case 1:
-          this._orientation = 'coronal';
-          break;
-
-        case 2:
-          this._orientation = 'axial';
-          break;
-
-        default:
-          this._orientation = 'free';
-          break;
-      }
-    }
-
-    if (this._orientation === 'free') {
-      this._right = this._directions[0];
-      this._up = this._directions[1];
-      this._direction = this._directions[2];
-    } else {
-      var leftIndex = this.leftDirection();
-      var leftDirection = this._directions[leftIndex];
-      var posteriorIndex = this.posteriorDirection();
-      var posteriorDirection = this._directions[posteriorIndex];
-      var superiorIndex = this.superiorDirection();
-      var superiorDirection = this._directions[superiorIndex];
-
-      if (this._convention === 'radio') {
-        switch (this._orientation) {
-          case 'axial':
-            // up vector is 'anterior'
-            if (posteriorDirection.y > 0) {
-              posteriorDirection.negate();
-            }
-
-            // looking towards superior
-            if (superiorDirection.z < 0) {
-              superiorDirection.negate();
-            }
-
-            //
-            this._right = leftDirection; // does not matter right/left
-            this._up = posteriorDirection;
-            this._direction = superiorDirection;
-            break;
-
-          case 'coronal':
-            // up vector is 'superior'
-            if (superiorDirection.z < 0) {
-              superiorDirection.negate();
-            }
-
-            // looking towards posterior
-            if (posteriorDirection.y < 0) {
-              posteriorDirection.negate();
-            }
-
-            //
-            this._right = leftDirection; // does not matter right/left
-            this._up = superiorDirection;
-            this._direction = posteriorDirection;
-            break;
-
-          case 'sagittal':
-            // up vector is 'superior'
-            if (superiorDirection.z < 0) {
-              superiorDirection.negate();
-            }
-
-            // looking towards right
-            if (leftDirection.x > 0) {
-              leftDirection.negate();
-            }
-
-            //
-            this._right = posteriorDirection; // does not matter right/left
-            this._up = superiorDirection;
-            this._direction = leftDirection;
-
-            break;
-
-          default:
-            console.warn('"' + this._orientation + '" orientation is not valid.\n                  (choices: axial, coronal, sagittal)');
-            break;
-        }
-      } else if (this._convention === 'neuro') {
-        switch (this._orientation) {
-          case 'axial':
-            // up vector is 'anterior'
-            if (posteriorDirection.y > 0) {
-              posteriorDirection.negate();
-            }
-
-            // looking towards inferior
-            if (superiorDirection.z > 0) {
-              superiorDirection.negate();
-            }
-
-            //
-            this._right = leftDirection; // does not matter right/left
-            this._up = posteriorDirection;
-            this._direction = superiorDirection;
-            break;
-
-          case 'coronal':
-            // up vector is 'superior'
-            if (superiorDirection.z < 0) {
-              superiorDirection.negate();
-            }
-
-            // looking towards anterior
-            if (posteriorDirection.y > 0) {
-              posteriorDirection.negate();
-            }
-
-            //
-            this._right = leftDirection; // does not matter right/left
-            this._up = superiorDirection;
-            this._direction = posteriorDirection;
-            break;
-
-          case 'sagittal':
-            // up vector is 'superior'
-            if (superiorDirection.z < 0) {
-              superiorDirection.negate();
-            }
-
-            // looking towards right
-            if (leftDirection.x > 0) {
-              leftDirection.negate();
-            }
-
-            //
-            this._right = posteriorDirection; // does not matter right/left
-            this._up = superiorDirection;
-            this._direction = leftDirection;
-
-            break;
-
-          default:
-            console.warn('"' + this._orientation + '" orientation is not valid.\n                  (choices: axial, coronal, sagittal)');
-            break;
-        }
-      } else {
-        console.warn(this._convention + ' is not valid (choices: radio, neuro)');
-      }
-    }
-
-    // that is what determines left/right
-    var ray = {
-      position: this._box.center,
-      direction: this._direction
-    };
-
-    var intersections = this._orderIntersections(_core_core_intersections__WEBPACK_IMPORTED_MODULE_0__["default"].rayBox(ray, this._box), this._direction);
-    this._front = intersections[0];
-    this._back = intersections[1];
-
-    // set default values
-    this.up.set(this._up.x, this._up.y, this._up.z);
-    this._updateCanvas();
-    this._updatePositionAndTarget(this._front, this._back);
-    this._updateMatrices();
-    this._updateDirections();
-  };
-
-  camerasOrthographic.prototype.leftDirection = function leftDirection() {
-    return this._findMaxIndex(this._directions, 0);
-  };
-
-  camerasOrthographic.prototype.posteriorDirection = function posteriorDirection() {
-    return this._findMaxIndex(this._directions, 1);
-  };
-
-  camerasOrthographic.prototype.superiorDirection = function superiorDirection() {
-    return this._findMaxIndex(this._directions, 2);
-  };
-
-  /**
-   * Invert rows in the current slice.
-   * Inverting rows in 2 steps:
-   *   * Flip the "up" vector
-   *   * Look at the slice from the other side
-   */
-
-
-  camerasOrthographic.prototype.invertRows = function invertRows() {
-    // flip "up" vector
-    // we flip up first because invertColumns update projectio matrices
-    this.up.multiplyScalar(-1);
-    this.invertColumns();
-
-    this._updateDirections();
-  };
-
-  /**
-   * Invert rows in the current slice.
-   * Inverting rows in 1 step:
-   *   * Look at the slice from the other side
-   */
-
-
-  camerasOrthographic.prototype.invertColumns = function invertColumns() {
-    this.center();
-    // rotate 180 degrees around the up vector...
-    var oppositePosition = this._oppositePosition(this.position);
-
-    // update posistion and target
-    // clone is needed because this.position is overwritten in method
-    this._updatePositionAndTarget(oppositePosition, this.position.clone());
-    this._updateMatrices();
-    this._fromFront = !this._fromFront;
-
-    this._angle %= 360;
-    this._angle = 360 - this._angle;
-
-    this._updateDirections();
-  };
-
-  /**
-   * Center slice in the camera FOV.
-   * It also updates the controllers properly.
-   * We can center a camera from the front or from the back.
-   */
-
-
-  camerasOrthographic.prototype.center = function center() {
-    if (this._fromFront) {
-      this._updatePositionAndTarget(this._front, this._back);
-    } else {
-      this._updatePositionAndTarget(this._back, this._front);
-    }
-
-    this._updateMatrices();
-    this._updateDirections();
-  };
-
-  /**
-   * Pi/2 rotation around the zCosine axis.
-   * Clock-wise rotation from the user point of view.
-   */
-
-
-  camerasOrthographic.prototype.rotate = function rotate() {
-    var angle = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-
-    this.center();
-
-    var rotationToApply = 90;
-    if (angle === null) {
-      rotationToApply *= -1;
-      this._angle += 90;
-    } else {
-      rotationToApply = 360 - (angle - this._angle);
-      this._angle = angle;
-    }
-
-    this._angle %= 360;
-
-    // Rotate the up vector around the "zCosine"
-    var rotation = new three__WEBPACK_IMPORTED_MODULE_2__["Matrix4"]().makeRotationAxis(this._direction, rotationToApply * Math.PI / 180);
-    this.up.applyMatrix4(rotation);
-
-    this._updateMatrices();
-    this._updateDirections();
-  };
-
-  // dimensions[0] // width
-  // dimensions[1] // height
-  // direction= 0 width, 1 height, 2 best
-  // factor
-
-
-  camerasOrthographic.prototype.fitBox = function fitBox() {
-    var direction = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    var factor = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1.5;
-
-    //
-    // if (!(dimensions && dimensions.length >= 2)) {
-    //   console.log('Invalid dimensions container.');
-    //   console.log(dimensions);
-
-    //   return false;
-    // }
-
-    //
-    var zoom = 1;
-
-    // update zoom
-    switch (direction) {
-      case 0:
-        zoom = factor * this._computeZoom(this._canvas.width, this._right);
-        break;
-      case 1:
-        zoom = factor * this._computeZoom(this._canvas.height, this._up);
-        break;
-      case 2:
-        zoom = factor * Math.min(this._computeZoom(this._canvas.width, this._right), this._computeZoom(this._canvas.height, this._up));
-        break;
-      default:
-        break;
-    }
-
-    if (!zoom) {
-      return false;
-    }
-
-    this.zoom = zoom;
-
-    this.center();
-  };
-
-  camerasOrthographic.prototype._adjustTopDirection = function _adjustTopDirection(horizontalDirection, verticalDirection) {
-    var vMaxIndex = this._getMaxIndex(verticalDirection);
-
-    // should handle vMax index === 0
-    if (vMaxIndex === 2 && verticalDirection.getComponent(vMaxIndex) < 0 || vMaxIndex === 1 && verticalDirection.getComponent(vMaxIndex) > 0 || vMaxIndex === 0 && verticalDirection.getComponent(vMaxIndex) > 0) {
-      verticalDirection.negate();
-    }
-
-    return verticalDirection;
-  };
-
-  camerasOrthographic.prototype._getMaxIndex = function _getMaxIndex(vector) {
-    // init with X value
-    var maxValue = Math.abs(vector.x);
-    var index = 0;
-
-    if (Math.abs(vector.y) > maxValue) {
-      maxValue = Math.abs(vector.y);
-      index = 1;
-    }
-
-    if (Math.abs(vector.z) > maxValue) {
-      index = 2;
-    }
-
-    return index;
-  };
-
-  camerasOrthographic.prototype._findMaxIndex = function _findMaxIndex(directions, target) {
-    // get index of the most superior direction
-    var maxIndices = this._getMaxIndices(directions);
-
-    for (var i = 0; i < maxIndices.length; i++) {
-      if (maxIndices[i] === target) {
-        return i;
-      }
-    }
-  };
-
-  camerasOrthographic.prototype._getMaxIndices = function _getMaxIndices(directions) {
-    var indices = [];
-    indices.push(this._getMaxIndex(directions[0]));
-    indices.push(this._getMaxIndex(directions[1]));
-    indices.push(this._getMaxIndex(directions[2]));
-
-    return indices;
-  };
-
-  camerasOrthographic.prototype._orderIntersections = function _orderIntersections(intersections, direction) {
-    var ordered = intersections[0].dot(direction) < intersections[1].dot(direction);
-
-    if (!ordered) {
-      return [intersections[1], intersections[0]];
-    }
-
-    return intersections;
-  };
-
-  camerasOrthographic.prototype._updateCanvas = function _updateCanvas() {
-    var camFactor = 2;
-    this.left = -this._canvas.width / camFactor;
-    this.right = this._canvas.width / camFactor;
-    this.top = this._canvas.height / camFactor;
-    this.bottom = -this._canvas.height / camFactor;
-
-    this._updateMatrices();
-    this.controls.handleResize();
-  };
-
-  camerasOrthographic.prototype._oppositePosition = function _oppositePosition(position) {
-    var oppositePosition = position.clone();
-    // center world postion around box center
-    oppositePosition.sub(this._box.center);
-    // rotate
-    var rotation = new three__WEBPACK_IMPORTED_MODULE_2__["Matrix4"]().makeRotationAxis(this.up, Math.PI);
-
-    oppositePosition.applyMatrix4(rotation);
-    // translate back to world position
-    oppositePosition.add(this._box.center);
-    return oppositePosition;
-  };
-
-  camerasOrthographic.prototype._computeZoom = function _computeZoom(dimension, direction) {
-    if (!(dimension && dimension > 0)) {
-      console.log('Invalid dimension provided.');
-      console.log(dimension);
-      return false;
-    }
-
-    // ray
-    var ray = {
-      position: this._box.center.clone(),
-      direction: direction
-    };
-
-    var intersections = _core_core_intersections__WEBPACK_IMPORTED_MODULE_0__["default"].rayBox(ray, this._box);
-    if (intersections.length < 2) {
-      console.log('Can not adjust the camera ( < 2 intersections).');
-      console.log(ray);
-      console.log(this._box);
-      return false;
-    }
-
-    return dimension / intersections[0].distanceTo(intersections[1]);
-  };
-
-  camerasOrthographic.prototype._updatePositionAndTarget = function _updatePositionAndTarget(position, target) {
-    // position
-    this.position.set(position.x, position.y, position.z);
-
-    // targets
-    this.lookAt(target.x, target.y, target.z);
-    this._controls.target.set(target.x, target.y, target.z);
-  };
-
-  camerasOrthographic.prototype._updateMatrices = function _updateMatrices() {
-    this._controls.update();
-    // THEN camera
-    this.updateProjectionMatrix();
-    this.updateMatrixWorld();
-  };
-
-  camerasOrthographic.prototype._updateLabels = function _updateLabels() {
-    this._directionsLabel = [this._vector2Label(this._up), this._vector2Label(this._up.clone().negate()), this._vector2Label(this._right), this._vector2Label(this._right.clone().negate()), this._vector2Label(this._direction), this._vector2Label(this._direction.clone().negate())];
-  };
-
-  camerasOrthographic.prototype._vector2Label = function _vector2Label(direction) {
-    var index = this._getMaxIndex(direction);
-    // set vector max value to 1
-    var scaledDirection = direction.clone().divideScalar(Math.abs(direction.getComponent(index)));
-    var delta = 0.2;
-    var label = '';
-
-    // loop through components of the vector
-    for (var i = 0; i < 3; i++) {
-      if (i === 0) {
-        if (scaledDirection.getComponent(i) + delta >= 1) {
-          label += 'L';
-        } else if (scaledDirection.getComponent(i) - delta <= -1) {
-          label += 'R';
-        }
-      }
-
-      if (i === 1) {
-        if (scaledDirection.getComponent(i) + delta >= 1) {
-          label += 'P';
-        } else if (scaledDirection.getComponent(i) - delta <= -1) {
-          label += 'A';
-        }
-      }
-
-      if (i === 2) {
-        if (scaledDirection.getComponent(i) + delta >= 1) {
-          label += 'S';
-        } else if (scaledDirection.getComponent(i) - delta <= -1) {
-          label += 'I';
-        }
-      }
-    }
-
-    return label;
-  };
-
-  camerasOrthographic.prototype._updateDirections = function _updateDirections() {
-    // up is correct
-    this._up = this.up.clone();
-
-    // direction
-    var pLocal = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](0, 0, -1);
-    var pWorld = pLocal.applyMatrix4(this.matrixWorld);
-    this._direction = pWorld.sub(this.position).normalize();
-
-    // right
-    this._right = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]().crossVectors(this._direction, this.up);
-
-    // update labels accordingly
-    this._updateLabels();
-  };
-
-  _createClass(camerasOrthographic, [{
-    key: 'controls',
-    set: function set(controls) {
-      this._controls = controls;
-    },
-    get: function get() {
-      return this._controls;
-    }
-  }, {
-    key: 'box',
-    set: function set(box) {
-      this._box = box;
-    },
-    get: function get() {
-      return this._box;
-    }
-  }, {
-    key: 'canvas',
-    set: function set(canvas) {
-      this._canvas = canvas;
-      this._updateCanvas();
-    },
-    get: function get() {
-      return this._canvas;
-    }
-  }, {
-    key: 'angle',
-    set: function set(angle) {
-      this.rotate(angle);
-    },
-    get: function get() {
-      return this._angle;
-    }
-  }, {
-    key: 'directions',
-    set: function set(directions) {
-      this._directions = directions;
-    },
-    get: function get() {
-      return this._directions;
-    }
-  }, {
-    key: 'convention',
-    set: function set(convention) {
-      this._convention = convention;
-    },
-    get: function get() {
-      return this._convention;
-    }
-  }, {
-    key: 'orientation',
-    set: function set(orientation) {
-      this._orientation = orientation;
-    },
-    get: function get() {
-      return this._orientation;
-    }
-  }, {
-    key: 'directionsLabel',
-    set: function set(directionsLabel) {
-      this._directionsLabel = directionsLabel;
-    },
-    get: function get() {
-      return this._directionsLabel;
-    }
-  }, {
-    key: 'stackOrientation',
-    set: function set(stackOrientation) {
-      this._stackOrientation = stackOrientation;
-
-      if (this._stackOrientation === 0) {
-        this._orientation = 'default';
-      } else {
-        var maxIndex = this._getMaxIndex(this._directions[(this._stackOrientation + 2) % 3]);
-
-        if (maxIndex === 0) {
-          this._orientation = 'sagittal';
-        } else if (maxIndex === 1) {
-          this._orientation = 'coronal';
-        } else if (maxIndex === 2) {
-          this._orientation = 'axial';
-        }
-      }
-    },
-    get: function get() {
       //
-      if (this._orientation === 'default') {
-        this._stackOrientation = 0;
-      } else {
-        var maxIndex = this._getMaxIndex(this._direction);
+      if (!(_core_core_validators__WEBPACK_IMPORTED_MODULE_1__["default"].vector3(xCosine) && _core_core_validators__WEBPACK_IMPORTED_MODULE_1__["default"].vector3(yCosine) && _core_core_validators__WEBPACK_IMPORTED_MODULE_1__["default"].vector3(zCosine) && _core_core_validators__WEBPACK_IMPORTED_MODULE_1__["default"].box(box) && controls)) {
+        console.log('Invalid input provided.');
 
-        if (maxIndex === this._getMaxIndex(this._directions[2])) {
-          this._stackOrientation = 0;
-        } else if (maxIndex === this._getMaxIndex(this._directions[0])) {
-          this._stackOrientation = 1;
-        } else if (maxIndex === this._getMaxIndex(this._directions[1])) {
-          this._stackOrientation = 2;
+        return false;
+      }
+
+      this._right = xCosine;
+      this._up = this._adjustTopDirection(xCosine, yCosine);
+      this._direction = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]().crossVectors(this._right, this._up);
+      this._controls = controls;
+      this._box = box;
+      this._canvas = canvas;
+
+      var ray = {
+        position: this._box.center,
+        direction: this._direction
+      };
+
+      var intersections = this._orderIntersections(_core_core_intersections__WEBPACK_IMPORTED_MODULE_0__["default"].rayBox(ray, this._box), this._direction);
+      this._front = intersections[0];
+      this._back = intersections[1];
+
+      // set default values
+      this.up.set(this._up.x, this._up.y, this._up.z);
+      this._updateCanvas();
+      this._updatePositionAndTarget(this._front, this._back);
+      this._updateMatrices();
+      this._updateDirections();
+    };
+
+    _class.prototype.update = function update() {
+      // http://www.grahamwideman.com/gw/brain/orientation/orientterms.htm
+      // do magics depending on orientation and convention
+      // also needs a default mode
+
+      if (this._orientation === 'default') {
+        switch (this._getMaxIndex(this._directions[2])) {
+          case 0:
+            this._orientation = 'sagittal';
+            break;
+
+          case 1:
+            this._orientation = 'coronal';
+            break;
+
+          case 2:
+            this._orientation = 'axial';
+            break;
+
+          default:
+            this._orientation = 'free';
+            break;
         }
       }
 
-      return this._stackOrientation;
-    }
-  }]);
+      if (this._orientation === 'free') {
+        this._right = this._directions[0];
+        this._up = this._directions[1];
+        this._direction = this._directions[2];
+      } else {
+        var leftIndex = this.leftDirection();
+        var leftDirection = this._directions[leftIndex];
+        var posteriorIndex = this.posteriorDirection();
+        var posteriorDirection = this._directions[posteriorIndex];
+        var superiorIndex = this.superiorDirection();
+        var superiorDirection = this._directions[superiorIndex];
 
-  return camerasOrthographic;
-}(three__WEBPACK_IMPORTED_MODULE_2__["OrthographicCamera"]);
+        if (this._convention === 'radio') {
+          switch (this._orientation) {
+            case 'axial':
+              // up vector is 'anterior'
+              if (posteriorDirection.y > 0) {
+                posteriorDirection.negate();
+              }
 
-;
+              // looking towards superior
+              if (superiorDirection.z < 0) {
+                superiorDirection.negate();
+              }
+
+              //
+              this._right = leftDirection; // does not matter right/left
+              this._up = posteriorDirection;
+              this._direction = superiorDirection;
+              break;
+
+            case 'coronal':
+              // up vector is 'superior'
+              if (superiorDirection.z < 0) {
+                superiorDirection.negate();
+              }
+
+              // looking towards posterior
+              if (posteriorDirection.y < 0) {
+                posteriorDirection.negate();
+              }
+
+              //
+              this._right = leftDirection; // does not matter right/left
+              this._up = superiorDirection;
+              this._direction = posteriorDirection;
+              break;
+
+            case 'sagittal':
+              // up vector is 'superior'
+              if (superiorDirection.z < 0) {
+                superiorDirection.negate();
+              }
+
+              // looking towards right
+              if (leftDirection.x > 0) {
+                leftDirection.negate();
+              }
+
+              //
+              this._right = posteriorDirection; // does not matter right/left
+              this._up = superiorDirection;
+              this._direction = leftDirection;
+
+              break;
+
+            default:
+              console.warn('"' + this._orientation + '" orientation is not valid.\n                  (choices: axial, coronal, sagittal)');
+              break;
+          }
+        } else if (this._convention === 'neuro') {
+          switch (this._orientation) {
+            case 'axial':
+              // up vector is 'anterior'
+              if (posteriorDirection.y > 0) {
+                posteriorDirection.negate();
+              }
+
+              // looking towards inferior
+              if (superiorDirection.z > 0) {
+                superiorDirection.negate();
+              }
+
+              //
+              this._right = leftDirection; // does not matter right/left
+              this._up = posteriorDirection;
+              this._direction = superiorDirection;
+              break;
+
+            case 'coronal':
+              // up vector is 'superior'
+              if (superiorDirection.z < 0) {
+                superiorDirection.negate();
+              }
+
+              // looking towards anterior
+              if (posteriorDirection.y > 0) {
+                posteriorDirection.negate();
+              }
+
+              //
+              this._right = leftDirection; // does not matter right/left
+              this._up = superiorDirection;
+              this._direction = posteriorDirection;
+              break;
+
+            case 'sagittal':
+              // up vector is 'superior'
+              if (superiorDirection.z < 0) {
+                superiorDirection.negate();
+              }
+
+              // looking towards right
+              if (leftDirection.x > 0) {
+                leftDirection.negate();
+              }
+
+              //
+              this._right = posteriorDirection; // does not matter right/left
+              this._up = superiorDirection;
+              this._direction = leftDirection;
+
+              break;
+
+            default:
+              console.warn('"' + this._orientation + '" orientation is not valid.\n                  (choices: axial, coronal, sagittal)');
+              break;
+          }
+        } else {
+          console.warn(this._convention + ' is not valid (choices: radio, neuro)');
+        }
+      }
+
+      // that is what determines left/right
+      var ray = {
+        position: this._box.center,
+        direction: this._direction
+      };
+
+      var intersections = this._orderIntersections(_core_core_intersections__WEBPACK_IMPORTED_MODULE_0__["default"].rayBox(ray, this._box), this._direction);
+      this._front = intersections[0];
+      this._back = intersections[1];
+
+      // set default values
+      this.up.set(this._up.x, this._up.y, this._up.z);
+      this._updateCanvas();
+      this._updatePositionAndTarget(this._front, this._back);
+      this._updateMatrices();
+      this._updateDirections();
+    };
+
+    _class.prototype.leftDirection = function leftDirection() {
+      return this._findMaxIndex(this._directions, 0);
+    };
+
+    _class.prototype.posteriorDirection = function posteriorDirection() {
+      return this._findMaxIndex(this._directions, 1);
+    };
+
+    _class.prototype.superiorDirection = function superiorDirection() {
+      return this._findMaxIndex(this._directions, 2);
+    };
+
+    /**
+     * Invert rows in the current slice.
+     * Inverting rows in 2 steps:
+     *   * Flip the "up" vector
+     *   * Look at the slice from the other side
+     */
+
+
+    _class.prototype.invertRows = function invertRows() {
+      // flip "up" vector
+      // we flip up first because invertColumns update projectio matrices
+      this.up.multiplyScalar(-1);
+      this.invertColumns();
+
+      this._updateDirections();
+    };
+
+    /**
+     * Invert rows in the current slice.
+     * Inverting rows in 1 step:
+     *   * Look at the slice from the other side
+     */
+
+
+    _class.prototype.invertColumns = function invertColumns() {
+      this.center();
+      // rotate 180 degrees around the up vector...
+      var oppositePosition = this._oppositePosition(this.position);
+
+      // update posistion and target
+      // clone is needed because this.position is overwritten in method
+      this._updatePositionAndTarget(oppositePosition, this.position.clone());
+      this._updateMatrices();
+      this._fromFront = !this._fromFront;
+
+      this._angle %= 360;
+      this._angle = 360 - this._angle;
+
+      this._updateDirections();
+    };
+
+    /**
+     * Center slice in the camera FOV.
+     * It also updates the controllers properly.
+     * We can center a camera from the front or from the back.
+     */
+
+
+    _class.prototype.center = function center() {
+      if (this._fromFront) {
+        this._updatePositionAndTarget(this._front, this._back);
+      } else {
+        this._updatePositionAndTarget(this._back, this._front);
+      }
+
+      this._updateMatrices();
+      this._updateDirections();
+    };
+
+    /**
+     * Pi/2 rotation around the zCosine axis.
+     * Clock-wise rotation from the user point of view.
+     */
+
+
+    _class.prototype.rotate = function rotate() {
+      var angle = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+      this.center();
+
+      var rotationToApply = 90;
+      if (angle === null) {
+        rotationToApply *= -1;
+        this._angle += 90;
+      } else {
+        rotationToApply = 360 - (angle - this._angle);
+        this._angle = angle;
+      }
+
+      this._angle %= 360;
+
+      // Rotate the up vector around the "zCosine"
+      var rotation = new three__WEBPACK_IMPORTED_MODULE_2__["Matrix4"]().makeRotationAxis(this._direction, rotationToApply * Math.PI / 180);
+      this.up.applyMatrix4(rotation);
+
+      this._updateMatrices();
+      this._updateDirections();
+    };
+
+    // dimensions[0] // width
+    // dimensions[1] // height
+    // direction= 0 width, 1 height, 2 best
+    // factor
+
+
+    _class.prototype.fitBox = function fitBox() {
+      var direction = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var factor = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1.5;
+
+      //
+      // if (!(dimensions && dimensions.length >= 2)) {
+      //   console.log('Invalid dimensions container.');
+      //   console.log(dimensions);
+
+      //   return false;
+      // }
+
+      //
+      var zoom = 1;
+
+      // update zoom
+      switch (direction) {
+        case 0:
+          zoom = factor * this._computeZoom(this._canvas.width, this._right);
+          break;
+        case 1:
+          zoom = factor * this._computeZoom(this._canvas.height, this._up);
+          break;
+        case 2:
+          zoom = factor * Math.min(this._computeZoom(this._canvas.width, this._right), this._computeZoom(this._canvas.height, this._up));
+          break;
+        default:
+          break;
+      }
+
+      if (!zoom) {
+        return false;
+      }
+
+      this.zoom = zoom;
+
+      this.center();
+    };
+
+    _class.prototype._adjustTopDirection = function _adjustTopDirection(horizontalDirection, verticalDirection) {
+      var vMaxIndex = this._getMaxIndex(verticalDirection);
+
+      // should handle vMax index === 0
+      if (vMaxIndex === 2 && verticalDirection.getComponent(vMaxIndex) < 0 || vMaxIndex === 1 && verticalDirection.getComponent(vMaxIndex) > 0 || vMaxIndex === 0 && verticalDirection.getComponent(vMaxIndex) > 0) {
+        verticalDirection.negate();
+      }
+
+      return verticalDirection;
+    };
+
+    _class.prototype._getMaxIndex = function _getMaxIndex(vector) {
+      // init with X value
+      var maxValue = Math.abs(vector.x);
+      var index = 0;
+
+      if (Math.abs(vector.y) > maxValue) {
+        maxValue = Math.abs(vector.y);
+        index = 1;
+      }
+
+      if (Math.abs(vector.z) > maxValue) {
+        index = 2;
+      }
+
+      return index;
+    };
+
+    _class.prototype._findMaxIndex = function _findMaxIndex(directions, target) {
+      // get index of the most superior direction
+      var maxIndices = this._getMaxIndices(directions);
+
+      for (var i = 0; i < maxIndices.length; i++) {
+        if (maxIndices[i] === target) {
+          return i;
+        }
+      }
+    };
+
+    _class.prototype._getMaxIndices = function _getMaxIndices(directions) {
+      var indices = [];
+      indices.push(this._getMaxIndex(directions[0]));
+      indices.push(this._getMaxIndex(directions[1]));
+      indices.push(this._getMaxIndex(directions[2]));
+
+      return indices;
+    };
+
+    _class.prototype._orderIntersections = function _orderIntersections(intersections, direction) {
+      var ordered = intersections[0].dot(direction) < intersections[1].dot(direction);
+
+      if (!ordered) {
+        return [intersections[1], intersections[0]];
+      }
+
+      return intersections;
+    };
+
+    _class.prototype._updateCanvas = function _updateCanvas() {
+      var camFactor = 2;
+      this.left = -this._canvas.width / camFactor;
+      this.right = this._canvas.width / camFactor;
+      this.top = this._canvas.height / camFactor;
+      this.bottom = -this._canvas.height / camFactor;
+
+      this._updateMatrices();
+      this.controls.handleResize();
+    };
+
+    _class.prototype._oppositePosition = function _oppositePosition(position) {
+      var oppositePosition = position.clone();
+      // center world postion around box center
+      oppositePosition.sub(this._box.center);
+      // rotate
+      var rotation = new three__WEBPACK_IMPORTED_MODULE_2__["Matrix4"]().makeRotationAxis(this.up, Math.PI);
+
+      oppositePosition.applyMatrix4(rotation);
+      // translate back to world position
+      oppositePosition.add(this._box.center);
+      return oppositePosition;
+    };
+
+    _class.prototype._computeZoom = function _computeZoom(dimension, direction) {
+      if (!(dimension && dimension > 0)) {
+        console.log('Invalid dimension provided.');
+        console.log(dimension);
+        return false;
+      }
+
+      // ray
+      var ray = {
+        position: this._box.center.clone(),
+        direction: direction
+      };
+
+      var intersections = _core_core_intersections__WEBPACK_IMPORTED_MODULE_0__["default"].rayBox(ray, this._box);
+      if (intersections.length < 2) {
+        console.log('Can not adjust the camera ( < 2 intersections).');
+        console.log(ray);
+        console.log(this._box);
+        return false;
+      }
+
+      return dimension / intersections[0].distanceTo(intersections[1]);
+    };
+
+    _class.prototype._updatePositionAndTarget = function _updatePositionAndTarget(position, target) {
+      // position
+      this.position.set(position.x, position.y, position.z);
+
+      // targets
+      this.lookAt(target.x, target.y, target.z);
+      this._controls.target.set(target.x, target.y, target.z);
+    };
+
+    _class.prototype._updateMatrices = function _updateMatrices() {
+      this._controls.update();
+      // THEN camera
+      this.updateProjectionMatrix();
+      this.updateMatrixWorld();
+    };
+
+    _class.prototype._updateLabels = function _updateLabels() {
+      this._directionsLabel = [this._vector2Label(this._up), this._vector2Label(this._up.clone().negate()), this._vector2Label(this._right), this._vector2Label(this._right.clone().negate()), this._vector2Label(this._direction), this._vector2Label(this._direction.clone().negate())];
+    };
+
+    _class.prototype._vector2Label = function _vector2Label(direction) {
+      var index = this._getMaxIndex(direction);
+      // set vector max value to 1
+      var scaledDirection = direction.clone().divideScalar(Math.abs(direction.getComponent(index)));
+      var delta = 0.2;
+      var label = '';
+
+      // loop through components of the vector
+      for (var i = 0; i < 3; i++) {
+        if (i === 0) {
+          if (scaledDirection.getComponent(i) + delta >= 1) {
+            label += 'L';
+          } else if (scaledDirection.getComponent(i) - delta <= -1) {
+            label += 'R';
+          }
+        }
+
+        if (i === 1) {
+          if (scaledDirection.getComponent(i) + delta >= 1) {
+            label += 'P';
+          } else if (scaledDirection.getComponent(i) - delta <= -1) {
+            label += 'A';
+          }
+        }
+
+        if (i === 2) {
+          if (scaledDirection.getComponent(i) + delta >= 1) {
+            label += 'S';
+          } else if (scaledDirection.getComponent(i) - delta <= -1) {
+            label += 'I';
+          }
+        }
+      }
+
+      return label;
+    };
+
+    _class.prototype._updateDirections = function _updateDirections() {
+      // up is correct
+      this._up = this.up.clone();
+
+      // direction
+      var pLocal = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"](0, 0, -1);
+      var pWorld = pLocal.applyMatrix4(this.matrixWorld);
+      this._direction = pWorld.sub(this.position).normalize();
+
+      // right
+      this._right = new three__WEBPACK_IMPORTED_MODULE_2__["Vector3"]().crossVectors(this._direction, this.up);
+
+      // update labels accordingly
+      this._updateLabels();
+    };
+
+    _createClass(_class, [{
+      key: 'controls',
+      set: function set(controls) {
+        this._controls = controls;
+      },
+      get: function get() {
+        return this._controls;
+      }
+    }, {
+      key: 'box',
+      set: function set(box) {
+        this._box = box;
+      },
+      get: function get() {
+        return this._box;
+      }
+    }, {
+      key: 'canvas',
+      set: function set(canvas) {
+        this._canvas = canvas;
+        this._updateCanvas();
+      },
+      get: function get() {
+        return this._canvas;
+      }
+    }, {
+      key: 'angle',
+      set: function set(angle) {
+        this.rotate(angle);
+      },
+      get: function get() {
+        return this._angle;
+      }
+    }, {
+      key: 'directions',
+      set: function set(directions) {
+        this._directions = directions;
+      },
+      get: function get() {
+        return this._directions;
+      }
+    }, {
+      key: 'convention',
+      set: function set(convention) {
+        this._convention = convention;
+      },
+      get: function get() {
+        return this._convention;
+      }
+    }, {
+      key: 'orientation',
+      set: function set(orientation) {
+        this._orientation = orientation;
+      },
+      get: function get() {
+        return this._orientation;
+      }
+    }, {
+      key: 'directionsLabel',
+      set: function set(directionsLabel) {
+        this._directionsLabel = directionsLabel;
+      },
+      get: function get() {
+        return this._directionsLabel;
+      }
+    }, {
+      key: 'stackOrientation',
+      set: function set(stackOrientation) {
+        this._stackOrientation = stackOrientation;
+
+        if (this._stackOrientation === 0) {
+          this._orientation = 'default';
+        } else {
+          var maxIndex = this._getMaxIndex(this._directions[(this._stackOrientation + 2) % 3]);
+
+          if (maxIndex === 0) {
+            this._orientation = 'sagittal';
+          } else if (maxIndex === 1) {
+            this._orientation = 'coronal';
+          } else if (maxIndex === 2) {
+            this._orientation = 'axial';
+          }
+        }
+      },
+      get: function get() {
+        //
+        if (this._orientation === 'default') {
+          this._stackOrientation = 0;
+        } else {
+          var maxIndex = this._getMaxIndex(this._direction);
+
+          if (maxIndex === this._getMaxIndex(this._directions[2])) {
+            this._stackOrientation = 0;
+          } else if (maxIndex === this._getMaxIndex(this._directions[0])) {
+            this._stackOrientation = 1;
+          } else if (maxIndex === this._getMaxIndex(this._directions[1])) {
+            this._stackOrientation = 2;
+          }
+        }
+
+        return this._stackOrientation;
+      }
+    }]);
+
+    return _class;
+  }(Constructor);
+};
 
 // export factory
 
 // default export to
-/* harmony default export */ __webpack_exports__["default"] = (camerasOrthographic);
+/* harmony default export */ __webpack_exports__["default"] = (camerasOrthographic());
 
 /***/ }),
 
