@@ -1,16 +1,12 @@
 import { widgetsBase } from './widgets.base';
 import CoreIntersections from '../core/core.intersections';
-import * as AMIThree from 'three';
+import { Mesh, MeshBasicMaterial, Raycaster, SphereGeometry, Vector2, Vector3 } from 'three';
 
 /**
  * @module widgets/handle
  */
-const widgetsHandle = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = widgetsBase(three);
+const widgetsHandle = () => {
+  const Constructor = widgetsBase();
   return class extends Constructor {
     constructor(targetMesh, controls, params = {}) {
       super(targetMesh, controls, params);
@@ -24,17 +20,17 @@ const widgetsHandle = (three = AMIThree) => {
 
       // if no target mesh, use plane for FREE dragging.
       this._plane = {
-        position: new three.Vector3(),
-        direction: new three.Vector3(),
+        position: new Vector3(),
+        direction: new Vector3(),
       };
-      this._offset = new three.Vector3();
-      this._raycaster = new three.Raycaster();
+      this._offset = new Vector3();
+      this._raycaster = new Raycaster();
 
       this._active = false;
       this._hovered = false;
       this._tracking = false;
 
-      this._mouse = new three.Vector2();
+      this._mouse = new Vector2();
 
       this._initialized = false;
 
@@ -198,10 +194,10 @@ const widgetsHandle = (three = AMIThree) => {
 
     createMesh() {
       // geometry
-      this._geometry = new three.SphereGeometry(1, 16, 16);
+      this._geometry = new SphereGeometry(1, 16, 16);
 
       // material
-      this._material = new three.MeshBasicMaterial({
+      this._material = new MeshBasicMaterial({
         wireframe: true,
         wireframeLinewidth: 2,
       });
@@ -209,7 +205,7 @@ const widgetsHandle = (three = AMIThree) => {
       this.updateMeshColor();
 
       // mesh
-      this._mesh = new three.Mesh(this._geometry, this._material);
+      this._mesh = new Mesh(this._geometry, this._material);
       this._mesh.position.copy(this._worldPosition);
       this._mesh.visible = true;
 

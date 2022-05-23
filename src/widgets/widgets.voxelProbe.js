@@ -2,17 +2,12 @@ import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import ModelsVoxel from '../models/models.voxel';
 import CoreUtils from '../core/core.utils';
-import * as AMIThree from 'three';
 
 /**
  * @module widgets/voxelProbe
  */
-const widgetsVoxelprobe = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = widgetsBase(three);
+const widgetsVoxelprobe = () => {
+  const Constructor = widgetsBase();
   return class extends Constructor {
     constructor(targetMesh, controls, params = {}) {
       super(targetMesh, controls, params);

@@ -2,16 +2,13 @@ import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
 import * as AMIThree from 'three';
+import { BufferAttribute, BufferGeometry, Line, LineBasicMaterial, Vector3 } from 'three';
 
 /**
  * @module widgets/velocityTimeIntegral
  */
-const widgetsVelocityTimeIntegral = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = widgetsBase(three);
+const widgetsVelocityTimeIntegral = () => {
+  const Constructor = widgetsBase();
   return class extends Constructor {
     constructor(targetMesh, controls, params = {}) {
       super(targetMesh, controls, params);
@@ -261,7 +258,7 @@ const widgetsVelocityTimeIntegral = (three = AMIThree) => {
     }
 
     createMaterial() {
-      this._material = new three.LineBasicMaterial();
+      this._material = new LineBasicMaterial();
     }
 
     createDOM() {
@@ -317,7 +314,7 @@ const widgetsVelocityTimeIntegral = (three = AMIThree) => {
     }
 
     isPointOnLine(pointA, pointB, pointToCheck) {
-      return !new three.Vector3()
+      return !new Vector3()
         .crossVectors(pointA.clone().sub(pointToCheck), pointB.clone().sub(pointToCheck))
         .length();
     }
@@ -444,14 +441,27 @@ const widgetsVelocityTimeIntegral = (three = AMIThree) => {
         this.remove(this._mesh);
       }
 
-      this._geometry = new three.Geometry();
-      this._handles.forEach(elem => this._geometry.vertices.push(elem.worldPosition));
-      this._geometry.vertices.push(this._handles[0].worldPosition);
-      this._geometry.verticesNeedUpdate = true;
+      // this._geometry = new three.Geometry();
+      // this._handles.forEach(elem => this._geometry.vertices.push(elem.worldPosition));
+      // this._geometry.vertices.push(this._handles[0].worldPosition);
+      // this._geometry.verticesNeedUpdate = true;
+      this._geometry = new BufferGeometry();
+      const positions = new Float32Array(this._handles.length * 3);
+      this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+      let index = 0;
+      this._handles.forEach(handle => {
+        positions[index++] = handle.worldPosition.x;
+        positions[index++] = handle.worldPosition.y;
+        positions[index++] = handle.worldPosition.z;
+      });
+      positions[index++] = this._handles[0].worldPosition.x;
+      positions[index++] = this._handles[0].worldPosition.y;
+      positions[index++] = this._handles[0].worldPosition.z;
+      this._geometry.computeVertexNormals();
 
       this.updateMeshColor();
 
-      this._mesh = new three.Line(this._geometry, this._material);
+      this._mesh = new Line(this._geometry, this._material);
       this._mesh.visible = true;
       this.add(this._mesh);
     }

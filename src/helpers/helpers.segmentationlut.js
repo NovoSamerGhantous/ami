@@ -1,4 +1,5 @@
 import CoreUtils from '../core/core.utils';
+import { Texture, UVMapping, ClampToEdgeWrapping, NearestFilter } from 'three';
 
 let defaultSegmentation = {
   0: { color: [0, 0, 0], opacity: 0, label: 'background' },
@@ -77,10 +78,10 @@ export default class HelpersSegmentationLut {
   }
 
   get texture() {
-    let texture = new THREE.Texture(this._canvas);
-    texture.mapping = THREE.UVMapping;
-    texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
-    texture.magFilter = texture.minFilter = THREE.NearestFilter;
+    let texture = new Texture(this._canvas);
+    texture.mapping = UVMapping;
+    texture.wrapS = texture.wrapT = ClampToEdgeWrapping;
+    texture.magFilter = texture.minFilter = NearestFilter;
     texture.premultiplyAlpha = true;
     texture.needsUpdate = true;
 

@@ -1,15 +1,11 @@
-import * as AMIThree from 'three';
+import { Object3D, Vector3, BoxGeometry, Matrix4, MeshBasicMaterial, Mesh, BoxHelper } from 'three';
 
 /**
  * @module helpers/boundingbox
  */
 
-const helpersBoundingBox = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = three.Object3D;
+const helpersBoundingBox = () => {
+  const Constructor = Object3D;
   return class extends Constructor {
     constructor(stack) {
       //
@@ -56,12 +52,12 @@ const helpersBoundingBox = (three = AMIThree) => {
       // Convenience vars
       const dimensions = this._stack.dimensionsIJK;
       const halfDimensions = this._stack.halfDimensionsIJK;
-      const offset = new three.Vector3(-0.5, -0.5, -0.5);
+      const offset = new Vector3(-0.5, -0.5, -0.5);
 
       // Geometry
-      const geometry = new three.BoxGeometry(dimensions.x, dimensions.y, dimensions.z);
+      const geometry = new BoxGeometry(dimensions.x, dimensions.y, dimensions.z);
       geometry.applyMatrix4(
-        new three.Matrix4().makeTranslation(
+        new Matrix4().makeTranslation(
           halfDimensions.x + offset.x,
           halfDimensions.y + offset.y,
           halfDimensions.z + offset.z
@@ -70,16 +66,16 @@ const helpersBoundingBox = (three = AMIThree) => {
       this._geometry = geometry;
 
       // Material
-      this._material = new three.MeshBasicMaterial({
+      this._material = new MeshBasicMaterial({
         wireframe: true,
       });
 
-      const mesh = new three.Mesh(this._geometry, null);
+      const mesh = new Mesh(this._geometry, null);
       mesh.applyMatrix4(this._stack.ijk2LPS);
       mesh.visible = this._visible;
       this._meshStack = mesh;
 
-      this._mesh = new three.BoxHelper(this._meshStack, this._color);
+      this._mesh = new BoxHelper(this._meshStack, this._color);
       this._material = this._mesh.material;
 
       this.add(this._mesh);

@@ -10,9 +10,6 @@ export * from './presets/presets';
 export * from './shaders/shaders';
 export * from './widgets/widgets';
 
-import { type } from 'os';
-import { Raycaster } from 'three/src/core/Raycaster';
-
 const packageVersion = require('../package.json').version;
 const d3Version = require('../node_modules/three/package.json').version;
 console.log(`ami ${packageVersion} (three ${d3Version})`);

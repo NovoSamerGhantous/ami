@@ -1,17 +1,13 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
-import * as AMIThree from 'three';
+import { DoubleSide, Mesh, MeshBasicMaterial, Shape, ShapeGeometry, Vector3 } from 'three';
 
 /**
  * @module widgets/polygon
  */
-const widgetsPolygon = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = widgetsBase(three);
+const widgetsPolygon = () => {
+  const Constructor = widgetsBase();
   return class extends Constructor {
     constructor(targetMesh, controls, params = {}) {
       super(targetMesh, controls, params);
@@ -249,7 +245,7 @@ const widgetsPolygon = (three = AMIThree) => {
     }
 
     createMaterial() {
-      this._material = new three.MeshBasicMaterial({ side: THREE.DoubleSide });
+      this._material = new MeshBasicMaterial({ side: DoubleSide });
       this._material.transparent = true;
       this._material.opacity = 0.2;
     }
@@ -332,19 +328,19 @@ const widgetsPolygon = (three = AMIThree) => {
 
       let center = CoreUtils.centerOfMass(points);
       // direction from first point to center
-      let referenceDirection = new three.Vector3().subVectors(points[0], center).normalize();
-      let direction = new three.Vector3().crossVectors(
-        new three.Vector3().subVectors(points[0], center), // side 1
-        new three.Vector3().subVectors(points[1], center) // side 2
+      let referenceDirection = new Vector3().subVectors(points[0], center).normalize();
+      let direction = new Vector3().crossVectors(
+        new Vector3().subVectors(points[0], center), // side 1
+        new Vector3().subVectors(points[1], center) // side 2
       );
-      let base = new three.Vector3().crossVectors(referenceDirection, direction).normalize();
+      let base = new Vector3().crossVectors(referenceDirection, direction).normalize();
       let orderedpoints = [];
 
       // other lines // if inter, return location + angle
       for (let j = 0; j < points.length; j++) {
-        let point = new three.Vector3(points[j].x, points[j].y, points[j].z);
+        let point = new Vector3(points[j].x, points[j].y, points[j].z);
 
-        point.direction = new three.Vector3().subVectors(points[j], center).normalize();
+        point.direction = new Vector3().subVectors(points[j], center).normalize();
 
         let x = referenceDirection.dot(point.direction);
         let y = base.dot(point.direction);
@@ -366,7 +362,7 @@ const widgetsPolygon = (three = AMIThree) => {
       }.bind(this);
 
       // create the shape
-      let shape = new three.Shape();
+      let shape = new Shape();
       // move to first point!
       shape.moveTo(orderedpoints[0].xy.x, orderedpoints[0].xy.y);
 
@@ -379,7 +375,7 @@ const widgetsPolygon = (three = AMIThree) => {
       // close the shape!
       shape.lineTo(orderedpoints[0].xy.x, orderedpoints[0].xy.y);
 
-      this._geometry = new three.ShapeGeometry(shape);
+      this._geometry = new ShapeGeometry(shape);
 
       console.warn = oldWarn;
 
@@ -389,7 +385,7 @@ const widgetsPolygon = (three = AMIThree) => {
 
       this.updateMeshColor();
 
-      this._mesh = new three.Mesh(this._geometry, this._material);
+      this._mesh = new Mesh(this._geometry, this._material);
       this._mesh.visible = true;
       this.add(this._mesh);
     }

@@ -1,17 +1,13 @@
+import { BufferAttribute, BufferGeometry, CylinderGeometry, Line, LineBasicMaterial, Mesh, Vector3 } from 'three';
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
-import * as AMIThree from 'three';
 
 /**
  * @module widgets/annotation
  * @todo: add option to show only label (without mesh, dots and lines)
  */
-const widgetsAnnotation = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = widgetsBase(three);
+const widgetsAnnotation = () => {
+  const Constructor = widgetsBase();
   return class extends Constructor {
     constructor(targetMesh, controls, params = {}) {
       super(targetMesh, controls, params);
@@ -39,8 +35,8 @@ const widgetsAnnotation = (three = AMIThree) => {
       this._labeltext = null;
 
       // var
-      this._labelOffset = new three.Vector3(); // difference between label center and second handle
-      this._mouseLabelOffset = new three.Vector3(); // difference between mouse coordinates and label center
+      this._labelOffset = new Vector3(); // difference between label center and second handle
+      this._mouseLabelOffset = new Vector3(); // difference between mouse coordinates and label center
 
       // add handles
       this._handles = [];
@@ -109,7 +105,7 @@ const widgetsAnnotation = (three = AMIThree) => {
         const offsets = this.getMouseOffsets(evt, this._container);
         const paddingPoint = this._handles[1].screenPosition.clone().sub(this._labelOffset);
 
-        this._mouseLabelOffset = new three.Vector3(
+        this._mouseLabelOffset = new Vector3(
           offsets.screenX - paddingPoint.x,
           offsets.screenY - paddingPoint.y,
           0
@@ -130,7 +126,7 @@ const widgetsAnnotation = (three = AMIThree) => {
       if (this._movinglabel) {
         const offsets = this.getMouseOffsets(evt, this._container);
 
-        this._labelOffset = new three.Vector3(
+        this._labelOffset = new Vector3(
           this._handles[1].screenPosition.x - offsets.screenX + this._mouseLabelOffset.x,
           this._handles[1].screenPosition.y - offsets.screenY + this._mouseLabelOffset.y,
           0
@@ -219,28 +215,39 @@ const widgetsAnnotation = (three = AMIThree) => {
 
     createMesh() {
       // material
-      this._material = new three.LineBasicMaterial();
+      this._material = new LineBasicMaterial();
 
       this.updateMeshColor();
 
       // line geometry
-      this._geometry = new three.Geometry();
-      this._geometry.vertices.push(this._handles[0].worldPosition);
-      this._geometry.vertices.push(this._handles[1].worldPosition);
+      // this._geometry = new three.Geometry();
+      // this._geometry.vertices.push(this._handles[0].worldPosition);
+      // this._geometry.vertices.push(this._handles[1].worldPosition);
+      this._geometry = new BufferGeometry();
+      const positions = new Float32Array(2 * 3);
+      this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+      let index = 0;
+      positions[index++] = this._handles[0].worldPosition.x;
+      positions[index++] = this._handles[0].worldPosition.y;
+      positions[index++] = this._handles[0].worldPosition.z;
+
+      positions[index++] = this._handles[1].worldPosition.x;
+      positions[index++] = this._handles[1].worldPosition.y;
+      positions[index++] = this._handles[1].worldPosition.z;
 
       // line mesh
-      this._meshline = new three.Line(this._geometry, this._material);
+      this._meshline = new Line(this._geometry, this._material);
       this._meshline.visible = true;
 
       this.add(this._meshline);
 
       // cone geometry
-      this._conegeometry = new three.CylinderGeometry(0, 2, 10);
+      this._conegeometry = new CylinderGeometry(0, 2, 10);
       this._conegeometry.translate(0, -5, 0);
       this._conegeometry.rotateX(-Math.PI / 2);
 
       // cone mesh
-      this._cone = new three.Mesh(this._conegeometry, this._material);
+      this._cone = new Mesh(this._conegeometry, this._material);
       this._cone.visible = true;
 
       this.add(this._cone);

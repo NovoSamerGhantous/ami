@@ -4,18 +4,19 @@ import { COLORS } from '../core/core.colors';
 import CoreUtils from '../core/core.utils';
 import * as AMIThree from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { BufferGeometry, Material, Matrix4, Mesh, Object3D, Vector2, Vector3 } from 'three';
 
 interface WidgetParameter {
   calibrationFactor: number;
   frameIndex: number;
   hideMesh: boolean;
   hideHandleMesh: boolean;
-  ijk2LPS: THREE.Matrix4;
-  lps2IJK: THREE.Matrix4;
+  ijk2LPS: Matrix4;
+  lps2IJK: Matrix4;
   pixelSpacing: number;
   stack: {};
   ultrasoundRegions: Array<USRegion & { unitsX: string; unitsY: string }>;
-  worldPosition: THREE.Vector3;
+  worldPosition: Vector3;
 }
 
 interface USRegion {
@@ -33,12 +34,8 @@ interface USRegion {
  * @module Abstract Widget
  */
 // tslint:disable-next-line
-const widgetsBase = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = three.Object3D;
+const widgetsBase = () => {
+  const Constructor = Object3D;
   return class extends Constructor {
     _widgetType: string;
     _params: WidgetParameter;
@@ -50,14 +47,14 @@ const widgetsBase = (three = AMIThree) => {
     _color: any;
     _dragged: boolean;
     _displayed: boolean;
-    _targetMesh: AMIThree.Mesh<AMIThree.BufferGeometry, AMIThree.Material | AMIThree.Material[]>;
+    _targetMesh: Mesh<BufferGeometry, Material | Material[]>;
     _controls: OrbitControls;
     _camera: any;
     _container: any;
-    _worldPosition: AMIThree.Vector3;
+    _worldPosition: Vector3;
     _offsets: { top: number; left: number; };
     _handles: any;
-    constructor(targetMesh: AMIThree.Mesh, controls: OrbitControls, params: WidgetParameter) {
+    constructor(targetMesh: Mesh, controls: OrbitControls, params: WidgetParameter) {
       super();
 
       this._widgetType = 'Base';
@@ -99,7 +96,7 @@ const widgetsBase = (three = AMIThree) => {
       this._camera = controls.object;
       this._container = controls.domElement;
 
-      this._worldPosition = new three.Vector3(); // LPS position
+      this._worldPosition = new Vector3(); // LPS position
       if (params.worldPosition) {
         this._worldPosition.copy(params.worldPosition);
       } else if (this._targetMesh !== null) {
@@ -141,7 +138,7 @@ const widgetsBase = (three = AMIThree) => {
      *
      * @returns {Number}
      */
-    public getArea(points: THREE.Vector3[]) {
+    public getArea(points: Vector3[]) {
       let area = 0;
       let j = points.length - 1; // the last vertex is the 'previous' one to the first
 
@@ -161,7 +158,7 @@ const widgetsBase = (three = AMIThree) => {
      *
      * @returns {Number|null}
      */
-    public getRegionByXY(regions: USRegion[], point: THREE.Vector3) {
+    public getRegionByXY(regions: USRegion[], point: Vector3) {
       let result = null;
 
       regions.some((region, ind) => {
@@ -188,12 +185,12 @@ const widgetsBase = (three = AMIThree) => {
      *
      * @returns {Vector2|null}
      */
-    public getPointInRegion(region: USRegion, point: THREE.Vector3) {
+    public getPointInRegion(region: USRegion, point: Vector3) {
       if (!region) {
         return null;
       }
 
-      return new three.Vector2(
+      return new Vector2(
         (point.x - region.x0 - (region.axisX || 0)) * region.deltaX,
         (point.y - region.y0 - (region.axisY || 0)) * region.deltaY
       );
@@ -207,7 +204,7 @@ const widgetsBase = (three = AMIThree) => {
      *
      * @returns {Vector2|null}
      */
-    public getUsPoint(regions: USRegion[], point: THREE.Vector3) {
+    public getUsPoint(regions: USRegion[], point: Vector3) {
       return this.getPointInRegion(regions[this.getRegionByXY(regions, point)], point);
     }
 
@@ -219,7 +216,7 @@ const widgetsBase = (three = AMIThree) => {
      *
      * @returns {Number|null}
      */
-    public getUsDistance(pointA: THREE.Vector3, pointB: THREE.Vector3) {
+    public getUsDistance(pointA: Vector3, pointB: Vector3) {
       const regions = this._params.ultrasoundRegions || [];
 
       if (regions.length < 1) {
@@ -253,7 +250,7 @@ const widgetsBase = (three = AMIThree) => {
      *
      * @returns {Object}
      */
-    public getDistanceData(pointA: THREE.Vector3, pointB: THREE.Vector3, calibrationFactor: number) {
+    public getDistanceData(pointA: Vector3, pointB: Vector3, calibrationFactor: number) {
       let distance = null;
       let units = null;
 
@@ -282,14 +279,14 @@ const widgetsBase = (three = AMIThree) => {
       };
     }
 
-    public getLineData(pointA: THREE.Vector3, pointB: THREE.Vector3) {
+    public getLineData(pointA: Vector3, pointB: Vector3) {
       const line = pointB.clone().sub(pointA);
       const center = pointB
         .clone()
         .add(pointA)
         .multiplyScalar(0.5);
       const length = line.length();
-      const angle = line.angleTo(new three.Vector3(1, 0, 0));
+      const angle = line.angleTo(new Vector3(1, 0, 0));
 
       return {
         line,
@@ -301,15 +298,15 @@ const widgetsBase = (three = AMIThree) => {
       };
     }
 
-    public getRectData(pointA: THREE.Vector3, pointB: THREE.Vector3) {
+    public getRectData(pointA: Vector3, pointB: Vector3) {
       const line = pointB.clone().sub(pointA);
-      const vertical = line.clone().projectOnVector(new three.Vector3(0, 1, 0));
+      const vertical = line.clone().projectOnVector(new Vector3(0, 1, 0));
       const min = pointA.clone().min(pointB); // coordinates of the top left corner
 
       return {
         width: line
           .clone()
-          .projectOnVector(new three.Vector3(1, 0, 0))
+          .projectOnVector(new Vector3(1, 0, 0))
           .length(),
         height: vertical.length(),
         transformX: min.x,
@@ -323,7 +320,7 @@ const widgetsBase = (three = AMIThree) => {
      * @param {Vector3}     point  label's center coordinates (default)
      * @param {Boolean}     corner if true, then point is the label's top left corner coordinates
      */
-    public adjustLabelTransform(label: HTMLDivElement, point: THREE.Vector3, corner: boolean) {
+    public adjustLabelTransform(label: HTMLDivElement, point: Vector3, corner: boolean) {
       let x = Math.round(point.x - (corner ? 0 : label.offsetWidth / 2));
       let y =
         Math.round(point.y - (corner ? 0 : label.offsetHeight / 2)) - this._container.offsetHeight;
@@ -346,10 +343,10 @@ const widgetsBase = (three = AMIThree) => {
         y = y < 0 ? -label.offsetHeight : y - label.offsetHeight;
       }
 
-      return new three.Vector2(x, y);
+      return new Vector2(x, y);
     }
 
-    public worldToScreen(worldCoordinate: THREE.Vector3) {
+    public worldToScreen(worldCoordinate: Vector3) {
       const screenCoordinates = worldCoordinate.clone();
       screenCoordinates.project(this._camera);
 
@@ -441,7 +438,7 @@ const widgetsBase = (three = AMIThree) => {
       return this._targetMesh;
     }
 
-    set targetMesh(targetMesh: THREE.Mesh) {
+    set targetMesh(targetMesh: Mesh) {
       this._targetMesh = targetMesh;
       this.update();
     }
@@ -450,7 +447,7 @@ const widgetsBase = (three = AMIThree) => {
       return this._worldPosition;
     }
 
-    set worldPosition(worldPosition: THREE.Vector3) {
+    set worldPosition(worldPosition: Vector3) {
       this._worldPosition.copy(worldPosition);
       this.update();
     }

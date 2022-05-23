@@ -1,4 +1,4 @@
-import * as AMIThree from 'three';
+import { EventDispatcher, Vector3, Vector2, Quaternion, Spherical, MOUSE } from 'three';
 /**
  * @author qiao / https://github.com/qiao
  * @author mrdoob / http://mrdoob.com
@@ -14,13 +14,9 @@ import * as AMIThree from 'three';
 //    Zoom - middle mouse, or mousewheel / touch: two-finger spread or squish
 //    Pan - right mouse, or left mouse + ctrl/meta/shiftKey, or arrow keys / touch: two-finger move
 
-// adapted from https://github.com/mrdoob/three.js/blob/dev/examples/jsm/controls/OrbitControls.js
+// adapted from https://github.com/mrdoob/js/blob/dev/examples/jsm/controls/OrbitControls.js
 
-const orbit = (three = AMIThree) => {
-	if (three === undefined || three.EventDispatcher === undefined) {
-		return null;
-	}
-
+const orbit = () => {
 	var OrbitControls = function (object, domElement) {
 
 		this.object = object;
@@ -34,7 +30,7 @@ const orbit = (three = AMIThree) => {
 		this.preventDefault = true;
 
 		// "target" sets the location of focus, where the object orbits around
-		this.target = new three.Vector3();
+		this.target = new Vector3();
 
 		// How far you can dolly in and out ( PerspectiveCamera only )
 		this.minDistance = 0;
@@ -86,7 +82,7 @@ const orbit = (three = AMIThree) => {
 		this.keys = { LEFT: 37, UP: 38, RIGHT: 39, BOTTOM: 40 };
 
 		// Mouse buttons
-		this.mouseButtons = { LEFT: three.MOUSE.LEFT, MIDDLE: three.MOUSE.MIDDLE, RIGHT: three.MOUSE.RIGHT };
+		this.mouseButtons = { LEFT: MOUSE.LEFT, MIDDLE: MOUSE.MIDDLE, RIGHT: MOUSE.RIGHT };
 
 		// for reset
 		this.target0 = this.target.clone();
@@ -140,14 +136,14 @@ const orbit = (three = AMIThree) => {
 		// this method is exposed, but perhaps it would be better if we can make it private...
 		this.update = function () {
 
-			var offset = new three.Vector3();
+			var offset = new Vector3();
 
 			// so camera.up is the orbit axis
-			var quat = new three.Quaternion().setFromUnitVectors(object.up, new three.Vector3(0, 1, 0));
+			var quat = new Quaternion().setFromUnitVectors(object.up, new Vector3(0, 1, 0));
 			var quatInverse = quat.clone().inverse();
 
-			var lastPosition = new three.Vector3();
-			var lastQuaternion = new three.Quaternion();
+			var lastPosition = new Vector3();
+			var lastQuaternion = new Quaternion();
 
 			return function update() {
 
@@ -273,24 +269,24 @@ const orbit = (three = AMIThree) => {
 		var EPS = 0.000001;
 
 		// current position in spherical coordinates
-		var spherical = new three.Spherical();
-		var sphericalDelta = new three.Spherical();
+		var spherical = new Spherical();
+		var sphericalDelta = new Spherical();
 
 		var scale = 1;
-		var panOffset = new three.Vector3();
+		var panOffset = new Vector3();
 		var zoomChanged = false;
 
-		var rotateStart = new three.Vector2();
-		var rotateEnd = new three.Vector2();
-		var rotateDelta = new three.Vector2();
+		var rotateStart = new Vector2();
+		var rotateEnd = new Vector2();
+		var rotateDelta = new Vector2();
 
-		var panStart = new three.Vector2();
-		var panEnd = new three.Vector2();
-		var panDelta = new three.Vector2();
+		var panStart = new Vector2();
+		var panEnd = new Vector2();
+		var panDelta = new Vector2();
 
-		var dollyStart = new three.Vector2();
-		var dollyEnd = new three.Vector2();
-		var dollyDelta = new three.Vector2();
+		var dollyStart = new Vector2();
+		var dollyEnd = new Vector2();
+		var dollyDelta = new Vector2();
 
 		function getAutoRotationAngle() {
 
@@ -318,7 +314,7 @@ const orbit = (three = AMIThree) => {
 
 		var panLeft = function () {
 
-			var v = new three.Vector3();
+			var v = new Vector3();
 
 			return function panLeft(distance, objectMatrix) {
 
@@ -333,7 +329,7 @@ const orbit = (three = AMIThree) => {
 
 		var panUp = function () {
 
-			var v = new three.Vector3();
+			var v = new Vector3();
 
 			return function panUp(distance, objectMatrix) {
 
@@ -359,7 +355,7 @@ const orbit = (three = AMIThree) => {
 		// deltaX and deltaY are in pixels; right and down are positive
 		var pan = function () {
 
-			var offset = new three.Vector3();
+			var offset = new Vector3();
 
 			return function pan(deltaX, deltaY) {
 
@@ -942,7 +938,7 @@ const orbit = (three = AMIThree) => {
 
 	};
 
-	OrbitControls.prototype = Object.create(three.EventDispatcher.prototype);
+	OrbitControls.prototype = Object.create(EventDispatcher.prototype);
 	OrbitControls.prototype.constructor = OrbitControls;
 
 	Object.defineProperties(OrbitControls.prototype, {
@@ -951,7 +947,7 @@ const orbit = (three = AMIThree) => {
 
 			get: function () {
 
-				console.warn('THREE.OrbitControls: .center has been renamed to .target');
+				console.warn('OrbitControls: .center has been renamed to .target');
 				return this.target;
 
 			}
@@ -964,14 +960,14 @@ const orbit = (three = AMIThree) => {
 
 			get: function () {
 
-				console.warn('THREE.OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
+				console.warn('OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
 				return !this.enableZoom;
 
 			},
 
 			set: function (value) {
 
-				console.warn('THREE.OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
+				console.warn('OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
 				this.enableZoom = !value;
 
 			}
@@ -982,14 +978,14 @@ const orbit = (three = AMIThree) => {
 
 			get: function () {
 
-				console.warn('THREE.OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
+				console.warn('OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
 				return !this.enableRotate;
 
 			},
 
 			set: function (value) {
 
-				console.warn('THREE.OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
+				console.warn('OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
 				this.enableRotate = !value;
 
 			}
@@ -1000,14 +996,14 @@ const orbit = (three = AMIThree) => {
 
 			get: function () {
 
-				console.warn('THREE.OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
+				console.warn('OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
 				return !this.enablePan;
 
 			},
 
 			set: function (value) {
 
-				console.warn('THREE.OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
+				console.warn('OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
 				this.enablePan = !value;
 
 			}
@@ -1018,14 +1014,14 @@ const orbit = (three = AMIThree) => {
 
 			get: function () {
 
-				console.warn('THREE.OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
+				console.warn('OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
 				return !this.enableKeys;
 
 			},
 
 			set: function (value) {
 
-				console.warn('THREE.OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
+				console.warn('OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
 				this.enableKeys = !value;
 
 			}
@@ -1036,14 +1032,14 @@ const orbit = (three = AMIThree) => {
 
 			get: function () {
 
-				console.warn('THREE.OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
+				console.warn('OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
 				return !this.enableDamping;
 
 			},
 
 			set: function (value) {
 
-				console.warn('THREE.OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
+				console.warn('OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
 				this.enableDamping = !value;
 
 			}
@@ -1054,14 +1050,14 @@ const orbit = (three = AMIThree) => {
 
 			get: function () {
 
-				console.warn('THREE.OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
+				console.warn('OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
 				return this.dampingFactor;
 
 			},
 
 			set: function (value) {
 
-				console.warn('THREE.OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
+				console.warn('OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
 				this.dampingFactor = value;
 
 			}

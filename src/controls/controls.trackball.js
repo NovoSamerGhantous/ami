@@ -1,4 +1,4 @@
-import * as AMIThree from 'three';
+import { EventDispatcher, Vector2, Vector3, Quaternion } from 'three';
 
 /**
  * Original authors from THREEJS repo
@@ -8,12 +8,8 @@ import * as AMIThree from 'three';
  * @author Luca Antiga  / http://lantiga.github.io
  */
 
-const trackball = (three = AMIThree) => {
-  if (three === undefined || three.EventDispatcher === undefined) {
-    return null;
-  }
-
-  const Constructor = three.EventDispatcher;
+const trackball = () => {
+  const Constructor = EventDispatcher;
   return class extends Constructor {
     constructor(object, domElement) {
       super();
@@ -60,27 +56,27 @@ const trackball = (three = AMIThree) => {
 
       // internals
 
-      this.target = new three.Vector3();
+      this.target = new Vector3();
 
       let EPS = 0.000001;
 
-      let lastPosition = new three.Vector3();
+      let lastPosition = new Vector3();
 
       let _state = STATE.NONE,
         _prevState = STATE.NONE,
-        _eye = new three.Vector3(),
-        _movePrev = new three.Vector2(),
-        _moveCurr = new three.Vector2(),
-        _lastAxis = new three.Vector3(),
+        _eye = new Vector3(),
+        _movePrev = new Vector2(),
+        _moveCurr = new Vector2(),
+        _lastAxis = new Vector3(),
         _lastAngle = 0,
-        _zoomStart = new three.Vector2(),
-        _zoomEnd = new three.Vector2(),
+        _zoomStart = new Vector2(),
+        _zoomEnd = new Vector2(),
         _touchZoomDistanceStart = 0,
         _touchZoomDistanceEnd = 0,
-        _panStart = new three.Vector2(),
-        _panEnd = new three.Vector2(),
-        _customStart = new three.Vector2(),
-        _customEnd = new three.Vector2();
+        _panStart = new Vector2(),
+        _panEnd = new Vector2(),
+        _customStart = new Vector2(),
+        _customEnd = new Vector2();
 
       // for reset
 
@@ -120,7 +116,7 @@ const trackball = (three = AMIThree) => {
       };
 
       let getMouseOnScreen = (function () {
-        let vector = new three.Vector2();
+        let vector = new Vector2();
 
         return function (pageX, pageY) {
           vector.set(
@@ -133,7 +129,7 @@ const trackball = (three = AMIThree) => {
       })();
 
       let getMouseOnCircle = (function () {
-        let vector = new three.Vector2();
+        let vector = new Vector2();
 
         return function (pageX, pageY) {
           vector.set(
@@ -146,12 +142,12 @@ const trackball = (three = AMIThree) => {
       })();
 
       this.rotateCamera = (function () {
-        let axis = new three.Vector3(),
-          quaternion = new three.Quaternion(),
-          eyeDirection = new three.Vector3(),
-          objectUpDirection = new three.Vector3(),
-          objectSidewaysDirection = new three.Vector3(),
-          moveDirection = new three.Vector3(),
+        let axis = new Vector3(),
+          quaternion = new Quaternion(),
+          eyeDirection = new Vector3(),
+          objectUpDirection = new Vector3(),
+          objectSidewaysDirection = new Vector3(),
+          moveDirection = new Vector3(),
           angle;
 
         return function () {
@@ -215,9 +211,9 @@ const trackball = (three = AMIThree) => {
       };
 
       this.panCamera = (function () {
-        let mouseChange = new three.Vector2(),
-          objectUp = new three.Vector3(),
-          pan = new three.Vector3();
+        let mouseChange = new Vector2(),
+          objectUp = new Vector3(),
+          pan = new Vector3();
 
         return function () {
           mouseChange.copy(_panEnd).sub(_panStart);

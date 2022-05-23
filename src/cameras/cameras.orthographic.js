@@ -1,6 +1,6 @@
 import Intersections from '../core/core.intersections';
 import Validators from '../core/core.validators';
-import * as AMIThree from 'three';
+import { OrthographicCamera, Vector3, Matrix4 } from 'three';
 
 /**
  * Orthographic camera from THREE.JS with some extra convenience
@@ -13,12 +13,9 @@ import * as AMIThree from 'three';
  * @module cameras/orthographic
  */
 
-const camerasOrthographic = (three = AMIThree) => {
-  if (three === undefined || three.OrthographicCamera === undefined) {
-    return null;
-  }
+const camerasOrthographic = () => {
 
-  const Constructor = three.OrthographicCamera;
+  const Constructor = OrthographicCamera;
   return class extends Constructor {
     constructor(left, right, top, bottom, near, far) {
       super(left, right, top, bottom, near, far);
@@ -27,9 +24,9 @@ const camerasOrthographic = (three = AMIThree) => {
       this._back = null;
 
       this._directions = [
-        new three.Vector3(1, 0, 0),
-        new three.Vector3(0, 1, 0),
-        new three.Vector3(0, 0, 1),
+        new Vector3(1, 0, 0),
+        new Vector3(0, 1, 0),
+        new Vector3(0, 0, 1),
       ];
 
       this._directionsLabel = [
@@ -87,7 +84,7 @@ const camerasOrthographic = (three = AMIThree) => {
 
       this._right = xCosine;
       this._up = this._adjustTopDirection(xCosine, yCosine);
-      this._direction = new three.Vector3().crossVectors(this._right, this._up);
+      this._direction = new Vector3().crossVectors(this._right, this._up);
       this._controls = controls;
       this._box = box;
       this._canvas = canvas;
@@ -381,7 +378,7 @@ const camerasOrthographic = (three = AMIThree) => {
       this._angle %= 360;
 
       // Rotate the up vector around the "zCosine"
-      let rotation = new three.Matrix4().makeRotationAxis(
+      let rotation = new Matrix4().makeRotationAxis(
         this._direction,
         (rotationToApply * Math.PI) / 180
       );
@@ -514,7 +511,7 @@ const camerasOrthographic = (three = AMIThree) => {
       // center world postion around box center
       oppositePosition.sub(this._box.center);
       // rotate
-      let rotation = new three.Matrix4().makeRotationAxis(this.up, Math.PI);
+      let rotation = new Matrix4().makeRotationAxis(this.up, Math.PI);
 
       oppositePosition.applyMatrix4(rotation);
       // translate back to world position
@@ -617,12 +614,12 @@ const camerasOrthographic = (three = AMIThree) => {
       this._up = this.up.clone();
 
       // direction
-      let pLocal = new three.Vector3(0, 0, -1);
+      let pLocal = new Vector3(0, 0, -1);
       let pWorld = pLocal.applyMatrix4(this.matrixWorld);
       this._direction = pWorld.sub(this.position).normalize();
 
       // right
-      this._right = new three.Vector3().crossVectors(this._direction, this.up);
+      this._right = new Vector3().crossVectors(this._direction, this.up);
 
       // update labels accordingly
       this._updateLabels();

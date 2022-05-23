@@ -2,16 +2,13 @@ import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
 import * as AMIThree from 'three';
+import { Line, LineBasicMaterial } from 'three';
 
 /**
  * @module widgets/pressureHalfTime
  */
-const widgetsPressureHalfTime = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = widgetsBase(three);
+const widgetsPressureHalfTime = () => {
+  const Constructor = widgetsBase();
 
   return class extends Constructor {
     constructor(targetMesh, controls, params = {}) {
@@ -224,16 +221,27 @@ const widgetsPressureHalfTime = (three = AMIThree) => {
 
     createMesh() {
       // geometry
-      this._geometry = new three.Geometry();
-      this._geometry.vertices = [this._handles[0].worldPosition, this._handles[1].worldPosition];
+      // this._geometry = new three.Geometry();
+      // this._geometry.vertices = [this._handles[0].worldPosition, this._handles[1].worldPosition];
+      this._geometry = new BufferGeometry();
+      const positions = new Float32Array(2 * 3);
+      this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+      let index = 0;
+      positions[index++] = this._handles[0].worldPosition.x;
+      positions[index++] = this._handles[0].worldPosition.y;
+      positions[index++] = this._handles[0].worldPosition.z;
+
+      positions[index++] = this._handles[1].worldPosition.x;
+      positions[index++] = this._handles[1].worldPosition.y;
+      positions[index++] = this._handles[1].worldPosition.z;
 
       // material
-      this._material = new three.LineBasicMaterial();
+      this._material = new LineBasicMaterial();
 
       this.updateMeshColor();
 
       // mesh
-      this._mesh = new three.Line(this._geometry, this._material);
+      this._mesh = new Line(this._geometry, this._material);
       this._mesh.visible = true;
 
       this.add(this._mesh);

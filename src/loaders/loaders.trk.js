@@ -1,9 +1,11 @@
 'use strict';
 
-THREE.TRKLoader = function () { };
+import { TRKLoader, EventDispatcher, BufferGeometry, Vector3, BufferAttribute, Color, } from 'three';
 
-Object.assign(THREE.TRKLoader.prototype, THREE.EventDispatcher.prototype, {
-  constructor: THREE.TRKLoader,
+TRKLoader = function () { };
+
+Object.assign(TRKLoader.prototype, EventDispatcher.prototype, {
+  constructor: TRKLoader,
 
   load: function (url, onLoad, onProgress, onError) {
     console.log(url, onLoad, onProgress, onError);
@@ -325,12 +327,15 @@ Object.assign(THREE.TRKLoader.prototype, THREE.EventDispatcher.prototype, {
         points: [],
         scalars: [],
         properties: [],
-        geometry: new THREE.Geometry(),
+        geometry: new BufferGeometry(),
         xProperties: {},
       };
 
       let length = 0;
-
+      const positions = new Float32Array(nbPoints * 3);
+      track.geometry.setAttribute('position', new BufferAttribute(positions, 3));
+      let index;
+      index = 0;
       for (let k = 0; k < nbPoints; k++) {
         // first 3 floats are the coordinates
         track.points[k] = [];
@@ -343,9 +348,12 @@ Object.assign(THREE.TRKLoader.prototype, THREE.EventDispatcher.prototype, {
 
         // add geometry
         //
-        track.geometry.vertices.push(
-          new THREE.Vector3(track.points[k][0], track.points[k][1], track.points[k][2])
-        );
+        // track.geometry.vertices.push(
+        //   new Vector3(track.points[k][0], track.points[k][1], track.points[k][2])
+        // );
+        positions[index++] = track.points[k][0];
+        positions[index++] = track.points[k][1];
+        positions[index++] = track.points[k][2];
 
         // then the scalars
         track.scalars[k] = [];
@@ -399,7 +407,7 @@ Object.assign(THREE.TRKLoader.prototype, THREE.EventDispatcher.prototype, {
         diff[1] /= colordistance;
         diff[2] /= colordistance;
 
-        track.geometry.colors.push(new THREE.Color(diff[0], diff[1], diff[2]));
+        track.geometry.colors.push(new Color(diff[0], diff[1], diff[2]));
       }
 
       // get the property of this track

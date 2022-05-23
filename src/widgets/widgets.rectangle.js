@@ -1,17 +1,13 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
-import * as AMIThree from 'three';
+import { DoubleSide, Mesh, MeshBasicMaterial, PlaneGeometry, Vector3 } from 'three';
 
 /**
  * @module widgets/rectangle
  */
-const widgetsRectangle = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = widgetsBase(three);
+const widgetsRectangle = () => {
+  const Constructor = widgetsBase();
   return class extends Constructor {
     constructor(targetMesh, controls, params = {}) {
       super(targetMesh, controls, params);
@@ -196,15 +192,15 @@ const widgetsRectangle = (three = AMIThree) => {
     }
 
     createMesh() {
-      this._geometry = new three.PlaneGeometry(1, 1);
+      this._geometry = new PlaneGeometry(1, 1);
 
-      this._material = new three.MeshBasicMaterial({ side: three.DoubleSide });
+      this._material = new MeshBasicMaterial({ side: DoubleSide });
       this._material.transparent = true;
       this._material.opacity = 0.2;
 
       this.updateMeshColor();
 
-      this._mesh = new three.Mesh(this._geometry, this._material);
+      this._mesh = new Mesh(this._geometry, this._material);
       this._mesh.visible = true;
 
       this.add(this._mesh);
@@ -260,16 +256,16 @@ const widgetsRectangle = (three = AMIThree) => {
 
     updateMeshPosition() {
       if (this._geometry) {
-        const progection = new three.Vector3()
+        const progection = new Vector3()
           .subVectors(this._handles[1].worldPosition, this._handles[0].worldPosition)
           .projectOnVector(this._camera.up);
 
         this._geometry.vertices[0].copy(this._handles[0].worldPosition);
         this._geometry.vertices[1].copy(
-          new three.Vector3().addVectors(this._handles[0].worldPosition, progection)
+          new Vector3().addVectors(this._handles[0].worldPosition, progection)
         );
         this._geometry.vertices[2].copy(
-          new three.Vector3().subVectors(this._handles[1].worldPosition, progection)
+          new Vector3().subVectors(this._handles[1].worldPosition, progection)
         );
         this._geometry.vertices[3].copy(this._handles[1].worldPosition);
 

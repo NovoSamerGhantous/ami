@@ -1,17 +1,13 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
-import * as AMIThree from 'three';
+import { EllipseCurve, Mesh, MeshBasicMaterial, Shape, ShapeGeometry } from 'three';
 
 /**
  * @module widgets/ellipse
  */
-const widgetsEllipse = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = widgetsBase(three);
+const widgetsEllipse = () => {
+  const Constructor = widgetsBase();
   return class extends Constructor {
     constructor(targetMesh, controls, params = {}) {
       super(targetMesh, controls, params);
@@ -203,7 +199,7 @@ const widgetsEllipse = (three = AMIThree) => {
     }
 
     createMaterial() {
-      this._material = new three.MeshBasicMaterial();
+      this._material = new MeshBasicMaterial();
       this._material.transparent = true;
       this._material.opacity = 0.2;
     }
@@ -279,13 +275,13 @@ const widgetsEllipse = (three = AMIThree) => {
         return;
       }
 
-      this._geometry = new three.ShapeGeometry(
-        new three.Shape(
-          new three.EllipseCurve(0, 0, width / 2, height / 2, 0, 2 * Math.PI, false).getPoints(50)
+      this._geometry = new ShapeGeometry(
+        new Shape(
+          new EllipseCurve(0, 0, width / 2, height / 2, 0, 2 * Math.PI, false).getPoints(50)
         )
       );
 
-      this._mesh = new three.Mesh(this._geometry, this._material);
+      this._mesh = new Mesh(this._geometry, this._material);
       this._mesh.position.copy(
         this._handles[0].worldPosition.clone().add(vec01.multiplyScalar(0.5))
       );

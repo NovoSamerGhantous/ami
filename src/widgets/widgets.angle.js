@@ -1,16 +1,12 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
-import * as AMIThree from 'three';
+import { BufferAttribute, BufferGeometry, LineBasicMaterial, LineSegments, Vector3 } from 'three';
 
 /**
  * @module widgets/angle
  */
-const widgetsAngle = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = widgetsBase(three);
+const widgetsAngle = () => {
+  const Constructor = widgetsBase();
   return class extends Constructor {
     constructor(targetMesh, controls, params = {}) {
       super(targetMesh, controls, params);
@@ -203,21 +199,40 @@ const widgetsAngle = (three = AMIThree) => {
 
     createMesh() {
       // geometry
-      this._geometry = new three.Geometry();
-      this._geometry.vertices = [
-        this._handles[0].worldPosition,
-        this._handles[1].worldPosition,
-        this._handles[1].worldPosition,
-        this._handles[2].worldPosition,
-      ];
+      // this._geometry = new three.Geometry();
+      // this._geometry.vertices = [
+      //   this._handles[0].worldPosition,
+      //   this._handles[1].worldPosition,
+      //   this._handles[1].worldPosition,
+      //   this._handles[2].worldPosition,
+      // ];
+      this._geometry = new BufferGeometry();
+      const positions = new Float32Array(4 * 3);
+      this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+      let index = 0;
+      positions[index++] = this._handles[0].worldPosition.x;
+      positions[index++] = this._handles[0].worldPosition.y;
+      positions[index++] = this._handles[0].worldPosition.z;
+
+      positions[index++] = this._handles[1].worldPosition.x;
+      positions[index++] = this._handles[1].worldPosition.y;
+      positions[index++] = this._handles[1].worldPosition.z;
+
+      positions[index++] = this._handles[1].worldPosition.x;
+      positions[index++] = this._handles[1].worldPosition.y;
+      positions[index++] = this._handles[1].worldPosition.z;
+
+      positions[index++] = this._handles[2].worldPosition.x;
+      positions[index++] = this._handles[2].worldPosition.y;
+      positions[index++] = this._handles[2].worldPosition.z;
 
       // material
-      this._material = new three.LineBasicMaterial();
+      this._material = new LineBasicMaterial();
 
       this.updateMeshColor();
 
       // mesh
-      this._mesh = new three.LineSegments(this._geometry, this._material);
+      this._mesh = new LineSegments(this._geometry, this._material);
       this._mesh.visible = true;
       this.add(this._mesh);
     }
@@ -324,7 +339,7 @@ const widgetsAngle = (three = AMIThree) => {
         .add(line2Data.line)
         .normalize()
         .negate();
-      let normAngle = paddingNormVector.angleTo(new three.Vector3(1, 0, 0));
+      let normAngle = paddingNormVector.angleTo(new Vector3(1, 0, 0));
 
       if (normAngle > Math.PI / 2) {
         normAngle = Math.PI - normAngle;

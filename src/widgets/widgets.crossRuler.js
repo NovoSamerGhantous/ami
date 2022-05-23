@@ -1,16 +1,13 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
 import * as AMIThree from 'three';
+import { LineBasicMaterial, LineSegments, Ray, Vector3 } from 'three';
 
 /**
  * @module widgets/crossRuler
  */
-const widgetsCrossRuler = (three = AMIThree) => {
-  if (three === undefined || three.Object3D === undefined) {
-    return null;
-  }
-
-  const Constructor = widgetsBase(three);
+const widgetsCrossRuler = () => {
+  const Constructor = widgetsBase();
   return class extends Constructor {
     constructor(targetMesh, controls, params = {}) {
       super(targetMesh, controls, params);
@@ -208,21 +205,40 @@ const widgetsCrossRuler = (three = AMIThree) => {
 
     createMesh() {
       // geometry
-      this._geometry = new three.Geometry();
-      this._geometry.vertices = [
-        this._handles[0].worldPosition,
-        this._handles[1].worldPosition,
-        this._handles[2].worldPosition,
-        this._handles[3].worldPosition,
-      ];
+      // this._geometry = new three.Geometry();
+      // this._geometry.vertices = [
+      //   this._handles[0].worldPosition,
+      //   this._handles[1].worldPosition,
+      //   this._handles[2].worldPosition,
+      //   this._handles[3].worldPosition,
+      // ];
+      this._geometry = new BufferGeometry();
+      const positions = new Float32Array(4 * 3);
+      this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+      let index = 0;
+      positions[index++] = this._handles[0].worldPosition.x;
+      positions[index++] = this._handles[0].worldPosition.y;
+      positions[index++] = this._handles[0].worldPosition.z;
+
+      positions[index++] = this._handles[1].worldPosition.x;
+      positions[index++] = this._handles[1].worldPosition.y;
+      positions[index++] = this._handles[1].worldPosition.z;
+
+      positions[index++] = this._handles[2].worldPosition.x;
+      positions[index++] = this._handles[2].worldPosition.y;
+      positions[index++] = this._handles[2].worldPosition.z;
+
+      positions[index++] = this._handles[3].worldPosition.x;
+      positions[index++] = this._handles[3].worldPosition.y;
+      positions[index++] = this._handles[3].worldPosition.z;
 
       // material
-      this._material = new three.LineBasicMaterial();
+      this._material = new LineBasicMaterial();
 
       this.updateMeshColor();
 
       // mesh
-      this._mesh = new three.LineSegments(this._geometry, this._material);
+      this._mesh = new LineSegments(this._geometry, this._material);
       this._mesh.visible = true;
       this.add(this._mesh);
     }
@@ -483,11 +499,11 @@ const widgetsCrossRuler = (three = AMIThree) => {
       // called onMove if 2nd or 3rd handle is active
       const activeInd = this._handles[2].active ? 2 : 3;
       const lines = [];
-      const intersect = new three.Vector3();
+      const intersect = new Vector3();
 
       lines[2] = this._handles[2].worldPosition.clone().sub(this._handles[0].worldPosition);
       lines[3] = this._handles[3].worldPosition.clone().sub(this._handles[0].worldPosition);
-      new three.Ray(
+      new Ray(
         this._handles[0].worldPosition,
         this._line01.clone().normalize()
       ).closestPointToPoint(this._handles[activeInd].worldPosition, intersect);
@@ -558,9 +574,9 @@ const widgetsCrossRuler = (three = AMIThree) => {
      * @param {Vector3} fourth  The end of the second line
      */
     initCoordinates(first, second, third, fourth) {
-      const intersectR = new three.Vector3();
-      const intersectS = new three.Vector3();
-      const ray = new three.Ray(first);
+      const intersectR = new Vector3();
+      const intersectS = new Vector3();
+      const ray = new Ray(first);
 
       ray.lookAt(second);
       ray.distanceSqToSegment(third, fourth, intersectR, intersectS);
