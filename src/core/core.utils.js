@@ -1,10 +1,6 @@
 import Validators from './core.validators';
 
-import { Box3 } from 'three/src/math/Box3';
-import { Raycaster } from 'three/src/core/Raycaster';
-import { Triangle } from 'three/src/math/Triangle';
-import { Matrix4 } from 'three/src/math/Matrix4';
-import { Vector3 } from 'three/src/math/Vector3';
+import { Box3, Raycaster, Triangle, Matrix4, Vector3, BufferGeometry } from 'three';
 
 /**
  * General purpose functions.
@@ -459,7 +455,7 @@ export default class CoreUtils {
    * Calculate shape area (sum of triangle polygons area).
    * May be inaccurate or completely wrong for some shapes.
    *
-   * @param {THREE.Geometry} geometry
+   * @param {BufferGeometry} geometry
    *
    * @returns {Number}
    */
@@ -469,7 +465,14 @@ export default class CoreUtils {
     }
 
     let area = 0.0;
-    let vertices = geometry.vertices;
+    /**
+     * @type {Array<Vector3>}
+     */
+    let vertices = [];
+    let positionAttribute = bodyPart.geometry.getAttribute('position');
+    for (let i = 0; positionAttribute.count; i++) {
+      vertices = [...vertices, new Vector3().fromBufferAttribute(positionAttribute, i)];
+    }
 
     geometry.faces.forEach(function (elem) {
       area += new Triangle(vertices[elem.a], vertices[elem.b], vertices[elem.c]).getArea();

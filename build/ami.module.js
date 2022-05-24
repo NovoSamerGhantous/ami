@@ -14,17 +14,8 @@
 			 * See the License for the specific language governing permissions and
 			 * limitations under the License.
 			 */
-import { Box3 } from 'three/src/math/Box3';
-import { Raycaster } from 'three/src/core/Raycaster';
-import { Triangle } from 'three/src/math/Triangle';
-import { Matrix4 } from 'three/src/math/Matrix4';
-import { Vector3 } from 'three/src/math/Vector3';
-import { OrthographicCamera, Vector3 as Vector3$1, Matrix4 as Matrix4$1, EventDispatcher, Vector2, Quaternion, MOUSE, Spherical, ShapeBufferGeometry, Shape, Float32BufferAttribute, BoxGeometry, Object3D, LineBasicMaterial, BufferGeometry as BufferGeometry$1, Line, MeshBasicMaterial, Mesh, BoxHelper, ShaderMaterial, DoubleSide, Texture, UVMapping, ClampToEdgeWrapping, NearestFilter, DataTexture, UnsignedByteType, Color, Vector4, BackSide, Raycaster as Raycaster$1, SphereGeometry, BufferAttribute as BufferAttribute$1, LineSegments, CylinderGeometry, Ray, ShapeGeometry, EllipseCurve, PlaneGeometry } from 'three';
+import { Matrix4, Vector3, Box3, Raycaster, Triangle, OrthographicCamera, EventDispatcher, Vector2, Quaternion, MOUSE, Spherical, ShapeBufferGeometry, Shape, Float32BufferAttribute, BoxGeometry, Object3D, LineBasicMaterial, BufferGeometry as BufferGeometry$1, Line, MeshBasicMaterial, Mesh, BoxHelper, ShaderMaterial, DoubleSide, Texture, UVMapping, ClampToEdgeWrapping, NearestFilter, DataTexture, UnsignedByteType, Color, Vector4, BackSide, RGBAFormat, RGBFormat, SphereGeometry, BufferAttribute as BufferAttribute$1, LineSegments, CylinderGeometry, Ray, ShapeGeometry, EllipseCurve, PlaneGeometry } from 'three';
 import EventEmitter from 'events';
-import { RGBAFormat, RGBFormat } from 'three/src/constants';
-import NiftiReader from 'nifti-reader-js/src/nifti';
-import { Vector2 as Vector2$1 } from 'three/src/math/Vector2';
-import 'three/examples/jsm/controls/OrbitControls';
 
 /**
  * Validate basic structures.
@@ -603,7 +594,7 @@ class CoreUtils {
    * Calculate shape area (sum of triangle polygons area).
    * May be inaccurate or completely wrong for some shapes.
    *
-   * @param {THREE.Geometry} geometry
+   * @param {BufferGeometry} geometry
    *
    * @returns {Number}
    */
@@ -613,7 +604,14 @@ class CoreUtils {
     }
 
     let area = 0.0;
-    let vertices = geometry.vertices;
+    /**
+     * @type {Array<Vector3>}
+     */
+    let vertices = [];
+    let positionAttribute = bodyPart.geometry.getAttribute('position');
+    for (let i = 0; positionAttribute.count; i++) {
+      vertices = [...vertices, new Vector3().fromBufferAttribute(positionAttribute, i)];
+    }
 
     geometry.faces.forEach(function (elem) {
       area += new Triangle(vertices[elem.a], vertices[elem.b], vertices[elem.c]).getArea();
@@ -1164,9 +1162,9 @@ class camerasOrthographic extends OrthographicCamera {
     this._back = null;
 
     this._directions = [
-      new Vector3$1(1, 0, 0),
-      new Vector3$1(0, 1, 0),
-      new Vector3$1(0, 0, 1),
+      new Vector3(1, 0, 0),
+      new Vector3(0, 1, 0),
+      new Vector3(0, 0, 1),
     ];
 
     this._directionsLabel = [
@@ -1224,7 +1222,7 @@ class camerasOrthographic extends OrthographicCamera {
 
     this._right = xCosine;
     this._up = this._adjustTopDirection(xCosine, yCosine);
-    this._direction = new Vector3$1().crossVectors(this._right, this._up);
+    this._direction = new Vector3().crossVectors(this._right, this._up);
     this._controls = controls;
     this._box = box;
     this._canvas = canvas;
@@ -1518,7 +1516,7 @@ class camerasOrthographic extends OrthographicCamera {
     this._angle %= 360;
 
     // Rotate the up vector around the "zCosine"
-    let rotation = new Matrix4$1().makeRotationAxis(
+    let rotation = new Matrix4().makeRotationAxis(
       this._direction,
       (rotationToApply * Math.PI) / 180
     );
@@ -1649,7 +1647,7 @@ class camerasOrthographic extends OrthographicCamera {
     // center world postion around box center
     oppositePosition.sub(this._box.center);
     // rotate
-    let rotation = new Matrix4$1().makeRotationAxis(this.up, Math.PI);
+    let rotation = new Matrix4().makeRotationAxis(this.up, Math.PI);
 
     oppositePosition.applyMatrix4(rotation);
     // translate back to world position
@@ -1752,12 +1750,12 @@ class camerasOrthographic extends OrthographicCamera {
     this._up = this.up.clone();
 
     // direction
-    let pLocal = new Vector3$1(0, 0, -1);
+    let pLocal = new Vector3(0, 0, -1);
     let pWorld = pLocal.applyMatrix4(this.matrixWorld);
     this._direction = pWorld.sub(this.position).normalize();
 
     // right
-    this._right = new Vector3$1().crossVectors(this._direction, this.up);
+    this._right = new Vector3().crossVectors(this._direction, this.up);
 
     // update labels accordingly
     this._updateLabels();
@@ -1920,18 +1918,18 @@ class trackball extends EventDispatcher {
 
     // internals
 
-    this.target = new Vector3$1();
+    this.target = new Vector3();
 
     let EPS = 0.000001;
 
-    let lastPosition = new Vector3$1();
+    let lastPosition = new Vector3();
 
     let _state = STATE.NONE,
       _prevState = STATE.NONE,
-      _eye = new Vector3$1(),
+      _eye = new Vector3(),
       _movePrev = new Vector2(),
       _moveCurr = new Vector2(),
-      _lastAxis = new Vector3$1(),
+      _lastAxis = new Vector3(),
       _lastAngle = 0,
       _zoomStart = new Vector2(),
       _zoomEnd = new Vector2(),
@@ -2006,12 +2004,12 @@ class trackball extends EventDispatcher {
     })();
 
     this.rotateCamera = (function () {
-      let axis = new Vector3$1(),
+      let axis = new Vector3(),
         quaternion = new Quaternion(),
-        eyeDirection = new Vector3$1(),
-        objectUpDirection = new Vector3$1(),
-        objectSidewaysDirection = new Vector3$1(),
-        moveDirection = new Vector3$1(),
+        eyeDirection = new Vector3(),
+        objectUpDirection = new Vector3(),
+        objectSidewaysDirection = new Vector3(),
+        moveDirection = new Vector3(),
         angle;
 
       return function () {
@@ -2076,8 +2074,8 @@ class trackball extends EventDispatcher {
 
     this.panCamera = (function () {
       let mouseChange = new Vector2(),
-        objectUp = new Vector3$1(),
-        pan = new Vector3$1();
+        objectUp = new Vector3(),
+        pan = new Vector3();
 
       return function () {
         mouseChange.copy(_panEnd).sub(_panStart);
@@ -2596,7 +2594,7 @@ class trackballOrtho extends EventDispatcher {
 
     // internals
 
-    this.target = new Vector3$1();
+    this.target = new Vector3();
 
     let EPS = 0.000001;
 
@@ -2604,7 +2602,7 @@ class trackballOrtho extends EventDispatcher {
 
     let _state = STATE.NONE,
       _prevState = STATE.NONE,
-      _eye = new Vector3$1(),
+      _eye = new Vector3(),
       _zoomStart = new Vector2(),
       _zoomEnd = new Vector2(),
       _touchZoomDistanceStart = 0,
@@ -2703,8 +2701,8 @@ class trackballOrtho extends EventDispatcher {
 
     this.panCamera = (function () {
       let mouseChange = new Vector2(),
-        objectUp = new Vector3$1(),
-        pan = new Vector3$1();
+        objectUp = new Vector3(),
+        pan = new Vector3();
 
       return function panCamera() {
         mouseChange.copy(_panEnd).sub(_panStart);
@@ -3013,8 +3011,67 @@ class trackballOrtho extends EventDispatcher {
 
 // adapted from https://github.com/mrdoob/js/blob/dev/examples/jsm/controls/OrbitControls.js
 
-const orbit = () => {
-	var OrbitControls = function (object, domElement) {
+class OrbitControls extends EventDispatcher {
+	get center() {
+		console.warn('OrbitControls: .center has been renamed to .target');
+		return this.target;
+	}
+
+	get noZoom() {
+		console.warn('OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
+		return !this.enableZoom;
+	}
+	set noZoom(value) {
+		console.warn('OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
+		this.enableZoom = !value;
+	}
+
+	get noRotate() {
+		console.warn('OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
+		return !this.enableRotate;
+	}
+	set noRotate(value) {
+		console.warn('OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
+		this.enableRotate = !value;
+	}
+
+
+	get noPan() {
+		console.warn('OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
+		return !this.enablePan;
+	}
+	set noPan(value) {
+		console.warn('OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
+		this.enablePan = !value;
+	}
+	get noKeys() {
+		console.warn('OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
+		return !this.enableKeys;
+	}
+	set noKeys(value) {
+		console.warn('OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
+		this.enableKeys = !value;
+	}
+
+	get staticMoving() {
+		console.warn('OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
+		return !this.enableDamping;
+	}
+	set staticMoving(value) {
+		console.warn('OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
+		this.enableDamping = !value;
+	}
+
+	get dynamicDampingFactor() {
+		console.warn('OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
+		return this.dampingFactor;
+	}
+	set dynamicDampingFactor(value) {
+		console.warn('OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
+		this.dampingFactor = value;
+	}
+
+	constructor(object, domElement) {
 
 		this.object = object;
 
@@ -3027,7 +3084,7 @@ const orbit = () => {
 		this.preventDefault = true;
 
 		// "target" sets the location of focus, where the object orbits around
-		this.target = new Vector3$1();
+		this.target = new Vector3();
 
 		// How far you can dolly in and out ( PerspectiveCamera only )
 		this.minDistance = 0;
@@ -3133,13 +3190,13 @@ const orbit = () => {
 		// this method is exposed, but perhaps it would be better if we can make it private...
 		this.update = function () {
 
-			var offset = new Vector3$1();
+			var offset = new Vector3();
 
 			// so camera.up is the orbit axis
-			var quat = new Quaternion().setFromUnitVectors(object.up, new Vector3$1(0, 1, 0));
+			var quat = new Quaternion().setFromUnitVectors(object.up, new Vector3(0, 1, 0));
 			var quatInverse = quat.clone().inverse();
 
-			var lastPosition = new Vector3$1();
+			var lastPosition = new Vector3();
 			var lastQuaternion = new Quaternion();
 
 			return function update() {
@@ -3270,7 +3327,7 @@ const orbit = () => {
 		var sphericalDelta = new Spherical();
 
 		var scale = 1;
-		var panOffset = new Vector3$1();
+		var panOffset = new Vector3();
 		var zoomChanged = false;
 
 		var rotateStart = new Vector2();
@@ -3311,7 +3368,7 @@ const orbit = () => {
 
 		var panLeft = function () {
 
-			var v = new Vector3$1();
+			var v = new Vector3();
 
 			return function panLeft(distance, objectMatrix) {
 
@@ -3326,7 +3383,7 @@ const orbit = () => {
 
 		var panUp = function () {
 
-			var v = new Vector3$1();
+			var v = new Vector3();
 
 			return function panUp(distance, objectMatrix) {
 
@@ -3352,7 +3409,7 @@ const orbit = () => {
 		// deltaX and deltaY are in pixels; right and down are positive
 		var pan = function () {
 
-			var offset = new Vector3$1();
+			var offset = new Vector3();
 
 			return function pan(deltaX, deltaY) {
 
@@ -3917,138 +3974,9 @@ const orbit = () => {
 
 		this.update();
 
-	};
+	}
 
-	OrbitControls.prototype = Object.create(EventDispatcher.prototype);
-	OrbitControls.prototype.constructor = OrbitControls;
-
-	Object.defineProperties(OrbitControls.prototype, {
-
-		center: {
-
-			get: function () {
-
-				console.warn('OrbitControls: .center has been renamed to .target');
-				return this.target;
-
-			}
-
-		},
-
-		// backward compatibility
-
-		noZoom: {
-
-			get: function () {
-
-				console.warn('OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
-				return !this.enableZoom;
-
-			},
-
-			set: function (value) {
-
-				console.warn('OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
-				this.enableZoom = !value;
-
-			}
-
-		},
-
-		noRotate: {
-
-			get: function () {
-
-				console.warn('OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
-				return !this.enableRotate;
-
-			},
-
-			set: function (value) {
-
-				console.warn('OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
-				this.enableRotate = !value;
-
-			}
-
-		},
-
-		noPan: {
-
-			get: function () {
-
-				console.warn('OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
-				return !this.enablePan;
-
-			},
-
-			set: function (value) {
-
-				console.warn('OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
-				this.enablePan = !value;
-
-			}
-
-		},
-
-		noKeys: {
-
-			get: function () {
-
-				console.warn('OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
-				return !this.enableKeys;
-
-			},
-
-			set: function (value) {
-
-				console.warn('OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
-				this.enableKeys = !value;
-
-			}
-
-		},
-
-		staticMoving: {
-
-			get: function () {
-
-				console.warn('OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
-				return !this.enableDamping;
-
-			},
-
-			set: function (value) {
-
-				console.warn('OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
-				this.enableDamping = !value;
-
-			}
-
-		},
-
-		dynamicDampingFactor: {
-
-			get: function () {
-
-				console.warn('OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
-				return this.dampingFactor;
-
-			},
-
-			set: function (value) {
-
-				console.warn('OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
-				this.dampingFactor = value;
-
-			}
-
-		}
-
-	});
-
-	return OrbitControls;
-};
+}
 
 const COLORS = {
   blue: '#00B0FF',
@@ -4206,7 +4134,7 @@ class Colors {
  */
 
 class geometriesSlice extends ShapeBufferGeometry {
-  constructor(halfDimensions, center, position, direction, toAABB = new Matrix4$1()) {
+  constructor(halfDimensions, center, position, direction, toAABB = new Matrix4()) {
     //
     // prepare data for the shape!
     //
@@ -4283,7 +4211,7 @@ class geometriesVoxel extends BoxGeometry {
     this._location = dataPosition;
 
     this.applyMatrix(
-      new Matrix4$1().makeTranslation(this._location.x, this._location.y, this._location.z)
+      new Matrix4().makeTranslation(this._location.x, this._location.y, this._location.z)
     );
 
     this.verticesNeedUpdate = true;
@@ -4314,7 +4242,7 @@ class geometriesVoxel extends BoxGeometry {
     this.vertices[7].set(-0.5, -0.5, +0.5);
 
     this.applyMatrix(
-      new Matrix4$1().makeTranslation(this._location.x, this._location.y, this._location.z)
+      new Matrix4().makeTranslation(this._location.x, this._location.y, this._location.z)
     );
 
     this.verticesNeedUpdate = true;
@@ -4477,12 +4405,12 @@ class helpersBoundingBox extends Object3D {
     // Convenience vars
     const dimensions = this._stack.dimensionsIJK;
     const halfDimensions = this._stack.halfDimensionsIJK;
-    const offset = new Vector3$1(-0.5, -0.5, -0.5);
+    const offset = new Vector3(-0.5, -0.5, -0.5);
 
     // Geometry
     const geometry = new BoxGeometry(dimensions.x, dimensions.y, dimensions.z);
     geometry.applyMatrix4(
-      new Matrix4$1().makeTranslation(
+      new Matrix4().makeTranslation(
         halfDimensions.x + offset.x,
         halfDimensions.y + offset.y,
         halfDimensions.z + offset.z
@@ -7576,8 +7504,8 @@ class helpersSlice extends helpersMaterialMixin {
   constructor(
     stack,
     index = 0,
-    position = new Vector3$1(0, 0, 0),
-    direction = new Vector3$1(0, 0, 1),
+    position = new Vector3(0, 0, 0),
+    direction = new Vector3(0, 0, 1),
     aabbSpace = 'IJK'
   ) {
     //
@@ -7887,12 +7815,12 @@ class helpersSlice extends helpersMaterialMixin {
 
     if (this._aaBBspace === 'IJK') {
       this._halfDimensions = this._stack.halfDimensionsIJK;
-      this._center = new Vector3$1(
+      this._center = new Vector3(
         this._stack.halfDimensionsIJK.x - 0.5,
         this._stack.halfDimensionsIJK.y - 0.5,
         this._stack.halfDimensionsIJK.z - 0.5
       );
-      this._toAABB = new Matrix4$1();
+      this._toAABB = new Matrix4();
     } else {
       // LPS
       let aaBBox = this._stack.AABBox();
@@ -8105,17 +8033,17 @@ class helpersSlice extends helpersMaterialMixin {
 
     let vertices = this._geometry.vertices;
     let dataToWorld = this._stack.ijk2LPS;
-    let p1 = new Vector3$1(vertices[0].x, vertices[0].y, vertices[0].z).applyMatrix4(
+    let p1 = new Vector3(vertices[0].x, vertices[0].y, vertices[0].z).applyMatrix4(
       dataToWorld
     );
-    let p2 = new Vector3$1(vertices[1].x, vertices[1].y, vertices[1].z).applyMatrix4(
+    let p2 = new Vector3(vertices[1].x, vertices[1].y, vertices[1].z).applyMatrix4(
       dataToWorld
     );
-    let p3 = new Vector3$1(vertices[2].x, vertices[2].y, vertices[2].z).applyMatrix4(
+    let p3 = new Vector3(vertices[2].x, vertices[2].y, vertices[2].z).applyMatrix4(
       dataToWorld
     );
-    let v1 = new Vector3$1();
-    let v2 = new Vector3$1();
+    let v1 = new Vector3();
+    let v2 = new Vector3();
     let normal = v1
       .subVectors(p3, p2)
       .cross(v2.subVectors(p1, p2))
@@ -8529,16 +8457,16 @@ class helpersStack extends Object3D {
    * @private
    */
   _prepareSlicePosition(rPosition, index) {
-    let position = new Vector3$1(0, 0, 0);
+    let position = new Vector3(0, 0, 0);
     switch (this._orientation) {
       case 0:
-        position = new Vector3$1(Math.floor(rPosition.x), Math.floor(rPosition.y), index);
+        position = new Vector3(Math.floor(rPosition.x), Math.floor(rPosition.y), index);
         break;
       case 1:
-        position = new Vector3$1(index, Math.floor(rPosition.y), Math.floor(rPosition.z));
+        position = new Vector3(index, Math.floor(rPosition.y), Math.floor(rPosition.z));
         break;
       case 2:
-        position = new Vector3$1(Math.floor(rPosition.x), index, Math.floor(rPosition.z));
+        position = new Vector3(Math.floor(rPosition.x), index, Math.floor(rPosition.z));
         break;
     }
     return position;
@@ -8554,16 +8482,16 @@ class helpersStack extends Object3D {
    * @private
    */
   _prepareDirection(orientation) {
-    let direction = new Vector3$1(0, 0, 1);
+    let direction = new Vector3(0, 0, 1);
     switch (orientation) {
       case 0:
-        direction = new Vector3$1(0, 0, 1);
+        direction = new Vector3(0, 0, 1);
         break;
       case 1:
-        direction = new Vector3$1(1, 0, 0);
+        direction = new Vector3(1, 0, 0);
         break;
       case 2:
-        direction = new Vector3$1(0, 1, 0);
+        direction = new Vector3(0, 1, 0);
         break;
     }
 
@@ -9270,7 +9198,7 @@ class helpersVolumeRendering extends helpersMaterialMixin {
       worldBBox[5] - worldBBox[4]
     );
     this._geometry.applyMatrix4(
-      new Matrix4$1().makeTranslation(centerLPS.x, centerLPS.y, centerLPS.z)
+      new Matrix4().makeTranslation(centerLPS.x, centerLPS.y, centerLPS.z)
     );
   }
 
@@ -13806,6 +13734,8 @@ class ParsersMHD extends ParsersVolume {
 
 /** * Imports ***/
 
+let NiftiReader = require('nifti-reader-js/src/nifti');
+
 /**
  * @module parsers/nifti
  */
@@ -16749,7 +16679,7 @@ class ShadersUniform {
       },
       uMouse: {
         type: 'v2',
-        value: new Vector2$1(),
+        value: new Vector2(),
         typeGLSL: 'vec2',
       },
     };
@@ -16981,7 +16911,7 @@ class widgetsBase extends Object3D {
   /**
    * 
    * @param {Mesh} targetMesh 
-   * @param {OrbitControls} controls 
+   * @param {OrbitControl} controls 
    * @param {WidgetParameter} params 
    */
   constructor(targetMesh, controls, params) {
@@ -17026,7 +16956,7 @@ class widgetsBase extends Object3D {
     this._camera = controls.object;
     this._container = controls.domElement;
 
-    this._worldPosition = new Vector3$1(); // LPS position
+    this._worldPosition = new Vector3(); // LPS position
     if (params.worldPosition) {
       this._worldPosition.copy(params.worldPosition);
     } else if (this._targetMesh !== null) {
@@ -17228,7 +17158,7 @@ class widgetsBase extends Object3D {
       .add(pointA)
       .multiplyScalar(0.5);
     const length = line.length();
-    const angle = line.angleTo(new Vector3$1(1, 0, 0));
+    const angle = line.angleTo(new Vector3(1, 0, 0));
 
     return {
       line,
@@ -17248,13 +17178,13 @@ class widgetsBase extends Object3D {
    */
   getRectData(pointA, pointB) {
     const line = pointB.clone().sub(pointA);
-    const vertical = line.clone().projectOnVector(new Vector3$1(0, 1, 0));
+    const vertical = line.clone().projectOnVector(new Vector3(0, 1, 0));
     const min = pointA.clone().min(pointB); // coordinates of the top left corner
 
     return {
       width: line
         .clone()
-        .projectOnVector(new Vector3$1(1, 0, 0))
+        .projectOnVector(new Vector3(1, 0, 0))
         .length(),
       height: vertical.length(),
       transformX: min.x,
@@ -17515,11 +17445,11 @@ class widgetsHandle extends widgetsBase {
 
     // if no target mesh, use plane for FREE dragging.
     this._plane = {
-      position: new Vector3$1(),
-      direction: new Vector3$1(),
+      position: new Vector3(),
+      direction: new Vector3(),
     };
-    this._offset = new Vector3$1();
-    this._raycaster = new Raycaster$1();
+    this._offset = new Vector3();
+    this._raycaster = new Raycaster();
 
     this._active = false;
     this._hovered = false;
@@ -18163,7 +18093,7 @@ class widgetsAngle extends widgetsBase {
       .add(line2Data.line)
       .normalize()
       .negate();
-    let normAngle = paddingNormVector.angleTo(new Vector3$1(1, 0, 0));
+    let normAngle = paddingNormVector.angleTo(new Vector3(1, 0, 0));
 
     if (normAngle > Math.PI / 2) {
       normAngle = Math.PI - normAngle;
@@ -18280,8 +18210,8 @@ class widgetsAnnotation extends widgetsBase {
     this._labeltext = null;
 
     // var
-    this._labelOffset = new Vector3$1(); // difference between label center and second handle
-    this._mouseLabelOffset = new Vector3$1(); // difference between mouse coordinates and label center
+    this._labelOffset = new Vector3(); // difference between label center and second handle
+    this._mouseLabelOffset = new Vector3(); // difference between mouse coordinates and label center
 
     // add handles
     this._handles = [];
@@ -18350,7 +18280,7 @@ class widgetsAnnotation extends widgetsBase {
       const offsets = this.getMouseOffsets(evt, this._container);
       const paddingPoint = this._handles[1].screenPosition.clone().sub(this._labelOffset);
 
-      this._mouseLabelOffset = new Vector3$1(
+      this._mouseLabelOffset = new Vector3(
         offsets.screenX - paddingPoint.x,
         offsets.screenY - paddingPoint.y,
         0
@@ -18371,7 +18301,7 @@ class widgetsAnnotation extends widgetsBase {
     if (this._movinglabel) {
       const offsets = this.getMouseOffsets(evt, this._container);
 
-      this._labelOffset = new Vector3$1(
+      this._labelOffset = new Vector3(
         this._handles[1].screenPosition.x - offsets.screenX + this._mouseLabelOffset.x,
         this._handles[1].screenPosition.y - offsets.screenY + this._mouseLabelOffset.y,
         0
@@ -19628,7 +19558,7 @@ class widgetsCrossRuler extends widgetsBase {
     // called onMove if 2nd or 3rd handle is active
     const activeInd = this._handles[2].active ? 2 : 3;
     const lines = [];
-    const intersect = new Vector3$1();
+    const intersect = new Vector3();
 
     lines[2] = this._handles[2].worldPosition.clone().sub(this._handles[0].worldPosition);
     lines[3] = this._handles[3].worldPosition.clone().sub(this._handles[0].worldPosition);
@@ -19703,8 +19633,8 @@ class widgetsCrossRuler extends widgetsBase {
    * @param {Vector3} fourth  The end of the second line
    */
   initCoordinates(first, second, third, fourth) {
-    const intersectR = new Vector3$1();
-    const intersectS = new Vector3$1();
+    const intersectR = new Vector3();
+    const intersectS = new Vector3();
     const ray = new Ray(first);
 
     ray.lookAt(second);
@@ -20532,18 +20462,18 @@ class widgetsFreehand extends widgetsBase {
 
     let center = CoreUtils.centerOfMass(points);
     // direction from first point to center
-    let referenceDirection = new Vector3$1().subVectors(points[0], center).normalize();
-    let direction = new Vector3$1().crossVectors(
-      new Vector3$1().subVectors(points[0], center), // side 1
-      new Vector3$1().subVectors(points[1], center) // side 2
+    let referenceDirection = new Vector3().subVectors(points[0], center).normalize();
+    let direction = new Vector3().crossVectors(
+      new Vector3().subVectors(points[0], center), // side 1
+      new Vector3().subVectors(points[1], center) // side 2
     );
-    let base = new Vector3$1().crossVectors(referenceDirection, direction).normalize();
+    let base = new Vector3().crossVectors(referenceDirection, direction).normalize();
     let orderedpoints = [];
 
     // other lines // if inter, return location + angle
     for (let j = 0; j < points.length; j++) {
-      let point = new Vector3$1(points[j].x, points[j].y, points[j].z);
-      point.direction = new Vector3$1().subVectors(points[j], center).normalize();
+      let point = new Vector3(points[j].x, points[j].y, points[j].z);
+      point.direction = new Vector3().subVectors(points[j], center).normalize();
 
       let x = referenceDirection.dot(point.direction);
       let y = base.dot(point.direction);
@@ -20605,7 +20535,7 @@ class widgetsFreehand extends widgetsBase {
   }
 
   isPointOnLine(pointA, pointB, pointToCheck) {
-    let c = new Vector3$1();
+    let c = new Vector3();
     c.crossVectors(pointA.clone().sub(pointToCheck), pointB.clone().sub(pointToCheck));
     return !c.length();
   }
@@ -21890,19 +21820,19 @@ class widgetsPolygon extends widgetsBase {
 
     let center = CoreUtils.centerOfMass(points);
     // direction from first point to center
-    let referenceDirection = new Vector3$1().subVectors(points[0], center).normalize();
-    let direction = new Vector3$1().crossVectors(
-      new Vector3$1().subVectors(points[0], center), // side 1
-      new Vector3$1().subVectors(points[1], center) // side 2
+    let referenceDirection = new Vector3().subVectors(points[0], center).normalize();
+    let direction = new Vector3().crossVectors(
+      new Vector3().subVectors(points[0], center), // side 1
+      new Vector3().subVectors(points[1], center) // side 2
     );
-    let base = new Vector3$1().crossVectors(referenceDirection, direction).normalize();
+    let base = new Vector3().crossVectors(referenceDirection, direction).normalize();
     let orderedpoints = [];
 
     // other lines // if inter, return location + angle
     for (let j = 0; j < points.length; j++) {
-      let point = new Vector3$1(points[j].x, points[j].y, points[j].z);
+      let point = new Vector3(points[j].x, points[j].y, points[j].z);
 
-      point.direction = new Vector3$1().subVectors(points[j], center).normalize();
+      point.direction = new Vector3().subVectors(points[j], center).normalize();
 
       let x = referenceDirection.dot(point.direction);
       let y = base.dot(point.direction);
@@ -22411,16 +22341,16 @@ class widgetsRectangle extends widgetsBase {
 
   updateMeshPosition() {
     if (this._geometry) {
-      const progection = new Vector3$1()
+      const progection = new Vector3()
         .subVectors(this._handles[1].worldPosition, this._handles[0].worldPosition)
         .projectOnVector(this._camera.up);
 
       this._geometry.vertices[0].copy(this._handles[0].worldPosition);
       this._geometry.vertices[1].copy(
-        new Vector3$1().addVectors(this._handles[0].worldPosition, progection)
+        new Vector3().addVectors(this._handles[0].worldPosition, progection)
       );
       this._geometry.vertices[2].copy(
-        new Vector3$1().subVectors(this._handles[1].worldPosition, progection)
+        new Vector3().subVectors(this._handles[1].worldPosition, progection)
       );
       this._geometry.vertices[3].copy(this._handles[1].worldPosition);
 
@@ -23275,7 +23205,7 @@ class widgetsVelocityTimeIntegral extends widgetsBase {
   }
 
   isPointOnLine(pointA, pointB, pointToCheck) {
-    return !new Vector3$1()
+    return !new Vector3()
       .crossVectors(pointA.clone().sub(pointToCheck), pointB.clone().sub(pointToCheck))
       .length();
   }
@@ -23884,4 +23814,4 @@ const packageVersion = require('../package.json').version;
 const d3Version = require('three/package').version;
 console.log(`AMI ${packageVersion} (three ${d3Version})`);
 
-export { widgetsAngle as AngleWidget, widgetsAnnotation as AnnotationWidget, widgetsBiruler as BiRulerWidget, helpersBorder as BorderHelper, helpersBoundingBox as BoundingBoxHelper, Colors as ColorsCore, ShadersFragment$4 as ContourFragmentShader, helpersContour as ContourHelper, ShadersUniform$4 as ContourUniformShader, ShadersVertex$4 as ContourVertexShader, widgetsCrossRuler as CrossRulerWidget, ShadersFragment$2 as DataFragmentShader, ShadersUniform$2 as DataUniformShader, ShadersVertex$2 as DataVertexShader, ParsersDicom as DicomParser, widgetsEllipse as EllipseWidget, ModelsFrame as FrameModel, widgetsFreehand as FreehandWidget, widgetsHandle as HandleWidget, Intersections as IntersectionsCore, ShadersFragment as LayerFragmentShader, ShadersUniform as LayerUniformShader, ShadersVertex as LayerVertexShader, ShadersFragment$3 as LocalizerFragmentShader, helpersLocalizer as LocalizerHelper, ShadersUniform$3 as LocalizerUniformShader, ShadersVertex$3 as LocalizerVertexShader, helpersLut as LutHelper, ParsersMgh as MghParser, ParsersNifti$1 as NiftiParser, ParsersNifti as NrrdParser, orbit as OrbitControl, camerasOrthographic as OrthographicCamera, widgetsPeakVelocity as PeakVelocityWidget, widgetsPolygon as PolygonWidget, widgetsPressureHalfTime as PressureHalfTimeWidget, HelpersProgressBarEventBased as ProgressBarEventBasedHelper, HelpersProgressBar as ProgressBarHelper, widgetsRectangle as RectangleWidget, widgetsRuler as RulerWidget, HelpersSegmentationLut as SegmentationLutHelper, PresetsSegmentation as SegmentationPreset, ModelsSeries as SeriesModel, geometriesSlice as SliceGeometry, helpersSlice as SliceHelper, helpersStack as StackHelper, ModelsStack as StackModel, trackball as TrackballControl, trackballOrtho as TrackballOrthoControl, CoreUtils as UtilsCore, ShadersFragment$1 as VRFragmentShader, ShadersUniform$1 as VRUniformShader, ShadersVertex$1 as VRVertexShader, Validators as ValidatorsCore, widgetsVelocityTimeIntegral as VelocityTimeIntegralWidget, LoadersVolumes as VolumeLoader, helpersVolumeRendering as VolumeRenderingHelper, geometriesVoxel as VoxelGeometry, ModelsVoxel as VoxelModel, widgetsVoxelprobe as VoxelProbeWidget, WidgetsCss };
+export { widgetsAngle as AngleWidget, widgetsAnnotation as AnnotationWidget, widgetsBiruler as BiRulerWidget, helpersBorder as BorderHelper, helpersBoundingBox as BoundingBoxHelper, Colors as ColorsCore, ShadersFragment$4 as ContourFragmentShader, helpersContour as ContourHelper, ShadersUniform$4 as ContourUniformShader, ShadersVertex$4 as ContourVertexShader, widgetsCrossRuler as CrossRulerWidget, ShadersFragment$2 as DataFragmentShader, ShadersUniform$2 as DataUniformShader, ShadersVertex$2 as DataVertexShader, ParsersDicom as DicomParser, widgetsEllipse as EllipseWidget, ModelsFrame as FrameModel, widgetsFreehand as FreehandWidget, widgetsHandle as HandleWidget, Intersections as IntersectionsCore, ShadersFragment as LayerFragmentShader, ShadersUniform as LayerUniformShader, ShadersVertex as LayerVertexShader, ShadersFragment$3 as LocalizerFragmentShader, helpersLocalizer as LocalizerHelper, ShadersUniform$3 as LocalizerUniformShader, ShadersVertex$3 as LocalizerVertexShader, helpersLut as LutHelper, ParsersMgh as MghParser, ParsersNifti$1 as NiftiParser, ParsersNifti as NrrdParser, OrbitControls as OrbitControl, camerasOrthographic as OrthographicCamera, widgetsPeakVelocity as PeakVelocityWidget, widgetsPolygon as PolygonWidget, widgetsPressureHalfTime as PressureHalfTimeWidget, HelpersProgressBarEventBased as ProgressBarEventBasedHelper, HelpersProgressBar as ProgressBarHelper, widgetsRectangle as RectangleWidget, widgetsRuler as RulerWidget, HelpersSegmentationLut as SegmentationLutHelper, PresetsSegmentation as SegmentationPreset, ModelsSeries as SeriesModel, geometriesSlice as SliceGeometry, helpersSlice as SliceHelper, helpersStack as StackHelper, ModelsStack as StackModel, trackball as TrackballControl, trackballOrtho as TrackballOrthoControl, CoreUtils as UtilsCore, ShadersFragment$1 as VRFragmentShader, ShadersUniform$1 as VRUniformShader, ShadersVertex$1 as VRVertexShader, Validators as ValidatorsCore, widgetsVelocityTimeIntegral as VelocityTimeIntegralWidget, LoadersVolumes as VolumeLoader, helpersVolumeRendering as VolumeRenderingHelper, geometriesVoxel as VoxelGeometry, ModelsVoxel as VoxelModel, widgetsVoxelprobe as VoxelProbeWidget, WidgetsCss };

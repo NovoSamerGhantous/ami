@@ -2,8 +2,8 @@ import WidgetsCss from './widgets.css';
 
 import { COLORS } from '../core/core.colors';
 import CoreUtils from '../core/core.utils';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { BufferGeometry, Material, Matrix4, Mesh, Object3D, Vector2, Vector3 } from 'three';
+import { OrbitControl } from '../controls/controls';
+import { Mesh, Object3D, Vector2, Vector3 } from 'three';
 
 /* interface WidgetParameter {
   calibrationFactor: number;
@@ -36,7 +36,7 @@ class widgetsBase extends Object3D {
   /**
    * 
    * @param {Mesh} targetMesh 
-   * @param {OrbitControls} controls 
+   * @param {OrbitControl} controls 
    * @param {WidgetParameter} params 
    */
   constructor(targetMesh, controls, params) {

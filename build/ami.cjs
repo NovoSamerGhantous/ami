@@ -18,22 +18,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var Box3 = require('three/src/math/Box3');
-var Raycaster = require('three/src/core/Raycaster');
-var Triangle = require('three/src/math/Triangle');
-var Matrix4 = require('three/src/math/Matrix4');
-var Vector3 = require('three/src/math/Vector3');
 var three = require('three');
 var EventEmitter = require('events');
-var constants = require('three/src/constants');
-var NiftiReader = require('nifti-reader-js/src/nifti');
-var Vector2 = require('three/src/math/Vector2');
-require('three/examples/jsm/controls/OrbitControls');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var EventEmitter__default = /*#__PURE__*/_interopDefaultLegacy(EventEmitter);
-var NiftiReader__default = /*#__PURE__*/_interopDefaultLegacy(NiftiReader);
 
 /**
  * Validate basic structures.
@@ -273,8 +263,8 @@ class CoreUtils {
 	 */
 
 
-	static ijk2LPS(xCos, yCos, zCos, spacing, origin, registrationMatrix = new Matrix4.Matrix4()) {
-		const ijk2LPS = new Matrix4.Matrix4();
+	static ijk2LPS(xCos, yCos, zCos, spacing, origin, registrationMatrix = new three.Matrix4()) {
+		const ijk2LPS = new three.Matrix4();
 		ijk2LPS.set(xCos.x * spacing.y, yCos.x * spacing.x, zCos.x * spacing.z, origin.x, xCos.y * spacing.y, yCos.y * spacing.x, zCos.y * spacing.z, origin.y, xCos.z * spacing.y, yCos.z * spacing.x, zCos.z * spacing.z, origin.z, 0, 0, 0, 1);
 		ijk2LPS.premultiply(registrationMatrix);
 		return ijk2LPS;
@@ -293,7 +283,7 @@ class CoreUtils {
 
 
 	static aabb2LPS(xCos, yCos, zCos, origin) {
-		const aabb2LPS = new Matrix4.Matrix4();
+		const aabb2LPS = new three.Matrix4();
 		aabb2LPS.set(xCos.x, yCos.x, zCos.x, origin.x, xCos.y, yCos.y, zCos.y, origin.y, xCos.z, yCos.z, zCos.z, origin.z, 0, 0, 0, 1);
 		return aabb2LPS;
 	}
@@ -308,7 +298,7 @@ class CoreUtils {
 
 
 	static worldToData(lps2IJK, worldCoordinates) {
-		let dataCoordinate = new Vector3.Vector3().copy(worldCoordinates).applyMatrix4(lps2IJK); // same rounding in the shaders
+		let dataCoordinate = new three.Vector3().copy(worldCoordinates).applyMatrix4(lps2IJK); // same rounding in the shaders
 
 		dataCoordinate.addScalar(0.5).floor();
 		return dataCoordinate;
@@ -376,7 +366,7 @@ class CoreUtils {
 
 
 	static centerOfMass(points) {
-		let centerOfMass = new Vector3.Vector3(0, 0, 0);
+		let centerOfMass = new three.Vector3(0, 0, 0);
 
 		for (let i = 0; i < points.length; i++) {
 			centerOfMass.x += points[i].x;
@@ -403,13 +393,13 @@ class CoreUtils {
 	static orderIntersections(points, direction) {
 		let reference = this.centerOfMass(points); // direction from first point to reference
 
-		let referenceDirection = new Vector3.Vector3(points[0].x - reference.x, points[0].y - reference.y, points[0].z - reference.z).normalize();
-		let base = new Vector3.Vector3(0, 0, 0).crossVectors(referenceDirection, direction).normalize();
+		let referenceDirection = new three.Vector3(points[0].x - reference.x, points[0].y - reference.y, points[0].z - reference.z).normalize();
+		let base = new three.Vector3(0, 0, 0).crossVectors(referenceDirection, direction).normalize();
 		let orderedpoints = []; // other lines // if inter, return location + angle
 
 		for (let j = 0; j < points.length; j++) {
-			let point = new Vector3.Vector3(points[j].x, points[j].y, points[j].z);
-			point.direction = new Vector3.Vector3(points[j].x - reference.x, points[j].y - reference.y, points[j].z - reference.z).normalize();
+			let point = new three.Vector3(points[j].x, points[j].y, points[j].z);
+			point.direction = new three.Vector3(points[j].x - reference.x, points[j].y - reference.y, points[j].z - reference.z).normalize();
 			let x = referenceDirection.dot(point.direction);
 			let y = base.dot(point.direction);
 			point.xy = {
@@ -448,12 +438,12 @@ class CoreUtils {
 
 	static getRoI(mesh, camera, stack) {
 		mesh.geometry.computeBoundingBox();
-		const bbox = new Box3.Box3().setFromObject(mesh);
+		const bbox = new three.Box3().setFromObject(mesh);
 		const min = bbox.min.clone().project(camera);
 		const max = bbox.max.clone().project(camera);
 		const offsetWidth = camera.controls.domElement.offsetWidth;
 		const offsetHeight = camera.controls.domElement.offsetHeight;
-		const rayCaster = new Raycaster.Raycaster();
+		const rayCaster = new three.Raycaster();
 		const values = [];
 		min.x = Math.round((min.x + 1) * offsetWidth / 2);
 		min.y = Math.round((-min.y + 1) * offsetHeight / 2);
@@ -500,7 +490,7 @@ class CoreUtils {
 	 * Calculate shape area (sum of triangle polygons area).
 	 * May be inaccurate or completely wrong for some shapes.
 	 *
-	 * @param {THREE.Geometry} geometry
+	 * @param {BufferGeometry} geometry
 	 *
 	 * @returns {Number}
 	 */
@@ -512,9 +502,19 @@ class CoreUtils {
 		}
 
 		let area = 0.0;
-		let vertices = geometry.vertices;
+		/**
+		 * @type {Array<Vector3>}
+		 */
+
+		let vertices = [];
+		let positionAttribute = bodyPart.geometry.getAttribute('position');
+
+		for (let i = 0; positionAttribute.count; i++) {
+			vertices = [...vertices, new three.Vector3().fromBufferAttribute(positionAttribute, i)];
+		}
+
 		geometry.faces.forEach(function (elem) {
-			area += new Triangle.Triangle(vertices[elem.a], vertices[elem.b], vertices[elem.c]).getArea();
+			area += new three.Triangle(vertices[elem.a], vertices[elem.b], vertices[elem.c]).getArea();
 		});
 		return area;
 	}
@@ -648,13 +648,13 @@ class Intersections {
 		} // invert space matrix
 
 
-		let fromAABB = new Matrix4.Matrix4();
+		let fromAABB = new three.Matrix4();
 		fromAABB.getInverse(aabb.toAABB);
 		let t1 = plane.direction.clone().applyMatrix4(aabb.toAABB);
-		let t0 = new Vector3.Vector3(0, 0, 0).applyMatrix4(aabb.toAABB);
-		let planeAABB = this.posdir(plane.position.clone().applyMatrix4(aabb.toAABB), new Vector3.Vector3(t1.x - t0.x, t1.y - t0.y, t1.z - t0.z).normalize());
+		let t0 = new three.Vector3(0, 0, 0).applyMatrix4(aabb.toAABB);
+		let planeAABB = this.posdir(plane.position.clone().applyMatrix4(aabb.toAABB), new three.Vector3(t1.x - t0.x, t1.y - t0.y, t1.z - t0.z).normalize());
 		let bbox = CoreUtils.bbox(aabb.center, aabb.halfDimensions);
-		let orientation = new Vector3.Vector3(new Vector3.Vector3(1, 0, 0), new Vector3.Vector3(0, 1, 0), new Vector3.Vector3(0, 0, 1)); // 12 edges (i.e. ray)/plane intersection tests
+		let orientation = new three.Vector3(new three.Vector3(1, 0, 0), new three.Vector3(0, 1, 0), new three.Vector3(0, 0, 1)); // 12 edges (i.e. ray)/plane intersection tests
 		// RAYS STARTING FROM THE FIRST CORNER (0, 0, 0)
 		//
 		//			 +
@@ -665,7 +665,7 @@ class Intersections {
 		//		.'
 		//	 +
 
-		let ray = this.posdir(new Vector3.Vector3(aabb.center.x - aabb.halfDimensions.x, aabb.center.y - aabb.halfDimensions.y, aabb.center.z - aabb.halfDimensions.z), orientation.x);
+		let ray = this.posdir(new three.Vector3(aabb.center.x - aabb.halfDimensions.x, aabb.center.y - aabb.halfDimensions.y, aabb.center.z - aabb.halfDimensions.z), orientation.x);
 		this.rayPlaneInBBox(ray, planeAABB, bbox, intersections);
 		ray.direction = orientation.y;
 		this.rayPlaneInBBox(ray, planeAABB, bbox, intersections);
@@ -681,7 +681,7 @@ class Intersections {
 		//					 +
 		//
 
-		let ray2 = this.posdir(new Vector3.Vector3(aabb.center.x + aabb.halfDimensions.x, aabb.center.y + aabb.halfDimensions.y, aabb.center.z + aabb.halfDimensions.z), orientation.x);
+		let ray2 = this.posdir(new three.Vector3(aabb.center.x + aabb.halfDimensions.x, aabb.center.y + aabb.halfDimensions.y, aabb.center.z + aabb.halfDimensions.z), orientation.x);
 		this.rayPlaneInBBox(ray2, planeAABB, bbox, intersections);
 		ray2.direction = orientation.y;
 		this.rayPlaneInBBox(ray2, planeAABB, bbox, intersections);
@@ -696,7 +696,7 @@ class Intersections {
 		//						 .'
 		//					 +'
 
-		let ray3 = this.posdir(new Vector3.Vector3(aabb.center.x + aabb.halfDimensions.x, aabb.center.y - aabb.halfDimensions.y, aabb.center.z - aabb.halfDimensions.z), orientation.y);
+		let ray3 = this.posdir(new three.Vector3(aabb.center.x + aabb.halfDimensions.x, aabb.center.y - aabb.halfDimensions.y, aabb.center.z - aabb.halfDimensions.z), orientation.y);
 		this.rayPlaneInBBox(ray3, planeAABB, bbox, intersections);
 		ray3.direction = orientation.z;
 		this.rayPlaneInBBox(ray3, planeAABB, bbox, intersections); // RAYS STARTING FROM THE THIRD CORNER
@@ -709,7 +709,7 @@ class Intersections {
 		//
 		//
 
-		let ray4 = this.posdir(new Vector3.Vector3(aabb.center.x - aabb.halfDimensions.x, aabb.center.y + aabb.halfDimensions.y, aabb.center.z - aabb.halfDimensions.z), orientation.x);
+		let ray4 = this.posdir(new three.Vector3(aabb.center.x - aabb.halfDimensions.x, aabb.center.y + aabb.halfDimensions.y, aabb.center.z - aabb.halfDimensions.z), orientation.x);
 		this.rayPlaneInBBox(ray4, planeAABB, bbox, intersections);
 		ray4.direction = orientation.z;
 		this.rayPlaneInBBox(ray4, planeAABB, bbox, intersections); // RAYS STARTING FROM THE FOURTH CORNER
@@ -722,7 +722,7 @@ class Intersections {
 		//	 |
 		//	 +-------+
 
-		let ray5 = this.posdir(new Vector3.Vector3(aabb.center.x - aabb.halfDimensions.x, aabb.center.y - aabb.halfDimensions.y, aabb.center.z + aabb.halfDimensions.z), orientation.x);
+		let ray5 = this.posdir(new three.Vector3(aabb.center.x - aabb.halfDimensions.x, aabb.center.y - aabb.halfDimensions.y, aabb.center.z + aabb.halfDimensions.z), orientation.x);
 		this.rayPlaneInBBox(ray5, planeAABB, bbox, intersections);
 		ray5.direction = orientation.y;
 		this.rayPlaneInBBox(ray5, planeAABB, bbox, intersections); // @todo make sure objects are unique...
@@ -785,7 +785,7 @@ class Intersections {
 			// 3- replace t in Px, Py and Pz to get the coordinate of the intersection
 			//
 			let t = (plane.direction.x * (plane.position.x - ray.position.x) + plane.direction.y * (plane.position.y - ray.position.y) + plane.direction.z * (plane.position.z - ray.position.z)) / (plane.direction.x * ray.direction.x + plane.direction.y * ray.direction.y + plane.direction.z * ray.direction.z);
-			let intersection = new Vector3.Vector3(ray.position.x + t * ray.direction.x, ray.position.y + t * ray.direction.y, ray.position.z + t * ray.direction.z);
+			let intersection = new three.Vector3(ray.position.x + t * ray.direction.x, ray.position.y + t * ray.direction.y, ray.position.z + t * ray.direction.z);
 			return intersection;
 		}
 
@@ -807,22 +807,22 @@ class Intersections {
 		let bbox = CoreUtils.bbox(box.center, box.halfDimensions); // console.log(bbox);
 		// X min
 
-		let plane = this.posdir(new Vector3.Vector3(bbox.min.x, box.center.y, box.center.z), new Vector3.Vector3(-1, 0, 0));
+		let plane = this.posdir(new three.Vector3(bbox.min.x, box.center.y, box.center.z), new three.Vector3(-1, 0, 0));
 		this.rayPlaneInBBox(ray, plane, bbox, intersections); // X max
 
-		plane = this.posdir(new Vector3.Vector3(bbox.max.x, box.center.y, box.center.z), new Vector3.Vector3(1, 0, 0));
+		plane = this.posdir(new three.Vector3(bbox.max.x, box.center.y, box.center.z), new three.Vector3(1, 0, 0));
 		this.rayPlaneInBBox(ray, plane, bbox, intersections); // Y min
 
-		plane = this.posdir(new Vector3.Vector3(box.center.x, bbox.min.y, box.center.z), new Vector3.Vector3(0, -1, 0));
+		plane = this.posdir(new three.Vector3(box.center.x, bbox.min.y, box.center.z), new three.Vector3(0, -1, 0));
 		this.rayPlaneInBBox(ray, plane, bbox, intersections); // Y max
 
-		plane = this.posdir(new Vector3.Vector3(box.center.x, bbox.max.y, box.center.z), new Vector3.Vector3(0, 1, 0));
+		plane = this.posdir(new three.Vector3(box.center.x, bbox.max.y, box.center.z), new three.Vector3(0, 1, 0));
 		this.rayPlaneInBBox(ray, plane, bbox, intersections); // Z min
 
-		plane = this.posdir(new Vector3.Vector3(box.center.x, box.center.y, bbox.min.z), new Vector3.Vector3(0, 0, -1));
+		plane = this.posdir(new three.Vector3(box.center.x, box.center.y, bbox.min.z), new three.Vector3(0, 0, -1));
 		this.rayPlaneInBBox(ray, plane, bbox, intersections); // Z max
 
-		plane = this.posdir(new Vector3.Vector3(box.center.x, box.center.y, bbox.max.z), new Vector3.Vector3(0, 0, 1));
+		plane = this.posdir(new three.Vector3(box.center.x, box.center.y, bbox.max.z), new three.Vector3(0, 0, 1));
 		this.rayPlaneInBBox(ray, plane, bbox, intersections);
 		return intersections;
 	}
@@ -2749,8 +2749,73 @@ class trackballOrtho extends three.EventDispatcher {
 //		Pan - right mouse, or left mouse + ctrl/meta/shiftKey, or arrow keys / touch: two-finger move
 // adapted from https://github.com/mrdoob/js/blob/dev/examples/jsm/controls/OrbitControls.js
 
-const orbit = () => {
-	var OrbitControls = function (object, domElement) {
+class OrbitControls extends three.EventDispatcher {
+	get center() {
+		console.warn('OrbitControls: .center has been renamed to .target');
+		return this.target;
+	}
+
+	get noZoom() {
+		console.warn('OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
+		return !this.enableZoom;
+	}
+
+	set noZoom(value) {
+		console.warn('OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
+		this.enableZoom = !value;
+	}
+
+	get noRotate() {
+		console.warn('OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
+		return !this.enableRotate;
+	}
+
+	set noRotate(value) {
+		console.warn('OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
+		this.enableRotate = !value;
+	}
+
+	get noPan() {
+		console.warn('OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
+		return !this.enablePan;
+	}
+
+	set noPan(value) {
+		console.warn('OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
+		this.enablePan = !value;
+	}
+
+	get noKeys() {
+		console.warn('OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
+		return !this.enableKeys;
+	}
+
+	set noKeys(value) {
+		console.warn('OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
+		this.enableKeys = !value;
+	}
+
+	get staticMoving() {
+		console.warn('OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
+		return !this.enableDamping;
+	}
+
+	set staticMoving(value) {
+		console.warn('OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
+		this.enableDamping = !value;
+	}
+
+	get dynamicDampingFactor() {
+		console.warn('OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
+		return this.dampingFactor;
+	}
+
+	set dynamicDampingFactor(value) {
+		console.warn('OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
+		this.dampingFactor = value;
+	}
+
+	constructor(object, domElement) {
 		this.object = object;
 		this.domElement = domElement !== undefined ? domElement : document; // Set to false to disable this control
 
@@ -3373,81 +3438,9 @@ const orbit = () => {
 		addEventListener('keydown', onKeyDown, false); // force an update at start
 
 		this.update();
-	};
+	}
 
-	OrbitControls.prototype = Object.create(three.EventDispatcher.prototype);
-	OrbitControls.prototype.constructor = OrbitControls;
-	Object.defineProperties(OrbitControls.prototype, {
-		center: {
-			get: function () {
-				console.warn('OrbitControls: .center has been renamed to .target');
-				return this.target;
-			}
-		},
-		// backward compatibility
-		noZoom: {
-			get: function () {
-				console.warn('OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
-				return !this.enableZoom;
-			},
-			set: function (value) {
-				console.warn('OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.');
-				this.enableZoom = !value;
-			}
-		},
-		noRotate: {
-			get: function () {
-				console.warn('OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
-				return !this.enableRotate;
-			},
-			set: function (value) {
-				console.warn('OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.');
-				this.enableRotate = !value;
-			}
-		},
-		noPan: {
-			get: function () {
-				console.warn('OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
-				return !this.enablePan;
-			},
-			set: function (value) {
-				console.warn('OrbitControls: .noPan has been deprecated. Use .enablePan instead.');
-				this.enablePan = !value;
-			}
-		},
-		noKeys: {
-			get: function () {
-				console.warn('OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
-				return !this.enableKeys;
-			},
-			set: function (value) {
-				console.warn('OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.');
-				this.enableKeys = !value;
-			}
-		},
-		staticMoving: {
-			get: function () {
-				console.warn('OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
-				return !this.enableDamping;
-			},
-			set: function (value) {
-				console.warn('OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.');
-				this.enableDamping = !value;
-			}
-		},
-		dynamicDampingFactor: {
-			get: function () {
-				console.warn('OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
-				return this.dampingFactor;
-			},
-			set: function (value) {
-				console.warn('OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.');
-				this.dampingFactor = value;
-			}
-		}
-	});
-	return OrbitControls;
-};
+}
 
 const COLORS = {
 	blue: '#00B0FF',
@@ -5408,7 +5401,7 @@ class ShadersUniform$2 {
 			},
 			uWorldToData: {
 				type: 'm4',
-				value: new Matrix4.Matrix4(),
+				value: new three.Matrix4(),
 				typeGLSL: 'mat4'
 			},
 			uWindowCenterWidth: {
@@ -7467,7 +7460,7 @@ class ShadersUniform$1 {
 			},
 			uWorldToData: {
 				type: 'm4',
-				value: new Matrix4.Matrix4(),
+				value: new three.Matrix4(),
 				typeGLSL: 'mat4'
 			},
 			uWindowCenterWidth: {
@@ -9197,7 +9190,7 @@ class ModelsStack extends ModelsBase {
 		this._rescaleIntercept = 0;
 		this._minMax = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]; // TRANSFORMATION MATRICES
 
-		this._regMatrix = new Matrix4.Matrix4();
+		this._regMatrix = new three.Matrix4();
 		this._ijk2LPS = null;
 		this._lps2IJK = null;
 		this._aabb2LPS = null;
@@ -9206,14 +9199,14 @@ class ModelsStack extends ModelsBase {
 
 		this._dimensionsIJK = null;
 		this._halfDimensionsIJK = null;
-		this._spacing = new Vector3.Vector3(1, 1, 1);
+		this._spacing = new three.Vector3(1, 1, 1);
 		this._spacingBetweenSlices = 0;
 		this._sliceThickness = 0;
 		this._origin = null;
 		this._rightHanded = true;
-		this._xCosine = new Vector3.Vector3(1, 0, 0);
-		this._yCosine = new Vector3.Vector3(0, 1, 0);
-		this._zCosine = new Vector3.Vector3(0, 0, 1); // convenience vars
+		this._xCosine = new three.Vector3(1, 0, 0);
+		this._yCosine = new three.Vector3(0, 1, 0);
+		this._zCosine = new three.Vector3(0, 0, 1); // convenience vars
 
 		this._prepared = false;
 		this._packed = false;
@@ -9340,8 +9333,8 @@ class ModelsStack extends ModelsBase {
 
 		this._rows = this._frame[0].rows;
 		this._columns = this._frame[0].columns;
-		this._dimensionsIJK = new Vector3.Vector3(this._columns, this._rows, this._numberOfFrames);
-		this._halfDimensionsIJK = new Vector3.Vector3(this._dimensionsIJK.x / 2, this._dimensionsIJK.y / 2, this._dimensionsIJK.z / 2);
+		this._dimensionsIJK = new three.Vector3(this._columns, this._rows, this._numberOfFrames);
+		this._halfDimensionsIJK = new three.Vector3(this._dimensionsIJK.x / 2, this._dimensionsIJK.y / 2, this._dimensionsIJK.z / 2);
 		this._spacingBetweenSlices = this._frame[0].spacingBetweenSlices;
 		this._sliceThickness = this._frame[0].sliceThickness; // compute direction cosines
 
@@ -9404,8 +9397,8 @@ class ModelsStack extends ModelsBase {
 
 		this._frame = packedEcho;
 		this._numberOfFrames = this._frame.length;
-		this._dimensionsIJK = new Vector3.Vector3(this._columns, this._rows, this._numberOfFrames);
-		this._halfDimensionsIJK = new Vector3.Vector3(this._dimensionsIJK.x / 2, this._dimensionsIJK.y / 2, this._dimensionsIJK.z / 2);
+		this._dimensionsIJK = new three.Vector3(this._columns, this._rows, this._numberOfFrames);
+		this._halfDimensionsIJK = new three.Vector3(this._dimensionsIJK.x / 2, this._dimensionsIJK.y / 2, this._dimensionsIJK.z / 2);
 	}
 
 	computeNumberOfFrames() {
@@ -9536,7 +9529,7 @@ class ModelsStack extends ModelsBase {
 		// ijk to lps
 		this._ijk2LPS = CoreUtils.ijk2LPS(this._xCosine, this._yCosine, this._zCosine, this._spacing, this._origin, this._regMatrix); // lps 2 ijk
 
-		this._lps2IJK = new Matrix4.Matrix4();
+		this._lps2IJK = new three.Matrix4();
 
 		this._lps2IJK.getInverse(this._ijk2LPS);
 	}
@@ -9547,7 +9540,7 @@ class ModelsStack extends ModelsBase {
 
 	computeLPS2AABB() {
 		this._aabb2LPS = CoreUtils.aabb2LPS(this._xCosine, this._yCosine, this._zCosine, this._origin);
-		this._lps2AABB = new Matrix4.Matrix4();
+		this._lps2AABB = new three.Matrix4();
 
 		this._lps2AABB.getInverse(this._aabb2LPS);
 	}
@@ -9666,7 +9659,7 @@ class ModelsStack extends ModelsBase {
 				channelOffset = packIndex % 4;
 			}
 
-			packed.textureType = constants.RGBAFormat;
+			packed.textureType = three.RGBAFormat;
 			packed.data = data;
 		} else if (bitsAllocated === 16 && channels === 1) {
 			let data = new Uint8Array(textureSize * textureSize * 4);
@@ -9688,7 +9681,7 @@ class ModelsStack extends ModelsBase {
 				channelOffset = packIndex % 2;
 			}
 
-			packed.textureType = constants.RGBAFormat;
+			packed.textureType = three.RGBAFormat;
 			packed.data = data;
 		} else if (bitsAllocated === 32 && channels === 1 && pixelType === 0) {
 			let data = new Uint8Array(textureSize * textureSize * 4);
@@ -9708,7 +9701,7 @@ class ModelsStack extends ModelsBase {
 				packIndex++;
 			}
 
-			packed.textureType = constants.RGBAFormat;
+			packed.textureType = three.RGBAFormat;
 			packed.data = data;
 		} else if (bitsAllocated === 32 && channels === 1 && pixelType === 1) {
 			let data = new Uint8Array(textureSize * textureSize * 4);
@@ -9730,7 +9723,7 @@ class ModelsStack extends ModelsBase {
 				packIndex++;
 			}
 
-			packed.textureType = constants.RGBAFormat;
+			packed.textureType = three.RGBAFormat;
 			packed.data = data;
 		} else if (bitsAllocated === 8 && channels === 3) {
 			let data = new Uint8Array(textureSize * textureSize * 3);
@@ -9744,7 +9737,7 @@ class ModelsStack extends ModelsBase {
 				packIndex++;
 			}
 
-			packed.textureType = constants.RGBFormat;
+			packed.textureType = three.RGBFormat;
 			packed.data = data;
 		}
 
@@ -9775,7 +9768,7 @@ class ModelsStack extends ModelsBase {
 		for (let i = 0; i <= dims.x; i += dims.x) {
 			for (let j = 0; j <= dims.y; j += dims.y) {
 				for (let k = 0; k <= dims.z; k += dims.z) {
-					let world = new Vector3.Vector3(i, j, k).applyMatrix4(this._ijk2LPS);
+					let world = new three.Vector3(i, j, k).applyMatrix4(this._ijk2LPS);
 					bbox = [Math.min(bbox[0], world.x), Math.max(bbox[1], world.x), // x min/max
 					Math.min(bbox[2], world.y), Math.max(bbox[3], world.y), Math.min(bbox[4], world.z), Math.max(bbox[5], world.z)];
 				}
@@ -9792,11 +9785,11 @@ class ModelsStack extends ModelsBase {
 
 
 	AABBox() {
-		let world0 = new Vector3.Vector3().addScalar(-0.5).applyMatrix4(this._ijk2LPS).applyMatrix4(this._lps2AABB);
+		let world0 = new three.Vector3().addScalar(-0.5).applyMatrix4(this._ijk2LPS).applyMatrix4(this._lps2AABB);
 
 		let world7 = this._dimensionsIJK.clone().addScalar(-0.5).applyMatrix4(this._ijk2LPS).applyMatrix4(this._lps2AABB);
 
-		let minBBox = new Vector3.Vector3(Math.abs(world0.x - world7.x), Math.abs(world0.y - world7.y), Math.abs(world0.z - world7.z));
+		let minBBox = new three.Vector3(Math.abs(world0.x - world7.x), Math.abs(world0.y - world7.y), Math.abs(world0.z - world7.z));
 		return minBBox;
 	}
 	/**
@@ -9819,7 +9812,7 @@ class ModelsStack extends ModelsBase {
 	}
 
 	_arrayToVector3(array, index) {
-		return new Vector3.Vector3(array[index], array[index + 1], array[index + 2]);
+		return new three.Vector3(array[index], array[index + 1], array[index + 2]);
 	}
 
 	_orderFrameOnDimensionIndicesArraySort(a, b) {
@@ -10294,16 +10287,16 @@ class ModelsFrame extends ModelsBase {
 
 
 	cosines() {
-		let cosines = [new Vector3.Vector3(1, 0, 0), new Vector3.Vector3(0, 1, 0), new Vector3.Vector3(0, 0, 1)];
+		let cosines = [new three.Vector3(1, 0, 0), new three.Vector3(0, 1, 0), new three.Vector3(0, 0, 1)];
 
 		if (this._imageOrientation && this._imageOrientation.length === 6) {
-			let xCos = new Vector3.Vector3(this._imageOrientation[0], this._imageOrientation[1], this._imageOrientation[2]);
-			let yCos = new Vector3.Vector3(this._imageOrientation[3], this._imageOrientation[4], this._imageOrientation[5]);
+			let xCos = new three.Vector3(this._imageOrientation[0], this._imageOrientation[1], this._imageOrientation[2]);
+			let yCos = new three.Vector3(this._imageOrientation[3], this._imageOrientation[4], this._imageOrientation[5]);
 
 			if (xCos.length() > 0 && yCos.length() > 0) {
 				cosines[0] = xCos;
 				cosines[1] = yCos;
-				cosines[2] = new Vector3.Vector3(0, 0, 0).crossVectors(cosines[0], cosines[1]).normalize();
+				cosines[2] = new three.Vector3(0, 0, 0).crossVectors(cosines[0], cosines[1]).normalize();
 			}
 		} else {
 			console.log('No valid image orientation for frame');
@@ -12454,9 +12447,9 @@ class ParsersMHD extends ParsersVolume {
 	imageOrientation(frameIndex = 0) {
 		let invertX = this._header.AnatomicalOrientation.match(/L/) ? -1 : 1;
 		let invertY = this._header.AnatomicalOrientation.match(/P/) ? -1 : 1;
-		let x = new Vector3.Vector3(parseFloat(this._header.TransformMatrix[0]) * invertX, parseFloat(this._header.TransformMatrix[1]) * invertY, parseFloat(this._header.TransformMatrix[2]));
+		let x = new three.Vector3(parseFloat(this._header.TransformMatrix[0]) * invertX, parseFloat(this._header.TransformMatrix[1]) * invertY, parseFloat(this._header.TransformMatrix[2]));
 		x.normalize();
-		let y = new Vector3.Vector3(parseFloat(this._header.TransformMatrix[3]) * invertX, parseFloat(this._header.TransformMatrix[4]) * invertY, parseFloat(this._header.TransformMatrix[5]));
+		let y = new three.Vector3(parseFloat(this._header.TransformMatrix[3]) * invertX, parseFloat(this._header.TransformMatrix[4]) * invertY, parseFloat(this._header.TransformMatrix[5]));
 		y.normalize();
 		return [x.x, x.y, x.z, y.x, y.y, y.z];
 	}
@@ -12505,9 +12498,12 @@ class ParsersMHD extends ParsersVolume {
 }
 
 /** * Imports ***/
+
+let NiftiReader = require('nifti-reader-js/src/nifti');
 /**
  * @module parsers/nifti
  */
+
 
 class ParsersNifti$1 extends ParsersVolume {
 	constructor(data, id) {
@@ -12528,9 +12524,9 @@ class ParsersNifti$1 extends ParsersVolume {
 
 		this._qfac = 1.0;
 
-		if (NiftiReader__default["default"].isNIFTI(this._arrayBuffer)) {
-			this._dataSet = NiftiReader__default["default"].readHeader(this._arrayBuffer);
-			this._niftiImage = NiftiReader__default["default"].readImage(this._dataSet, this._arrayBuffer);
+		if (NiftiReader.isNIFTI(this._arrayBuffer)) {
+			this._dataSet = NiftiReader.readHeader(this._arrayBuffer);
+			this._niftiImage = NiftiReader.readImage(this._dataSet, this._arrayBuffer);
 		} else {
 			const error = new Error('parsers.nifti could not parse the file');
 			throw error;
@@ -13021,9 +13017,9 @@ class ParsersNifti extends ParsersVolume {
 
 
 	pixelSpacing(frameIndex = 0) {
-		const x = new Vector3.Vector3(this._dataSet.spaceDirections[0][0], this._dataSet.spaceDirections[0][1], this._dataSet.spaceDirections[0][2]);
-		const y = new Vector3.Vector3(this._dataSet.spaceDirections[1][0], this._dataSet.spaceDirections[1][1], this._dataSet.spaceDirections[1][2]);
-		const z = new Vector3.Vector3(this._dataSet.spaceDirections[2][0], this._dataSet.spaceDirections[2][1], this._dataSet.spaceDirections[2][2]);
+		const x = new three.Vector3(this._dataSet.spaceDirections[0][0], this._dataSet.spaceDirections[0][1], this._dataSet.spaceDirections[0][2]);
+		const y = new three.Vector3(this._dataSet.spaceDirections[1][0], this._dataSet.spaceDirections[1][1], this._dataSet.spaceDirections[1][2]);
+		const z = new three.Vector3(this._dataSet.spaceDirections[2][0], this._dataSet.spaceDirections[2][1], this._dataSet.spaceDirections[2][2]);
 		return [x.length(), y.length(), z.length()];
 	}
 	/**
@@ -13038,9 +13034,9 @@ class ParsersNifti extends ParsersVolume {
 	imageOrientation(frameIndex = 0) {
 		let invertX = this._dataSet.space.match(/right/) ? -1 : 1;
 		let invertY = this._dataSet.space.match(/anterior/) ? -1 : 1;
-		let x = new Vector3.Vector3(this._dataSet.spaceDirections[0][0] * invertX, this._dataSet.spaceDirections[0][1] * invertY, this._dataSet.spaceDirections[0][2]);
+		let x = new three.Vector3(this._dataSet.spaceDirections[0][0] * invertX, this._dataSet.spaceDirections[0][1] * invertY, this._dataSet.spaceDirections[0][2]);
 		x.normalize();
-		let y = new Vector3.Vector3(this._dataSet.spaceDirections[1][0] * invertX, this._dataSet.spaceDirections[1][1] * invertY, this._dataSet.spaceDirections[1][2]);
+		let y = new three.Vector3(this._dataSet.spaceDirections[1][0] * invertX, this._dataSet.spaceDirections[1][1] * invertY, this._dataSet.spaceDirections[1][2]);
 		y.normalize();
 		return [x.x, x.y, x.z, y.x, y.y, y.z];
 	}
@@ -13261,10 +13257,10 @@ class ParsersMgh extends ParsersVolume {
 		} // detect if we are in a right handed coordinate system
 
 
-		const first = new Vector3.Vector3().fromArray(this._Xras);
-		const second = new Vector3.Vector3().fromArray(this._Yras);
-		const crossFirstSecond = new Vector3.Vector3().crossVectors(first, second);
-		const third = new Vector3.Vector3().fromArray(this._Zras);
+		const first = new three.Vector3().fromArray(this._Xras);
+		const second = new three.Vector3().fromArray(this._Yras);
+		const crossFirstSecond = new three.Vector3().crossVectors(first, second);
+		const third = new three.Vector3().fromArray(this._Zras);
 
 		if (crossFirstSecond.angleTo(third) > Math.PI / 2) {
 			this._rightHanded = false;
@@ -20521,7 +20517,7 @@ class ShadersUniform {
 			},
 			uMouse: {
 				type: 'v2',
-				value: new Vector2.Vector2(),
+				value: new three.Vector2(),
 				typeGLSL: 'vec2'
 			}
 		};
@@ -20759,7 +20755,7 @@ class widgetsBase extends three.Object3D {
 	/**
 	 * 
 	 * @param {Mesh} targetMesh 
-	 * @param {OrbitControls} controls 
+	 * @param {OrbitControl} controls 
 	 * @param {WidgetParameter} params 
 	 */
 	constructor(targetMesh, controls, params) {
@@ -27564,7 +27560,7 @@ exports.LutHelper = helpersLut;
 exports.MghParser = ParsersMgh;
 exports.NiftiParser = ParsersNifti$1;
 exports.NrrdParser = ParsersNifti;
-exports.OrbitControl = orbit;
+exports.OrbitControl = OrbitControls;
 exports.OrthographicCamera = camerasOrthographic;
 exports.PeakVelocityWidget = widgetsPeakVelocity;
 exports.PolygonWidget = widgetsPolygon;
