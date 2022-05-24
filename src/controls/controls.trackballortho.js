@@ -86,6 +86,7 @@ class trackballOrtho extends EventDispatcher {
 
     // methods
 
+    /** @type Class */
     this.handleResize = function () {
       if (this.domElement === document) {
         this.screen.left = 0;
@@ -96,8 +97,8 @@ class trackballOrtho extends EventDispatcher {
         let box = this.domElement.getBoundingClientRect();
         // adjustments come from similar code in the jquery offset() function
         let d = this.domElement.ownerDocument.documentElement;
-        this.screen.left = box.left + pageXOffset - d.clientLeft;
-        this.screen.top = box.top + pageYOffset - d.clientTop;
+        this.screen.left = box.left + scrollX - d.clientLeft;
+        this.screen.top = box.top + scrollY - d.clientTop;
         this.screen.width = box.width;
         this.screen.height = box.height;
       }

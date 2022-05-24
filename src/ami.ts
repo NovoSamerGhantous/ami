@@ -1,4 +1,5 @@
-export * from './cameras/cameras';
+
+export * from './cameras/cameras'
 export * from './controls/controls';
 export * from './core/core';
 export * from './geometries/geometries';

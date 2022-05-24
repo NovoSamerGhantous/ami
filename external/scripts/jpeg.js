@@ -26,7 +26,7 @@
 //   in PostScript Level 2, Technical Note #5116
 //   (partners.adobe.com/public/developer/en/ps/sdk/5116.DCT_Filter.pdf)
 
-var ColorSpace = {Unkown: 0, Grayscale: 1, AdobeRGB: 2, RGB: 3, CYMK: 4};
+var ColorSpace = { Unkown: 0, Grayscale: 1, AdobeRGB: 2, RGB: 3, CYMK: 4 };
 var JpegImage = (function jpegImage() {
   "use strict";
   var dctZigZag = new Int32Array([
@@ -56,14 +56,11 @@ var JpegImage = (function jpegImage() {
   var dctSqrt2 = 5793;   // sqrt(2)
   var dctSqrt1d2 = 2896;  // sqrt(2) / 2
 
-  function constructor() {
-  }
-
   function buildHuffmanTable(codeLengths, values) {
     var k = 0, code = [], i, j, length = 16;
     while (length > 0 && !codeLengths[length - 1])
       length--;
-    code.push({children: [], index: 0});
+    code.push({ children: [], index: 0 });
     var p = code[0], q;
     for (i = 0; i < length; i++) {
       for (j = 0; j < codeLengths[i]; j++) {
@@ -75,7 +72,7 @@ var JpegImage = (function jpegImage() {
         p.index++;
         code.push(p);
         while (code.length <= i) {
-          code.push(q = {children: [], index: 0});
+          code.push(q = { children: [], index: 0 });
           p.children[p.index] = q.children;
           p = q;
         }
@@ -83,7 +80,7 @@ var JpegImage = (function jpegImage() {
       }
       if (i + 1 < length) {
         // p here points to last code
-        code.push(q = {children: [], index: 0});
+        code.push(q = { children: [], index: 0 });
         p.children[p.index] = q.children;
         p = q;
       }
@@ -96,9 +93,9 @@ var JpegImage = (function jpegImage() {
   }
 
   function decodeScan(data, offset,
-                      frame, components, resetInterval,
-                      spectralStart, spectralEnd,
-                      successivePrev, successive) {
+    frame, components, resetInterval,
+    spectralStart, spectralEnd,
+    successivePrev, successive) {
     var precision = frame.precision;
     var samplesPerLine = frame.samplesPerLine;
     var scanLines = frame.scanLines;
@@ -516,7 +513,7 @@ var JpegImage = (function jpegImage() {
       var q = p[i];
       q = (q <= -2056 / component.bitConversion) ? 0 :
         (q >= 2024 / component.bitConversion) ? 255 / component.bitConversion :
-        (q + 2056 / component.bitConversion) >> 4;
+          (q + 2056 / component.bitConversion) >> 4;
       component.blockData[index] = q;
     }
   }
@@ -643,7 +640,7 @@ var JpegImage = (function jpegImage() {
               if (appData[0] === 0x4A && appData[1] === 0x46 && appData[2] === 0x49 &&
                 appData[3] === 0x46 && appData[4] === 0) { // 'JFIF\x00'
                 jfif = {
-                  version: {major: appData[5], minor: appData[6]},
+                  version: { major: appData[5], minor: appData[6] },
                   densityUnits: appData[7],
                   xDensity: (appData[8] << 8) | appData[9],
                   yDensity: (appData[10] << 8) | appData[11],
@@ -732,7 +729,7 @@ var JpegImage = (function jpegImage() {
 
           case 0xFFC4: // DHT (Define Huffman Tables)
             var huffmanLength = readUint16();
-            for (i = 2; i < huffmanLength; ) {
+            for (i = 2; i < huffmanLength;) {
               var huffmanTableSpec = data[offset++];
               var codeLengths = new Uint8Array(16);
               var codeLengthSum = 0;
@@ -793,8 +790,7 @@ var JpegImage = (function jpegImage() {
       this.jfif = jfif;
       this.adobe = adobe;
       this.components = [];
-      switch (frame.components.length)
-      {
+      switch (frame.components.length) {
         case 1:
           this.colorspace = ColorSpace.Grayscale;
           break;
@@ -840,7 +836,7 @@ var JpegImage = (function jpegImage() {
       // lineData is reused for all components. Assume first component is
       // the biggest
       var lineData = new Uint16Array((this.components[0].blocksPerLine << 3) *
-      this.components[0].blocksPerColumn * 8);
+        this.components[0].blocksPerColumn * 8);
 
       // First construct image data ...
       for (i = 0; i < numComponents; i++) {
@@ -900,7 +896,7 @@ var JpegImage = (function jpegImage() {
       // lineData is reused for all components. Assume first component is
       // the biggest
       var lineData = new Uint8Array((this.components[0].blocksPerLine << 3) *
-      this.components[0].blocksPerColumn * 8);
+        this.components[0].blocksPerColumn * 8);
 
       // First construct image data ...
       for (i = 0; i < numComponents; i++) {
@@ -961,7 +957,7 @@ var JpegImage = (function jpegImage() {
 
           if (colorTransform) {
             for (i = 0; i < dataLength; i += numComponents) {
-              Y = data[i    ];
+              Y = data[i];
               Cb = data[i + 1];
               Cr = data[i + 2];
 
@@ -969,7 +965,7 @@ var JpegImage = (function jpegImage() {
               G = clampToUint8(Y + 135.459 - 0.344 * Cb - 0.714 * Cr);
               B = clampToUint8(Y - 226.816 + 1.772 * Cb);
 
-              data[i    ] = R;
+              data[i] = R;
               data[i + 1] = G;
               data[i + 2] = B;
             }
@@ -996,7 +992,7 @@ var JpegImage = (function jpegImage() {
               M = clampToUint8(119.541 - Y + 0.344 * Cb + 0.714 * Cr);
               Y = clampToUint8(481.816 - Y - 1.772 * Cb);
 
-              data[i    ] = C;
+              data[i] = C;
               data[i + 1] = M;
               data[i + 2] = Y;
               // K is unchanged
@@ -1015,5 +1011,5 @@ var JpegImage = (function jpegImage() {
 
 var moduleType = typeof module;
 if ((moduleType !== 'undefined') && module.exports) {
-    module.exports = JpegImage;
+  module.exports = JpegImage;
 }

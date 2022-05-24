@@ -51,7 +51,7 @@ class widgetsBase extends Object3D {
   _container: any;
   _worldPosition: Vector3;
   _offsets: { top: number; left: number; };
-  _handles: any;
+  _handles: any[];
   constructor(targetMesh: Mesh, controls: OrbitControls, params: WidgetParameter) {
     super();
 
@@ -157,7 +157,7 @@ class widgetsBase extends Object3D {
    * @returns {Number|null}
    */
   public getRegionByXY(regions: USRegion[], point: Vector3) {
-    let result = null;
+    let result: number = null;
 
     regions.some((region, ind) => {
       if (

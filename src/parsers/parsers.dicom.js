@@ -2,7 +2,6 @@
 import UtilsCore from '../core/core.utils';
 import ParsersVolume from './parsers.volume';
 
-import * as OpenJPEG from 'OpenJPEG.js/dist/openJPEG-DynamicMemory-browser.js';
 
 import { RLEDecoder } from '../decoders/decoders.rle';
 
