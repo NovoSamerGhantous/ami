@@ -4,11 +4,12 @@ import ParsersVolume from './parsers.volume';
 
 import { RLEDecoder } from '../decoders/decoders.rle';
 
-let DicomParser = require('dicom-parser');
-let Jpeg = require('jpeg-lossless-decoder-js');
-let OpenJPEG = require('OpenJPEG.js/dist/openJPEG-DynamicMemory-browser.js');
-let JpegBaseline = require('../../external/scripts/jpeg');
-let Jpx = require('../../external/scripts/jpx');
+import * as DicomParser from 'dicom-parser';
+import * as Jpeg from 'jpeg-lossless-decoder-js';
+import * as OpenJPEG from 'OpenJPEG.js';
+import * as JpegBaseline from '../../external/scripts/jpeg';
+import * as Jpx from '../../external/scripts/jpx';
+
 let openJPEG; // for one time initialization
 
 /**
@@ -982,7 +983,7 @@ export default class ParsersDicom extends ParsersVolume {
     }
 
     if (!openJPEG) {
-      openJPEG = OpenJPEG();
+      openJPEG = OpenJPEG.encode({ dynamic: true });
       if (!openJPEG || !openJPEG._jp2_decode) {
         // OpenJPEG failed to initialize
         return this._decodeJpx(frameIndex);

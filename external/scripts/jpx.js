@@ -51,7 +51,7 @@ var JpxImage = (function JpxImageClosure() {
           // XLBox: read UInt64 according to spec.
           // JavaScript's int precision of 53 bit should be sufficient here.
           lbox = readUint32(data, position) * 4294967296 +
-                 readUint32(data, position + 4);
+            readUint32(data, position + 4);
           position += 8;
           headerSize += 8;
         }
@@ -105,9 +105,9 @@ var JpxImage = (function JpxImageClosure() {
             break;
           default:
             var headerType = String.fromCharCode((tbox >> 24) & 0xFF,
-                                                 (tbox >> 16) & 0xFF,
-                                                 (tbox >> 8) & 0xFF,
-                                                 tbox & 0xFF);
+              (tbox >> 16) & 0xFF,
+              (tbox >> 8) & 0xFF,
+              tbox & 0xFF);
             warn('Unsupported header type ' + tbox + ' (' + headerType + ')');
             break;
         }
@@ -338,7 +338,7 @@ var JpxImage = (function JpxImageClosure() {
               if (unsupported.length > 0) {
                 doNotRecover = true;
                 throw new Error('JPX Error: Unsupported COD options (' +
-                                unsupported.join(', ') + ')');
+                  unsupported.join(', ') + ')');
               }
               if (context.mainHeader) {
                 context.COD = cod;
@@ -386,10 +386,10 @@ var JpxImage = (function JpxImageClosure() {
               break;
             case 0xFF53: // Coding style component (COC)
               throw new Error('JPX Error: Codestream code 0xFF53 (COC) is ' +
-                              'not implemented');
+                'not implemented');
             default:
               throw new Error('JPX Error: Unknown codestream code: ' +
-                              code.toString(16));
+                code.toString(16));
           }
           position += length;
         }
@@ -464,9 +464,9 @@ var JpxImage = (function JpxImageClosure() {
     }
     // calculate codeblock size as described in section B.7
     result.xcb_ = (r > 0 ? Math.min(codOrCoc.xcb, result.PPx - 1) :
-                   Math.min(codOrCoc.xcb, result.PPx));
+      Math.min(codOrCoc.xcb, result.PPx));
     result.ycb_ = (r > 0 ? Math.min(codOrCoc.ycb, result.PPy - 1) :
-                   Math.min(codOrCoc.ycb, result.PPy));
+      Math.min(codOrCoc.ycb, result.PPy));
     return result;
   }
   function buildPrecincts(context, resolution, dimensions) {
@@ -552,7 +552,7 @@ var JpxImage = (function JpxImageClosure() {
         codeblock.Lblock = 3;
 
         if (codeblock.tbx1_ <= codeblock.tbx0_ ||
-            codeblock.tby1_ <= codeblock.tby0_) {
+          codeblock.tby1_ <= codeblock.tby0_) {
           continue;
         }
         codeblocks.push(codeblock);
@@ -842,7 +842,7 @@ var JpxImage = (function JpxImageClosure() {
     var posX = pxIndex * precinctIterationSizes.minWidth;
     var posY = pyIndex * precinctIterationSizes.minHeight;
     if (posX % sizeInImageScale.width !== 0 ||
-        posY % sizeInImageScale.height !== 0) {
+      posY % sizeInImageScale.height !== 0) {
       return null;
     }
     var startPrecinctRowIndex =
@@ -1015,7 +1015,7 @@ var JpxImage = (function JpxImageClosure() {
         break;
       default:
         throw new Error('JPX Error: Unsupported progression order ' +
-                        progressionOrder);
+          progressionOrder);
     }
   }
   function parseTilePackets(context, data, offset, dataLength) {
@@ -1023,7 +1023,7 @@ var JpxImage = (function JpxImageClosure() {
     var buffer, bufferSize = 0, skipNextBit = false;
     function readBits(count) {
       while (bufferSize < count) {
-        if(offset + position  >= data.length){
+        if (offset + position >= data.length) {
           throw new Error("Unexpected EOF");
         }
         var b = data[offset + position];
@@ -1045,11 +1045,11 @@ var JpxImage = (function JpxImageClosure() {
     }
     function skipMarkerIfEqual(value) {
       if (data[offset + position - 1] === 0xFF &&
-          data[offset + position] === value) {
+        data[offset + position] === value) {
         skipBytes(1);
         return true;
       } else if (data[offset + position] === 0xFF &&
-                 data[offset + position + 1] === value) {
+        data[offset + position + 1] === value) {
         skipBytes(2);
         return true;
       }
@@ -1089,7 +1089,7 @@ var JpxImage = (function JpxImageClosure() {
     var ephMarkerUsed = context.COD.ephMarkerUsed;
     var packetsIterator = tile.packetsIterator;
     while (position < dataLength) {
-      try{
+      try {
         alignToByte();
         if (sopMarkerUsed && skipMarkerIfEqual(0x91)) {
           // Skip also marker segment length and packet sequence ID
@@ -1136,7 +1136,7 @@ var JpxImage = (function JpxImageClosure() {
               if (position >= data.length) {
                 return;
               }
-              if (inclusionTree.isAboveThreshold()){
+              if (inclusionTree.isAboveThreshold()) {
                 break;
               }
               if (inclusionTree.isKnown()) {
@@ -1185,7 +1185,7 @@ var JpxImage = (function JpxImageClosure() {
           var codingpassesLog2 = log2(codingpasses);
           // rounding down log2
           var bits = ((codingpasses < (1 << codingpassesLog2)) ?
-                      codingpassesLog2 - 1 : codingpassesLog2) + codeblock.Lblock;
+            codingpassesLog2 - 1 : codingpassesLog2) + codeblock.Lblock;
           var codedDataLength = readBits(bits);
           queue.push({
             codeblock: codeblock,
@@ -1218,7 +1218,7 @@ var JpxImage = (function JpxImageClosure() {
     return position;
   }
   function copyCoefficients(coefficients, levelWidth, levelHeight, subband,
-                            delta, mb, reversible, segmentationSymbolUsed) {
+    delta, mb, reversible, segmentationSymbolUsed) {
     var x0 = subband.tbx0;
     var y0 = subband.tby0;
     var width = subband.tbx1 - subband.tbx0;
@@ -1239,7 +1239,7 @@ var JpxImage = (function JpxImageClosure() {
 
       var bitModel, currentCodingpassType;
       bitModel = new BitModel(blockWidth, blockHeight, codeblock.subbandType,
-                              codeblock.zeroBitPlanes, mb);
+        codeblock.zeroBitPlanes, mb);
       currentCodingpassType = 2; // first bit plane starts from cleanup
 
       // collect data
@@ -1329,7 +1329,7 @@ var JpxImage = (function JpxImageClosure() {
 
     var reversible = codingStyleParameters.reversibleTransformation;
     var transform = (reversible ? new ReversibleTransform() :
-                                  new IrreversibleTransform());
+      new IrreversibleTransform());
 
     var subbandCoefficients = [];
     var b = 0;
@@ -1367,7 +1367,7 @@ var JpxImage = (function JpxImageClosure() {
         // to the interleaved positions of the HL, LH, and HH coefficients.
         // The LL coefficients will then be interleaved in Transform.iterate().
         copyCoefficients(coefficients, width, height, subband, delta, mb,
-                         reversible, segmentationSymbolUsed);
+          reversible, segmentationSymbolUsed);
       }
       subbandCoefficients.push({
         width: width,
@@ -1377,7 +1377,7 @@ var JpxImage = (function JpxImageClosure() {
     }
 
     var result = transform.calculate(subbandCoefficients,
-                                     component.tcx0, component.tcy0);
+      component.tcx0, component.tcy0);
     return {
       left: component.tcx0,
       top: component.tcy0,
@@ -1470,7 +1470,7 @@ var JpxImage = (function JpxImageClosure() {
         }
       } else { // no multi-component transform
         for (c = 0; c < componentsCount; c++) {
-          if (components[c].precision === 8){
+          if (components[c].precision === 8) {
             var items = transformedTiles[c].items;
             shift = components[c].precision - 8;
             offset = (128 << shift) + 0.5;
@@ -1479,25 +1479,25 @@ var JpxImage = (function JpxImageClosure() {
             for (pos = c, j = 0, jj = items.length; j < jj; j++) {
               val = items[j];
               out[pos] = val <= min ? 0 :
-                         val >= max ? 255 : (val + offset) >> shift;
+                val >= max ? 255 : (val + offset) >> shift;
               pos += componentsCount;
             }
-          }else{
+          } else {
             var isSigned = components[c].isSigned;
             var items = transformedTiles[c].items;
 
-            if(isSigned){
+            if (isSigned) {
               for (pos = c, j = 0, jj = items.length; j < jj; j++) {
                 out[pos] = items[j];
                 pos += componentsCount;
               }
-            }else{
+            } else {
               shift = components[c].precision - 8;
               offset = (128 << shift) + 0.5;
-              var precisionMax = Math.pow(2,components[c].precision)-1;
+              var precisionMax = Math.pow(2, components[c].precision) - 1;
               for (pos = c, j = 0, jj = items.length; j < jj; j++) {
                 val = items[j];
-                out[pos] = Math.max(Math.min((val + offset),precisionMax),0);
+                out[pos] = Math.max(Math.min((val + offset), precisionMax), 0);
                 pos += componentsCount;
               }
             }
@@ -1517,7 +1517,7 @@ var JpxImage = (function JpxImageClosure() {
       var qcdOrQcc = (context.currentTile.QCC[c] !== undefined ?
         context.currentTile.QCC[c] : context.currentTile.QCD);
       component.quantizationParameters = qcdOrQcc;
-      var codOrCoc = (context.currentTile.COC[c] !== undefined  ?
+      var codOrCoc = (context.currentTile.COC[c] !== undefined ?
         context.currentTile.COC[c] : context.currentTile.COD);
       component.codingStyleParameters = codOrCoc;
     }
@@ -1623,13 +1623,13 @@ var JpxImage = (function JpxImageClosure() {
         }
 
         this.currentLevel = this.levels.length - 1;
-        this.minValue =this.levels[this.currentLevel].items[0];
+        this.minValue = this.levels[this.currentLevel].items[0];
         return;
       },
       incrementValue: function InclusionTree_incrementValue() {
         var level = this.levels[this.currentLevel];
         level.items[level.index] = level.items[level.index] + 1;
-        if(level.items[level.index] > this.minValue) {
+        if (level.items[level.index] > this.minValue) {
           this.minValue = level.items[level.index];
         }
       },
@@ -1641,33 +1641,33 @@ var JpxImage = (function JpxImageClosure() {
         } else {
           this.currentLevel = currentLevel;
           var level = this.levels[currentLevel];
-          if(level.items[level.index] < this.minValue) {
+          if (level.items[level.index] < this.minValue) {
             level.items[level.index] = this.minValue;
-          }else if (level.items[level.index] > this.minValue) {
+          } else if (level.items[level.index] > this.minValue) {
             this.minValue = level.items[level.index];
           }
           return true;
         }
       },
-    isLeaf: function InclusionTree_isLeaf(){
-      return (this.currentLevel === 0);
-    },
-    isAboveThreshold: function InclusionTree_isAboveThreshold(){
-      var levelindex = this.currentLevel;
-      var level = this.levels[levelindex];
-      return (level.items[level.index] > this.currentStopValue);
-    },
-    isKnown: function InclusionTree_isKnown(){
-      var levelindex = this.currentLevel;
-      var level = this.levels[levelindex];
-      return (level.status[level.index] > 0);
-    },
-    setKnown: function InclusionTree_setKnown(){
-      var levelindex = this.currentLevel;
-      var level = this.levels[levelindex];
-      level.status[level.index] = 1;
-      return;
-    }
+      isLeaf: function InclusionTree_isLeaf() {
+        return (this.currentLevel === 0);
+      },
+      isAboveThreshold: function InclusionTree_isAboveThreshold() {
+        var levelindex = this.currentLevel;
+        var level = this.levels[levelindex];
+        return (level.items[level.index] > this.currentStopValue);
+      },
+      isKnown: function InclusionTree_isKnown() {
+        var levelindex = this.currentLevel;
+        var level = this.levels[levelindex];
+        return (level.status[level.index] > 0);
+      },
+      setKnown: function InclusionTree_setKnown() {
+        var levelindex = this.currentLevel;
+        var level = this.levels[levelindex];
+        level.status[level.index] = 1;
+        return;
+      }
 
     };
     return InclusionTree;
@@ -1710,8 +1710,8 @@ var JpxImage = (function JpxImageClosure() {
       this.neighborsSignificance = new Uint8Array(coefficientCount);
       this.coefficentsSign = new Uint8Array(coefficientCount);
       this.coefficentsMagnitude = mb > 14 ? new Uint32Array(coefficientCount) :
-                                  mb > 6 ? new Uint16Array(coefficientCount) :
-                                  new Uint8Array(coefficientCount);
+        mb > 6 ? new Uint16Array(coefficientCount) :
+          new Uint8Array(coefficientCount);
       this.processingFlags = new Uint8Array(coefficientCount);
 
       var bitsDecoded = new Uint8Array(coefficientCount);
@@ -1742,88 +1742,88 @@ var JpxImage = (function JpxImageClosure() {
       },
       setNeighborsSignificance:
         function BitModel_setNeighborsSignificance(row, column, index) {
-        var neighborsSignificance = this.neighborsSignificance;
-        var width = this.width, height = this.height;
-        var left = (column > 0);
-        var right = (column + 1 < width);
-        var i;
+          var neighborsSignificance = this.neighborsSignificance;
+          var width = this.width, height = this.height;
+          var left = (column > 0);
+          var right = (column + 1 < width);
+          var i;
 
-        if (row > 0) {
-          i = index - width;
+          if (row > 0) {
+            i = index - width;
+            if (left) {
+              neighborsSignificance[i - 1] += 0x10;
+            }
+            if (right) {
+              neighborsSignificance[i + 1] += 0x10;
+            }
+            neighborsSignificance[i] += 0x04;
+          }
+
+          if (row + 1 < height) {
+            i = index + width;
+            if (left) {
+              neighborsSignificance[i - 1] += 0x10;
+            }
+            if (right) {
+              neighborsSignificance[i + 1] += 0x10;
+            }
+            neighborsSignificance[i] += 0x04;
+          }
+
           if (left) {
-            neighborsSignificance[i - 1] += 0x10;
+            neighborsSignificance[index - 1] += 0x01;
           }
           if (right) {
-            neighborsSignificance[i + 1] += 0x10;
+            neighborsSignificance[index + 1] += 0x01;
           }
-          neighborsSignificance[i] += 0x04;
-        }
-
-        if (row + 1 < height) {
-          i = index + width;
-          if (left) {
-            neighborsSignificance[i - 1] += 0x10;
-          }
-          if (right) {
-            neighborsSignificance[i + 1] += 0x10;
-          }
-          neighborsSignificance[i] += 0x04;
-        }
-
-        if (left) {
-          neighborsSignificance[index - 1] += 0x01;
-        }
-        if (right) {
-          neighborsSignificance[index + 1] += 0x01;
-        }
-        neighborsSignificance[index] |= 0x80;
-      },
+          neighborsSignificance[index] |= 0x80;
+        },
       runSignificancePropogationPass:
         function BitModel_runSignificancePropogationPass() {
-        var decoder = this.decoder;
-        var width = this.width, height = this.height;
-        var coefficentsMagnitude = this.coefficentsMagnitude;
-        var coefficentsSign = this.coefficentsSign;
-        var neighborsSignificance = this.neighborsSignificance;
-        var processingFlags = this.processingFlags;
-        var contexts = this.contexts;
-        var labels = this.contextLabelTable;
-        var bitsDecoded = this.bitsDecoded;
-        var processedInverseMask = ~1;
-        var processedMask = 1;
-        var firstMagnitudeBitMask = 2;
+          var decoder = this.decoder;
+          var width = this.width, height = this.height;
+          var coefficentsMagnitude = this.coefficentsMagnitude;
+          var coefficentsSign = this.coefficentsSign;
+          var neighborsSignificance = this.neighborsSignificance;
+          var processingFlags = this.processingFlags;
+          var contexts = this.contexts;
+          var labels = this.contextLabelTable;
+          var bitsDecoded = this.bitsDecoded;
+          var processedInverseMask = ~1;
+          var processedMask = 1;
+          var firstMagnitudeBitMask = 2;
 
-        for (var i0 = 0; i0 < height; i0 += 4) {
-          for (var j = 0; j < width; j++) {
-            var index = i0 * width + j;
-            for (var i1 = 0; i1 < 4; i1++, index += width) {
-              var i = i0 + i1;
-              if (i >= height) {
-                break;
-              }
-              // clear processed flag first
-              processingFlags[index] &= processedInverseMask;
+          for (var i0 = 0; i0 < height; i0 += 4) {
+            for (var j = 0; j < width; j++) {
+              var index = i0 * width + j;
+              for (var i1 = 0; i1 < 4; i1++, index += width) {
+                var i = i0 + i1;
+                if (i >= height) {
+                  break;
+                }
+                // clear processed flag first
+                processingFlags[index] &= processedInverseMask;
 
-              if (coefficentsMagnitude[index] ||
+                if (coefficentsMagnitude[index] ||
                   !neighborsSignificance[index]) {
-                continue;
-              }
+                  continue;
+                }
 
-              var contextLabel = labels[neighborsSignificance[index]];
-              var decision = decoder.readBit(contexts, contextLabel);
-              if (decision) {
-                var sign = this.decodeSignBit(i, j, index);
-                coefficentsSign[index] = sign;
-                coefficentsMagnitude[index] = 1;
-                this.setNeighborsSignificance(i, j, index);
-                processingFlags[index] |= firstMagnitudeBitMask;
+                var contextLabel = labels[neighborsSignificance[index]];
+                var decision = decoder.readBit(contexts, contextLabel);
+                if (decision) {
+                  var sign = this.decodeSignBit(i, j, index);
+                  coefficentsSign[index] = sign;
+                  coefficentsMagnitude[index] = 1;
+                  this.setNeighborsSignificance(i, j, index);
+                  processingFlags[index] |= firstMagnitudeBitMask;
+                }
+                bitsDecoded[index]++;
+                processingFlags[index] |= processedMask;
               }
-              bitsDecoded[index]++;
-              processingFlags[index] |= processedMask;
             }
           }
-        }
-      },
+        },
       decodeSignBit: function BitModel_decodeSignBit(row, column, index) {
         var width = this.width, height = this.height;
         var coefficentsMagnitude = this.coefficentsMagnitude;
@@ -1877,46 +1877,46 @@ var JpxImage = (function JpxImageClosure() {
       },
       runMagnitudeRefinementPass:
         function BitModel_runMagnitudeRefinementPass() {
-        var decoder = this.decoder;
-        var width = this.width, height = this.height;
-        var coefficentsMagnitude = this.coefficentsMagnitude;
-        var neighborsSignificance = this.neighborsSignificance;
-        var contexts = this.contexts;
-        var bitsDecoded = this.bitsDecoded;
-        var processingFlags = this.processingFlags;
-        var processedMask = 1;
-        var firstMagnitudeBitMask = 2;
-        var length = width * height;
-        var width4 = width * 4;
+          var decoder = this.decoder;
+          var width = this.width, height = this.height;
+          var coefficentsMagnitude = this.coefficentsMagnitude;
+          var neighborsSignificance = this.neighborsSignificance;
+          var contexts = this.contexts;
+          var bitsDecoded = this.bitsDecoded;
+          var processingFlags = this.processingFlags;
+          var processedMask = 1;
+          var firstMagnitudeBitMask = 2;
+          var length = width * height;
+          var width4 = width * 4;
 
-        for (var index0 = 0, indexNext; index0 < length; index0 = indexNext) {
-          indexNext = Math.min(length, index0 + width4);
-          for (var j = 0; j < width; j++) {
-            for (var index = index0 + j; index < indexNext; index += width) {
+          for (var index0 = 0, indexNext; index0 < length; index0 = indexNext) {
+            indexNext = Math.min(length, index0 + width4);
+            for (var j = 0; j < width; j++) {
+              for (var index = index0 + j; index < indexNext; index += width) {
 
-              // significant but not those that have just become
-              if (!coefficentsMagnitude[index] ||
-                (processingFlags[index] & processedMask) !== 0) {
-                continue;
+                // significant but not those that have just become
+                if (!coefficentsMagnitude[index] ||
+                  (processingFlags[index] & processedMask) !== 0) {
+                  continue;
+                }
+
+                var contextLabel = 16;
+                if ((processingFlags[index] & firstMagnitudeBitMask) !== 0) {
+                  processingFlags[index] ^= firstMagnitudeBitMask;
+                  // first refinement
+                  var significance = neighborsSignificance[index] & 127;
+                  contextLabel = significance === 0 ? 15 : 14;
+                }
+
+                var bit = decoder.readBit(contexts, contextLabel);
+                coefficentsMagnitude[index] =
+                  (coefficentsMagnitude[index] << 1) | bit;
+                bitsDecoded[index]++;
+                processingFlags[index] |= processedMask;
               }
-
-              var contextLabel = 16;
-              if ((processingFlags[index] & firstMagnitudeBitMask) !== 0) {
-                processingFlags[index] ^= firstMagnitudeBitMask;
-                // first refinement
-               var significance = neighborsSignificance[index] & 127;
-               contextLabel = significance === 0 ? 15 : 14;
-              }
-
-              var bit = decoder.readBit(contexts, contextLabel);
-              coefficentsMagnitude[index] =
-                (coefficentsMagnitude[index] << 1) | bit;
-              bitsDecoded[index]++;
-              processingFlags[index] |= processedMask;
             }
           }
-        }
-      },
+        },
       runCleanupPass: function BitModel_runCleanupPass() {
         var decoder = this.decoder;
         var width = this.width, height = this.height;
@@ -1963,7 +1963,7 @@ var JpxImage = (function JpxImageClosure() {
                 continue; // next column
               }
               i1 = (decoder.readBit(contexts, UNIFORM_CONTEXT) << 1) |
-                    decoder.readBit(contexts, UNIFORM_CONTEXT);
+                decoder.readBit(contexts, UNIFORM_CONTEXT);
               if (i1 !== 0) {
                 i = i0 + i1;
                 index += i1 * width;
@@ -2006,9 +2006,9 @@ var JpxImage = (function JpxImageClosure() {
         var decoder = this.decoder;
         var contexts = this.contexts;
         var symbol = (decoder.readBit(contexts, UNIFORM_CONTEXT) << 3) |
-                     (decoder.readBit(contexts, UNIFORM_CONTEXT) << 2) |
-                     (decoder.readBit(contexts, UNIFORM_CONTEXT) << 1) |
-                      decoder.readBit(contexts, UNIFORM_CONTEXT);
+          (decoder.readBit(contexts, UNIFORM_CONTEXT) << 2) |
+          (decoder.readBit(contexts, UNIFORM_CONTEXT) << 1) |
+          decoder.readBit(contexts, UNIFORM_CONTEXT);
         if (symbol !== 0xA) {
           throw new Error('JPX Error: Invalid segmentation symbol');
         }
@@ -2020,16 +2020,16 @@ var JpxImage = (function JpxImageClosure() {
 
   // Section F, Discrete wavelet transformation
   var Transform = (function TransformClosure() {
-    function Transform() {}
+    function Transform() { }
 
     Transform.prototype.calculate =
       function transformCalculate(subbands, u0, v0) {
-      var ll = subbands[0];
-      for (var i = 1, ii = subbands.length; i < ii; i++) {
-        ll = this.iterate(ll, subbands[i], u0, v0);
-      }
-      return ll;
-    };
+        var ll = subbands[0];
+        for (var i = 1, ii = subbands.length; i < ii; i++) {
+          ll = this.iterate(ll, subbands[i], u0, v0);
+        }
+        return ll;
+      };
     Transform.prototype.extend = function extend(buffer, offset, size) {
       // Section F.3.7 extending... using max extension of 4
       var i1 = offset - 1, j1 = offset + 1;
@@ -2044,7 +2044,7 @@ var JpxImage = (function JpxImageClosure() {
       buffer[j2] = buffer[i2];
     };
     Transform.prototype.iterate = function Transform_iterate(ll, hl_lh_hh,
-                                                             u0, v0) {
+      u0, v0) {
       var llWidth = ll.width, llHeight = ll.height, llItems = ll.items;
       var width = hl_lh_hh.width;
       var height = hl_lh_hh.height;
@@ -2101,7 +2101,7 @@ var JpxImage = (function JpxImageClosure() {
 
       // Section F.3.5 VER_SR
       if (height === 1) {
-          // if height = 1, when v0 even keep items as is, when odd divide by 2
+        // if height = 1, when v0 even keep items as is, when odd divide by 2
         if ((v0 & 1) !== 0) {
           for (u = 0; u < width; u++) {
             items[u] *= 0.5;
@@ -2155,87 +2155,87 @@ var JpxImage = (function JpxImageClosure() {
     IrreversibleTransform.prototype = Object.create(Transform.prototype);
     IrreversibleTransform.prototype.filter =
       function irreversibleTransformFilter(x, offset, length) {
-      var len = length >> 1;
-      offset = offset | 0;
-      var j, n, current, next;
+        var len = length >> 1;
+        offset = offset | 0;
+        var j, n, current, next;
 
-      var alpha = -1.586134342059924;
-      var beta = -0.052980118572961;
-      var gamma = 0.882911075530934;
-      var delta = 0.443506852043971;
-      var K = 1.230174104914001;
-      var K_ = 1 / K;
+        var alpha = -1.586134342059924;
+        var beta = -0.052980118572961;
+        var gamma = 0.882911075530934;
+        var delta = 0.443506852043971;
+        var K = 1.230174104914001;
+        var K_ = 1 / K;
 
-      // step 1 is combined with step 3
+        // step 1 is combined with step 3
 
-      // step 2
-      j = offset - 3;
-      for (n = len + 4; n--; j += 2) {
-        x[j] *= K_;
-      }
+        // step 2
+        j = offset - 3;
+        for (n = len + 4; n--; j += 2) {
+          x[j] *= K_;
+        }
 
-      // step 1 & 3
-      j = offset - 2;
-      current = delta * x[j -1];
-      for (n = len + 3; n--; j += 2) {
-        next = delta * x[j + 1];
-        x[j] = K * x[j] - current - next;
-        if (n--) {
-          j += 2;
-          current = delta * x[j + 1];
+        // step 1 & 3
+        j = offset - 2;
+        current = delta * x[j - 1];
+        for (n = len + 3; n--; j += 2) {
+          next = delta * x[j + 1];
           x[j] = K * x[j] - current - next;
-        } else {
-          break;
+          if (n--) {
+            j += 2;
+            current = delta * x[j + 1];
+            x[j] = K * x[j] - current - next;
+          } else {
+            break;
+          }
         }
-      }
 
-      // step 4
-      j = offset - 1;
-      current = gamma * x[j - 1];
-      for (n = len + 2; n--; j += 2) {
-        next = gamma * x[j + 1];
-        x[j] -= current + next;
-        if (n--) {
-          j += 2;
-          current = gamma * x[j + 1];
-          x[j] -= current + next;
-        } else {
-          break;
-        }
-      }
-
-      // step 5
-      j = offset;
-      current = beta * x[j - 1];
-      for (n = len + 1; n--; j += 2) {
-        next = beta * x[j + 1];
-        x[j] -= current + next;
-        if (n--) {
-          j += 2;
-          current = beta * x[j + 1];
-          x[j] -= current + next;
-        } else {
-          break;
-        }
-      }
-
-      // step 6
-      if (len !== 0) {
-        j = offset + 1;
-        current = alpha * x[j - 1];
-        for (n = len; n--; j += 2) {
-          next = alpha * x[j + 1];
+        // step 4
+        j = offset - 1;
+        current = gamma * x[j - 1];
+        for (n = len + 2; n--; j += 2) {
+          next = gamma * x[j + 1];
           x[j] -= current + next;
           if (n--) {
             j += 2;
-            current = alpha * x[j + 1];
+            current = gamma * x[j + 1];
             x[j] -= current + next;
           } else {
             break;
           }
         }
-      }
-    };
+
+        // step 5
+        j = offset;
+        current = beta * x[j - 1];
+        for (n = len + 1; n--; j += 2) {
+          next = beta * x[j + 1];
+          x[j] -= current + next;
+          if (n--) {
+            j += 2;
+            current = beta * x[j + 1];
+            x[j] -= current + next;
+          } else {
+            break;
+          }
+        }
+
+        // step 6
+        if (len !== 0) {
+          j = offset + 1;
+          current = alpha * x[j - 1];
+          for (n = len; n--; j += 2) {
+            next = alpha * x[j + 1];
+            x[j] -= current + next;
+            if (n--) {
+              j += 2;
+              current = alpha * x[j + 1];
+              x[j] -= current + next;
+            } else {
+              break;
+            }
+          }
+        }
+      };
 
     return IrreversibleTransform;
   })();
@@ -2249,18 +2249,18 @@ var JpxImage = (function JpxImageClosure() {
     ReversibleTransform.prototype = Object.create(Transform.prototype);
     ReversibleTransform.prototype.filter =
       function reversibleTransformFilter(x, offset, length) {
-      var len = length >> 1;
-      offset = offset | 0;
-      var j, n;
+        var len = length >> 1;
+        offset = offset | 0;
+        var j, n;
 
-      for (j = offset, n = len + 1; n--; j += 2) {
-        x[j] -= (x[j - 1] + x[j + 1] + 2) >> 2;
-      }
+        for (j = offset, n = len + 1; n--; j += 2) {
+          x[j] -= (x[j - 1] + x[j + 1] + 2) >> 2;
+        }
 
-      for (j = offset + 1, n = len; n--; j += 2) {
-        x[j] += (x[j - 1] + x[j + 1]) >> 1;
-      }
-    };
+        for (j = offset + 1, n = len; n--; j += 2) {
+          x[j] += (x[j - 1] + x[j + 1]) >> 1;
+        }
+      };
 
     return ReversibleTransform;
   })();
@@ -2299,53 +2299,53 @@ var JpxImage = (function JpxImageClosure() {
 var ArithmeticDecoder = (function ArithmeticDecoderClosure() {
   // Table C-2
   var QeTable = [
-    {qe: 0x5601, nmps: 1, nlps: 1, switchFlag: 1},
-    {qe: 0x3401, nmps: 2, nlps: 6, switchFlag: 0},
-    {qe: 0x1801, nmps: 3, nlps: 9, switchFlag: 0},
-    {qe: 0x0AC1, nmps: 4, nlps: 12, switchFlag: 0},
-    {qe: 0x0521, nmps: 5, nlps: 29, switchFlag: 0},
-    {qe: 0x0221, nmps: 38, nlps: 33, switchFlag: 0},
-    {qe: 0x5601, nmps: 7, nlps: 6, switchFlag: 1},
-    {qe: 0x5401, nmps: 8, nlps: 14, switchFlag: 0},
-    {qe: 0x4801, nmps: 9, nlps: 14, switchFlag: 0},
-    {qe: 0x3801, nmps: 10, nlps: 14, switchFlag: 0},
-    {qe: 0x3001, nmps: 11, nlps: 17, switchFlag: 0},
-    {qe: 0x2401, nmps: 12, nlps: 18, switchFlag: 0},
-    {qe: 0x1C01, nmps: 13, nlps: 20, switchFlag: 0},
-    {qe: 0x1601, nmps: 29, nlps: 21, switchFlag: 0},
-    {qe: 0x5601, nmps: 15, nlps: 14, switchFlag: 1},
-    {qe: 0x5401, nmps: 16, nlps: 14, switchFlag: 0},
-    {qe: 0x5101, nmps: 17, nlps: 15, switchFlag: 0},
-    {qe: 0x4801, nmps: 18, nlps: 16, switchFlag: 0},
-    {qe: 0x3801, nmps: 19, nlps: 17, switchFlag: 0},
-    {qe: 0x3401, nmps: 20, nlps: 18, switchFlag: 0},
-    {qe: 0x3001, nmps: 21, nlps: 19, switchFlag: 0},
-    {qe: 0x2801, nmps: 22, nlps: 19, switchFlag: 0},
-    {qe: 0x2401, nmps: 23, nlps: 20, switchFlag: 0},
-    {qe: 0x2201, nmps: 24, nlps: 21, switchFlag: 0},
-    {qe: 0x1C01, nmps: 25, nlps: 22, switchFlag: 0},
-    {qe: 0x1801, nmps: 26, nlps: 23, switchFlag: 0},
-    {qe: 0x1601, nmps: 27, nlps: 24, switchFlag: 0},
-    {qe: 0x1401, nmps: 28, nlps: 25, switchFlag: 0},
-    {qe: 0x1201, nmps: 29, nlps: 26, switchFlag: 0},
-    {qe: 0x1101, nmps: 30, nlps: 27, switchFlag: 0},
-    {qe: 0x0AC1, nmps: 31, nlps: 28, switchFlag: 0},
-    {qe: 0x09C1, nmps: 32, nlps: 29, switchFlag: 0},
-    {qe: 0x08A1, nmps: 33, nlps: 30, switchFlag: 0},
-    {qe: 0x0521, nmps: 34, nlps: 31, switchFlag: 0},
-    {qe: 0x0441, nmps: 35, nlps: 32, switchFlag: 0},
-    {qe: 0x02A1, nmps: 36, nlps: 33, switchFlag: 0},
-    {qe: 0x0221, nmps: 37, nlps: 34, switchFlag: 0},
-    {qe: 0x0141, nmps: 38, nlps: 35, switchFlag: 0},
-    {qe: 0x0111, nmps: 39, nlps: 36, switchFlag: 0},
-    {qe: 0x0085, nmps: 40, nlps: 37, switchFlag: 0},
-    {qe: 0x0049, nmps: 41, nlps: 38, switchFlag: 0},
-    {qe: 0x0025, nmps: 42, nlps: 39, switchFlag: 0},
-    {qe: 0x0015, nmps: 43, nlps: 40, switchFlag: 0},
-    {qe: 0x0009, nmps: 44, nlps: 41, switchFlag: 0},
-    {qe: 0x0005, nmps: 45, nlps: 42, switchFlag: 0},
-    {qe: 0x0001, nmps: 45, nlps: 43, switchFlag: 0},
-    {qe: 0x5601, nmps: 46, nlps: 46, switchFlag: 0}
+    { qe: 0x5601, nmps: 1, nlps: 1, switchFlag: 1 },
+    { qe: 0x3401, nmps: 2, nlps: 6, switchFlag: 0 },
+    { qe: 0x1801, nmps: 3, nlps: 9, switchFlag: 0 },
+    { qe: 0x0AC1, nmps: 4, nlps: 12, switchFlag: 0 },
+    { qe: 0x0521, nmps: 5, nlps: 29, switchFlag: 0 },
+    { qe: 0x0221, nmps: 38, nlps: 33, switchFlag: 0 },
+    { qe: 0x5601, nmps: 7, nlps: 6, switchFlag: 1 },
+    { qe: 0x5401, nmps: 8, nlps: 14, switchFlag: 0 },
+    { qe: 0x4801, nmps: 9, nlps: 14, switchFlag: 0 },
+    { qe: 0x3801, nmps: 10, nlps: 14, switchFlag: 0 },
+    { qe: 0x3001, nmps: 11, nlps: 17, switchFlag: 0 },
+    { qe: 0x2401, nmps: 12, nlps: 18, switchFlag: 0 },
+    { qe: 0x1C01, nmps: 13, nlps: 20, switchFlag: 0 },
+    { qe: 0x1601, nmps: 29, nlps: 21, switchFlag: 0 },
+    { qe: 0x5601, nmps: 15, nlps: 14, switchFlag: 1 },
+    { qe: 0x5401, nmps: 16, nlps: 14, switchFlag: 0 },
+    { qe: 0x5101, nmps: 17, nlps: 15, switchFlag: 0 },
+    { qe: 0x4801, nmps: 18, nlps: 16, switchFlag: 0 },
+    { qe: 0x3801, nmps: 19, nlps: 17, switchFlag: 0 },
+    { qe: 0x3401, nmps: 20, nlps: 18, switchFlag: 0 },
+    { qe: 0x3001, nmps: 21, nlps: 19, switchFlag: 0 },
+    { qe: 0x2801, nmps: 22, nlps: 19, switchFlag: 0 },
+    { qe: 0x2401, nmps: 23, nlps: 20, switchFlag: 0 },
+    { qe: 0x2201, nmps: 24, nlps: 21, switchFlag: 0 },
+    { qe: 0x1C01, nmps: 25, nlps: 22, switchFlag: 0 },
+    { qe: 0x1801, nmps: 26, nlps: 23, switchFlag: 0 },
+    { qe: 0x1601, nmps: 27, nlps: 24, switchFlag: 0 },
+    { qe: 0x1401, nmps: 28, nlps: 25, switchFlag: 0 },
+    { qe: 0x1201, nmps: 29, nlps: 26, switchFlag: 0 },
+    { qe: 0x1101, nmps: 30, nlps: 27, switchFlag: 0 },
+    { qe: 0x0AC1, nmps: 31, nlps: 28, switchFlag: 0 },
+    { qe: 0x09C1, nmps: 32, nlps: 29, switchFlag: 0 },
+    { qe: 0x08A1, nmps: 33, nlps: 30, switchFlag: 0 },
+    { qe: 0x0521, nmps: 34, nlps: 31, switchFlag: 0 },
+    { qe: 0x0441, nmps: 35, nlps: 32, switchFlag: 0 },
+    { qe: 0x02A1, nmps: 36, nlps: 33, switchFlag: 0 },
+    { qe: 0x0221, nmps: 37, nlps: 34, switchFlag: 0 },
+    { qe: 0x0141, nmps: 38, nlps: 35, switchFlag: 0 },
+    { qe: 0x0111, nmps: 39, nlps: 36, switchFlag: 0 },
+    { qe: 0x0085, nmps: 40, nlps: 37, switchFlag: 0 },
+    { qe: 0x0049, nmps: 41, nlps: 38, switchFlag: 0 },
+    { qe: 0x0025, nmps: 42, nlps: 39, switchFlag: 0 },
+    { qe: 0x0015, nmps: 43, nlps: 40, switchFlag: 0 },
+    { qe: 0x0009, nmps: 44, nlps: 41, switchFlag: 0 },
+    { qe: 0x0005, nmps: 45, nlps: 42, switchFlag: 0 },
+    { qe: 0x0001, nmps: 45, nlps: 43, switchFlag: 0 },
+    { qe: 0x5601, nmps: 46, nlps: 46, switchFlag: 0 }
   ];
 
   // C.3.5 Initialisation of the decoder (INITDEC)
@@ -2476,9 +2476,9 @@ var ArithmeticDecoder = (function ArithmeticDecoderClosure() {
 
 'use strict';
 
-var globalScope = (typeof window === 'undefined') ? this : window;
-
 var isWorker = (typeof window === 'undefined');
+var globalScope = isWorker ? this : window;
+
 
 var FONT_IDENTITY_MATRIX = [0.001, 0, 0, 0.001, 0, 0];
 
@@ -2705,19 +2705,19 @@ var UNSUPPORTED_FEATURES = PDFJS.UNSUPPORTED_FEATURES = {
 
 var UnsupportedManager = PDFJS.UnsupportedManager =
   (function UnsupportedManagerClosure() {
-  var listeners = [];
-  return {
-    listen: function (cb) {
-      listeners.push(cb);
-    },
-    notify: function (featureId) {
-      warn('Unsupported feature "' + featureId + '"');
-      for (var i = 0, ii = listeners.length; i < ii; i++) {
-        listeners[i](featureId);
+    var listeners = [];
+    return {
+      listen: function (cb) {
+        listeners.push(cb);
+      },
+      notify: function (featureId) {
+        warn('Unsupported feature "' + featureId + '"');
+        for (var i = 0, ii = listeners.length; i < ii; i++) {
+          listeners[i](featureId);
+        }
       }
-    }
-  };
-})();
+    };
+  })();
 
 // Combines two URLs. The baseUrl shall be absolute URL. If the url is an
 // absolute URL, it will be returned as is.
@@ -2776,10 +2776,12 @@ function isValidUrl(url, allowRelative) {
 PDFJS.isValidUrl = isValidUrl;
 
 function shadow(obj, prop, value) {
-  Object.defineProperty(obj, prop, { value: value,
-                                     enumerable: true,
-                                     configurable: true,
-                                     writable: false });
+  Object.defineProperty(obj, prop, {
+    value: value,
+    enumerable: true,
+    configurable: true,
+    writable: false
+  });
   return value;
 }
 PDFJS.shadow = shadow;
@@ -2844,18 +2846,18 @@ var MissingPDFException = (function MissingPDFExceptionClosure() {
 PDFJS.MissingPDFException = MissingPDFException;
 
 var UnexpectedResponseException =
-    (function UnexpectedResponseExceptionClosure() {
-  function UnexpectedResponseException(msg, status) {
-    this.name = 'UnexpectedResponseException';
-    this.message = msg;
-    this.status = status;
-  }
+  (function UnexpectedResponseExceptionClosure() {
+    function UnexpectedResponseException(msg, status) {
+      this.name = 'UnexpectedResponseException';
+      this.message = msg;
+      this.status = status;
+    }
 
-  UnexpectedResponseException.prototype = new Error();
-  UnexpectedResponseException.constructor = UnexpectedResponseException;
+    UnexpectedResponseException.prototype = new Error();
+    UnexpectedResponseException.constructor = UnexpectedResponseException;
 
-  return UnexpectedResponseException;
-})();
+    return UnexpectedResponseException;
+  })();
 PDFJS.UnexpectedResponseException = UnexpectedResponseException;
 
 var NotImplementedException = (function NotImplementedExceptionClosure() {
@@ -2899,7 +2901,7 @@ var XRefParseException = (function XRefParseExceptionClosure() {
 
 function bytesToString(bytes) {
   assert(bytes !== null && typeof bytes === 'object' &&
-         bytes.length !== undefined, 'Invalid argument for bytesToString');
+    bytes.length !== undefined, 'Invalid argument for bytesToString');
   var length = bytes.length;
   var MAX_ARGUMENT_COUNT = 8192;
   if (length < MAX_ARGUMENT_COUNT) {
@@ -2926,7 +2928,7 @@ function stringToBytes(str) {
 
 function string32(value) {
   return String.fromCharCode((value >> 24) & 0xff, (value >> 16) & 0xff,
-                             (value >> 8) & 0xff, value & 0xff);
+    (value >> 8) & 0xff, value & 0xff);
 }
 
 function log2(x) {
@@ -2948,7 +2950,7 @@ function readUint16(data, offset) {
 
 function readUint32(data, offset) {
   return ((data[offset] << 24) | (data[offset + 1] << 16) |
-         (data[offset + 2] << 8) | data[offset + 3]) >>> 0;
+    (data[offset + 2] << 8) | data[offset + 3]) >>> 0;
 }
 
 // Lazy test the endianness of the platform
@@ -3030,7 +3032,7 @@ var Uint32ArrayView = (function Uint32ArrayViewClosure() {
 var IDENTITY_MATRIX = [1, 0, 0, 1, 0, 0];
 
 var Util = PDFJS.Util = (function UtilClosure() {
-  function Util() {}
+  function Util() { }
 
   var rgbBuf = ['rgb(', 0, ',', 0, ',', 0, ')'];
 
@@ -3074,22 +3076,22 @@ var Util = PDFJS.Util = (function UtilClosure() {
   Util.getAxialAlignedBoundingBox =
     function Util_getAxialAlignedBoundingBox(r, m) {
 
-    var p1 = Util.applyTransform(r, m);
-    var p2 = Util.applyTransform(r.slice(2, 4), m);
-    var p3 = Util.applyTransform([r[0], r[3]], m);
-    var p4 = Util.applyTransform([r[2], r[1]], m);
-    return [
-      Math.min(p1[0], p2[0], p3[0], p4[0]),
-      Math.min(p1[1], p2[1], p3[1], p4[1]),
-      Math.max(p1[0], p2[0], p3[0], p4[0]),
-      Math.max(p1[1], p2[1], p3[1], p4[1])
-    ];
-  };
+      var p1 = Util.applyTransform(r, m);
+      var p2 = Util.applyTransform(r.slice(2, 4), m);
+      var p3 = Util.applyTransform([r[0], r[3]], m);
+      var p4 = Util.applyTransform([r[2], r[1]], m);
+      return [
+        Math.min(p1[0], p2[0], p3[0], p4[0]),
+        Math.min(p1[1], p2[1], p3[1], p4[1]),
+        Math.max(p1[0], p2[0], p3[0], p4[0]),
+        Math.max(p1[1], p2[1], p3[1], p4[1])
+      ];
+    };
 
   Util.inverseTransform = function Util_inverseTransform(m) {
     var d = m[0] * m[3] - m[1] * m[2];
     return [m[3] / d, -m[1] / d, -m[2] / d, m[0] / d,
-      (m[2] * m[5] - m[4] * m[3]) / d, (m[4] * m[1] - m[5] * m[0]) / d];
+    (m[2] * m[5] - m[4] * m[3]) / d, (m[4] * m[1] - m[5] * m[0]) / d];
   };
 
   // Apply a generic 3d matrix M on a 3-vector v:
@@ -3112,23 +3114,23 @@ var Util = PDFJS.Util = (function UtilClosure() {
   Util.singularValueDecompose2dScale =
     function Util_singularValueDecompose2dScale(m) {
 
-    var transpose = [m[0], m[2], m[1], m[3]];
+      var transpose = [m[0], m[2], m[1], m[3]];
 
-    // Multiply matrix m with its transpose.
-    var a = m[0] * transpose[0] + m[1] * transpose[2];
-    var b = m[0] * transpose[1] + m[1] * transpose[3];
-    var c = m[2] * transpose[0] + m[3] * transpose[2];
-    var d = m[2] * transpose[1] + m[3] * transpose[3];
+      // Multiply matrix m with its transpose.
+      var a = m[0] * transpose[0] + m[1] * transpose[2];
+      var b = m[0] * transpose[1] + m[1] * transpose[3];
+      var c = m[2] * transpose[0] + m[3] * transpose[2];
+      var d = m[2] * transpose[1] + m[3] * transpose[3];
 
-    // Solve the second degree polynomial to get roots.
-    var first = (a + d) / 2;
-    var second = Math.sqrt((a + d) * (a + d) - 4 * (a * d - c * b)) / 2;
-    var sx = first + second || 1;
-    var sy = first - second || 1;
+      // Solve the second degree polynomial to get roots.
+      var first = (a + d) / 2;
+      var second = Math.sqrt((a + d) * (a + d) - 4 * (a * d - c * b)) / 2;
+      var sx = first + second || 1;
+      var sy = first - second || 1;
 
-    // Scale values are the square roots of the eigenvalues.
-    return [Math.sqrt(sx), Math.sqrt(sy)];
-  };
+      // Scale values are the square roots of the eigenvalues.
+      return [Math.sqrt(sx), Math.sqrt(sy)];
+    };
 
   // Normalize rectangle rect=[x1, y1, x2, y2] so that (x1,y1) < (x2,y2)
   // For coordinate systems whose origin lies in the bottom-left, this
@@ -3157,15 +3159,15 @@ var Util = PDFJS.Util = (function UtilClosure() {
 
     // Order points along the axes
     var orderedX = [rect1[0], rect1[2], rect2[0], rect2[2]].sort(compare),
-        orderedY = [rect1[1], rect1[3], rect2[1], rect2[3]].sort(compare),
-        result = [];
+      orderedY = [rect1[1], rect1[3], rect2[1], rect2[3]].sort(compare),
+      result = [];
 
     rect1 = Util.normalizeRect(rect1);
     rect2 = Util.normalizeRect(rect2);
 
     // X: first and second points belong to different rectangles?
     if ((orderedX[0] === rect1[0] && orderedX[1] === rect2[0]) ||
-        (orderedX[0] === rect2[0] && orderedX[1] === rect1[0])) {
+      (orderedX[0] === rect2[0] && orderedX[1] === rect1[0])) {
       // Intersection must be between second and third points
       result[0] = orderedX[1];
       result[2] = orderedX[2];
@@ -3175,7 +3177,7 @@ var Util = PDFJS.Util = (function UtilClosure() {
 
     // Y: first and second points belong to different rectangles?
     if ((orderedY[0] === rect1[1] && orderedY[1] === rect2[1]) ||
-        (orderedY[0] === rect2[1] && orderedY[1] === rect1[1])) {
+      (orderedY[0] === rect2[1] && orderedY[1] === rect1[1])) {
       // Intersection must be between second and third points
       result[1] = orderedY[1];
       result[3] = orderedY[2];
@@ -3205,7 +3207,7 @@ var Util = PDFJS.Util = (function UtilClosure() {
   };
 
   Util.getInheritableProperty = function Util_getInheritableProperty(dict,
-                                                                     name) {
+    name) {
     while (dict && !dict.has(name)) {
       dict = dict.get('Parent');
     }
@@ -3228,7 +3230,7 @@ var Util = PDFJS.Util = (function UtilClosure() {
     var loaded = false;
     script.setAttribute('src', src);
     if (callback) {
-      script.onload = function() {
+      script.onload = function () {
         if (!loaded) {
           callback();
         }
@@ -3333,7 +3335,7 @@ var PageViewport = PDFJS.PageViewport = (function PageViewportClosure() {
       var scale = 'scale' in args ? args.scale : this.scale;
       var rotation = 'rotation' in args ? args.rotation : this.rotation;
       return new PageViewport(this.viewBox.slice(), scale, rotation,
-                              this.offsetX, this.offsetY, args.dontFlip);
+        this.offsetX, this.offsetY, args.dontFlip);
     },
     /**
      * Converts PDF point to the viewport coordinates. For examples, useful for
@@ -3357,10 +3359,10 @@ var PageViewport = PDFJS.PageViewport = (function PageViewportClosure() {
      */
     convertToViewportRectangle:
       function PageViewport_convertToViewportRectangle(rect) {
-      var tl = Util.applyTransform([rect[0], rect[1]], this.transform);
-      var br = Util.applyTransform([rect[2], rect[3]], this.transform);
-      return [tl[0], tl[1], br[0], br[1]];
-    },
+        var tl = Util.applyTransform([rect[0], rect[1]], this.transform);
+        var br = Util.applyTransform([rect[2], rect[3]], this.transform);
+        return [tl[0], tl[1], br[0], br[1]];
+      },
     /**
      * Converts viewport coordinates to the PDF location. For examples, useful
      * for converting canvas pixel location into PDF one.
@@ -3554,7 +3556,7 @@ PDFJS.createPromiseCapability = createPromiseCapability;
     }
     return;
   }
-//#if !MOZCENTRAL
+  //#if !MOZCENTRAL
   var STATUS_PENDING = 0;
   var STATUS_RESOLVED = 1;
   var STATUS_REJECTED = 2;
@@ -3601,12 +3603,12 @@ PDFJS.createPromiseCapability = createPromiseCapability;
               nextValue = handler.onResolve(nextValue);
             }
           } else if (typeof handler.onReject === 'function') {
-              nextValue = handler.onReject(nextValue);
-              nextStatus = STATUS_RESOLVED;
+            nextValue = handler.onReject(nextValue);
+            nextStatus = STATUS_RESOLVED;
 
-              if (handler.thisPromise._unhandledRejection) {
-                this.removeUnhandeledRejection(handler.thisPromise);
-              }
+            if (handler.thisPromise._unhandledRejection) {
+              this.removeUnhandeledRejection(handler.thisPromise);
+            }
           }
         } catch (ex) {
           nextStatus = STATUS_REJECTED;
@@ -3708,8 +3710,8 @@ PDFJS.createPromiseCapability = createPromiseCapability;
     }
     for (var i = 0, ii = promises.length; i < ii; ++i) {
       var promise = promises[i];
-      var resolve = (function(i) {
-        return function(value) {
+      var resolve = (function (i) {
+        return function (value) {
           if (deferred._status === STATUS_REJECTED) {
             return;
           }
@@ -3763,14 +3765,14 @@ PDFJS.createPromiseCapability = createPromiseCapability;
 
     _updateStatus: function Promise__updateStatus(status, value) {
       if (this._status === STATUS_RESOLVED ||
-          this._status === STATUS_REJECTED) {
+        this._status === STATUS_REJECTED) {
         return;
       }
 
       if (status === STATUS_RESOLVED &&
-          Promise.isPromise(value)) {
+        Promise.isPromise(value)) {
         value.then(this._updateStatus.bind(this, STATUS_RESOLVED),
-                   this._updateStatus.bind(this, STATUS_REJECTED));
+          this._updateStatus.bind(this, STATUS_REJECTED));
         return;
       }
 
@@ -3814,9 +3816,9 @@ PDFJS.createPromiseCapability = createPromiseCapability;
   };
 
   globalScope.Promise = Promise;
-//#else
-//throw new Error('DOM Promise is not present');
-//#endif
+  //#else
+  //throw new Error('DOM Promise is not present');
+  //#endif
 })();
 
 var StatTimer = (function StatTimerClosure() {
@@ -3896,7 +3898,7 @@ PDFJS.createObjectURL = (function createObjectURLClosure() {
 
   return function createObjectURL(data, contentType) {
     if (!PDFJS.disableCreateObjectURL &&
-        typeof URL !== 'undefined' && URL.createObjectURL) {
+      typeof URL !== 'undefined' && URL.createObjectURL) {
       var blob = PDFJS.createBlob(data, contentType);
       return URL.createObjectURL(blob);
     }
@@ -4006,21 +4008,21 @@ MessageHandler.prototype = {
    */
   sendWithPromise:
     function messageHandlerSendWithPromise(actionName, data, transfers) {
-    var callbackId = this.callbackIndex++;
-    var message = {
-      action: actionName,
-      data: data,
-      callbackId: callbackId
-    };
-    var capability = createPromiseCapability();
-    this.callbacksCapabilities[callbackId] = capability;
-    try {
-      this.postMessage(message, transfers);
-    } catch (e) {
-      capability.reject(e);
-    }
-    return capability.promise;
-  },
+      var callbackId = this.callbackIndex++;
+      var message = {
+        action: actionName,
+        data: data,
+        callbackId: callbackId
+      };
+      var capability = createPromiseCapability();
+      this.callbacksCapabilities[callbackId] = capability;
+      try {
+        this.postMessage(message, transfers);
+      } catch (e) {
+        capability.reject(e);
+      }
+      return capability.promise;
+    },
   /**
    * Sends raw message to the comObj.
    * @private
@@ -4038,7 +4040,7 @@ MessageHandler.prototype = {
 
 var moduleType = typeof module;
 if ((moduleType !== 'undefined') && module.exports) {
-    module.exports = JpxImage;
+  module.exports = JpxImage;
 }
 
 function loadJpegStream(id, imageUrl, objs) {

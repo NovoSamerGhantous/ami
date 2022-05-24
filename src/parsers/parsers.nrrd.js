@@ -1,9 +1,9 @@
 /** * Imports ***/
 import ParsersVolume from './parsers.volume';
 import { Vector3 } from 'three';
+import * as pako from 'pako';
+import * as NrrdReader from 'nrrd-js';
 
-let pako = require('pako');
-let NrrdReader = require('nrrd-js');
 /**
  * @module parsers/nifti
  */
