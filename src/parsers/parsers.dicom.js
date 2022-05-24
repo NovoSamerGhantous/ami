@@ -2,12 +2,11 @@
 import UtilsCore from '../core/core.utils';
 import ParsersVolume from './parsers.volume';
 
-import * as OpenJPEG from 'OpenJPEG.js/dist/openJPEG-DynamicMemory-browser.js';
-
 import { RLEDecoder } from '../decoders/decoders.rle';
 
 let DicomParser = require('dicom-parser');
 let Jpeg = require('jpeg-lossless-decoder-js');
+let OpenJPEG = require('OpenJPEG.js/dist/openJPEG-DynamicMemory-browser.js');
 let JpegBaseline = require('../../external/scripts/jpeg');
 let Jpx = require('../../external/scripts/jpx');
 let openJPEG; // for one time initialization

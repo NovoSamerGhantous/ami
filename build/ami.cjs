@@ -26,33 +26,13 @@ var Vector3 = require('three/src/math/Vector3');
 var three = require('three');
 var EventEmitter = require('events');
 var constants = require('three/src/constants');
-var OpenJPEG = require('OpenJPEG.js/dist/openJPEG-DynamicMemory-browser.js');
 var NiftiReader = require('nifti-reader-js/src/nifti');
 var Vector2 = require('three/src/math/Vector2');
 require('three/examples/jsm/controls/OrbitControls');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-function _interopNamespace(e) {
-	if (e && e.__esModule) return e;
-	var n = Object.create(null);
-	if (e) {
-		Object.keys(e).forEach(function (k) {
-			if (k !== 'default') {
-				var d = Object.getOwnPropertyDescriptor(e, k);
-				Object.defineProperty(n, k, d.get ? d : {
-					enumerable: true,
-					get: function () { return e[k]; }
-				});
-			}
-		});
-	}
-	n["default"] = e;
-	return Object.freeze(n);
-}
-
 var EventEmitter__default = /*#__PURE__*/_interopDefaultLegacy(EventEmitter);
-var OpenJPEG__namespace = /*#__PURE__*/_interopNamespace(OpenJPEG);
 var NiftiReader__default = /*#__PURE__*/_interopDefaultLegacy(NiftiReader);
 
 /**
@@ -11138,6 +11118,8 @@ let DicomParser = require('dicom-parser');
 
 let Jpeg = require('jpeg-lossless-decoder-js');
 
+let OpenJPEG = require('OpenJPEG.js/dist/openJPEG-DynamicMemory-browser.js');
+
 let JpegBaseline = require('../../external/scripts/jpeg');
 
 let Jpx = require('../../external/scripts/jpx');
@@ -12067,13 +12049,13 @@ class ParsersDicom extends ParsersVolume {
 
 
 	_decodeJ2K(frameIndex = 0) {
-		if (typeof OpenJPEG__namespace === 'undefined') {
+		if (typeof OpenJPEG === 'undefined') {
 			// OpenJPEG decoder not loaded
 			return this._decodeJpx(frameIndex);
 		}
 
 		if (!openJPEG) {
-			openJPEG = OpenJPEG__namespace();
+			openJPEG = OpenJPEG();
 
 			if (!openJPEG || !openJPEG._jp2_decode) {
 				// OpenJPEG failed to initialize

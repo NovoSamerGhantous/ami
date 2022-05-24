@@ -22,7 +22,6 @@ import { Vector3 } from 'three/src/math/Vector3';
 import { OrthographicCamera, Vector3 as Vector3$1, Matrix4 as Matrix4$1, EventDispatcher, Vector2, Quaternion, MOUSE, Spherical, ShapeBufferGeometry, Shape, Float32BufferAttribute, BoxGeometry, Object3D, LineBasicMaterial, BufferGeometry as BufferGeometry$1, Line, MeshBasicMaterial, Mesh, BoxHelper, ShaderMaterial, DoubleSide, Texture, UVMapping, ClampToEdgeWrapping, NearestFilter, DataTexture, UnsignedByteType, Color, Vector4, BackSide, Raycaster as Raycaster$1, SphereGeometry, BufferAttribute as BufferAttribute$1, LineSegments, CylinderGeometry, Ray, ShapeGeometry, EllipseCurve, PlaneGeometry } from 'three';
 import EventEmitter from 'events';
 import { RGBAFormat, RGBFormat } from 'three/src/constants';
-import * as OpenJPEG from 'OpenJPEG.js/dist/openJPEG-DynamicMemory-browser.js';
 import NiftiReader from 'nifti-reader-js/src/nifti';
 import { Vector2 as Vector2$1 } from 'three/src/math/Vector2';
 import 'three/examples/jsm/controls/OrbitControls';
@@ -12357,6 +12356,7 @@ const RLEDecoder = decodeRLE;
 
 let DicomParser = require('dicom-parser');
 let Jpeg = require('jpeg-lossless-decoder-js');
+let OpenJPEG = require('OpenJPEG.js/dist/openJPEG-DynamicMemory-browser.js');
 let JpegBaseline = require('../../external/scripts/jpeg');
 let Jpx = require('../../external/scripts/jpx');
 let openJPEG; // for one time initialization
