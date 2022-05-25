@@ -348,8 +348,7 @@ class helpersSlice extends helpersMaterialMixin {
 
     // Convenience vars
     try {
-      const SliceGeometryContructor = geometriesSlice();
-      this._geometry = new SliceGeometryContructor(
+      this._geometry = new geometriesSlice(
         this._halfDimensions,
         this._center,
         this._planePosition,

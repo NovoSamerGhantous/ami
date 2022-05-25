@@ -6782,8 +6782,7 @@ ${this._main}
 
 
 			try {
-				const SliceGeometryContructor = geometriesSlice();
-				this._geometry = new SliceGeometryContructor(this._halfDimensions, this._center, this._planePosition, this._planeDirection, this._toAABB);
+				this._geometry = new geometriesSlice(this._halfDimensions, this._center, this._planePosition, this._planeDirection, this._toAABB);
 			} catch (e) {
 				console.log(e);
 				console.log('invalid slice geometry - exiting...');
@@ -7338,8 +7337,7 @@ ${this._main}
 
 
 		_prepareBorder() {
-			const HelpersBorderContructor = helpersBorder();
-			this._border = new HelpersBorderContructor(this._slice);
+			this._border = new helpersBorder(this._slice);
 			this.add(this._border);
 		}
 		/**
@@ -7360,8 +7358,7 @@ ${this._main}
 
 			let direction = this._prepareDirection(this._orientation);
 
-			const SliceHelperConstructor = helpersSlice();
-			this._slice = new SliceHelperConstructor(this._stack, this._index, position, direction);
+			this._slice = new helpersSlice(this._stack, this._index, position, direction);
 			this.add(this._slice);
 		}
 		/**

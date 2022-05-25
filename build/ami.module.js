@@ -7863,8 +7863,7 @@ class helpersSlice extends helpersMaterialMixin {
 
     // Convenience vars
     try {
-      const SliceGeometryContructor = geometriesSlice();
-      this._geometry = new SliceGeometryContructor(
+      this._geometry = new geometriesSlice(
         this._halfDimensions,
         this._center,
         this._planePosition,
@@ -8419,8 +8418,7 @@ class helpersStack extends Object3D {
    * @private
    */
   _prepareBorder() {
-    const HelpersBorderContructor = helpersBorder();
-    this._border = new HelpersBorderContructor(this._slice);
+    this._border = new helpersBorder(this._slice);
     this.add(this._border);
   }
 
@@ -8439,8 +8437,7 @@ class helpersStack extends Object3D {
     // compute initial direction orientation
     let direction = this._prepareDirection(this._orientation);
 
-    const SliceHelperConstructor = helpersSlice();
-    this._slice = new SliceHelperConstructor(this._stack, this._index, position, direction);
+    this._slice = new helpersSlice(this._stack, this._index, position, direction);
     this.add(this._slice);
   }
 
