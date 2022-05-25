@@ -27683,10 +27683,10 @@ class widgetsBiruler extends widgetsBase {
 		//	 this._handles[2].worldPosition,
 		//	 this._handles[3].worldPosition,
 		// ];
-		this._geometry = new BufferGeometry();
+		this._geometry = new three.BufferGeometry();
 		const positions = new Float32Array(4 * 3);
 
-		this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+		this._geometry.setAttribute('position', new three.BufferAttribute(positions, 3));
 
 		let index = 0;
 		positions[index++] = this._handles[0].worldPosition.x;
@@ -28173,10 +28173,10 @@ class widgetsCrossRuler extends widgetsBase {
 		//	 this._handles[2].worldPosition,
 		//	 this._handles[3].worldPosition,
 		// ];
-		this._geometry = new BufferGeometry();
+		this._geometry = new three.BufferGeometry();
 		const positions = new Float32Array(4 * 3);
 
-		this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+		this._geometry.setAttribute('position', new three.BufferAttribute(positions, 3));
 
 		let index = 0;
 		positions[index++] = this._handles[0].worldPosition.x;
@@ -30128,10 +30128,10 @@ class widgetsPressureHalfTime extends widgetsBase {
 		// geometry
 		// this._geometry = new three.Geometry();
 		// this._geometry.vertices = [this._handles[0].worldPosition, this._handles[1].worldPosition];
-		this._geometry = new BufferGeometry();
+		this._geometry = new three.BufferGeometry();
 		const positions = new Float32Array(2 * 3);
 
-		this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+		this._geometry.setAttribute('position', new three.BufferAttribute(positions, 3));
 
 		let index = 0;
 		positions[index++] = this._handles[0].worldPosition.x;
@@ -31516,10 +31516,10 @@ class widgetsRuler extends widgetsBase {
 		// this._geometry = new three.Geometry();
 		// this._geometry.vertices.push(this._handles[0].worldPosition);
 		// this._geometry.vertices.push(this._handles[1].worldPosition);
-		this._geometry = new BufferGeometry();
+		this._geometry = new three.BufferGeometry();
 		const positions = new Float32Array(2 * 3);
 
-		this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
+		this._geometry.setAttribute('position', new three.BufferAttribute(positions, 3));
 
 		let index = 0;
 		positions[index++] = this._handles[0].worldPosition.x;

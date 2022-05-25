@@ -1,8 +1,7 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
-import * as AMIThree from 'three';
-import { Line, LineBasicMaterial } from 'three';
+import { BufferAttribute, BufferGeometry, Line, LineBasicMaterial } from 'three';
 
 /**
  * @module widgets/pressureHalfTime

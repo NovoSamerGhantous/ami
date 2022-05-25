@@ -1,4 +1,4 @@
-import { Line, LineBasicMaterial } from 'three';
+import { BufferAttribute, BufferGeometry, Line, LineBasicMaterial } from 'three';
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle } from './widgets.handle';
 

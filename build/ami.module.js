@@ -14,7 +14,7 @@
 			 * See the License for the specific language governing permissions and
 			 * limitations under the License.
 			 */
-import { Matrix4, Vector3, Box3, Raycaster, Triangle, OrthographicCamera, EventDispatcher, Vector2, Quaternion, MOUSE, Spherical, ShapeBufferGeometry, Shape, Float32BufferAttribute, BoxGeometry, Object3D, LineBasicMaterial, BufferGeometry as BufferGeometry$1, Line, MeshBasicMaterial, Mesh, BoxHelper, ShaderMaterial, DoubleSide, Texture, UVMapping, ClampToEdgeWrapping, NearestFilter, DataTexture, UnsignedByteType, Color, Vector4, BackSide, RGBAFormat, RGBFormat, SphereGeometry, BufferAttribute as BufferAttribute$1, LineSegments, CylinderGeometry, Ray, ShapeGeometry, EllipseCurve, PlaneGeometry } from 'three';
+import { Matrix4, Vector3, Box3, Raycaster, Triangle, OrthographicCamera, EventDispatcher, Vector2, Quaternion, MOUSE, Spherical, ShapeBufferGeometry, Shape, Float32BufferAttribute, BoxGeometry, Object3D, LineBasicMaterial, BufferGeometry, Line, MeshBasicMaterial, Mesh, BoxHelper, ShaderMaterial, DoubleSide, Texture, UVMapping, ClampToEdgeWrapping, NearestFilter, DataTexture, UnsignedByteType, Color, Vector4, BackSide, RGBAFormat, RGBFormat, SphereGeometry, BufferAttribute, LineSegments, CylinderGeometry, Ray, ShapeGeometry, EllipseCurve, PlaneGeometry } from 'three';
 import EventEmitter from 'events';
 import binaryString from 'math-float32-to-binary-string';
 import * as DicomParser from 'dicom-parser';
@@ -4341,7 +4341,7 @@ class helpersBorder extends Object3D {
       return;
     }
 
-    this._geometry = new BufferGeometry$1();
+    this._geometry = new BufferGeometry();
 
     // set vertices positions
     const nbOfVertices = this._helpersSlice.geometry.vertices.length;
@@ -22499,9 +22499,9 @@ class widgetsAngle extends widgetsBase {
     //   this._handles[1].worldPosition,
     //   this._handles[2].worldPosition,
     // ];
-    this._geometry = new BufferGeometry$1();
+    this._geometry = new BufferGeometry();
     const positions = new Float32Array(4 * 3);
-    this._geometry.setAttribute('position', new BufferAttribute$1(positions, 3));
+    this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
     let index = 0;
     positions[index++] = this._handles[0].worldPosition.x;
     positions[index++] = this._handles[0].worldPosition.y;
@@ -22936,9 +22936,9 @@ class widgetsAnnotation extends widgetsBase {
     // this._geometry = new three.Geometry();
     // this._geometry.vertices.push(this._handles[0].worldPosition);
     // this._geometry.vertices.push(this._handles[1].worldPosition);
-    this._geometry = new BufferGeometry$1();
+    this._geometry = new BufferGeometry();
     const positions = new Float32Array(2 * 3);
-    this._geometry.setAttribute('position', new BufferAttribute$1(positions, 3));
+    this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
     let index = 0;
     positions[index++] = this._handles[0].worldPosition.x;
     positions[index++] = this._handles[0].worldPosition.y;
@@ -27860,9 +27860,9 @@ class widgetsVelocityTimeIntegral extends widgetsBase {
     // this._handles.forEach(elem => this._geometry.vertices.push(elem.worldPosition));
     // this._geometry.vertices.push(this._handles[0].worldPosition);
     // this._geometry.verticesNeedUpdate = true;
-    this._geometry = new BufferGeometry$1();
+    this._geometry = new BufferGeometry();
     const positions = new Float32Array(this._handles.length * 3);
-    this._geometry.setAttribute('position', new BufferAttribute$1(positions, 3));
+    this._geometry.setAttribute('position', new BufferAttribute(positions, 3));
     let index = 0;
     this._handles.forEach(handle => {
       positions[index++] = handle.worldPosition.x;

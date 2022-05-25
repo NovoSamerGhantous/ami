@@ -1,6 +1,6 @@
 import { widgetsBase } from './widgets.base';
 import { widgetsHandle } from './widgets.handle';
-import { LineBasicMaterial, LineSegments, Ray, Vector3 } from 'three';
+import { BufferAttribute, BufferGeometry, LineBasicMaterial, LineSegments, Ray, Vector3 } from 'three';
 
 /**
  * @module widgets/crossRuler
