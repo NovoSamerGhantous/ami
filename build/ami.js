@@ -7014,34 +7014,11 @@ ${this._main}
 	 */
 
 	class helpersStack extends three.Object3D {
-		constructor(stack) {
-			//
-			super();
-			this._stack = stack;
-			this._bBox = null;
-			this._slice = null;
-			this._border = null;
-			this._dummy = null;
-			this._orientation = 0;
-			this._index = 0;
-			this._uniforms = null;
-			this._autoWindowLevel = false;
-			this._outOfBounds = false;
-			this._orientationMaxIndex = 0;
-			this._orientationSpacing = 0;
-			this._canvasWidth = 0;
-			this._canvasHeight = 0;
-			this._borderColor = null;
-
-			this._create();
-		}
 		/**
 		 * Get stack.
 		 *
 		 * @type {ModelsStack}
 		 */
-
-
 		get stack() {
 			return this._stack;
 		}
@@ -7212,6 +7189,28 @@ ${this._main}
 
 		get borderColor() {
 			return this._borderColor;
+		}
+
+		constructor(stack) {
+			//
+			super();
+			this._stack = stack;
+			this._bBox = null;
+			this._slice = null;
+			this._border = null;
+			this._dummy = null;
+			this._orientation = 0;
+			this._index = 0;
+			this._uniforms = null;
+			this._autoWindowLevel = false;
+			this._outOfBounds = false;
+			this._orientationMaxIndex = 0;
+			this._orientationSpacing = 0;
+			this._canvasWidth = 0;
+			this._canvasHeight = 0;
+			this._borderColor = null;
+
+			this._create();
 		} //
 		// PRIVATE METHODS
 		//
@@ -7327,8 +7326,7 @@ ${this._main}
 
 
 		_prepareBBox() {
-			const HelpersBoundingBoxConstructor = helpersBoundingBox();
-			this._bBox = new HelpersBoundingBoxConstructor(this._stack);
+			this._bBox = new helpersBoundingBox(this._stack);
 			this.add(this._bBox);
 		}
 		/**
