@@ -10,6 +10,6 @@ export * from './presets/presets';
 export * from './shaders/shaders';
 export * from './widgets/widgets';
 
-const packageVersion = require('../package.json').version;
+/* const packageVersion = require('../package.json').version;
 const d3Version = require('three/package').version;
-console.log(`AMI ${packageVersion} (three ${d3Version})`);
+console.log(`AMI ${packageVersion} (three ${d3Version})`); */

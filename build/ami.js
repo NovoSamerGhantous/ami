@@ -15,10 +15,10 @@
 			 * limitations under the License.
 			 */
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('three'), require('events'), require('dicom-parser'), require('jpeg-lossless-decoder-js'), require('OpenJPEG.js'), require('nifti-reader-js'), require('pako'), require('nrrd-js')) :
-	typeof define === 'function' && define.amd ? define(['exports', 'three', 'events', 'dicom-parser', 'jpeg-lossless-decoder-js', 'OpenJPEG.js', 'nifti-reader-js', 'pako', 'nrrd-js'], factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.AMI = {}, global.three, global.EventEmitter, global.DicomParser, global.Jpeg, global.OpenJPEG, global.NiftiReader, global.pako, global.NrrdReader));
-})(this, (function (exports, three, EventEmitter, DicomParser, Jpeg, OpenJPEG, NiftiReader, pako, NrrdReader) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('three'), require('events'), require('math-float32-to-binary-string'), require('dicom-parser'), require('jpeg-lossless-decoder-js'), require('OpenJPEG.js'), require('nifti-reader-js'), require('pako'), require('nrrd-js')) :
+	typeof define === 'function' && define.amd ? define(['exports', 'three', 'events', 'math-float32-to-binary-string', 'dicom-parser', 'jpeg-lossless-decoder-js', 'OpenJPEG.js', 'nifti-reader-js', 'pako', 'nrrd-js'], factory) :
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.AMI = {}, global.three, global.EventEmitter, global.binaryString, global.DicomParser, global.Jpeg, global.OpenJPEG, global.NiftiReader, global.pako, global.NrrdReader));
+})(this, (function (exports, three, EventEmitter, binaryString, DicomParser, Jpeg, OpenJPEG, NiftiReader, pako, NrrdReader) { 'use strict';
 
 	function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -41,6 +41,7 @@
 	}
 
 	var EventEmitter__default = /*#__PURE__*/_interopDefaultLegacy(EventEmitter);
+	var binaryString__default = /*#__PURE__*/_interopDefaultLegacy(binaryString);
 	var DicomParser__namespace = /*#__PURE__*/_interopNamespace(DicomParser);
 	var Jpeg__namespace = /*#__PURE__*/_interopNamespace(Jpeg);
 	var OpenJPEG__namespace = /*#__PURE__*/_interopNamespace(OpenJPEG);
@@ -9203,14 +9204,11 @@ ${this._main}
 	}
 
 	/** * Imports ***/
-
-	const binaryString = require('math-float32-to-binary-string');
 	/**
 	 * Stack object.
 	 *
 	 * @module models/stack
 	 */
-
 
 	class ModelsStack extends ModelsBase {
 		/**
@@ -9759,7 +9757,7 @@ ${this._main}
 					let raw = frame[frameIndex].pixelData[inFrameIndex] + offset;
 
 					if (!Number.isNaN(raw)) {
-						let bitString = binaryString(raw);
+						let bitString = binaryString__default["default"](raw);
 						let bitStringArray = bitString.match(/.{1,8}/g);
 						data[4 * packIndex] = parseInt(bitStringArray[0], 2);
 						data[4 * packIndex + 1] = parseInt(bitStringArray[1], 2);
@@ -18675,7 +18673,6 @@ ${this._main}
 	ParsersMgh.TAG_FIELDSTRENGTH = 43;
 
 	/** * Imports ***/
-	const PAKO = require('pako');
 	/**
 	 *
 	 * It is typically used to load a DICOM image. Use loading manager for
@@ -19008,7 +19005,7 @@ ${this._main}
 			}
 
 			if (data.gzcompressed) {
-				let decompressedData = PAKO.inflate(data.buffer);
+				let decompressedData = pako__namespace.inflate(data.buffer);
 				data.buffer = decompressedData.buffer;
 			}
 		}
@@ -32641,12 +32638,6 @@ void main() {
 		}
 
 	}
-
-	const packageVersion = require('../package.json').version;
-
-	const d3Version = require('three/package').version;
-
-	console.log(`AMI ${packageVersion} (three ${d3Version})`);
 
 	exports.AngleWidget = widgetsAngle;
 	exports.AnnotationWidget = widgetsAnnotation;

@@ -20,6 +20,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var three = require('three');
 var EventEmitter = require('events');
+var binaryString = require('math-float32-to-binary-string');
 var DicomParser = require('dicom-parser');
 var Jpeg = require('jpeg-lossless-decoder-js');
 var OpenJPEG = require('OpenJPEG.js');
@@ -48,6 +49,7 @@ function _interopNamespace(e) {
 }
 
 var EventEmitter__default = /*#__PURE__*/_interopDefaultLegacy(EventEmitter);
+var binaryString__default = /*#__PURE__*/_interopDefaultLegacy(binaryString);
 var DicomParser__namespace = /*#__PURE__*/_interopNamespace(DicomParser);
 var Jpeg__namespace = /*#__PURE__*/_interopNamespace(Jpeg);
 var OpenJPEG__namespace = /*#__PURE__*/_interopNamespace(OpenJPEG);
@@ -9210,14 +9212,11 @@ class ModelsSeries extends ModelsBase {
 }
 
 /** * Imports ***/
-
-const binaryString = require('math-float32-to-binary-string');
 /**
  * Stack object.
  *
  * @module models/stack
  */
-
 
 class ModelsStack extends ModelsBase {
 	/**
@@ -9766,7 +9765,7 @@ class ModelsStack extends ModelsBase {
 				let raw = frame[frameIndex].pixelData[inFrameIndex] + offset;
 
 				if (!Number.isNaN(raw)) {
-					let bitString = binaryString(raw);
+					let bitString = binaryString__default["default"](raw);
 					let bitStringArray = bitString.match(/.{1,8}/g);
 					data[4 * packIndex] = parseInt(bitStringArray[0], 2);
 					data[4 * packIndex + 1] = parseInt(bitStringArray[1], 2);
@@ -18682,7 +18681,6 @@ ParsersMgh.TAG_MRI_FRAME = 42;
 ParsersMgh.TAG_FIELDSTRENGTH = 43;
 
 /** * Imports ***/
-const PAKO = require('pako');
 /**
  *
  * It is typically used to load a DICOM image. Use loading manager for
@@ -19015,7 +19013,7 @@ class LoadersVolumes extends LoadersBase {
 		}
 
 		if (data.gzcompressed) {
-			let decompressedData = PAKO.inflate(data.buffer);
+			let decompressedData = pako__namespace.inflate(data.buffer);
 			data.buffer = decompressedData.buffer;
 		}
 	}
@@ -32648,12 +32646,6 @@ class widgetsVoxelprobe extends widgetsBase {
 	}
 
 }
-
-const packageVersion = require('../package.json').version;
-
-const d3Version = require('three/package').version;
-
-console.log(`AMI ${packageVersion} (three ${d3Version})`);
 
 exports.AngleWidget = widgetsAngle;
 exports.AnnotationWidget = widgetsAnnotation;

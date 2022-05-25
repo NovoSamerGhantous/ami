@@ -16,6 +16,7 @@
 			 */
 import { Matrix4, Vector3, Box3, Raycaster, Triangle, OrthographicCamera, EventDispatcher, Vector2, Quaternion, MOUSE, Spherical, ShapeBufferGeometry, Shape, Float32BufferAttribute, BoxGeometry, Object3D, LineBasicMaterial, BufferGeometry as BufferGeometry$1, Line, MeshBasicMaterial, Mesh, BoxHelper, ShaderMaterial, DoubleSide, Texture, UVMapping, ClampToEdgeWrapping, NearestFilter, DataTexture, UnsignedByteType, Color, Vector4, BackSide, RGBAFormat, RGBFormat, SphereGeometry, BufferAttribute as BufferAttribute$1, LineSegments, CylinderGeometry, Ray, ShapeGeometry, EllipseCurve, PlaneGeometry } from 'three';
 import EventEmitter from 'events';
+import binaryString from 'math-float32-to-binary-string';
 import * as DicomParser from 'dicom-parser';
 import * as Jpeg from 'jpeg-lossless-decoder-js';
 import * as OpenJPEG from 'OpenJPEG.js';
@@ -10242,8 +10243,6 @@ class ModelsSeries extends ModelsBase {
 
 /** * Imports ***/
 
-const binaryString = require('math-float32-to-binary-string');
-
 /**
  * Stack object.
  *
@@ -19345,8 +19344,6 @@ ParsersMgh.TAG_MRI_FRAME = 42;
 ParsersMgh.TAG_FIELDSTRENGTH = 43;
 
 /** * Imports ***/
-const PAKO = require('pako');
-
 /**
  *
  * It is typically used to load a DICOM image. Use loading manager for
@@ -19678,7 +19675,7 @@ class LoadersVolumes extends LoadersBase {
     }
 
     if (data.gzcompressed) {
-      let decompressedData = PAKO.inflate(data.buffer);
+      let decompressedData = pako.inflate(data.buffer);
       data.buffer = decompressedData.buffer;
     }
   }
@@ -28352,9 +28349,5 @@ class widgetsVoxelprobe extends widgetsBase {
     this.update();
   }
 }
-
-const packageVersion = require('../package.json').version;
-const d3Version = require('three/package').version;
-console.log(`AMI ${packageVersion} (three ${d3Version})`);
 
 export { widgetsAngle as AngleWidget, widgetsAnnotation as AnnotationWidget, widgetsBiruler as BiRulerWidget, helpersBorder as BorderHelper, helpersBoundingBox as BoundingBoxHelper, Colors as ColorsCore, ShadersFragment$4 as ContourFragmentShader, helpersContour as ContourHelper, ShadersUniform$4 as ContourUniformShader, ShadersVertex$4 as ContourVertexShader, widgetsCrossRuler as CrossRulerWidget, ShadersFragment$2 as DataFragmentShader, ShadersUniform$2 as DataUniformShader, ShadersVertex$2 as DataVertexShader, ParsersDicom as DicomParser, widgetsEllipse as EllipseWidget, ModelsFrame as FrameModel, widgetsFreehand as FreehandWidget, widgetsHandle as HandleWidget, Intersections as IntersectionsCore, ShadersFragment as LayerFragmentShader, ShadersUniform as LayerUniformShader, ShadersVertex as LayerVertexShader, ShadersFragment$3 as LocalizerFragmentShader, helpersLocalizer as LocalizerHelper, ShadersUniform$3 as LocalizerUniformShader, ShadersVertex$3 as LocalizerVertexShader, helpersLut as LutHelper, ParsersMgh as MghParser, ParsersNifti$1 as NiftiParser, ParsersNifti as NrrdParser, OrbitControls as OrbitControl, camerasOrthographic as OrthographicCamera, widgetsPeakVelocity as PeakVelocityWidget, widgetsPolygon as PolygonWidget, widgetsPressureHalfTime as PressureHalfTimeWidget, HelpersProgressBarEventBased as ProgressBarEventBasedHelper, HelpersProgressBar as ProgressBarHelper, widgetsRectangle as RectangleWidget, widgetsRuler as RulerWidget, HelpersSegmentationLut as SegmentationLutHelper, PresetsSegmentation as SegmentationPreset, ModelsSeries as SeriesModel, geometriesSlice as SliceGeometry, helpersSlice as SliceHelper, helpersStack as StackHelper, ModelsStack as StackModel, trackball as TrackballControl, trackballOrtho as TrackballOrthoControl, CoreUtils as UtilsCore, ShadersFragment$1 as VRFragmentShader, ShadersUniform$1 as VRUniformShader, ShadersVertex$1 as VRVertexShader, Validators as ValidatorsCore, widgetsVelocityTimeIntegral as VelocityTimeIntegralWidget, LoadersVolumes as VolumeLoader, helpersVolumeRendering as VolumeRenderingHelper, geometriesVoxel as VoxelGeometry, ModelsVoxel as VoxelModel, widgetsVoxelprobe as VoxelProbeWidget, WidgetsCss };

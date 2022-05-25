@@ -1,6 +1,4 @@
 /** * Imports ***/
-const PAKO = require('pako');
-
 import LoadersBase from './loaders.base';
 import CoreUtils from '../core/core.utils';
 import ModelsSeries from '../models/models.series';
@@ -12,6 +10,7 @@ import ParsersNifti from '../parsers/parsers.nifti';
 import ParsersNrrd from '../parsers/parsers.nrrd';
 import ParsersMgh from '../parsers/parsers.mgh';
 
+import * as pako from 'pako';
 /**
  *
  * It is typically used to load a DICOM image. Use loading manager for
@@ -343,7 +342,7 @@ export default class LoadersVolumes extends LoadersBase {
     }
 
     if (data.gzcompressed) {
-      let decompressedData = PAKO.inflate(data.buffer);
+      let decompressedData = pako.inflate(data.buffer);
       data.buffer = decompressedData.buffer;
     }
   }
