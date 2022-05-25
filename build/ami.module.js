@@ -758,7 +758,7 @@ class Intersections {
 
     // invert space matrix
     let fromAABB = new Matrix4();
-    fromAABB.copy(aabb.toAABB.invert());
+    fromAABB.copy(aabb.toAABB).invert();
 
     let t1 = plane.direction.clone().applyMatrix4(aabb.toAABB);
     let t0 = new Vector3(0, 0, 0).applyMatrix4(aabb.toAABB);
@@ -10661,7 +10661,7 @@ class ModelsStack extends ModelsBase {
 
     // lps 2 ijk
     this._lps2IJK = new Matrix4();
-    this._lps2IJK.copy(this._ijk2LPS.invert());
+    this._lps2IJK.copy(this._ijk2LPS).invert();
   }
 
   /**
@@ -10671,7 +10671,7 @@ class ModelsStack extends ModelsBase {
     this._aabb2LPS = CoreUtils.aabb2LPS(this._xCosine, this._yCosine, this._zCosine, this._origin);
 
     this._lps2AABB = new Matrix4();
-    this._lps2AABB.copy(this._aabb2LPS.invert());
+    this._lps2AABB.copy(this._aabb2LPS).invert();
   }
 
   /**

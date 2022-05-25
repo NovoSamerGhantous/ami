@@ -673,7 +673,7 @@
 
 
 			let fromAABB = new three.Matrix4();
-			fromAABB.copy(aabb.toAABB.invert());
+			fromAABB.copy(aabb.toAABB).invert();
 			let t1 = plane.direction.clone().applyMatrix4(aabb.toAABB);
 			let t0 = new three.Vector3(0, 0, 0).applyMatrix4(aabb.toAABB);
 			let planeAABB = this.posdir(plane.position.clone().applyMatrix4(aabb.toAABB), new three.Vector3(t1.x - t0.x, t1.y - t0.y, t1.z - t0.z).normalize());
@@ -9579,7 +9579,7 @@ ${this._main}
 
 			this._lps2IJK = new three.Matrix4();
 
-			this._lps2IJK.copy(this._ijk2LPS.invert());
+			this._lps2IJK.copy(this._ijk2LPS).invert();
 		}
 		/**
 		 * Compute LPS to AABB and invert transforms
@@ -9590,7 +9590,7 @@ ${this._main}
 			this._aabb2LPS = CoreUtils.aabb2LPS(this._xCosine, this._yCosine, this._zCosine, this._origin);
 			this._lps2AABB = new three.Matrix4();
 
-			this._lps2AABB.copy(this._aabb2LPS.invert());
+			this._lps2AABB.copy(this._aabb2LPS).invert();
 		}
 		/**
 		 * Merge stacks
