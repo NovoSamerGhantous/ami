@@ -172,7 +172,7 @@ export default class CoreUtils {
    * @param {*} origin
    * @param {*} registrationMatrix
    *
-   * @return {*}
+   * @return {Matrix4}
    */
   static ijk2LPS(xCos, yCos, zCos, spacing, origin, registrationMatrix = new Matrix4()) {
     const ijk2LPS = new Matrix4();

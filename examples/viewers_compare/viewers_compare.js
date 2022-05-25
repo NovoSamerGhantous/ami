@@ -86,7 +86,7 @@ function init() {
     render();
 
     // request new frame
-    requestAnimationFrame(function() {
+    requestAnimationFrame(function () {
       animate();
     });
   }
@@ -143,7 +143,7 @@ function init() {
   animate();
 }
 
-window.onload = function() {
+window.onload = function () {
   // init threeJS...
   init();
 
@@ -152,7 +152,7 @@ window.onload = function() {
     'patient2/7002_t1_average_BRAINSABC.nii.gz',
   ];
 
-  let files = data.map(function(v) {
+  let files = data.map(function (v) {
     return 'https://cdn.rawgit.com/FNNDSC/data/master/nifti/slicer_brain/' + v;
   });
 
@@ -178,7 +178,7 @@ window.onload = function() {
         // add mesh in this scene with right shaders...
         meshLayerMix = new THREE.Mesh(stackHelper.slice.geometry, materialLayerMix);
         // go the LPS space
-        meshLayerMix.applyMatrix(stackHelper.stack._ijk2LPS);
+        meshLayerMix.applyMatrix4(stackHelper.stack._ijk2LPS);
 
         sceneLayerMix.add(meshLayerMix);
       }
@@ -209,7 +209,7 @@ window.onload = function() {
     layer0Folder.add(stackHelper.slice, 'invert');
 
     let lutUpdate = layer0Folder.add(stackHelper.slice, 'lut', lutLayer0.lutsAvailable());
-    lutUpdate.onChange(function(value) {
+    lutUpdate.onChange(function (value) {
       lutLayer0.lut = value;
       stackHelper.slice.lutTexture = lutLayer0.texture;
     });
@@ -218,7 +218,7 @@ window.onload = function() {
       .add(stackHelper, 'index', 0, stack.dimensionsIJK.z - 1)
       .step(1)
       .listen();
-    indexUpdate.onChange(function() {
+    indexUpdate.onChange(function () {
       updateLayer1();
       updateLayerMix();
     });
@@ -238,7 +238,7 @@ window.onload = function() {
       .add(layer1, 'interpolation', 0, 1)
       .step(1)
       .listen();
-    interpolationLayer1.onChange(function(value) {
+    interpolationLayer1.onChange(function (value) {
       uniformsLayer1.uInterpolation.value = value;
       // re-compute shaders
       let fs = new ShadersFragment(uniformsLayer1);
@@ -246,7 +246,7 @@ window.onload = function() {
       materialLayer1.needsUpdate = true;
     });
     let layer1LutUpdate = layer1Folder.add(layer1, 'lut', lutLayer1.lutsAvailable());
-    layer1LutUpdate.onChange(function(value) {
+    layer1LutUpdate.onChange(function (value) {
       lutLayer1.lut = value;
       // propagate to shaders
       uniformsLayer1.uLut.value = 1;
@@ -263,12 +263,12 @@ window.onload = function() {
       .add(layerMix, 'opacity1', 0, 1)
       .step(0.01)
       .listen();
-    opacityLayerMix.onChange(function(value) {
+    opacityLayerMix.onChange(function (value) {
       uniformsLayerMix.uOpacity1.value = value;
     });
 
     let layerMixTrackMouseUpdate = layerMixFolder.add(layerMix, 'trackMouse');
-    layerMixTrackMouseUpdate.onChange(function(value) {
+    layerMixTrackMouseUpdate.onChange(function (value) {
       if (value) {
         uniformsLayerMix.uTrackMouse.value = 1;
       } else {
@@ -279,7 +279,7 @@ window.onload = function() {
     layerMixFolder.open();
 
     // hook up callbacks
-    controls.addEventListener('OnScroll', function(e) {
+    controls.addEventListener('OnScroll', function (e) {
       if (e.delta > 0) {
         if (stackHelper.index >= stack.dimensionsIJK.z - 1) {
           return false;
@@ -412,7 +412,7 @@ window.onload = function() {
     // add mesh in this scene with right shaders...
     meshLayer1 = new THREE.Mesh(stackHelper.slice.geometry, materialLayer1);
     // go the LPS space
-    meshLayer1.applyMatrix(stack._ijk2LPS);
+    meshLayer1.applyMatrix4(stack._ijk2LPS);
     sceneLayer1.add(meshLayer1);
 
     //
@@ -437,7 +437,7 @@ window.onload = function() {
     // add mesh in this scene with right shaders...
     meshLayerMix = new THREE.Mesh(stackHelper.slice.geometry, materialLayerMix);
     // go the LPS space
-    meshLayerMix.applyMatrix(stack._ijk2LPS);
+    meshLayerMix.applyMatrix4(stack._ijk2LPS);
     sceneLayerMix.add(meshLayerMix);
 
     // set camera
@@ -492,7 +492,7 @@ window.onload = function() {
   // load sequence for each file
   loader
     .load(files)
-    .then(function() {
+    .then(function () {
       handleSeries();
       // force 1st render
       render();
@@ -501,7 +501,7 @@ window.onload = function() {
       puppetDiv.setAttribute('id', 'puppeteer');
       document.body.appendChild(puppetDiv);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       window.console.log('oops... something went wrong...');
       window.console.log(error);
     });

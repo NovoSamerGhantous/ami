@@ -283,7 +283,7 @@ function render() {
     r1.renderer.render(r1.scene, r1.camera);
     // mesh
     r1.renderer.clearDepth();
-    data.forEach(function(object, key) {
+    data.forEach(function (object, key) {
       object.materialFront.clippingPlanes = [clipPlane1];
       object.materialBack.clippingPlanes = [clipPlane1];
       r1.renderer.render(object.scene, r1.camera, redTextureTarget, true);
@@ -303,7 +303,7 @@ function render() {
     r2.renderer.render(r2.scene, r2.camera);
     // mesh
     r2.renderer.clearDepth();
-    data.forEach(function(object, key) {
+    data.forEach(function (object, key) {
       object.materialFront.clippingPlanes = [clipPlane2];
       object.materialBack.clippingPlanes = [clipPlane2];
     });
@@ -317,7 +317,7 @@ function render() {
     r3.renderer.render(r3.scene, r3.camera);
     // mesh
     r3.renderer.clearDepth();
-    data.forEach(function(object, key) {
+    data.forEach(function (object, key) {
       object.materialFront.clippingPlanes = [clipPlane3];
       object.materialBack.clippingPlanes = [clipPlane3];
     });
@@ -341,7 +341,7 @@ function init() {
     render();
 
     // request new frame
-    requestAnimationFrame(function() {
+    requestAnimationFrame(function () {
       animate();
     });
   }
@@ -356,7 +356,7 @@ function init() {
   animate();
 }
 
-window.onload = function() {
+window.onload = function () {
   // init threeJS
   init();
 
@@ -368,7 +368,7 @@ window.onload = function() {
   let loader = new LoadersVolume();
   loader
     .load(files)
-    .then(function() {
+    .then(function () {
       let series = loader.data[0].mergeSeries(loader.data)[0];
       loader.free();
       loader = null;
@@ -742,7 +742,7 @@ window.onload = function() {
       let meshesLoaded = 0;
       function loadSTLObject(object) {
         const stlLoader = new THREE.FreeSurferLoader();
-        stlLoader.load(object.location, function(geometry) {
+        stlLoader.load(object.location, function (geometry) {
           geometry.computeVertexNormals();
           // 3D mesh
           object.material = new THREE.MeshLambertMaterial({
@@ -775,7 +775,7 @@ window.onload = function() {
             0,
             1
           );
-          object.mesh.applyMatrix(RASToLPS);
+          object.mesh.applyMatrix4(RASToLPS);
           r0.scene.add(object.mesh);
 
           object.scene = new THREE.Scene();
@@ -791,7 +791,7 @@ window.onload = function() {
           });
 
           object.meshFront = new THREE.Mesh(geometry, object.materialFront);
-          object.meshFront.applyMatrix(RASToLPS);
+          object.meshFront.applyMatrix4(RASToLPS);
           object.scene.add(object.meshFront);
 
           // back
@@ -805,7 +805,7 @@ window.onload = function() {
           });
 
           object.meshBack = new THREE.Mesh(geometry, object.materialBack);
-          object.meshBack.applyMatrix(RASToLPS);
+          object.meshBack.applyMatrix4(RASToLPS);
           object.scene.add(object.meshBack);
           sceneClip.add(object.scene);
 
@@ -829,11 +829,11 @@ window.onload = function() {
         });
       }
 
-      data.forEach(function(object, key) {
+      data.forEach(function (object, key) {
         loadSTLObject(object);
       });
     })
-    .catch(function(error) {
+    .catch(function (error) {
       window.console.log('oops... something went wrong...');
       window.console.log(error);
     });

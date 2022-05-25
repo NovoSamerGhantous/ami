@@ -151,7 +151,7 @@ function onWheel() {
 
   if (Date.now() - wheel < 300) {
     clearTimeout(wheelTO);
-    wheelTO = setTimeout(function() {
+    wheelTO = setTimeout(function () {
       uniformsSecondPass.uSteps.value = myStack.steps;
       vrHelper.interpolation = myStack.interpolation;
       wheel = null;
@@ -182,7 +182,7 @@ function buildGUI() {
 
   let stackFolder = gui.addFolder('Settings');
   let lutUpdate = stackFolder.add(myStack, 'lut', lut.lutsAvailable());
-  lutUpdate.onChange(function(value) {
+  lutUpdate.onChange(function (value) {
     lut.lut = value;
     uniformsSecondPass.uTextureLUT.value.dispose();
     uniformsSecondPass.uTextureLUT.value = lut.texture;
@@ -194,7 +194,7 @@ function buildGUI() {
   uniformsSecondPass.uTextureLUT.value = lut.texture;
 
   let opacityUpdate = stackFolder.add(myStack, 'opacity', lut.lutsAvailable('opacity'));
-  opacityUpdate.onChange(function(value) {
+  opacityUpdate.onChange(function (value) {
     lut.lutO = value;
     uniformsSecondPass.uTextureLUT.value.dispose();
     uniformsSecondPass.uTextureLUT.value = lut.texture;
@@ -202,7 +202,7 @@ function buildGUI() {
   });
 
   let stepsUpdate = stackFolder.add(myStack, 'steps', 0, 512).step(1);
-  stepsUpdate.onChange(function(value) {
+  stepsUpdate.onChange(function (value) {
     if (uniformsSecondPass) {
       uniformsSecondPass.uSteps.value = value;
       modified = true;
@@ -210,7 +210,7 @@ function buildGUI() {
   });
 
   let alphaCorrrectionUpdate = stackFolder.add(myStack, 'alphaCorrection', 0, 1).step(0.01);
-  alphaCorrrectionUpdate.onChange(function(value) {
+  alphaCorrrectionUpdate.onChange(function (value) {
     if (uniformsSecondPass) {
       uniformsSecondPass.uAlphaCorrection.value = value;
       modified = true;
@@ -218,7 +218,7 @@ function buildGUI() {
   });
 
   let interpolationUpdate = stackFolder.add(vrHelper, 'interpolation', 0, 1).step(1);
-  interpolationUpdate.onChange(function(value) {
+  interpolationUpdate.onChange(function (value) {
     if (uniformsSecondPass) {
       modified = true;
     }
@@ -242,7 +242,7 @@ function init() {
     stats.update();
 
     // request new frame
-    requestAnimationFrame(function() {
+    requestAnimationFrame(function () {
       animate();
     });
   }
@@ -289,7 +289,7 @@ function init() {
   animate();
 }
 
-window.onload = function() {
+window.onload = function () {
   // init threeJS
   init();
 
@@ -318,7 +318,7 @@ window.onload = function() {
 
       // Geometry
       const geometry = new THREE.BoxGeometry(dimensions.x, dimensions.y, dimensions.z);
-      geometry.applyMatrix(
+      geometry.applyMatrix4(
         new THREE.Matrix4().makeTranslation(
           halfDimensions.x + offset.x,
           halfDimensions.y + offset.y,
@@ -372,13 +372,13 @@ gl_FragColor = vec4((vPos.x - uWorldBBox[0])/(uWorldBBox[1] - uWorldBBox[0]),
       });
 
       baseMesh = new THREE.Mesh(geometry, materialFirstPass);
-      baseMesh.applyMatrix(stack.ijk2LPS);
+      baseMesh.applyMatrix4(stack.ijk2LPS);
 
       let baseMaterial = new THREE.MeshBasicMaterial({
         wireframe: true,
       });
       let othermesh = new THREE.Mesh(geometry, baseMaterial);
-      othermesh.applyMatrix(stack.ijk2LPS);
+      othermesh.applyMatrix4(stack.ijk2LPS);
       scene.add(othermesh);
 
       rtTexture = new THREE.WebGLRenderTarget(window.innerWidth, window.innerHeight, {
@@ -436,7 +436,7 @@ gl_FragColor = vec4((vPos.x - uWorldBBox[0])/(uWorldBBox[1] - uWorldBBox[0]),
         scale * dimensions.y,
         scale * dimensions.z
       );
-      newGeometry.applyMatrix(
+      newGeometry.applyMatrix4(
         new THREE.Matrix4().makeTranslation(
           halfDimensions.x + offset.x,
           halfDimensions.y + offset.y,
@@ -451,7 +451,7 @@ gl_FragColor = vec4((vPos.x - uWorldBBox[0])/(uWorldBBox[1] - uWorldBBox[0]),
       newMaterial.side = THREE.DoubleSide;
 
       containerMesh = new THREE.Mesh(newGeometry, newMaterial);
-      containerMesh.applyMatrix(stack.ijk2LPS);
+      containerMesh.applyMatrix4(stack.ijk2LPS);
 
       scene.add(containerMesh);
 
@@ -480,7 +480,7 @@ gl_FragColor = vec4((vPos.x - uWorldBBox[0])/(uWorldBBox[1] - uWorldBBox[0]),
       // mesh
       boxMeshSecondPass = new THREE.Mesh(geometry, materialSecondPass);
       // go the LPS space
-      boxMeshSecondPass.applyMatrix(stack._ijk2LPS);
+      boxMeshSecondPass.applyMatrix4(stack._ijk2LPS);
       scene.add(boxMeshSecondPass);
 
       // update camrea's and interactor's target
@@ -494,7 +494,7 @@ gl_FragColor = vec4((vPos.x - uWorldBBox[0])/(uWorldBBox[1] - uWorldBBox[0]),
 
       // screenshot experiment
       let screenshotElt = document.getElementById('screenshot');
-      screenshotElt.addEventListener('click', function() {
+      screenshotElt.addEventListener('click', function () {
         controls.update();
 
         if (ready) {

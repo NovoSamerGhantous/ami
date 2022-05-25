@@ -25,7 +25,7 @@ function init() {
     render();
 
     // request new frame
-    requestAnimationFrame(function() {
+    requestAnimationFrame(function () {
       animate();
     });
   }
@@ -71,13 +71,13 @@ function init() {
   animate();
 }
 
-window.onload = function() {
+window.onload = function () {
   // init threeJS...
   init();
 
   // load vtk file
   let loader1 = new THREE.VTKLoader();
-  loader1.load('https://cdn.rawgit.com/FNNDSC/data/master/vtk/marc_avf/avf.vtk', function(
+  loader1.load('https://cdn.rawgit.com/FNNDSC/data/master/vtk/marc_avf/avf.vtk', function (
     geometry
   ) {
     geometry.computeVertexNormals();
@@ -89,7 +89,7 @@ window.onload = function() {
     let mesh = new THREE.Mesh(geometry, material);
     let RASToLPS = new THREE.Matrix4();
     RASToLPS.set(-1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    mesh.applyMatrix(RASToLPS);
+    mesh.applyMatrix4(RASToLPS);
     scene.add(mesh);
   });
 
@@ -98,7 +98,7 @@ window.onload = function() {
   let loader = new LoadersVolume(threeD);
   loader
     .load('https://cdn.rawgit.com/FNNDSC/data/master/nifti/marc_avf/avf_float_32.nii.gz')
-    .then(function() {
+    .then(function () {
       // make a proper function for this guy...
       let series = loader.data[0].mergeSeries(loader.data)[0];
       let stack = series.stack[0];
@@ -132,7 +132,7 @@ window.onload = function() {
       puppetDiv.setAttribute('id', 'puppeteer');
       document.body.appendChild(puppetDiv);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       window.console.log('oops... something went wrong...');
       window.console.log(error);
     });

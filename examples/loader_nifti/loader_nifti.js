@@ -26,7 +26,7 @@ function init() {
     render();
 
     // request new frame
-    requestAnimationFrame(function() {
+    requestAnimationFrame(function () {
       animate();
     });
   }
@@ -68,7 +68,7 @@ function init() {
   animate();
 }
 
-window.onload = function() {
+window.onload = function () {
   // init threeJS...
   init();
 
@@ -76,7 +76,7 @@ window.onload = function() {
   let loader1 = new THREE.VTKLoader();
   loader1.load(
     'https://cdn.rawgit.com/FNNDSC/data/master/vtk/fetalatlas_brain/cortex.vtk',
-    function(geometry) {
+    function (geometry) {
       geometry.computeVertexNormals();
       let material = new THREE.MeshLambertMaterial({
         color: 0x009688,
@@ -85,7 +85,7 @@ window.onload = function() {
       brain = new THREE.Mesh(geometry, material);
       let toLPS = new THREE.Matrix4();
       toLPS.set(-1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-      brain.applyMatrix(toLPS);
+      brain.applyMatrix4(toLPS);
       scene.add(brain);
     }
   );
@@ -96,19 +96,19 @@ window.onload = function() {
 
   let t2 = ['template_T2.nii.gz'];
 
-  let files = t2.map(function(v) {
+  let files = t2.map(function (v) {
     return 'https://cdn.rawgit.com/FNNDSC/data/master/nifti/fetalatlas_brain/t2/' + v;
   });
 
   // load sequence for each file
   let loadSequence = [];
-  files.forEach(function(url) {
+  files.forEach(function (url) {
     loadSequence.push(loader.load(url));
   });
 
   // load sequence for all files
   Promise.all(loadSequence)
-    .then(function() {
+    .then(function () {
       // make a proper function for this guy...
       let series = loader.data[0].mergeSeries(loader.data)[0];
       let stack = series.stack[0];
@@ -163,7 +163,7 @@ window.onload = function() {
       puppetDiv.setAttribute('id', 'puppeteer');
       document.body.appendChild(puppetDiv);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       window.console.log('oops... something went wrong...');
       window.console.log(error);
     });

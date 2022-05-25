@@ -63,7 +63,7 @@ function init() {
     render();
 
     // request new frame
-    requestAnimationFrame(function() {
+    requestAnimationFrame(function () {
       animate();
     });
   }
@@ -120,7 +120,7 @@ function init() {
   animate();
 }
 
-window.onload = function() {
+window.onload = function () {
   // init threeJS...
   init();
 
@@ -426,7 +426,7 @@ window.onload = function() {
     '000298.dcm',
   ];
 
-  let files = filenames.map(function(v) {
+  let files = filenames.map(function (v) {
     return 'https://cdn.rawgit.com/FNNDSC/data/master/dicom/rsna_2/PET/' + v;
   });
 
@@ -469,7 +469,7 @@ window.onload = function() {
         // add mesh in this scene with right shaders...
         meshLayerMix = new THREE.Mesh(stackHelper.slice.geometry, materialLayerMix);
         // go the LPS space
-        meshLayerMix.applyMatrix(stackHelper.stack._ijk2LPS);
+        meshLayerMix.applyMatrix4(stackHelper.stack._ijk2LPS);
 
         sceneLayerMix.add(meshLayerMix);
       }
@@ -497,7 +497,7 @@ window.onload = function() {
     layer0Folder.add(stackHelper.slice, 'invert');
 
     let lutUpdate = layer0Folder.add(stackHelper.slice, 'lut', lutLayer0.lutsAvailable());
-    lutUpdate.onChange(function(value) {
+    lutUpdate.onChange(function (value) {
       lutLayer0.lut = value;
       stackHelper.slice.lutTexture = lutLayer0.texture;
     });
@@ -506,7 +506,7 @@ window.onload = function() {
       .add(stackHelper, 'index', 0, stack.dimensionsIJK.z - 1)
       .step(1)
       .listen();
-    indexUpdate.onChange(function() {
+    indexUpdate.onChange(function () {
       updateLayer1();
       updateLayerMix();
     });
@@ -521,14 +521,14 @@ window.onload = function() {
     // layer mix folder
     let layerMixFolder = gui.addFolder('Segmentation');
     let opacityLayerMix1 = layerMixFolder.add(layerMix, 'opacity1', 0, 1).step(0.01);
-    opacityLayerMix1.onChange(function(value) {
+    opacityLayerMix1.onChange(function (value) {
       uniformsLayerMix.uOpacity1.value = value;
     });
 
     layerMixFolder.open();
 
     // hook up callbacks
-    controls.addEventListener('OnScroll', function(e) {
+    controls.addEventListener('OnScroll', function (e) {
       if (e.delta > 0) {
         if (stackHelper.index >= stack.dimensionsIJK.z - 1) {
           return false;
@@ -656,7 +656,7 @@ window.onload = function() {
     // add mesh in this scene with right shaders...
     meshLayer1 = new THREE.Mesh(stackHelper.slice.geometry, materialLayer1);
     // go the LPS space
-    meshLayer1.applyMatrix(stack._ijk2LPS);
+    meshLayer1.applyMatrix4(stack._ijk2LPS);
     sceneLayer1.add(meshLayer1);
 
     // Create the Mix layer
@@ -677,7 +677,7 @@ window.onload = function() {
     // add mesh in this scene with right shaders...
     meshLayerMix = new THREE.Mesh(stackHelper.slice.geometry, materialLayerMix);
     // go the LPS space
-    meshLayerMix.applyMatrix(stack._ijk2LPS);
+    meshLayerMix.applyMatrix4(stack._ijk2LPS);
     sceneLayerMix.add(meshLayerMix);
 
     //
@@ -735,7 +735,7 @@ window.onload = function() {
 
   loader
     .load(files)
-    .then(function() {
+    .then(function () {
       handleSeries();
 
       // force 1st render
@@ -745,7 +745,7 @@ window.onload = function() {
       puppetDiv.setAttribute('id', 'puppeteer');
       document.body.appendChild(puppetDiv);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       window.console.log('oops... something went wrong...');
       window.console.log(error);
     });

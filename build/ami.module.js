@@ -318,7 +318,7 @@ class CoreUtils {
    * @param {*} origin
    * @param {*} registrationMatrix
    *
-   * @return {*}
+   * @return {Matrix4}
    */
   static ijk2LPS(xCos, yCos, zCos, spacing, origin, registrationMatrix = new Matrix4()) {
     const ijk2LPS = new Matrix4();
@@ -758,7 +758,7 @@ class Intersections {
 
     // invert space matrix
     let fromAABB = new Matrix4();
-    fromAABB.getInverse(aabb.toAABB);
+    fromAABB.copy(aabb.toAABB.invert());
 
     let t1 = plane.direction.clone().applyMatrix4(aabb.toAABB);
     let t0 = new Vector3(0, 0, 0).applyMatrix4(aabb.toAABB);
@@ -4235,7 +4235,7 @@ class geometriesVoxel extends BoxGeometry {
 
     this._location = dataPosition;
 
-    this.applyMatrix(
+    this.applyMatrix4(
       new Matrix4().makeTranslation(this._location.x, this._location.y, this._location.z)
     );
 
@@ -4266,7 +4266,7 @@ class geometriesVoxel extends BoxGeometry {
     this.vertices[6].set(-0.5, -0.5, -0.5);
     this.vertices[7].set(-0.5, -0.5, +0.5);
 
-    this.applyMatrix(
+    this.applyMatrix4(
       new Matrix4().makeTranslation(this._location.x, this._location.y, this._location.z)
     );
 
@@ -5103,7 +5103,7 @@ class helpersLocalizer extends Object3D {
   _create() {
     this._prepareMaterial();
     this._mesh = new Mesh(this._geometry, this._material);
-    this._mesh.applyMatrix(this._stack._ijk2LPS);
+    this._mesh.applyMatrix4(this._stack._ijk2LPS);
     this.add(this._mesh);
   }
 
@@ -10280,10 +10280,14 @@ class ModelsStack extends ModelsBase {
     // TRANSFORMATION MATRICES
     this._regMatrix = new Matrix4();
 
+    /**@type {Matrix4} */
     this._ijk2LPS = null;
+    /**@type {Matrix4} */
     this._lps2IJK = null;
 
+    /**@type {Matrix4} */
     this._aabb2LPS = null;
+    /**@type {Matrix4} */
     this._lps2AABB = null;
 
     //
@@ -10657,7 +10661,7 @@ class ModelsStack extends ModelsBase {
 
     // lps 2 ijk
     this._lps2IJK = new Matrix4();
-    this._lps2IJK.getInverse(this._ijk2LPS);
+    this._lps2IJK.copy(this._ijk2LPS.invert());
   }
 
   /**
@@ -10667,7 +10671,7 @@ class ModelsStack extends ModelsBase {
     this._aabb2LPS = CoreUtils.aabb2LPS(this._xCosine, this._yCosine, this._zCosine, this._origin);
 
     this._lps2AABB = new Matrix4();
-    this._lps2AABB.getInverse(this._aabb2LPS);
+    this._lps2AABB.copy(this._aabb2LPS.invert());
   }
 
   /**

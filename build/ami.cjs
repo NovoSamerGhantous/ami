@@ -291,7 +291,7 @@ class CoreUtils {
 	 * @param {*} origin
 	 * @param {*} registrationMatrix
 	 *
-	 * @return {*}
+	 * @return {Matrix4}
 	 */
 
 
@@ -681,7 +681,7 @@ class Intersections {
 
 
 		let fromAABB = new three.Matrix4();
-		fromAABB.getInverse(aabb.toAABB);
+		fromAABB.copy(aabb.toAABB.invert());
 		let t1 = plane.direction.clone().applyMatrix4(aabb.toAABB);
 		let t0 = new three.Vector3(0, 0, 0).applyMatrix4(aabb.toAABB);
 		let planeAABB = this.posdir(plane.position.clone().applyMatrix4(aabb.toAABB), new three.Vector3(t1.x - t0.x, t1.y - t0.y, t1.z - t0.z).normalize());
@@ -3721,7 +3721,7 @@ class geometriesVoxel extends three.BoxGeometry {
 	constructor(dataPosition) {
 		super(1, 1, 1);
 		this._location = dataPosition;
-		this.applyMatrix(new three.Matrix4().makeTranslation(this._location.x, this._location.y, this._location.z));
+		this.applyMatrix4(new three.Matrix4().makeTranslation(this._location.x, this._location.y, this._location.z));
 		this.verticesNeedUpdate = true;
 	}
 
@@ -3747,7 +3747,7 @@ class geometriesVoxel extends three.BoxGeometry {
 		this.vertices[5].set(-0.5, +0.5, +0.5);
 		this.vertices[6].set(-0.5, -0.5, -0.5);
 		this.vertices[7].set(-0.5, -0.5, +0.5);
-		this.applyMatrix(new three.Matrix4().makeTranslation(this._location.x, this._location.y, this._location.z));
+		this.applyMatrix4(new three.Matrix4().makeTranslation(this._location.x, this._location.y, this._location.z));
 		this.verticesNeedUpdate = true;
 	}
 
@@ -4616,7 +4616,7 @@ class helpersLocalizer extends three.Object3D {
 
 		this._mesh = new three.Mesh(this._geometry, this._material);
 
-		this._mesh.applyMatrix(this._stack._ijk2LPS);
+		this._mesh.applyMatrix4(this._stack._ijk2LPS);
 
 		this.add(this._mesh);
 	}
@@ -9239,9 +9239,17 @@ class ModelsStack extends ModelsBase {
 		this._minMax = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]; // TRANSFORMATION MATRICES
 
 		this._regMatrix = new three.Matrix4();
+		/**@type {Matrix4} */
+
 		this._ijk2LPS = null;
+		/**@type {Matrix4} */
+
 		this._lps2IJK = null;
+		/**@type {Matrix4} */
+
 		this._aabb2LPS = null;
+		/**@type {Matrix4} */
+
 		this._lps2AABB = null; //
 		// IJK dimensions
 
@@ -9579,7 +9587,7 @@ class ModelsStack extends ModelsBase {
 
 		this._lps2IJK = new three.Matrix4();
 
-		this._lps2IJK.getInverse(this._ijk2LPS);
+		this._lps2IJK.copy(this._ijk2LPS.invert());
 	}
 	/**
 	 * Compute LPS to AABB and invert transforms
@@ -9590,7 +9598,7 @@ class ModelsStack extends ModelsBase {
 		this._aabb2LPS = CoreUtils.aabb2LPS(this._xCosine, this._yCosine, this._zCosine, this._origin);
 		this._lps2AABB = new three.Matrix4();
 
-		this._lps2AABB.getInverse(this._aabb2LPS);
+		this._lps2AABB.copy(this._aabb2LPS.invert());
 	}
 	/**
 	 * Merge stacks

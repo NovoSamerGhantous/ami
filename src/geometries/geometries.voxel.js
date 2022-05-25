@@ -11,7 +11,7 @@ class geometriesVoxel extends BoxGeometry {
 
     this._location = dataPosition;
 
-    this.applyMatrix(
+    this.applyMatrix4(
       new Matrix4().makeTranslation(this._location.x, this._location.y, this._location.z)
     );
 
@@ -42,7 +42,7 @@ class geometriesVoxel extends BoxGeometry {
     this.vertices[6].set(-0.5, -0.5, -0.5);
     this.vertices[7].set(-0.5, -0.5, +0.5);
 
-    this.applyMatrix(
+    this.applyMatrix4(
       new Matrix4().makeTranslation(this._location.x, this._location.y, this._location.z)
     );
 
