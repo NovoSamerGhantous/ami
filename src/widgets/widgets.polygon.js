@@ -1,5 +1,5 @@
 import { widgetsBase } from './widgets.base';
-import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import { widgetsHandle } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
 import { DoubleSide, Mesh, MeshBasicMaterial, Shape, ShapeGeometry, Vector3 } from 'three';
 
@@ -39,13 +39,12 @@ class widgetsPolygon extends widgetsBase {
 
     // add handles
     this._handles = [];
-    const WidgetsHandle = widgetsHandleFactory();
 
-    let handle = new WidgetsHandle(targetMesh, controls, params);
+    let handle = new widgetsHandle(targetMesh, controls, params);
     this.add(handle);
     this._handles.push(handle);
 
-    this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    this._moveHandle = new widgetsHandle(targetMesh, controls, params);
     this.add(this._moveHandle);
     this._moveHandle.hide();
 
@@ -131,8 +130,7 @@ class widgetsPolygon extends widgetsBase {
         this._handles[this._handles.length - 1].active = false;
         this._handles[this._handles.length - 1].tracking = false;
 
-        const WidgetsHandle = widgetsHandleFactory();
-        let handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
+        let handle = new widgetsHandle(this._targetMesh, this._controls, this._params);
 
         handle.hovered = true;
         handle.active = true;

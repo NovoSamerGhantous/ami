@@ -1,6 +1,6 @@
 import { Line, LineBasicMaterial } from 'three';
 import { widgetsBase } from './widgets.base';
-import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import { widgetsHandle } from './widgets.handle';
 
 /**
  * @module widgets/ruler
@@ -32,18 +32,17 @@ class widgetsRuler extends widgetsBase {
 
     // add handles
     this._handles = [];
-    const WidgetsHandle = widgetsHandleFactory();
 
     let handle;
     for (let i = 0; i < 2; i++) {
-      handle = new WidgetsHandle(targetMesh, controls, params);
+      handle = new widgetsHandle(targetMesh, controls, params);
       this.add(handle);
       this._handles.push(handle);
     }
     this._handles[1].active = true;
     this._handles[1].tracking = true;
 
-    this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    this._moveHandle = new widgetsHandle(targetMesh, controls, params);
     this.add(this._moveHandle);
     this._handles.push(this._moveHandle);
     this._moveHandle.hide();

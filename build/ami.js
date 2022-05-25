@@ -26729,10 +26729,9 @@ void main() {
 
 			this._handles = [];
 			let handle;
-			const WidgetsHandle = widgetsHandle();
 
 			for (let i = 0; i < 3; i++) {
-				handle = new WidgetsHandle(targetMesh, controls, params);
+				handle = new widgetsHandle(targetMesh, controls, params);
 				this.add(handle);
 
 				this._handles.push(handle);
@@ -26742,7 +26741,7 @@ void main() {
 			this._handles[1].tracking = true;
 			this._handles[2].active = true;
 			this._handles[2].tracking = true;
-			this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+			this._moveHandle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._moveHandle);
 
 			this._handles.push(this._moveHandle);
@@ -27152,10 +27151,9 @@ void main() {
 
 			this._handles = [];
 			let handle;
-			const WidgetsHandle = widgetsHandle();
 
 			for (let i = 0; i < 2; i++) {
-				handle = new WidgetsHandle(targetMesh, controls, params);
+				handle = new widgetsHandle(targetMesh, controls, params);
 				this.add(handle);
 
 				this._handles.push(handle);
@@ -27575,10 +27573,9 @@ void main() {
 
 			this._handles = [];
 			let handle;
-			const WidgetsHandle = widgetsHandle();
 
 			for (let i = 0; i < 4; i++) {
-				handle = new WidgetsHandle(targetMesh, controls, params);
+				handle = new widgetsHandle(targetMesh, controls, params);
 				this.add(handle);
 
 				this._handles.push(handle);
@@ -28005,10 +28002,9 @@ void main() {
 
 			this._handles = [];
 			let handle;
-			const WidgetsHandle = widgetsHandle();
 
 			for (let i = 0; i < 4; i++) {
-				handle = new WidgetsHandle(targetMesh, controls, params);
+				handle = new widgetsHandle(targetMesh, controls, params);
 				this.add(handle);
 
 				this._handles.push(handle);
@@ -28016,7 +28012,7 @@ void main() {
 
 			this._handles[1].active = true;
 			this._handles[1].tracking = true;
-			this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+			this._moveHandle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._moveHandle);
 
 			this._handles.push(this._moveHandle);
@@ -28596,10 +28592,9 @@ void main() {
 
 			this._handles = [];
 			let handle;
-			const WidgetsHandle = widgetsHandle();
 
 			for (let i = 0; i < 2; i++) {
-				handle = new WidgetsHandle(targetMesh, controls, params);
+				handle = new widgetsHandle(targetMesh, controls, params);
 				this.add(handle);
 
 				this._handles.push(handle);
@@ -28607,7 +28602,7 @@ void main() {
 
 			this._handles[1].active = true;
 			this._handles[1].tracking = true;
-			this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+			this._moveHandle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._moveHandle);
 
 			this._handles.push(this._moveHandle);
@@ -29056,13 +29051,12 @@ void main() {
 			this._label = null; // add handles
 
 			this._handles = [];
-			const WidgetsHandle = widgetsHandle();
-			let handle = new WidgetsHandle(targetMesh, controls, params);
+			let handle = new widgetsHandle(targetMesh, controls, params);
 			this.add(handle);
 
 			this._handles.push(handle);
 
-			this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+			this._moveHandle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._moveHandle);
 
 			this._moveHandle.hide();
@@ -29140,8 +29134,7 @@ void main() {
 					this._handles[this._handles.length - 1].hovered = false;
 					this._handles[this._handles.length - 1].active = false;
 					this._handles[this._handles.length - 1].tracking = false;
-					const WidgetsHandle = widgetsHandle();
-					let handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
+					let handle = new widgetsHandle(this._targetMesh, this._controls, this._params);
 					handle.hovered = true;
 					handle.active = true;
 					handle.tracking = true;
@@ -29657,10 +29650,9 @@ void main() {
 			this._line = null;
 			this._label = null; // handle (represent line)
 
-			const WidgetsHandle = widgetsHandle();
-			this._handle = new WidgetsHandle(targetMesh, controls, params);
+			this._handle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._handle);
-			this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+			this._moveHandle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._moveHandle);
 
 			this._moveHandle.hide();
@@ -29957,11 +29949,10 @@ void main() {
 			this._label = null; // add handles
 
 			this._handles = [];
-			const WidgetsHandle = widgetsHandle();
 			let handle;
 
 			for (let i = 0; i < 2; i++) {
-				handle = new WidgetsHandle(targetMesh, controls, params);
+				handle = new widgetsHandle(targetMesh, controls, params);
 				this.add(handle);
 
 				this._handles.push(handle);
@@ -30373,13 +30364,12 @@ void main() {
 			this._label = null; // add handles
 
 			this._handles = [];
-			const WidgetsHandle = widgetsHandle();
-			let handle = new WidgetsHandle(targetMesh, controls, params);
+			let handle = new widgetsHandle(targetMesh, controls, params);
 			this.add(handle);
 
 			this._handles.push(handle);
 
-			this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+			this._moveHandle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._moveHandle);
 
 			this._moveHandle.hide();
@@ -30466,8 +30456,7 @@ void main() {
 					this._handles[this._handles.length - 1].hovered = false;
 					this._handles[this._handles.length - 1].active = false;
 					this._handles[this._handles.length - 1].tracking = false;
-					const WidgetsHandle = widgetsHandle();
-					let handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
+					let handle = new widgetsHandle(this._targetMesh, this._controls, this._params);
 					handle.hovered = true;
 					handle.active = true;
 					handle.tracking = true;
@@ -30952,11 +30941,10 @@ void main() {
 			this._label = null; // add handles
 
 			this._handles = [];
-			const WidgetsHandle = widgetsHandle();
 			let handle;
 
 			for (let i = 0; i < 2; i++) {
-				handle = new WidgetsHandle(targetMesh, controls, params);
+				handle = new widgetsHandle(targetMesh, controls, params);
 				this.add(handle);
 
 				this._handles.push(handle);
@@ -30964,7 +30952,7 @@ void main() {
 
 			this._handles[1].active = true;
 			this._handles[1].tracking = true;
-			this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+			this._moveHandle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._moveHandle);
 
 			this._handles.push(this._moveHandle);
@@ -31374,11 +31362,10 @@ void main() {
 			this._label = null; // add handles
 
 			this._handles = [];
-			const WidgetsHandle = widgetsHandle();
 			let handle;
 
 			for (let i = 0; i < 2; i++) {
-				handle = new WidgetsHandle(targetMesh, controls, params);
+				handle = new widgetsHandle(targetMesh, controls, params);
 				this.add(handle);
 
 				this._handles.push(handle);
@@ -31386,7 +31373,7 @@ void main() {
 
 			this._handles[1].active = true;
 			this._handles[1].tracking = true;
-			this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+			this._moveHandle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._moveHandle);
 
 			this._handles.push(this._moveHandle);
@@ -31776,8 +31763,7 @@ void main() {
 			this._label = null; // add handles
 
 			this._handles = [];
-			const WidgetsHandle = widgetsHandle();
-			let handle = new WidgetsHandle(targetMesh, controls, params);
+			let handle = new widgetsHandle(targetMesh, controls, params);
 			this.add(handle);
 
 			this._handles.push(handle);
@@ -31868,8 +31854,7 @@ void main() {
 					this._handles[this._handles.length - 1].hovered = false;
 					this._handles[this._handles.length - 1].active = false;
 					this._handles[this._handles.length - 1].tracking = false;
-					const WidgetsHandle = widgetsHandle();
-					let handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
+					let handle = new widgetsHandle(this._targetMesh, this._controls, this._params);
 					handle.hovered = true;
 					handle.active = true;
 					handle.tracking = true;
@@ -32041,7 +32026,6 @@ void main() {
 
 			const axisY = region.y0 + (region.axisY || 0); // data coordinate equal to US region's zero Y coordinate
 
-			const WidgetsHandle = widgetsHandle();
 			const params = {
 				hideHandleMesh: this._params.hideHandleMesh || false
 			};
@@ -32050,12 +32034,12 @@ void main() {
 			this._usPoints = [this.getPointInRegion(region, pointL), this.getPointInRegion(region, pointF)];
 			params.worldPosition = pointL.applyMatrix4(this._params.ijk2LPS); // projection of last point on Y axis
 
-			this._handles.push(new WidgetsHandle(this._targetMesh, this._controls, params));
+			this._handles.push(new widgetsHandle(this._targetMesh, this._controls, params));
 
 			this.add(this._handles[this._handles.length - 1]);
 			params.worldPosition = pointF.applyMatrix4(this._params.ijk2LPS); // projection of first point on Y axis
 
-			this._handles.push(new WidgetsHandle(this._targetMesh, this._controls, params));
+			this._handles.push(new widgetsHandle(this._targetMesh, this._controls, params));
 
 			this.add(this._handles[this._handles.length - 1]);
 
@@ -32397,10 +32381,9 @@ void main() {
 
 			this._label = null; // handle (represent voxel)
 
-			const WidgetsHandle = widgetsHandle();
-			this._handle = new WidgetsHandle(targetMesh, controls, params);
+			this._handle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._handle);
-			this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+			this._moveHandle = new widgetsHandle(targetMesh, controls, params);
 			this.add(this._moveHandle);
 
 			this._moveHandle.hide();

@@ -1,6 +1,6 @@
 import { BufferAttribute, BufferGeometry, CylinderGeometry, Line, LineBasicMaterial, Mesh, Vector3 } from 'three';
 import { widgetsBase } from './widgets.base';
-import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import { widgetsHandle } from './widgets.handle';
 
 /**
  * @module widgets/annotation
@@ -40,9 +40,8 @@ class widgetsAnnotation extends widgetsBase {
     this._handles = [];
 
     let handle;
-    const WidgetsHandle = widgetsHandleFactory();
     for (let i = 0; i < 2; i++) {
-      handle = new WidgetsHandle(targetMesh, controls, params);
+      handle = new widgetsHandle(targetMesh, controls, params);
       this.add(handle);
       this._handles.push(handle);
     }

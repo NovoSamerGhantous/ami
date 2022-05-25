@@ -1,5 +1,5 @@
 import { widgetsBase } from './widgets.base';
-import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import { widgetsHandle } from './widgets.handle';
 import { BufferAttribute, BufferGeometry, LineBasicMaterial, LineSegments, Vector3 } from 'three';
 
 /**
@@ -34,9 +34,8 @@ class widgetsAngle extends widgetsBase {
     this._handles = [];
 
     let handle;
-    const WidgetsHandle = widgetsHandleFactory();
     for (let i = 0; i < 3; i++) {
-      handle = new WidgetsHandle(targetMesh, controls, params);
+      handle = new widgetsHandle(targetMesh, controls, params);
       this.add(handle);
       this._handles.push(handle);
     }
@@ -45,7 +44,7 @@ class widgetsAngle extends widgetsBase {
     this._handles[2].active = true;
     this._handles[2].tracking = true;
 
-    this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    this._moveHandle = new widgetsHandle(targetMesh, controls, params);
     this.add(this._moveHandle);
     this._handles.push(this._moveHandle);
     this._moveHandle.hide();

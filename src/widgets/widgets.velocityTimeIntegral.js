@@ -1,5 +1,5 @@
 import { widgetsBase } from './widgets.base';
-import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import { widgetsHandle } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
 import * as AMIThree from 'three';
 import { BufferAttribute, BufferGeometry, Line, LineBasicMaterial, Vector3 } from 'three';
@@ -51,9 +51,8 @@ class widgetsVelocityTimeIntegral extends widgetsBase {
 
     // add handles
     this._handles = [];
-    const WidgetsHandle = widgetsHandleFactory();
 
-    let handle = new WidgetsHandle(targetMesh, controls, params);
+    let handle = new widgetsHandle(targetMesh, controls, params);
     this.add(handle);
     this._handles.push(handle);
 
@@ -144,8 +143,7 @@ class widgetsVelocityTimeIntegral extends widgetsBase {
         this._handles[this._handles.length - 1].active = false;
         this._handles[this._handles.length - 1].tracking = false;
 
-        const WidgetsHandle = widgetsHandleFactory();
-        let handle = new WidgetsHandle(this._targetMesh, this._controls, this._params);
+        let handle = new widgetsHandle(this._targetMesh, this._controls, this._params);
 
         handle.hovered = true;
         handle.active = true;
@@ -334,7 +332,6 @@ class widgetsVelocityTimeIntegral extends widgetsBase {
     const region = this._regions[this.getRegionByXY(this._regions, pointF)];
     const axisY = region.y0 + (region.axisY || 0); // data coordinate equal to US region's zero Y coordinate
 
-    const WidgetsHandle = widgetsHandleFactory();
     const params = { hideHandleMesh: this._params.hideHandleMesh || false };
 
     pointF.y = axisY;
@@ -345,11 +342,11 @@ class widgetsVelocityTimeIntegral extends widgetsBase {
     ];
 
     params.worldPosition = pointL.applyMatrix4(this._params.ijk2LPS); // projection of last point on Y axis
-    this._handles.push(new WidgetsHandle(this._targetMesh, this._controls, params));
+    this._handles.push(new widgetsHandle(this._targetMesh, this._controls, params));
     this.add(this._handles[this._handles.length - 1]);
 
     params.worldPosition = pointF.applyMatrix4(this._params.ijk2LPS); // projection of first point on Y axis
-    this._handles.push(new WidgetsHandle(this._targetMesh, this._controls, params));
+    this._handles.push(new widgetsHandle(this._targetMesh, this._controls, params));
     this.add(this._handles[this._handles.length - 1]);
 
     while (this._lines.length < this._handles.length) {

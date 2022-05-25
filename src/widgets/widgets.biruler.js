@@ -1,6 +1,6 @@
 import { LineBasicMaterial, LineSegments } from 'three';
 import { widgetsBase } from './widgets.base';
-import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import { widgetsHandle } from './widgets.handle';
 
 /**
  * @module widgets/biruler
@@ -35,9 +35,8 @@ class widgetsBiruler extends widgetsBase {
     this._handles = [];
 
     let handle;
-    const WidgetsHandle = widgetsHandleFactory();
     for (let i = 0; i < 4; i++) {
-      handle = new WidgetsHandle(targetMesh, controls, params);
+      handle = new widgetsHandle(targetMesh, controls, params);
       this.add(handle);
       this._handles.push(handle);
     }

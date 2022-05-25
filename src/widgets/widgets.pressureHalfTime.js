@@ -1,5 +1,5 @@
 import { widgetsBase } from './widgets.base';
-import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import { widgetsHandle } from './widgets.handle';
 import CoreUtils from '../core/core.utils';
 import * as AMIThree from 'three';
 import { Line, LineBasicMaterial } from 'three';
@@ -47,11 +47,10 @@ class widgetsPressureHalfTime extends widgetsBase {
 
     // add handles
     this._handles = [];
-    const WidgetsHandle = widgetsHandleFactory();
 
     let handle;
     for (let i = 0; i < 2; i++) {
-      handle = new WidgetsHandle(targetMesh, controls, params);
+      handle = new widgetsHandle(targetMesh, controls, params);
       this.add(handle);
       this._handles.push(handle);
     }

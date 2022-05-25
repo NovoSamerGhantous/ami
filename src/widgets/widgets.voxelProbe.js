@@ -1,5 +1,5 @@
 import { widgetsBase } from './widgets.base';
-import { widgetsHandle as widgetsHandleFactory } from './widgets.handle';
+import { widgetsHandle } from './widgets.handle';
 import ModelsVoxel from '../models/models.voxel';
 import CoreUtils from '../core/core.utils';
 
@@ -26,11 +26,10 @@ class widgetsVoxelprobe extends widgetsBase {
     this._label = null;
 
     // handle (represent voxel)
-    const WidgetsHandle = widgetsHandleFactory();
-    this._handle = new WidgetsHandle(targetMesh, controls, params);
+    this._handle = new widgetsHandle(targetMesh, controls, params);
     this.add(this._handle);
 
-    this._moveHandle = new WidgetsHandle(targetMesh, controls, params);
+    this._moveHandle = new widgetsHandle(targetMesh, controls, params);
     this.add(this._moveHandle);
     this._moveHandle.hide();
 
